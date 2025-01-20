@@ -1,0 +1,21 @@
+{% extends "auth_base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<body>
+    <div class="main-login-div">
+        <div class="login-div">
+            <form method="POST">
+                <input type="text" class="login-input" placeholder="E-mail" name="username">
+
+                <input type="password" id="password1" class="login-input password" placeholder="Password" name="password">
+                <button type="button" id="eye1" class="fas fa-eye-slash"></button> 
+
+                <input type="submit" value="Accedi">
+                <p class="login_error_display">{{login_error_message}}</p>
+            </form>
+            <a href="/auth/register">Oppure registrati</a>
+        </div>
+    </div>
+{% endblock %}

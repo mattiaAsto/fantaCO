@@ -1,0 +1,10 @@
+{
+    "admin": {
+        "username": "admin",
+        "nickname": "Skuba",
+        "password": "$2b$12$mubi3GO..4s5g.qw4xtFOOurOMMt/3vRu7pBcGiRheBjPnOyM7dNC",
+        "runners": [],
+        "points": 0,
+        "balance": 1000000
+    }
+}

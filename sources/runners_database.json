@@ -1,0 +1,3810 @@
+{
+    "Cossu Liam": {
+        "name": "Cossu Liam",
+        "society": "GOLD",
+        "category": "H10",
+        "points": "7903",
+        "price": 850000
+    },
+    "Pronini Julian": {
+        "name": "Pronini Julian",
+        "society": "GOLD",
+        "category": "H10",
+        "points": "7309",
+        "price": 850000
+    },
+    "Pozzoni Dario": {
+        "name": "Pozzoni Dario",
+        "society": "ASCO",
+        "category": "H10",
+        "points": "6882",
+        "price": 808130
+    },
+    "Rigamonti Paride": {
+        "name": "Rigamonti Paride",
+        "society": "O-92",
+        "category": "H10",
+        "points": "6292",
+        "price": 730447
+    },
+    "Giannini Elia": {
+        "name": "Giannini Elia",
+        "society": "O-92",
+        "category": "H10",
+        "points": "5827",
+        "price": 669222
+    },
+    "Romeo Zeno": {
+        "name": "Romeo Zeno",
+        "society": "O-92",
+        "category": "H10",
+        "points": "5218",
+        "price": 589037
+    },
+    "Zappa Nerio": {
+        "name": "Zappa Nerio",
+        "society": "GOLD",
+        "category": "H10",
+        "points": "3994",
+        "price": 427877
+    },
+    "Matasci Ulisse": {
+        "name": "Matasci Ulisse",
+        "society": "O-92",
+        "category": "H10",
+        "points": "3757",
+        "price": 396672
+    },
+    "Guglielmetti Emil": {
+        "name": "Guglielmetti Emil",
+        "society": "GOLD",
+        "category": "H10",
+        "points": "3551",
+        "price": 369548
+    },
+    "Galetta Sebastiano": {
+        "name": "Galetta Sebastiano",
+        "society": "SCOM",
+        "category": "H10",
+        "points": "3507",
+        "price": 363755
+    },
+    "Ponzellini Gabriel": {
+        "name": "Ponzellini Gabriel",
+        "society": "GOLD",
+        "category": "H10",
+        "points": "1146",
+        "price": 60000
+    },
+    "Zamboni Giordano": {
+        "name": "Zamboni Giordano",
+        "society": "CO AGET",
+        "category": "H10",
+        "points": "970",
+        "price": 60000
+    },
+    "Bernasconi Romeo": {
+        "name": "Bernasconi Romeo",
+        "society": "ASCO",
+        "category": "H10",
+        "points": "843",
+        "price": 60000
+    },
+    "Da Gra\u00e7a Gameiro Enzo": {
+        "name": "Da Gra\u00e7a Gameiro Enzo",
+        "society": "GOV",
+        "category": "H10",
+        "points": "595",
+        "price": 60000
+    },
+    "Ballerini Ma\u00ebl": {
+        "name": "Ballerini Ma\u00ebl",
+        "society": "CO AGET",
+        "category": "H10",
+        "points": "311",
+        "price": 60000
+    },
+    "Bajo Josip": {
+        "name": "Bajo Josip",
+        "society": "SCOM",
+        "category": "H10",
+        "points": "248",
+        "price": 60000
+    },
+    "Rigamonti Olmo": {
+        "name": "Rigamonti Olmo",
+        "society": "O-92",
+        "category": "H12",
+        "points": "8000",
+        "price": 850000
+    },
+    "Baumgartner Oliver": {
+        "name": "Baumgartner Oliver",
+        "society": "SCOM",
+        "category": "H12",
+        "points": "7803",
+        "price": 850000
+    },
+    "Vannini Francesco": {
+        "name": "Vannini Francesco",
+        "society": "CO AGET",
+        "category": "H12",
+        "points": "7088",
+        "price": 835253
+    },
+    "Zambarda Riccardo": {
+        "name": "Zambarda Riccardo",
+        "society": "CO AGET",
+        "category": "H12",
+        "points": "7047",
+        "price": 829855
+    },
+    "Pollock Elio": {
+        "name": "Pollock Elio",
+        "society": "GOV",
+        "category": "H12",
+        "points": "6859",
+        "price": 805102
+    },
+    "Borgeaud Yannick": {
+        "name": "Borgeaud Yannick",
+        "society": "O-92",
+        "category": "H12",
+        "points": "6324",
+        "price": 734660
+    },
+    "Chiaverio Simone": {
+        "name": "Chiaverio Simone",
+        "society": "CO AGET",
+        "category": "H12",
+        "points": "6302",
+        "price": 731763
+    },
+    "Bigi Tommaso": {
+        "name": "Bigi Tommaso",
+        "society": "SCOM",
+        "category": "H12",
+        "points": "5758",
+        "price": 660137
+    },
+    "Bernasconi Nicola": {
+        "name": "Bernasconi Nicola",
+        "society": "UNITAS",
+        "category": "H12",
+        "points": "5398",
+        "price": 612737
+    },
+    "Iseli Davide": {
+        "name": "Iseli Davide",
+        "society": "UNITAS",
+        "category": "H12",
+        "points": "5233",
+        "price": 591012
+    },
+    "Volger Jacopo": {
+        "name": "Volger Jacopo",
+        "society": "ASCO",
+        "category": "H12",
+        "points": "4139",
+        "price": 446968
+    },
+    "Pescia Joel": {
+        "name": "Pescia Joel",
+        "society": "GOV",
+        "category": "H12",
+        "points": "3010",
+        "price": 298317
+    },
+    "Ranvoisy Thibaut": {
+        "name": "Ranvoisy Thibaut",
+        "society": "CO AGET",
+        "category": "H12",
+        "points": "2836",
+        "price": 275407
+    },
+    "Lava Davide": {
+        "name": "Lava Davide",
+        "society": "O-92",
+        "category": "H12",
+        "points": "2594",
+        "price": 243543
+    },
+    "Glaus Giona": {
+        "name": "Glaus Giona",
+        "society": "SCOM",
+        "category": "H12",
+        "points": "2480",
+        "price": 228533
+    },
+    "Caissutti Giosu\u00e9": {
+        "name": "Caissutti Giosu\u00e9",
+        "society": "ASCO",
+        "category": "H12",
+        "points": "1206",
+        "price": 60790
+    },
+    "Kaufmann Federico": {
+        "name": "Kaufmann Federico",
+        "society": "SCOM",
+        "category": "H12",
+        "points": "1135",
+        "price": 60000
+    },
+    "Keller Alan": {
+        "name": "Keller Alan",
+        "society": "SCOM",
+        "category": "H12",
+        "points": "990",
+        "price": 60000
+    },
+    "Cattaneo Colin": {
+        "name": "Cattaneo Colin",
+        "society": "ASCO",
+        "category": "H12",
+        "points": "812",
+        "price": 60000
+    },
+    "Galetta Dario": {
+        "name": "Galetta Dario",
+        "society": "SCOM",
+        "category": "H12",
+        "points": "665",
+        "price": 60000
+    },
+    "Delgado Neves Rafael": {
+        "name": "Delgado Neves Rafael",
+        "society": "CO AGET",
+        "category": "H12",
+        "points": "571",
+        "price": 60000
+    },
+    "Hiltebrand David": {
+        "name": "Hiltebrand David",
+        "society": "CO AGET",
+        "category": "H12",
+        "points": "569",
+        "price": 60000
+    },
+    "Niccol\u00f2 Pascoletti": {
+        "name": "Niccol\u00f2 Pascoletti",
+        "society": "GOLD",
+        "category": "H12",
+        "points": "349",
+        "price": 60000
+    },
+    "Vannini Dario": {
+        "name": "Vannini Dario",
+        "society": "CO AGET",
+        "category": "H14",
+        "points": "7990",
+        "price": 850000
+    },
+    "Amaro Sebastiano": {
+        "name": "Amaro Sebastiano",
+        "society": "ASCO",
+        "category": "H14",
+        "points": "7419",
+        "price": 850000
+    },
+    "Borgeaud Pascal": {
+        "name": "Borgeaud Pascal",
+        "society": "O-92",
+        "category": "H14",
+        "points": "7182",
+        "price": 847630
+    },
+    "Zambarda Iacopo": {
+        "name": "Zambarda Iacopo",
+        "society": "CO AGET",
+        "category": "H14",
+        "points": "7075",
+        "price": 833542
+    },
+    "Del Don Pietro": {
+        "name": "Del Don Pietro",
+        "society": "ASCO",
+        "category": "H14",
+        "points": "7056",
+        "price": 831040
+    },
+    "Robadey Giona": {
+        "name": "Robadey Giona",
+        "society": "UNITAS",
+        "category": "H14",
+        "points": "7003",
+        "price": 824062
+    },
+    "Bader Noah": {
+        "name": "Bader Noah",
+        "society": "ASCO",
+        "category": "H14",
+        "points": "6970",
+        "price": 819717
+    },
+    "Chiaverio Daniele": {
+        "name": "Chiaverio Daniele",
+        "society": "CO AGET",
+        "category": "H14",
+        "points": "6603",
+        "price": 771395
+    },
+    "Bazzocco Samuele": {
+        "name": "Bazzocco Samuele",
+        "society": "SCOM",
+        "category": "H14",
+        "points": "6489",
+        "price": 756385
+    },
+    "Campana Liam": {
+        "name": "Campana Liam",
+        "society": "ASCO",
+        "category": "H14",
+        "points": "6456",
+        "price": 752040
+    },
+    "Pronini Matthias": {
+        "name": "Pronini Matthias",
+        "society": "GOLD",
+        "category": "H14",
+        "points": "5669",
+        "price": 648418
+    },
+    "Tricarico Luca": {
+        "name": "Tricarico Luca",
+        "society": "ASCO",
+        "category": "H14",
+        "points": "5571",
+        "price": 635515
+    },
+    "Corso Samuel": {
+        "name": "Corso Samuel",
+        "society": "UNITAS",
+        "category": "H14",
+        "points": "5065",
+        "price": 568892
+    },
+    "Bernasconi Noah": {
+        "name": "Bernasconi Noah",
+        "society": "SCOM",
+        "category": "H14",
+        "points": "4651",
+        "price": 514382
+    },
+    "Hohl Etienne": {
+        "name": "Hohl Etienne",
+        "society": "GOV",
+        "category": "H14",
+        "points": "4110",
+        "price": 443150
+    },
+    "Tappa Matteo": {
+        "name": "Tappa Matteo",
+        "society": "O-92",
+        "category": "H14",
+        "points": "2416",
+        "price": 220107
+    },
+    "Zubler Nicol\u00f2": {
+        "name": "Zubler Nicol\u00f2",
+        "society": "SCOM",
+        "category": "H14",
+        "points": "2078",
+        "price": 175603
+    },
+    "Schwank Arturo": {
+        "name": "Schwank Arturo",
+        "society": "ASCO",
+        "category": "H14",
+        "points": "1366",
+        "price": 81857
+    },
+    "Cerini Fabian": {
+        "name": "Cerini Fabian",
+        "society": "GOV",
+        "category": "H14",
+        "points": "1245",
+        "price": 65925
+    },
+    "Marchetti Stefano": {
+        "name": "Marchetti Stefano",
+        "society": "UNITAS",
+        "category": "H14",
+        "points": "953",
+        "price": 60000
+    },
+    "Tonella Davide": {
+        "name": "Tonella Davide",
+        "society": "O-92",
+        "category": "H14",
+        "points": "944",
+        "price": 60000
+    },
+    "Tricarico Alessio": {
+        "name": "Tricarico Alessio",
+        "society": "ASCO",
+        "category": "H14",
+        "points": "508",
+        "price": 60000
+    },
+    "Zittema Lorenzo": {
+        "name": "Zittema Lorenzo",
+        "society": "GOLD",
+        "category": "H14",
+        "points": "456",
+        "price": 60000
+    },
+    "Delgado Neves Marino": {
+        "name": "Delgado Neves Marino",
+        "society": "CO AGET",
+        "category": "H14",
+        "points": "406",
+        "price": 60000
+    },
+    "Crivelli Samuele": {
+        "name": "Crivelli Samuele",
+        "society": "SCOM",
+        "category": "H14",
+        "points": "0",
+        "price": 60000
+    },
+    "Allio Maxime": {
+        "name": "Allio Maxime",
+        "society": "ASCO",
+        "category": "H14",
+        "points": "0",
+        "price": 60000
+    },
+    "Romagna Giulio": {
+        "name": "Romagna Giulio",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "7975",
+        "price": 850000
+    },
+    "Asmus John": {
+        "name": "Asmus John",
+        "society": "GOLD",
+        "category": "H16",
+        "points": "7790",
+        "price": 850000
+    },
+    "Bizzozero Gioele": {
+        "name": "Bizzozero Gioele",
+        "society": "O-92",
+        "category": "H16",
+        "points": "7428",
+        "price": 850000
+    },
+    "Bonini Federico": {
+        "name": "Bonini Federico",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "7018",
+        "price": 826037
+    },
+    "De Giorgi Davide": {
+        "name": "De Giorgi Davide",
+        "society": "O-92",
+        "category": "H16",
+        "points": "7002",
+        "price": 823930
+    },
+    "Tonella Matteo": {
+        "name": "Tonella Matteo",
+        "society": "O-92",
+        "category": "H16",
+        "points": "6726",
+        "price": 787590
+    },
+    "Crivelli Matteo": {
+        "name": "Crivelli Matteo",
+        "society": "SCOM",
+        "category": "H16",
+        "points": "6541",
+        "price": 763232
+    },
+    "Bomio-Pacciorini Aris": {
+        "name": "Bomio-Pacciorini Aris",
+        "society": "GOV",
+        "category": "H16",
+        "points": "6499",
+        "price": 757702
+    },
+    "Vecsey Mattia": {
+        "name": "Vecsey Mattia",
+        "society": "O-92",
+        "category": "H16",
+        "points": "6346",
+        "price": 737557
+    },
+    "Amaro Martino": {
+        "name": "Amaro Martino",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "6226",
+        "price": 721757
+    },
+    "Chiodoni Giulio": {
+        "name": "Chiodoni Giulio",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "5603",
+        "price": 639728
+    },
+    "Turrini Tobia": {
+        "name": "Turrini Tobia",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "5595",
+        "price": 638675
+    },
+    "Bazzocco Damiano": {
+        "name": "Bazzocco Damiano",
+        "society": "SCOM",
+        "category": "H16",
+        "points": "5027",
+        "price": 563888
+    },
+    "Ranvoisy Remy": {
+        "name": "Ranvoisy Remy",
+        "society": "CO AGET",
+        "category": "H16",
+        "points": "4244",
+        "price": 460793
+    },
+    "Bricalli Noah": {
+        "name": "Bricalli Noah",
+        "society": "CO AGET",
+        "category": "H16",
+        "points": "3766",
+        "price": 397857
+    },
+    "Fasola Oliver": {
+        "name": "Fasola Oliver",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "3658",
+        "price": 383637
+    },
+    "Cal\u00ec Liam": {
+        "name": "Cal\u00ec Liam",
+        "society": "O-92",
+        "category": "H16",
+        "points": "3450",
+        "price": 356250
+    },
+    "Gonzato Enea": {
+        "name": "Gonzato Enea",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "2949",
+        "price": 290285
+    },
+    "Marti Lorenzo": {
+        "name": "Marti Lorenzo",
+        "society": "O-92",
+        "category": "H16",
+        "points": "1862",
+        "price": 147163
+    },
+    "Diana Nicolas": {
+        "name": "Diana Nicolas",
+        "society": "UNITAS",
+        "category": "H16",
+        "points": "914",
+        "price": 60000
+    },
+    "Volger No\u00e8": {
+        "name": "Volger No\u00e8",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "676",
+        "price": 60000
+    },
+    "Jaminet Giovanni": {
+        "name": "Jaminet Giovanni",
+        "society": "ASCO",
+        "category": "H16",
+        "points": "644",
+        "price": 60000
+    },
+    "Sperati Enea": {
+        "name": "Sperati Enea",
+        "society": "GOLD",
+        "category": "H16",
+        "points": "612",
+        "price": 60000
+    },
+    "Poli Riccardo": {
+        "name": "Poli Riccardo",
+        "society": "GOLD",
+        "category": "H16",
+        "points": "491",
+        "price": 60000
+    },
+    "Juorno Tommaso": {
+        "name": "Juorno Tommaso",
+        "society": "O-92",
+        "category": "H16",
+        "points": "0",
+        "price": 60000
+    },
+    "Schumacher Eliseo": {
+        "name": "Schumacher Eliseo",
+        "society": "GOV",
+        "category": "H18",
+        "points": "7857",
+        "price": 850000
+    },
+    "Juorno Daniele": {
+        "name": "Juorno Daniele",
+        "society": "O-92",
+        "category": "H18",
+        "points": "7597",
+        "price": 850000
+    },
+    "Enrile Pietro": {
+        "name": "Enrile Pietro",
+        "society": "UNITAS",
+        "category": "H18",
+        "points": "7335",
+        "price": 850000
+    },
+    "Tricarico Marco": {
+        "name": "Tricarico Marco",
+        "society": "ASCO",
+        "category": "H18",
+        "points": "7171",
+        "price": 846182
+    },
+    "Bianchi Nathan": {
+        "name": "Bianchi Nathan",
+        "society": "ASCO",
+        "category": "H18",
+        "points": "6465",
+        "price": 753225
+    },
+    "Schwank Rocco": {
+        "name": "Schwank Rocco",
+        "society": "ASCO",
+        "category": "H18",
+        "points": "6177",
+        "price": 715305
+    },
+    "Raptopoulos Jotis": {
+        "name": "Raptopoulos Jotis",
+        "society": "CO AGET",
+        "category": "H18",
+        "points": "6149",
+        "price": 711618
+    },
+    "Bojesen Federico": {
+        "name": "Bojesen Federico",
+        "society": "O-92",
+        "category": "H18",
+        "points": "3623",
+        "price": 379028
+    },
+    "Depedrini Elia": {
+        "name": "Depedrini Elia",
+        "society": "O-92",
+        "category": "H18",
+        "points": "3252",
+        "price": 330180
+    },
+    "Piattini Francesco": {
+        "name": "Piattini Francesco",
+        "society": "SCOM",
+        "category": "H18",
+        "points": "3021",
+        "price": 299765
+    },
+    "Bonini Samuele": {
+        "name": "Bonini Samuele",
+        "society": "ASCO",
+        "category": "H18",
+        "points": "2619",
+        "price": 246835
+    },
+    "Malnati Liam": {
+        "name": "Malnati Liam",
+        "society": "CO AGET",
+        "category": "HAL",
+        "points": "6221",
+        "price": 721098
+    },
+    "Lavezzo Diego": {
+        "name": "Lavezzo Diego",
+        "society": "SCOM",
+        "category": "HAL",
+        "points": "5454",
+        "price": 620110
+    },
+    "Rossi Enea": {
+        "name": "Rossi Enea",
+        "society": "SCOM",
+        "category": "HAL",
+        "points": "5896",
+        "price": 678307
+    },
+    "De Stefani Giona": {
+        "name": "De Stefani Giona",
+        "society": "GOLD",
+        "category": "H18",
+        "points": "1716",
+        "price": 127940
+    },
+    "Zamboni Leonardo": {
+        "name": "Zamboni Leonardo",
+        "society": "CO AGET",
+        "category": "H18",
+        "points": "852",
+        "price": 60000
+    },
+    "Jermini Gregorio": {
+        "name": "Jermini Gregorio",
+        "society": "ASCO",
+        "category": "H18",
+        "points": "595",
+        "price": 60000
+    },
+    "Chiodoni Gioele": {
+        "name": "Chiodoni Gioele",
+        "society": "ASCO",
+        "category": "HAL",
+        "points": "6429",
+        "price": 748485
+    },
+    "Astori Mattia": {
+        "name": "Astori Mattia",
+        "society": "O-92",
+        "category": "HAL",
+        "points": "6230",
+        "price": 722283
+    },
+    "Corsi Siro": {
+        "name": "Corsi Siro",
+        "society": "GOLD",
+        "category": "HAL",
+        "points": "6200",
+        "price": 718333
+    },
+    "Bertozzi Matteo": {
+        "name": "Bertozzi Matteo",
+        "society": "GOLD",
+        "category": "HAL",
+        "points": "6066",
+        "price": 700690
+    },
+    "Ren Elia": {
+        "name": "Ren Elia",
+        "society": "ASCO",
+        "category": "HAL",
+        "points": "5892",
+        "price": 677780
+    },
+    "Beretta Valerio": {
+        "name": "Beretta Valerio",
+        "society": "GOV",
+        "category": "HAL",
+        "points": "5869",
+        "price": 674752
+    },
+    "Asmus Manuel": {
+        "name": "Asmus Manuel",
+        "society": "GOLD",
+        "category": "HAL",
+        "points": "5812",
+        "price": 667247
+    },
+    "Guglielmetti Gianni": {
+        "name": "Guglielmetti Gianni",
+        "society": "GOLD",
+        "category": "HAL",
+        "points": "5672",
+        "price": 648813
+    },
+    "Nembrini Luca": {
+        "name": "Nembrini Luca",
+        "society": "CO AGET",
+        "category": "HAL",
+        "points": "5376",
+        "price": 609840
+    },
+    "Maddalena Gioele": {
+        "name": "Maddalena Gioele",
+        "society": "GOV",
+        "category": "HAL",
+        "points": "5340",
+        "price": 605100
+    },
+    "Roncoroni Ivan": {
+        "name": "Roncoroni Ivan",
+        "society": "SCOM",
+        "category": "HAL",
+        "points": "4765",
+        "price": 529392
+    },
+    "Bianchi Ian": {
+        "name": "Bianchi Ian",
+        "society": "ASCO",
+        "category": "HAL",
+        "points": "4197",
+        "price": 454605
+    },
+    "Ren Manuele": {
+        "name": "Ren Manuele",
+        "society": "ASCO",
+        "category": "HAL",
+        "points": "3648",
+        "price": 382320
+    },
+    "Gaia Marco": {
+        "name": "Gaia Marco",
+        "society": "GOLD",
+        "category": "HAL",
+        "points": "3054",
+        "price": 304110
+    },
+    "Howald Florian": {
+        "name": "Howald Florian",
+        "society": "O-92",
+        "category": "HAL",
+        "points": "2953",
+        "price": 290812
+    },
+    "Corsi Reto": {
+        "name": "Corsi Reto",
+        "society": "GOLD",
+        "category": "HAL",
+        "points": "2821",
+        "price": 273432
+    },
+    "Del Fedele Alex": {
+        "name": "Del Fedele Alex",
+        "society": "ASCO",
+        "category": "HAL",
+        "points": "2203",
+        "price": 192062
+    },
+    "Sabato Gabriele": {
+        "name": "Sabato Gabriele",
+        "society": "SCOM",
+        "category": "HAL",
+        "points": "2110",
+        "price": 179817
+    },
+    "Besomi Tommaso": {
+        "name": "Besomi Tommaso",
+        "society": "ASCO",
+        "category": "HAL",
+        "points": "1878",
+        "price": 149270
+    },
+    "Juorno Alessandro": {
+        "name": "Juorno Alessandro",
+        "society": "O-92",
+        "category": "HAL",
+        "points": "1870",
+        "price": 148217
+    },
+    "Pawlowski Feliciano": {
+        "name": "Pawlowski Feliciano",
+        "society": "O-92",
+        "category": "HAL",
+        "points": "1675",
+        "price": 122542
+    },
+    "Besomi Jonathan": {
+        "name": "Besomi Jonathan",
+        "society": "ASCO",
+        "category": "HAL",
+        "points": "1563",
+        "price": 107795
+    },
+    "Romagna Sebastiano": {
+        "name": "Romagna Sebastiano",
+        "society": "ASCO",
+        "category": "HAM",
+        "points": "1782",
+        "price": 136630
+    },
+    "Degiorgi Nicola": {
+        "name": "Degiorgi Nicola",
+        "society": "GOLD",
+        "category": "HAL",
+        "points": "1462",
+        "price": 94497
+    },
+    "Knupfer Kilian": {
+        "name": "Knupfer Kilian",
+        "society": "ASCO",
+        "category": "HAL",
+        "points": "1378",
+        "price": 83437
+    },
+    "Zagonel Giacomo": {
+        "name": "Zagonel Giacomo",
+        "society": "SCOM",
+        "category": "HAL",
+        "points": "976",
+        "price": 60000
+    },
+    "Teoldi Ivan": {
+        "name": "Teoldi Ivan",
+        "society": "SCOM",
+        "category": "HAL",
+        "points": "939",
+        "price": 60000
+    },
+    "Pezzati Tobia": {
+        "name": "Pezzati Tobia",
+        "society": "SCOM",
+        "category": "HAL",
+        "points": "914",
+        "price": 60000
+    },
+    "Magenes Francesco": {
+        "name": "Magenes Francesco",
+        "society": "SCOM",
+        "category": "HAL",
+        "points": "729",
+        "price": 60000
+    },
+    "Cantoreggi Filippo": {
+        "name": "Cantoreggi Filippo",
+        "society": "O-92",
+        "category": "HAL",
+        "points": "692",
+        "price": 60000
+    },
+    "Del Don Caroline": {
+        "name": "Del Don Caroline",
+        "society": "ASCO",
+        "category": "DAL",
+        "points": "5407",
+        "price": 613922
+    },
+    "Gaia Luca": {
+        "name": "Gaia Luca",
+        "society": "GOLD",
+        "category": "HAL",
+        "points": "583",
+        "price": 60000
+    },
+    "Stampanoni Elia": {
+        "name": "Stampanoni Elia",
+        "society": "USC",
+        "category": "HAL",
+        "points": "486",
+        "price": 60000
+    },
+    "Consoli Paolo": {
+        "name": "Consoli Paolo",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "1416",
+        "price": 88440
+    },
+    "Mocettini Samuel": {
+        "name": "Mocettini Samuel",
+        "society": "UNITAS",
+        "category": "HAL",
+        "points": "469",
+        "price": 60000
+    },
+    "H\u00fctter Jakob": {
+        "name": "H\u00fctter Jakob",
+        "society": "SCOM",
+        "category": "HAM",
+        "points": "6808",
+        "price": 798387
+    },
+    "Lunghini Mattia": {
+        "name": "Lunghini Mattia",
+        "society": "GOLD",
+        "category": "HAM",
+        "points": "6448",
+        "price": 750987
+    },
+    "Maddalena Jan": {
+        "name": "Maddalena Jan",
+        "society": "GOV",
+        "category": "HAM",
+        "points": "5907",
+        "price": 679755
+    },
+    "Bernardoni Alessio": {
+        "name": "Bernardoni Alessio",
+        "society": "GOLD",
+        "category": "HAM",
+        "points": "5698",
+        "price": 652237
+    },
+    "Gianola Lauro": {
+        "name": "Gianola Lauro",
+        "society": "SCOM",
+        "category": "HAM",
+        "points": "5651",
+        "price": 646048
+    },
+    "Astori Alain": {
+        "name": "Astori Alain",
+        "society": "O-92",
+        "category": "HAM",
+        "points": "5503",
+        "price": 626562
+    },
+    "Giambonini Luca": {
+        "name": "Giambonini Luca",
+        "society": "CO AGET",
+        "category": "HAM",
+        "points": "5463",
+        "price": 621295
+    },
+    "Fomasi Michele": {
+        "name": "Fomasi Michele",
+        "society": "SCOM",
+        "category": "HAM",
+        "points": "4728",
+        "price": 524520
+    },
+    "Bricalli Mauro": {
+        "name": "Bricalli Mauro",
+        "society": "CO AGET",
+        "category": "HAM",
+        "points": "4459",
+        "price": 489102
+    },
+    "Kardos Juraj": {
+        "name": "Kardos Juraj",
+        "society": "CO AGET",
+        "category": "HAM",
+        "points": "3567",
+        "price": 371655
+    },
+    "Castelli Martino": {
+        "name": "Castelli Martino",
+        "society": "ASCO",
+        "category": "HAM",
+        "points": "3532",
+        "price": 367047
+    },
+    "Dipace Alessandro": {
+        "name": "Dipace Alessandro",
+        "society": "SCOM",
+        "category": "HAM",
+        "points": "3343",
+        "price": 342162
+    },
+    "Baratti Diego": {
+        "name": "Baratti Diego",
+        "society": "GOLD",
+        "category": "HAM",
+        "points": "3103",
+        "price": 310562
+    },
+    "Simpson Toby": {
+        "name": "Simpson Toby",
+        "society": "CO AGET",
+        "category": "HAM",
+        "points": "2993",
+        "price": 296078
+    },
+    "Corsi Febo": {
+        "name": "Corsi Febo",
+        "society": "GOLD",
+        "category": "HAM",
+        "points": "2875",
+        "price": 280542
+    },
+    "Hochstrasser Oliver": {
+        "name": "Hochstrasser Oliver",
+        "society": "CO AGET",
+        "category": "HAM",
+        "points": "2430",
+        "price": 221950
+    },
+    "Bernardoni Robi": {
+        "name": "Bernardoni Robi",
+        "society": "GOLD",
+        "category": "HAM",
+        "points": "1938",
+        "price": 157170
+    },
+    "Balmelli Giuliano": {
+        "name": "Balmelli Giuliano",
+        "society": "GOLD",
+        "category": "HAM",
+        "points": "1882",
+        "price": 149797
+    },
+    "Macconi Guido": {
+        "name": "Macconi Guido",
+        "society": "UNITAS",
+        "category": "H40",
+        "points": "3138",
+        "price": 315170
+    },
+    "Cola Davide": {
+        "name": "Cola Davide",
+        "society": "ASCO",
+        "category": "HAM",
+        "points": "1689",
+        "price": 124385
+    },
+    "Ferrari Matteo": {
+        "name": "Ferrari Matteo",
+        "society": "SCOM",
+        "category": "HAM",
+        "points": "1603",
+        "price": 113062
+    },
+    "Dell Andrino Matteo": {
+        "name": "Dell Andrino Matteo",
+        "society": "CO AGET",
+        "category": "HAM",
+        "points": "1416",
+        "price": 88440
+    },
+    "Giovanettina Brenno": {
+        "name": "Giovanettina Brenno",
+        "society": "GOV",
+        "category": "HAM",
+        "points": "1314",
+        "price": 75010
+    },
+    "Belli Leandro": {
+        "name": "Belli Leandro",
+        "society": "CO AGET",
+        "category": "HAM",
+        "points": "1061",
+        "price": 60000
+    },
+    "Dell Andrino Elia": {
+        "name": "Dell Andrino Elia",
+        "society": "CO AGET",
+        "category": "HAM",
+        "points": "1041",
+        "price": 60000
+    },
+    "Baiardi Marco": {
+        "name": "Baiardi Marco",
+        "society": "ASCO",
+        "category": "HAM",
+        "points": "965",
+        "price": 60000
+    },
+    "Croci Davide": {
+        "name": "Croci Davide",
+        "society": "ASCO",
+        "category": "HAM",
+        "points": "843",
+        "price": 60000
+    },
+    "Jacot Descombes Andrea": {
+        "name": "Jacot Descombes Andrea",
+        "society": "SCOM",
+        "category": "HAM",
+        "points": "666",
+        "price": 60000
+    },
+    "Lavezzo Andrea": {
+        "name": "Lavezzo Andrea",
+        "society": "SCOM",
+        "category": "HAM",
+        "points": "578",
+        "price": 60000
+    },
+    "Rossi Luca": {
+        "name": "Rossi Luca",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "1450",
+        "price": 92917
+    },
+    "Guglielmini Enrico": {
+        "name": "Guglielmini Enrico",
+        "society": "ASCO",
+        "category": "HAK",
+        "points": "6795",
+        "price": 796675
+    },
+    "Bassetti Simone": {
+        "name": "Bassetti Simone",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "6518",
+        "price": 760203
+    },
+    "Zambarda Andrea": {
+        "name": "Zambarda Andrea",
+        "society": "CO AGET",
+        "category": "HAK",
+        "points": "6498",
+        "price": 757570
+    },
+    "Bassetti Samuele": {
+        "name": "Bassetti Samuele",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "5957",
+        "price": 686338
+    },
+    "Dotti Omar": {
+        "name": "Dotti Omar",
+        "society": "SCOM",
+        "category": "HAK",
+        "points": "5631",
+        "price": 643415
+    },
+    "Morasci Dario": {
+        "name": "Morasci Dario",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "5503",
+        "price": 626562
+    },
+    "Romeo Luca": {
+        "name": "Romeo Luca",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "5231",
+        "price": 590748
+    },
+    "Pellegrini Fabio": {
+        "name": "Pellegrini Fabio",
+        "society": "CO AGET",
+        "category": "HAK",
+        "points": "4362",
+        "price": 476330
+    },
+    "Ghiggia Franco": {
+        "name": "Ghiggia Franco",
+        "society": "CO UTOE",
+        "category": "HAK",
+        "points": "4188",
+        "price": 453420
+    },
+    "Vannini Simone": {
+        "name": "Vannini Simone",
+        "society": "CO AGET",
+        "category": "HAK",
+        "points": "3819",
+        "price": 404835
+    },
+    "Agnolon Nicol\u00f2": {
+        "name": "Agnolon Nicol\u00f2",
+        "society": "CO AGET",
+        "category": "HAK",
+        "points": "3692",
+        "price": 388113
+    },
+    "Vanoni Giancarlo": {
+        "name": "Vanoni Giancarlo",
+        "society": "GOLD",
+        "category": "HAK",
+        "points": "3579",
+        "price": 373235
+    },
+    "Bernasconi Riccardo": {
+        "name": "Bernasconi Riccardo",
+        "society": "SCOM",
+        "category": "HAK",
+        "points": "3520",
+        "price": 365467
+    },
+    "Amad\u00f2 Maurizio": {
+        "name": "Amad\u00f2 Maurizio",
+        "society": "UNITAS",
+        "category": "HAK",
+        "points": "3176",
+        "price": 320173
+    },
+    "Corso Simone": {
+        "name": "Corso Simone",
+        "society": "UNITAS",
+        "category": "HAK",
+        "points": "2789",
+        "price": 269218
+    },
+    "Vecsey Georg": {
+        "name": "Vecsey Georg",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "2620",
+        "price": 246967
+    },
+    "Walder Diego": {
+        "name": "Walder Diego",
+        "society": "GOLD",
+        "category": "HAK",
+        "points": "2618",
+        "price": 246703
+    },
+    "Guidinetti Matteo": {
+        "name": "Guidinetti Matteo",
+        "society": "GOLD",
+        "category": "HAK",
+        "points": "1898",
+        "price": 151903
+    },
+    "Patocchi Lorenzo": {
+        "name": "Patocchi Lorenzo",
+        "society": "GOLD",
+        "category": "HAK",
+        "points": "1892",
+        "price": 151113
+    },
+    "Rusconi Giovanni": {
+        "name": "Rusconi Giovanni",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "1879",
+        "price": 149402
+    },
+    "Ortelli Jonathan": {
+        "name": "Ortelli Jonathan",
+        "society": "ASCO",
+        "category": "HAK",
+        "points": "1752",
+        "price": 132680
+    },
+    "Vosti Mattia": {
+        "name": "Vosti Mattia",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "1741",
+        "price": 131232
+    },
+    "Galli Matteo": {
+        "name": "Galli Matteo",
+        "society": "ASCO",
+        "category": "HAK",
+        "points": "1699",
+        "price": 125702
+    },
+    "Pozzoni Maurizio": {
+        "name": "Pozzoni Maurizio",
+        "society": "ASCO",
+        "category": "H40",
+        "points": "5525",
+        "price": 629458
+    },
+    "Bazzocco Adriano": {
+        "name": "Bazzocco Adriano",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "3012",
+        "price": 298580
+    },
+    "Castelli Niccol\u00f2": {
+        "name": "Castelli Niccol\u00f2",
+        "society": "ASCO",
+        "category": "H40",
+        "points": "1692",
+        "price": 124780
+    },
+    "Buzzi Stefano": {
+        "name": "Buzzi Stefano",
+        "society": "CO AGET",
+        "category": "HAK",
+        "points": "1000",
+        "price": 60000
+    },
+    "Chiaverio Fabio": {
+        "name": "Chiaverio Fabio",
+        "society": "CO AGET",
+        "category": "H50",
+        "points": "4955",
+        "price": 554408
+    },
+    "Bettelini Pietro": {
+        "name": "Bettelini Pietro",
+        "society": "UNITAS",
+        "category": "HAK",
+        "points": "896",
+        "price": 60000
+    },
+    "Lenazzi Silvio": {
+        "name": "Lenazzi Silvio",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "856",
+        "price": 60000
+    },
+    "Bertozzi Giulia": {
+        "name": "Bertozzi Giulia",
+        "society": "GOLD",
+        "category": "DAK",
+        "points": "1000",
+        "price": 60000
+    },
+    "Castelli Costantino": {
+        "name": "Castelli Costantino",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "1221",
+        "price": 62765
+    },
+    "Depedrini Matteo": {
+        "name": "Depedrini Matteo",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "735",
+        "price": 60000
+    },
+    "Kleiner Hannes": {
+        "name": "Kleiner Hannes",
+        "society": "GOLD",
+        "category": "H50",
+        "points": "2807",
+        "price": 271588
+    },
+    "Galusero Lorenzo": {
+        "name": "Galusero Lorenzo",
+        "society": "O-92",
+        "category": "HAK",
+        "points": "563",
+        "price": 60000
+    },
+    "Bonini Massimo": {
+        "name": "Bonini Massimo",
+        "society": "ASCO",
+        "category": "HAK",
+        "points": "495",
+        "price": 60000
+    },
+    "Ren Michele": {
+        "name": "Ren Michele",
+        "society": "ASCO",
+        "category": "H40",
+        "points": "6948",
+        "price": 816820
+    },
+    "Castelli Stefano": {
+        "name": "Castelli Stefano",
+        "society": "ASCO",
+        "category": "H40",
+        "points": "6721",
+        "price": 786932
+    },
+    "Beltraminelli Andrea": {
+        "name": "Beltraminelli Andrea",
+        "society": "CO UTOE",
+        "category": "H40",
+        "points": "6133",
+        "price": 709512
+    },
+    "Crivelli Diego": {
+        "name": "Crivelli Diego",
+        "society": "SCOM",
+        "category": "H40",
+        "points": "5637",
+        "price": 644205
+    },
+    "Origgi Giaime": {
+        "name": "Origgi Giaime",
+        "society": "GOLD",
+        "category": "H40",
+        "points": "5241",
+        "price": 592065
+    },
+    "Pollock Sebastiano": {
+        "name": "Pollock Sebastiano",
+        "society": "GOV",
+        "category": "H40",
+        "points": "5224",
+        "price": 589827
+    },
+    "Lanini Michael": {
+        "name": "Lanini Michael",
+        "society": "GOV",
+        "category": "H40",
+        "points": "5215",
+        "price": 588642
+    },
+    "Rossetti Patrick": {
+        "name": "Rossetti Patrick",
+        "society": "O-92",
+        "category": "H40",
+        "points": "5029",
+        "price": 564152
+    },
+    "Tettamanti Simone": {
+        "name": "Tettamanti Simone",
+        "society": "SCOM",
+        "category": "H40",
+        "points": "4721",
+        "price": 523598
+    },
+    "Bomio-Pacciorini Nicola": {
+        "name": "Bomio-Pacciorini Nicola",
+        "society": "CO UTOE",
+        "category": "H40",
+        "points": "4580",
+        "price": 505033
+    },
+    "Vassalli Silvio": {
+        "name": "Vassalli Silvio",
+        "society": "ASCO",
+        "category": "H40",
+        "points": "3814",
+        "price": 404177
+    },
+    "Lepori Domenico": {
+        "name": "Lepori Domenico",
+        "society": "GOLD",
+        "category": "H40",
+        "points": "3522",
+        "price": 365730
+    },
+    "Ranvoisy Mikael": {
+        "name": "Ranvoisy Mikael",
+        "society": "CO AGET",
+        "category": "H40",
+        "points": "2595",
+        "price": 243675
+    },
+    "Pedrini Gigi": {
+        "name": "Pedrini Gigi",
+        "society": "ASCO",
+        "category": "H40",
+        "points": "2378",
+        "price": 215103
+    },
+    "Eberli Christian": {
+        "name": "Eberli Christian",
+        "society": "ASCO",
+        "category": "H40",
+        "points": "2367",
+        "price": 213655
+    },
+    "Pescia Billy": {
+        "name": "Pescia Billy",
+        "society": "GOV",
+        "category": "H40",
+        "points": "2276",
+        "price": 201673
+    },
+    "Gaspari Fabio": {
+        "name": "Gaspari Fabio",
+        "society": "CO UTOE",
+        "category": "H50",
+        "points": "4500",
+        "price": 494500
+    },
+    "Castelli Benedetto": {
+        "name": "Castelli Benedetto",
+        "society": "ASCO",
+        "category": "H40",
+        "points": "1296",
+        "price": 72640
+    },
+    "Piattini Paolo": {
+        "name": "Piattini Paolo",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "891",
+        "price": 60000
+    },
+    "Oleggini Lorenzo": {
+        "name": "Oleggini Lorenzo",
+        "society": "O-92",
+        "category": "H40",
+        "points": "700",
+        "price": 60000
+    },
+    "Tsitovich Aliaksei": {
+        "name": "Tsitovich Aliaksei",
+        "society": "CO AGET",
+        "category": "H40",
+        "points": "617",
+        "price": 60000
+    },
+    "Boiani Tiziano": {
+        "name": "Boiani Tiziano",
+        "society": "O-92",
+        "category": "H50",
+        "points": "6820",
+        "price": 799967
+    },
+    "Federer Matteo": {
+        "name": "Federer Matteo",
+        "society": "GOLD",
+        "category": "H50",
+        "points": "6613",
+        "price": 772712
+    },
+    "Cantoreggi Sergio": {
+        "name": "Cantoreggi Sergio",
+        "society": "O-92",
+        "category": "H50",
+        "points": "6115",
+        "price": 707142
+    },
+    "Brambilla Stefano": {
+        "name": "Brambilla Stefano",
+        "society": "CO AGET",
+        "category": "H50",
+        "points": "5957",
+        "price": 686338
+    },
+    "Tettamanti Roberto": {
+        "name": "Tettamanti Roberto",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "5918",
+        "price": 681203
+    },
+    "Bonanomi Isacco": {
+        "name": "Bonanomi Isacco",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "5810",
+        "price": 666983
+    },
+    "Chiodoni Andrea": {
+        "name": "Chiodoni Andrea",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "5764",
+        "price": 660927
+    },
+    "Bernasconi Daniele": {
+        "name": "Bernasconi Daniele",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "5131",
+        "price": 577582
+    },
+    "Romagna Ygor": {
+        "name": "Romagna Ygor",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "4963",
+        "price": 555462
+    },
+    "Maddalena Riccardo": {
+        "name": "Maddalena Riccardo",
+        "society": "GOV",
+        "category": "H50",
+        "points": "4926",
+        "price": 550590
+    },
+    "Barenghi Beniamino": {
+        "name": "Barenghi Beniamino",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "4848",
+        "price": 540320
+    },
+    "Juorno Massimo": {
+        "name": "Juorno Massimo",
+        "society": "O-92",
+        "category": "H50",
+        "points": "4787",
+        "price": 532288
+    },
+    "Anuchkin Oleg": {
+        "name": "Anuchkin Oleg",
+        "society": "CO AGET",
+        "category": "H50",
+        "points": "4742",
+        "price": 526363
+    },
+    "Bertozzi Silvano": {
+        "name": "Bertozzi Silvano",
+        "society": "GOLD",
+        "category": "H50",
+        "points": "4741",
+        "price": 526232
+    },
+    "Del Don Ermanno": {
+        "name": "Del Don Ermanno",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "4699",
+        "price": 520702
+    },
+    "Fiorini Tommaso": {
+        "name": "Fiorini Tommaso",
+        "society": "O-92",
+        "category": "H50",
+        "points": "4681",
+        "price": 518332
+    },
+    "Bettelini Stefano": {
+        "name": "Bettelini Stefano",
+        "society": "UNITAS",
+        "category": "H50",
+        "points": "4670",
+        "price": 516883
+    },
+    "Gaggetta Manolo": {
+        "name": "Gaggetta Manolo",
+        "society": "UNITAS",
+        "category": "H50",
+        "points": "4631",
+        "price": 511748
+    },
+    "Borgeaud Nicolas": {
+        "name": "Borgeaud Nicolas",
+        "society": "O-92",
+        "category": "H50",
+        "points": "4396",
+        "price": 480807
+    },
+    "Beretta Alessandro": {
+        "name": "Beretta Alessandro",
+        "society": "GOV",
+        "category": "H50",
+        "points": "4386",
+        "price": 479490
+    },
+    "Hayman Mark": {
+        "name": "Hayman Mark",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "4124",
+        "price": 444993
+    },
+    "Maddalena Stefano": {
+        "name": "Maddalena Stefano",
+        "society": "O-92",
+        "category": "H50",
+        "points": "4000",
+        "price": 428667
+    },
+    "Banfi Thomas": {
+        "name": "Banfi Thomas",
+        "society": "GOLD",
+        "category": "H50",
+        "points": "3817",
+        "price": 404572
+    },
+    "Ferracin Adriano": {
+        "name": "Ferracin Adriano",
+        "society": "GOLD",
+        "category": "H50",
+        "points": "3811",
+        "price": 403782
+    },
+    "Enrile Michele": {
+        "name": "Enrile Michele",
+        "society": "UNITAS",
+        "category": "H50",
+        "points": "3580",
+        "price": 373367
+    },
+    "Grossi Mauro": {
+        "name": "Grossi Mauro",
+        "society": "O-92",
+        "category": "H50",
+        "points": "3523",
+        "price": 365862
+    },
+    "Brazzola Pierluigi": {
+        "name": "Brazzola Pierluigi",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "3470",
+        "price": 358883
+    },
+    "Volger Gionata": {
+        "name": "Volger Gionata",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "3403",
+        "price": 350062
+    },
+    "Polli Mattias": {
+        "name": "Polli Mattias",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "3119",
+        "price": 312668
+    },
+    "Schwank Luca": {
+        "name": "Schwank Luca",
+        "society": "GOLD",
+        "category": "H50",
+        "points": "3115",
+        "price": 312142
+    },
+    "Foletti Alfredo": {
+        "name": "Foletti Alfredo",
+        "society": "CO AGET",
+        "category": "H50",
+        "points": "3088",
+        "price": 308587
+    },
+    "Corsi Sandro": {
+        "name": "Corsi Sandro",
+        "society": "GOLD",
+        "category": "H50",
+        "points": "2980",
+        "price": 294367
+    },
+    "Zanini Marc": {
+        "name": "Zanini Marc",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "2861",
+        "price": 278698
+    },
+    "Deluigi Roberto": {
+        "name": "Deluigi Roberto",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "2452",
+        "price": 224847
+    },
+    "Schr\u00e4mmli Peter": {
+        "name": "Schr\u00e4mmli Peter",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "1561",
+        "price": 107532
+    },
+    "Magenes Giuseppe": {
+        "name": "Magenes Giuseppe",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "1294",
+        "price": 72377
+    },
+    "Jacomella Vincenzo": {
+        "name": "Jacomella Vincenzo",
+        "society": "CO AGET",
+        "category": "H50",
+        "points": "1212",
+        "price": 61580
+    },
+    "Cereghetti Massimo": {
+        "name": "Cereghetti Massimo",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "1109",
+        "price": 60000
+    },
+    "Bognuda Tiziano": {
+        "name": "Bognuda Tiziano",
+        "society": "O-92",
+        "category": "H50",
+        "points": "1081",
+        "price": 60000
+    },
+    "Breitenmoser Marco": {
+        "name": "Breitenmoser Marco",
+        "society": "CO AGET",
+        "category": "H50",
+        "points": "944",
+        "price": 60000
+    },
+    "Donadini Fabrizio": {
+        "name": "Donadini Fabrizio",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "833",
+        "price": 60000
+    },
+    "Croci Oscar": {
+        "name": "Croci Oscar",
+        "society": "ASCO",
+        "category": "H50",
+        "points": "720",
+        "price": 60000
+    },
+    "Waldburger Michael": {
+        "name": "Waldburger Michael",
+        "society": "SCOM",
+        "category": "H50",
+        "points": "586",
+        "price": 60000
+    },
+    "Barca Alessio": {
+        "name": "Barca Alessio",
+        "society": "GOV",
+        "category": "H50",
+        "points": "476",
+        "price": 60000
+    },
+    "Guglielmetti Francesco": {
+        "name": "Guglielmetti Francesco",
+        "society": "GOLD",
+        "category": "H60",
+        "points": "7000",
+        "price": 823667
+    },
+    "Hiltebrand Thomas": {
+        "name": "Hiltebrand Thomas",
+        "society": "CO AGET",
+        "category": "H60",
+        "points": "6175",
+        "price": 715042
+    },
+    "Minotti Olivier": {
+        "name": "Minotti Olivier",
+        "society": "O-92",
+        "category": "H60",
+        "points": "6127",
+        "price": 708722
+    },
+    "Pura Alberto": {
+        "name": "Pura Alberto",
+        "society": "O-92",
+        "category": "H60",
+        "points": "5689",
+        "price": 651052
+    },
+    "Pettinari Gianni": {
+        "name": "Pettinari Gianni",
+        "society": "CO AGET",
+        "category": "H60",
+        "points": "5383",
+        "price": 610762
+    },
+    "Madonna Aldo": {
+        "name": "Madonna Aldo",
+        "society": "GOLD",
+        "category": "H60",
+        "points": "5351",
+        "price": 606548
+    },
+    "Poggiati Roberto": {
+        "name": "Poggiati Roberto",
+        "society": "CO AGET",
+        "category": "H60",
+        "points": "5162",
+        "price": 581663
+    },
+    "Steinegger R\u00e9my": {
+        "name": "Steinegger R\u00e9my",
+        "society": "GOLD",
+        "category": "H60",
+        "points": "5064",
+        "price": 568760
+    },
+    "Bianchi Silvio": {
+        "name": "Bianchi Silvio",
+        "society": "CO UTOE",
+        "category": "H60",
+        "points": "4904",
+        "price": 547693
+    },
+    "Beltraminelli Paolo": {
+        "name": "Beltraminelli Paolo",
+        "society": "ASCO",
+        "category": "H60",
+        "points": "4312",
+        "price": 469747
+    },
+    "Crivelli Raffaele": {
+        "name": "Crivelli Raffaele",
+        "society": "SCOM",
+        "category": "H60",
+        "points": "4276",
+        "price": 465007
+    },
+    "Kocsis Antonio": {
+        "name": "Kocsis Antonio",
+        "society": "ASCO",
+        "category": "H60",
+        "points": "4051",
+        "price": 435382
+    },
+    "Ghezzi Gianni": {
+        "name": "Ghezzi Gianni",
+        "society": "CO AGET",
+        "category": "H60",
+        "points": "3882",
+        "price": 413130
+    },
+    "Pawlowski Alessandro": {
+        "name": "Pawlowski Alessandro",
+        "society": "O-92",
+        "category": "H60",
+        "points": "3559",
+        "price": 370602
+    },
+    "Amaro Walter": {
+        "name": "Amaro Walter",
+        "society": "ASCO",
+        "category": "H60",
+        "points": "3545",
+        "price": 368758
+    },
+    "Guglielmetti Michele": {
+        "name": "Guglielmetti Michele",
+        "society": "GOLD",
+        "category": "H60",
+        "points": "3071",
+        "price": 306348
+    },
+    "Berger Pio": {
+        "name": "Berger Pio",
+        "society": "ASCO",
+        "category": "H60",
+        "points": "2939",
+        "price": 288968
+    },
+    "Garbani Marco": {
+        "name": "Garbani Marco",
+        "society": "O-92",
+        "category": "H60",
+        "points": "2708",
+        "price": 258553
+    },
+    "Rezzonico Cristiano": {
+        "name": "Rezzonico Cristiano",
+        "society": "ASCO",
+        "category": "H60",
+        "points": "2690",
+        "price": 256183
+    },
+    "Guglielmetti Antonio": {
+        "name": "Guglielmetti Antonio",
+        "society": "GOV",
+        "category": "H60",
+        "points": "2672",
+        "price": 253813
+    },
+    "Zanzi Gabriele": {
+        "name": "Zanzi Gabriele",
+        "society": "ASCO",
+        "category": "H60",
+        "points": "2429",
+        "price": 221818
+    },
+    "Hochstrasser Luciano": {
+        "name": "Hochstrasser Luciano",
+        "society": "CO AGET",
+        "category": "H60",
+        "points": "2352",
+        "price": 211680
+    },
+    "Fonti Claudio": {
+        "name": "Fonti Claudio",
+        "society": "O-92",
+        "category": "H60",
+        "points": "2346",
+        "price": 210890
+    },
+    "Besomi Matteo": {
+        "name": "Besomi Matteo",
+        "society": "ASCO",
+        "category": "H60",
+        "points": "2341",
+        "price": 210232
+    },
+    "Bettelini Marco": {
+        "name": "Bettelini Marco",
+        "society": "UNITAS",
+        "category": "H60",
+        "points": "2134",
+        "price": 182977
+    },
+    "Battistoni Luca": {
+        "name": "Battistoni Luca",
+        "society": "SCOM",
+        "category": "H60",
+        "points": "2018",
+        "price": 167703
+    },
+    "Derighetti John": {
+        "name": "Derighetti John",
+        "society": "O-92",
+        "category": "H60",
+        "points": "1740",
+        "price": 131100
+    },
+    "Menozzi Franco": {
+        "name": "Menozzi Franco",
+        "society": "O-92",
+        "category": "H60",
+        "points": "1458",
+        "price": 93970
+    },
+    "Bisceglia Antonio": {
+        "name": "Bisceglia Antonio",
+        "society": "CO AGET",
+        "category": "H60",
+        "points": "1305",
+        "price": 73825
+    },
+    "Oleggini Matteo": {
+        "name": "Oleggini Matteo",
+        "society": "O-92",
+        "category": "H60",
+        "points": "839",
+        "price": 60000
+    },
+    "Pezzati Filippo": {
+        "name": "Pezzati Filippo",
+        "society": "SCOM",
+        "category": "H60",
+        "points": "636",
+        "price": 60000
+    },
+    "Bettelini Davide": {
+        "name": "Bettelini Davide",
+        "society": "UNITAS",
+        "category": "H60",
+        "points": "615",
+        "price": 60000
+    },
+    "Untern\u00e4hrer Ferruccio": {
+        "name": "Untern\u00e4hrer Ferruccio",
+        "society": "ASCO",
+        "category": "H60",
+        "points": "433",
+        "price": 60000
+    },
+    "L\u00f6hrer Romano": {
+        "name": "L\u00f6hrer Romano",
+        "society": "CO AGET",
+        "category": "H60",
+        "points": "0",
+        "price": 60000
+    },
+    "Scacchi Pierleonardo": {
+        "name": "Scacchi Pierleonardo",
+        "society": "GOLD",
+        "category": "H70",
+        "points": "6814",
+        "price": 799177
+    },
+    "Pellegrini Vincenzo": {
+        "name": "Pellegrini Vincenzo",
+        "society": "CO AGET",
+        "category": "H70",
+        "points": "5974",
+        "price": 688577
+    },
+    "Zaugg Yvette": {
+        "name": "Zaugg Yvette",
+        "society": "O-92",
+        "category": "H70",
+        "points": "5567",
+        "price": 634988
+    },
+    "Noseda Roberto": {
+        "name": "Noseda Roberto",
+        "society": "UNITAS",
+        "category": "H70",
+        "points": "5387",
+        "price": 611288
+    },
+    "Rigassi Rino": {
+        "name": "Rigassi Rino",
+        "society": "UNITAS",
+        "category": "H70",
+        "points": "5310",
+        "price": 601150
+    },
+    "Nembrini Lidia": {
+        "name": "Nembrini Lidia",
+        "society": "CO AGET",
+        "category": "H70",
+        "points": "4316",
+        "price": 470273
+    },
+    "Zaugg Hannes": {
+        "name": "Zaugg Hannes",
+        "society": "O-92",
+        "category": "H70",
+        "points": "4112",
+        "price": 443413
+    },
+    "Nessi Carlo": {
+        "name": "Nessi Carlo",
+        "society": "SCOM",
+        "category": "H70",
+        "points": "4042",
+        "price": 434197
+    },
+    "M\u00fcller Gianini Ruth": {
+        "name": "M\u00fcller Gianini Ruth",
+        "society": "CO UTOE",
+        "category": "H70",
+        "points": "3805",
+        "price": 402992
+    },
+    "Rothweiler Kurt": {
+        "name": "Rothweiler Kurt",
+        "society": "O-92",
+        "category": "H70",
+        "points": "3361",
+        "price": 344532
+    },
+    "Fedele Loris": {
+        "name": "Fedele Loris",
+        "society": "GOLD",
+        "category": "H70",
+        "points": "2929",
+        "price": 287652
+    },
+    "Ograbek Antonio": {
+        "name": "Ograbek Antonio",
+        "society": "CO UTOE",
+        "category": "H70",
+        "points": "2470",
+        "price": 227217
+    },
+    "Bernasconi Giorgio": {
+        "name": "Bernasconi Giorgio",
+        "society": "SCOM",
+        "category": "H70",
+        "points": "2000",
+        "price": 165333
+    },
+    "Morasci Remo": {
+        "name": "Morasci Remo",
+        "society": "O-92",
+        "category": "H70",
+        "points": "376",
+        "price": 60000
+    },
+    "Bernet Caterina": {
+        "name": "Bernet Caterina",
+        "society": "UNITAS",
+        "category": "D10",
+        "points": "7810",
+        "price": 850000
+    },
+    "Pozzoni Giada": {
+        "name": "Pozzoni Giada",
+        "society": "ASCO",
+        "category": "D10",
+        "points": "7642",
+        "price": 850000
+    },
+    "Bricalli Viola": {
+        "name": "Bricalli Viola",
+        "society": "CO AGET",
+        "category": "D10",
+        "points": "7448",
+        "price": 850000
+    },
+    "Cereghetti Chiara": {
+        "name": "Cereghetti Chiara",
+        "society": "GOLD",
+        "category": "D10",
+        "points": "7078",
+        "price": 833937
+    },
+    "Vannini Isabel": {
+        "name": "Vannini Isabel",
+        "society": "CO AGET",
+        "category": "D10",
+        "points": "5134",
+        "price": 577977
+    },
+    "Del Don Giaele": {
+        "name": "Del Don Giaele",
+        "society": "ASCO",
+        "category": "D10",
+        "points": "4192",
+        "price": 453947
+    },
+    "Ghidossi Sayen": {
+        "name": "Ghidossi Sayen",
+        "society": "CO AGET",
+        "category": "D10",
+        "points": "4125",
+        "price": 445125
+    },
+    "Canonica Giorgia": {
+        "name": "Canonica Giorgia",
+        "society": "GOLD",
+        "category": "D10",
+        "points": "3627",
+        "price": 379555
+    },
+    "Piffaretti Regazzoni Nora": {
+        "name": "Piffaretti Regazzoni Nora",
+        "society": "ASCO",
+        "category": "D10",
+        "points": "2400",
+        "price": 218000
+    },
+    "Parravano Camilla": {
+        "name": "Parravano Camilla",
+        "society": "GOLD",
+        "category": "D10",
+        "points": "1732",
+        "price": 130047
+    },
+    "Perrin Alma": {
+        "name": "Perrin Alma",
+        "society": "ASCO",
+        "category": "D10",
+        "points": "1693",
+        "price": 124912
+    },
+    "Castelli Agata": {
+        "name": "Castelli Agata",
+        "society": "ASCO",
+        "category": "D10",
+        "points": "1078",
+        "price": 60000
+    },
+    "Liguori Letizia": {
+        "name": "Liguori Letizia",
+        "society": "GOLD",
+        "category": "D10",
+        "points": "855",
+        "price": 60000
+    },
+    "Quadri Chiara": {
+        "name": "Quadri Chiara",
+        "society": "ASCO",
+        "category": "D10",
+        "points": "604",
+        "price": 60000
+    },
+    "Pini Jody": {
+        "name": "Pini Jody",
+        "society": "CO AGET",
+        "category": "D10",
+        "points": "596",
+        "price": 60000
+    },
+    "Pini Aline": {
+        "name": "Pini Aline",
+        "society": "CO AGET",
+        "category": "D10",
+        "points": "478",
+        "price": 60000
+    },
+    "Canonica Julie": {
+        "name": "Canonica Julie",
+        "society": "GOLD",
+        "category": "D10",
+        "points": "344",
+        "price": 60000
+    },
+    "Del Don Maila": {
+        "name": "Del Don Maila",
+        "society": "ASCO",
+        "category": "D12",
+        "points": "7862",
+        "price": 850000
+    },
+    "Asmus Alessia": {
+        "name": "Asmus Alessia",
+        "society": "GOLD",
+        "category": "D12",
+        "points": "7856",
+        "price": 850000
+    },
+    "Roncoroni Isabel": {
+        "name": "Roncoroni Isabel",
+        "society": "SCOM",
+        "category": "D12",
+        "points": "7269",
+        "price": 850000
+    },
+    "Bernet Francesca": {
+        "name": "Bernet Francesca",
+        "society": "UNITAS",
+        "category": "D12",
+        "points": "7042",
+        "price": 829197
+    },
+    "Schumacher Deana": {
+        "name": "Schumacher Deana",
+        "society": "GOV",
+        "category": "D12",
+        "points": "6674",
+        "price": 780743
+    },
+    "Gonzato Clara": {
+        "name": "Gonzato Clara",
+        "society": "ASCO",
+        "category": "D12",
+        "points": "6523",
+        "price": 760862
+    },
+    "Rigamonti Aurelia": {
+        "name": "Rigamonti Aurelia",
+        "society": "O-92",
+        "category": "D12",
+        "points": "5729",
+        "price": 656318
+    },
+    "Giannakis Katerina": {
+        "name": "Giannakis Katerina",
+        "society": "CO AGET",
+        "category": "D12",
+        "points": "4805",
+        "price": 534658
+    },
+    "Macconi Agata": {
+        "name": "Macconi Agata",
+        "society": "ASCO",
+        "category": "D12",
+        "points": "4639",
+        "price": 512802
+    },
+    "Crivelli Elisa": {
+        "name": "Crivelli Elisa",
+        "society": "SCOM",
+        "category": "D12",
+        "points": "3639",
+        "price": 381135
+    },
+    "Malnati Anita": {
+        "name": "Malnati Anita",
+        "society": "CO AGET",
+        "category": "D12",
+        "points": "3108",
+        "price": 311220
+    },
+    "Tettamanti Annabelle": {
+        "name": "Tettamanti Annabelle",
+        "society": "SCOM",
+        "category": "D12",
+        "points": "2935",
+        "price": 288442
+    },
+    "Saltini Maria Sara": {
+        "name": "Saltini Maria Sara",
+        "society": "GOLD",
+        "category": "D12",
+        "points": "2051",
+        "price": 172048
+    },
+    "Beltraminelli Daria": {
+        "name": "Beltraminelli Daria",
+        "society": "CO UTOE",
+        "category": "D12",
+        "points": "1856",
+        "price": 146373
+    },
+    "Bognuda Ivana": {
+        "name": "Bognuda Ivana",
+        "society": "O-92",
+        "category": "D12",
+        "points": "1613",
+        "price": 114378
+    },
+    "Castelli Maddalena": {
+        "name": "Castelli Maddalena",
+        "society": "ASCO",
+        "category": "D12",
+        "points": "1408",
+        "price": 87387
+    },
+    "Testolini Noemi": {
+        "name": "Testolini Noemi",
+        "society": "GOLD",
+        "category": "D12",
+        "points": "829",
+        "price": 60000
+    },
+    "Di Lascio Dalia": {
+        "name": "Di Lascio Dalia",
+        "society": "GOLD",
+        "category": "D12",
+        "points": "705",
+        "price": 60000
+    },
+    "Solc\u00e0 Sofia": {
+        "name": "Solc\u00e0 Sofia",
+        "society": "GOLD",
+        "category": "D12",
+        "points": "668",
+        "price": 60000
+    },
+    "Timbal Amelia": {
+        "name": "Timbal Amelia",
+        "society": "ASCO",
+        "category": "D12",
+        "points": "616",
+        "price": 60000
+    },
+    "Buzzi Paola": {
+        "name": "Buzzi Paola",
+        "society": "CO AGET",
+        "category": "D12",
+        "points": "607",
+        "price": 60000
+    },
+    "Zuro Livia": {
+        "name": "Zuro Livia",
+        "society": "GOLD",
+        "category": "D12",
+        "points": "0",
+        "price": 60000
+    },
+    "Amad\u00f2 Viola": {
+        "name": "Amad\u00f2 Viola",
+        "society": "UNITAS",
+        "category": "D14",
+        "points": "7947",
+        "price": 850000
+    },
+    "Piattini Fabienne": {
+        "name": "Piattini Fabienne",
+        "society": "SCOM",
+        "category": "D14",
+        "points": "7398",
+        "price": 850000
+    },
+    "Romeo Morgana": {
+        "name": "Romeo Morgana",
+        "society": "O-92",
+        "category": "D14",
+        "points": "6786",
+        "price": 795490
+    },
+    "Dell Agnola Ma\u00e9": {
+        "name": "Dell Agnola Ma\u00e9",
+        "society": "O-92",
+        "category": "D14",
+        "points": "6447",
+        "price": 750855
+    },
+    "Wade Mariama": {
+        "name": "Wade Mariama",
+        "society": "SCOM",
+        "category": "D14",
+        "points": "6446",
+        "price": 750723
+    },
+    "Vassalli Joy": {
+        "name": "Vassalli Joy",
+        "society": "ASCO",
+        "category": "D14",
+        "points": "6331",
+        "price": 735582
+    },
+    "Gattoni Nives": {
+        "name": "Gattoni Nives",
+        "society": "CO AGET",
+        "category": "D14",
+        "points": "5800",
+        "price": 665667
+    },
+    "Guidinetti Lara": {
+        "name": "Guidinetti Lara",
+        "society": "GOLD",
+        "category": "D14",
+        "points": "5007",
+        "price": 561255
+    },
+    "Piattini Anais": {
+        "name": "Piattini Anais",
+        "society": "ASCO",
+        "category": "D14",
+        "points": "4392",
+        "price": 480280
+    },
+    "Castelli Ilda": {
+        "name": "Castelli Ilda",
+        "society": "ASCO",
+        "category": "D14",
+        "points": "3045",
+        "price": 302925
+    },
+    "Bomio-Pacciorini Sara": {
+        "name": "Bomio-Pacciorini Sara",
+        "society": "GOV",
+        "category": "D16",
+        "points": "7623",
+        "price": 850000
+    },
+    "Pescia Giulia": {
+        "name": "Pescia Giulia",
+        "society": "GOV",
+        "category": "D14",
+        "points": "1905",
+        "price": 152825
+    },
+    "Simoneschi Stella": {
+        "name": "Simoneschi Stella",
+        "society": "GOLD",
+        "category": "D14",
+        "points": "1889",
+        "price": 150718
+    },
+    "Barca Milena": {
+        "name": "Barca Milena",
+        "society": "GOV",
+        "category": "D14",
+        "points": "1168",
+        "price": 60000
+    },
+    "Schlichting Greta": {
+        "name": "Schlichting Greta",
+        "society": "CO AGET",
+        "category": "D14",
+        "points": "1096",
+        "price": 60000
+    },
+    "Pini Emily": {
+        "name": "Pini Emily",
+        "society": "CO AGET",
+        "category": "D14",
+        "points": "784",
+        "price": 60000
+    },
+    "Galusero Dalila": {
+        "name": "Galusero Dalila",
+        "society": "O-92",
+        "category": "D14",
+        "points": "744",
+        "price": 60000
+    },
+    "Bulloncelli Elin": {
+        "name": "Bulloncelli Elin",
+        "society": "GOV",
+        "category": "D14",
+        "points": "533",
+        "price": 60000
+    },
+    "Macconi Estelle": {
+        "name": "Macconi Estelle",
+        "society": "GOLD",
+        "category": "D14",
+        "points": "0",
+        "price": 60000
+    },
+    "Castelli Selina": {
+        "name": "Castelli Selina",
+        "society": "ASCO",
+        "category": "D16",
+        "points": "7749",
+        "price": 850000
+    },
+    "L\u00f6hrer Cecilia": {
+        "name": "L\u00f6hrer Cecilia",
+        "society": "CO AGET",
+        "category": "D16",
+        "points": "7441",
+        "price": 850000
+    },
+    "Hohl Luna": {
+        "name": "Hohl Luna",
+        "society": "GOV",
+        "category": "D16",
+        "points": "6969",
+        "price": 819585
+    },
+    "Lunghini Linda": {
+        "name": "Lunghini Linda",
+        "society": "GOLD",
+        "category": "D16",
+        "points": "6754",
+        "price": 791277
+    },
+    "Bassetti Noemi": {
+        "name": "Bassetti Noemi",
+        "society": "O-92",
+        "category": "D16",
+        "points": "6452",
+        "price": 751513
+    },
+    "Peroni Chiara": {
+        "name": "Peroni Chiara",
+        "society": "O-92",
+        "category": "D16",
+        "points": "6331",
+        "price": 735582
+    },
+    "Gaspari Giada": {
+        "name": "Gaspari Giada",
+        "society": "O-92",
+        "category": "D16",
+        "points": "5545",
+        "price": 632092
+    },
+    "Mozzetti Lea": {
+        "name": "Mozzetti Lea",
+        "society": "GOV",
+        "category": "D16",
+        "points": "5269",
+        "price": 595752
+    },
+    "Bianchi Maya": {
+        "name": "Bianchi Maya",
+        "society": "ASCO",
+        "category": "D16",
+        "points": "4723",
+        "price": 523862
+    },
+    "Spinedi Alessia": {
+        "name": "Spinedi Alessia",
+        "society": "GOLD",
+        "category": "D16",
+        "points": "3750",
+        "price": 395750
+    },
+    "Deluigi Sara": {
+        "name": "Deluigi Sara",
+        "society": "ASCO",
+        "category": "D16",
+        "points": "3296",
+        "price": 335973
+    },
+    "Imelli Lucia": {
+        "name": "Imelli Lucia",
+        "society": "O-92",
+        "category": "D16",
+        "points": "3222",
+        "price": 326230
+    },
+    "Axarli Despina": {
+        "name": "Axarli Despina",
+        "society": "CO AGET",
+        "category": "D16",
+        "points": "3079",
+        "price": 307402
+    },
+    "Foletti Nora": {
+        "name": "Foletti Nora",
+        "society": "CO AGET",
+        "category": "D18",
+        "points": "4767",
+        "price": 529655
+    },
+    "Rossetti Lorenza": {
+        "name": "Rossetti Lorenza",
+        "society": "O-92",
+        "category": "D18",
+        "points": "6844",
+        "price": 803127
+    },
+    "Marveggio Marta": {
+        "name": "Marveggio Marta",
+        "society": "ASCO",
+        "category": "D16",
+        "points": "1928",
+        "price": 155853
+    },
+    "Vassalli Kim": {
+        "name": "Vassalli Kim",
+        "society": "ASCO",
+        "category": "D16",
+        "points": "1839",
+        "price": 144135
+    },
+    "Delb\u00f2 Lisa": {
+        "name": "Delb\u00f2 Lisa",
+        "society": "SCOM",
+        "category": "D16",
+        "points": "1046",
+        "price": 60000
+    },
+    "Sarno Gaia": {
+        "name": "Sarno Gaia",
+        "society": "CO AGET",
+        "category": "D16",
+        "points": "788",
+        "price": 60000
+    },
+    "Grandi Iris": {
+        "name": "Grandi Iris",
+        "society": "GOLD",
+        "category": "D16",
+        "points": "601",
+        "price": 60000
+    },
+    "Baumgartner Lucia": {
+        "name": "Baumgartner Lucia",
+        "society": "SCOM",
+        "category": "D18",
+        "points": "7723",
+        "price": 850000
+    },
+    "Bonini Ambra": {
+        "name": "Bonini Ambra",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "7611",
+        "price": 850000
+    },
+    "Grossi Laura": {
+        "name": "Grossi Laura",
+        "society": "O-92",
+        "category": "D18",
+        "points": "6327",
+        "price": 735055
+    },
+    "Rusconi Sandy": {
+        "name": "Rusconi Sandy",
+        "society": "O-92",
+        "category": "D18",
+        "points": "5753",
+        "price": 659478
+    },
+    "Riso Marta": {
+        "name": "Riso Marta",
+        "society": "O-92",
+        "category": "D18",
+        "points": "5747",
+        "price": 658688
+    },
+    "Vaccaro Chiara": {
+        "name": "Vaccaro Chiara",
+        "society": "SCOM",
+        "category": "D18",
+        "points": "5610",
+        "price": 640650
+    },
+    "Perler Linda": {
+        "name": "Perler Linda",
+        "society": "SCOM",
+        "category": "D18",
+        "points": "5530",
+        "price": 630117
+    },
+    "Castelli  Larissa": {
+        "name": "Castelli  Larissa",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "5278",
+        "price": 596937
+    },
+    "Deluigi Arianna": {
+        "name": "Deluigi Arianna",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "5234",
+        "price": 591143
+    },
+    "Volger Cecilia": {
+        "name": "Volger Cecilia",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "5216",
+        "price": 588773
+    },
+    "Romagna Alice": {
+        "name": "Romagna Alice",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "5215",
+        "price": 588642
+    },
+    "Matasci Lisa": {
+        "name": "Matasci Lisa",
+        "society": "O-92",
+        "category": "D18",
+        "points": "3729",
+        "price": 392985
+    },
+    "Fomasi Julie": {
+        "name": "Fomasi Julie",
+        "society": "SCOM",
+        "category": "DAL",
+        "points": "5582",
+        "price": 636963
+    },
+    "Knupfer Caroline": {
+        "name": "Knupfer Caroline",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "3498",
+        "price": 362570
+    },
+    "Ghiggia Emma": {
+        "name": "Ghiggia Emma",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "2503",
+        "price": 231562
+    },
+    "Ren Aline": {
+        "name": "Ren Aline",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "2186",
+        "price": 189823
+    },
+    "Raptopoulos Eleonora": {
+        "name": "Raptopoulos Eleonora",
+        "society": "CO AGET",
+        "category": "D18",
+        "points": "1696",
+        "price": 125307
+    },
+    "Mesic Sabina": {
+        "name": "Mesic Sabina",
+        "society": "ASCO",
+        "category": "D18",
+        "points": "506",
+        "price": 60000
+    },
+    "Mocellin Alessandra": {
+        "name": "Mocellin Alessandra",
+        "society": "CO AGET",
+        "category": "D18",
+        "points": "412",
+        "price": 60000
+    },
+    "Mozzetti Mia": {
+        "name": "Mozzetti Mia",
+        "society": "GOV",
+        "category": "D18",
+        "points": "0",
+        "price": 60000
+    },
+    "Bertozzi Elisa": {
+        "name": "Bertozzi Elisa",
+        "society": "GOLD",
+        "category": "DAL",
+        "points": "6990",
+        "price": 822350
+    },
+    "Quadri Valentina": {
+        "name": "Quadri Valentina",
+        "society": "ASCO",
+        "category": "DAL",
+        "points": "6478",
+        "price": 754937
+    },
+    "Arpagaus Arianna": {
+        "name": "Arpagaus Arianna",
+        "society": "CO AGET",
+        "category": "DAL",
+        "points": "5665",
+        "price": 647892
+    },
+    "Tunesi Schwank Barbara": {
+        "name": "Tunesi Schwank Barbara",
+        "society": "ASCO",
+        "category": "DAL",
+        "points": "5416",
+        "price": 615107
+    },
+    "Vicari Jana": {
+        "name": "Vicari Jana",
+        "society": "UNITAS",
+        "category": "DAL",
+        "points": "4984",
+        "price": 558227
+    },
+    "Regazzoni Federica": {
+        "name": "Regazzoni Federica",
+        "society": "ASCO",
+        "category": "DAL",
+        "points": "4511",
+        "price": 495948
+    },
+    "Kocsis Emma": {
+        "name": "Kocsis Emma",
+        "society": "ASCO",
+        "category": "DAL",
+        "points": "4307",
+        "price": 469088
+    },
+    "Dell Andrino Zoe": {
+        "name": "Dell Andrino Zoe",
+        "society": "ASCO",
+        "category": "DAL",
+        "points": "4082",
+        "price": 439463
+    },
+    "Maddalena Giulia": {
+        "name": "Maddalena Giulia",
+        "society": "O-92",
+        "category": "DAL",
+        "points": "3689",
+        "price": 387718
+    },
+    "Pezzati Elena": {
+        "name": "Pezzati Elena",
+        "society": "SCOM",
+        "category": "DAL",
+        "points": "2635",
+        "price": 248942
+    },
+    "Nembrini Nina": {
+        "name": "Nembrini Nina",
+        "society": "CO AGET",
+        "category": "DAL",
+        "points": "2047",
+        "price": 171522
+    },
+    "Maddalena Alice": {
+        "name": "Maddalena Alice",
+        "society": "O-92",
+        "category": "DAL",
+        "points": "1997",
+        "price": 164938
+    },
+    "Howald-Roos Elena": {
+        "name": "Howald-Roos Elena",
+        "society": "O-92",
+        "category": "DAL",
+        "points": "1938",
+        "price": 157170
+    },
+    "Arrigoni Alessandra": {
+        "name": "Arrigoni Alessandra",
+        "society": "GOLD",
+        "category": "DAL",
+        "points": "1699",
+        "price": 125702
+    },
+    "Jermini Matilde": {
+        "name": "Jermini Matilde",
+        "society": "ASCO",
+        "category": "DAL",
+        "points": "1342",
+        "price": 78697
+    },
+    "Teoldi Nora": {
+        "name": "Teoldi Nora",
+        "society": "SCOM",
+        "category": "DAK",
+        "points": "1189",
+        "price": 60000
+    },
+    "Inderst Noemi": {
+        "name": "Inderst Noemi",
+        "society": "GOLD",
+        "category": "DAL",
+        "points": "600",
+        "price": 60000
+    },
+    "Poretti Chiaverio Laura": {
+        "name": "Poretti Chiaverio Laura",
+        "society": "CO AGET",
+        "category": "DAK",
+        "points": "4790",
+        "price": 532683
+    },
+    "Maggioni Federica": {
+        "name": "Maggioni Federica",
+        "society": "GOLD",
+        "category": "DAK",
+        "points": "6838",
+        "price": 802337
+    },
+    "Walder Sabina": {
+        "name": "Walder Sabina",
+        "society": "GOLD",
+        "category": "DAK",
+        "points": "6396",
+        "price": 744140
+    },
+    "Badaracco Cecilia": {
+        "name": "Badaracco Cecilia",
+        "society": "GOV",
+        "category": "DAK",
+        "points": "6283",
+        "price": 729262
+    },
+    "Romeo Ornella": {
+        "name": "Romeo Ornella",
+        "society": "O-92",
+        "category": "DAK",
+        "points": "5374",
+        "price": 609577
+    },
+    "Crivelli Giorgia": {
+        "name": "Crivelli Giorgia",
+        "society": "GOLD",
+        "category": "DAK",
+        "points": "5237",
+        "price": 591538
+    },
+    "Hohl Vanessa": {
+        "name": "Hohl Vanessa",
+        "society": "GOV",
+        "category": "DAK",
+        "points": "4901",
+        "price": 547298
+    },
+    "Bont\u00e0 Astori Valeria": {
+        "name": "Bont\u00e0 Astori Valeria",
+        "society": "O-92",
+        "category": "DAK",
+        "points": "4409",
+        "price": 482518
+    },
+    "Polli Morena": {
+        "name": "Polli Morena",
+        "society": "ASCO",
+        "category": "DAK",
+        "points": "3778",
+        "price": 399437
+    },
+    "Keller Martina": {
+        "name": "Keller Martina",
+        "society": "ASCO",
+        "category": "DAK",
+        "points": "3747",
+        "price": 395355
+    },
+    "Giuganino Barbara": {
+        "name": "Giuganino Barbara",
+        "society": "CO AGET",
+        "category": "DAK",
+        "points": "3715",
+        "price": 391142
+    },
+    "Gaia Viviana": {
+        "name": "Gaia Viviana",
+        "society": "GOLD",
+        "category": "DAK",
+        "points": "3515",
+        "price": 364808
+    },
+    "Gonzato Margherita": {
+        "name": "Gonzato Margherita",
+        "society": "ASCO",
+        "category": "DAK",
+        "points": "3481",
+        "price": 360332
+    },
+    "Bricalli Corinna": {
+        "name": "Bricalli Corinna",
+        "society": "CO AGET",
+        "category": "DAK",
+        "points": "3480",
+        "price": 360200
+    },
+    "Beltraminelli Anna": {
+        "name": "Beltraminelli Anna",
+        "society": "ASCO",
+        "category": "DAK",
+        "points": "2657",
+        "price": 251838
+    },
+    "Bischof Sofia": {
+        "name": "Bischof Sofia",
+        "society": "GOV",
+        "category": "DAK",
+        "points": "2569",
+        "price": 240252
+    },
+    "Tonella Mara": {
+        "name": "Tonella Mara",
+        "society": "O-92",
+        "category": "DAK",
+        "points": "1904",
+        "price": 152693
+    },
+    "Moreni Camilla": {
+        "name": "Moreni Camilla",
+        "society": "SCOM",
+        "category": "D40",
+        "points": "3543",
+        "price": 368495
+    },
+    "Bozzolo Patrizia": {
+        "name": "Bozzolo Patrizia",
+        "society": "CO AGET",
+        "category": "DAK",
+        "points": "1613",
+        "price": 114378
+    },
+    "Depedrini Laura": {
+        "name": "Depedrini Laura",
+        "society": "O-92",
+        "category": "DAK",
+        "points": "1563",
+        "price": 107795
+    },
+    "Grossi Lisa": {
+        "name": "Grossi Lisa",
+        "society": "O-92",
+        "category": "DAK",
+        "points": "1000",
+        "price": 60000
+    },
+    "Berardi Viola": {
+        "name": "Berardi Viola",
+        "society": "UNITAS",
+        "category": "DAK",
+        "points": "909",
+        "price": 60000
+    },
+    "Derighetti Bianca": {
+        "name": "Derighetti Bianca",
+        "society": "O-92",
+        "category": "DAK",
+        "points": "899",
+        "price": 60000
+    },
+    "Bertozzi Sara": {
+        "name": "Bertozzi Sara",
+        "society": "GOLD",
+        "category": "DAK",
+        "points": "856",
+        "price": 60000
+    },
+    "Bischof Monica": {
+        "name": "Bischof Monica",
+        "society": "GOV",
+        "category": "DAK",
+        "points": "854",
+        "price": 60000
+    },
+    "Sabato Chiara": {
+        "name": "Sabato Chiara",
+        "society": "SCOM",
+        "category": "DAK",
+        "points": "770",
+        "price": 60000
+    },
+    "Ticozzi Ghidossi Manuela": {
+        "name": "Ticozzi Ghidossi Manuela",
+        "society": "CO AGET",
+        "category": "DAK",
+        "points": "756",
+        "price": 60000
+    },
+    "Vassalli Cuki": {
+        "name": "Vassalli Cuki",
+        "society": "ASCO",
+        "category": "D40",
+        "points": "724",
+        "price": 60000
+    },
+    "Pedrini Giada": {
+        "name": "Pedrini Giada",
+        "society": "ASCO",
+        "category": "DAK",
+        "points": "686",
+        "price": 60000
+    },
+    "Buck Giorgia": {
+        "name": "Buck Giorgia",
+        "society": "CO AGET",
+        "category": "DAK",
+        "points": "681",
+        "price": 60000
+    },
+    "Chiodoni Lorena": {
+        "name": "Chiodoni Lorena",
+        "society": "ASCO",
+        "category": "DAK",
+        "points": "651",
+        "price": 60000
+    },
+    "Mengotti Elena": {
+        "name": "Mengotti Elena",
+        "society": "GOLD",
+        "category": "DAK",
+        "points": "642",
+        "price": 60000
+    },
+    "Zamboni Fabiola": {
+        "name": "Zamboni Fabiola",
+        "society": "CO AGET",
+        "category": "DAK",
+        "points": "526",
+        "price": 60000
+    },
+    "Ravani Tatiana": {
+        "name": "Ravani Tatiana",
+        "society": "O-92",
+        "category": "DAK",
+        "points": "487",
+        "price": 60000
+    },
+    "Oberti Christel": {
+        "name": "Oberti Christel",
+        "society": "O-92",
+        "category": "DAK",
+        "points": "376",
+        "price": 60000
+    },
+    "Pronini Maura": {
+        "name": "Pronini Maura",
+        "society": "GOLD",
+        "category": "D40",
+        "points": "7000",
+        "price": 823667
+    },
+    "Ortelli Giannakis Sarah": {
+        "name": "Ortelli Giannakis Sarah",
+        "society": "CO AGET",
+        "category": "D40",
+        "points": "6492",
+        "price": 756780
+    },
+    "Bertozzi Elena": {
+        "name": "Bertozzi Elena",
+        "society": "GOLD",
+        "category": "D40",
+        "points": "6340",
+        "price": 736767
+    },
+    "Quadri Kocsis Graziella": {
+        "name": "Quadri Kocsis Graziella",
+        "society": "ASCO",
+        "category": "D40",
+        "points": "6212",
+        "price": 719913
+    },
+    "Rossetti Sabina": {
+        "name": "Rossetti Sabina",
+        "society": "O-92",
+        "category": "D40",
+        "points": "5947",
+        "price": 685022
+    },
+    "De Maria Roberta": {
+        "name": "De Maria Roberta",
+        "society": "O-92",
+        "category": "D40",
+        "points": "5837",
+        "price": 670538
+    },
+    "Bernasconi Karin": {
+        "name": "Bernasconi Karin",
+        "society": "ASCO",
+        "category": "D40",
+        "points": "5627",
+        "price": 642888
+    },
+    "Petrini Kleiner Claudia": {
+        "name": "Petrini Kleiner Claudia",
+        "society": "GOLD",
+        "category": "D40",
+        "points": "5139",
+        "price": 578635
+    },
+    "Radaelli Jasmine": {
+        "name": "Radaelli Jasmine",
+        "society": "UNITAS",
+        "category": "D40",
+        "points": "5039",
+        "price": 565468
+    },
+    "Guglielmetti Asmus Elena": {
+        "name": "Guglielmetti Asmus Elena",
+        "society": "GOLD",
+        "category": "D40",
+        "points": "4804",
+        "price": 534527
+    },
+    "Marson Marta": {
+        "name": "Marson Marta",
+        "society": "SCOM",
+        "category": "D40",
+        "points": "4660",
+        "price": 515567
+    },
+    "Bianchi Michela": {
+        "name": "Bianchi Michela",
+        "society": "ASCO",
+        "category": "D40",
+        "points": "4600",
+        "price": 507667
+    },
+    "Romagna Sara": {
+        "name": "Romagna Sara",
+        "society": "ASCO",
+        "category": "D40",
+        "points": "4383",
+        "price": 479095
+    },
+    "Bozzolo Bonini Francesca": {
+        "name": "Bozzolo Bonini Francesca",
+        "society": "ASCO",
+        "category": "D40",
+        "points": "3858",
+        "price": 409970
+    },
+    "Gysin Nuria": {
+        "name": "Gysin Nuria",
+        "society": "SCOM",
+        "category": "D40",
+        "points": "2895",
+        "price": 283175
+    },
+    "Canonica Sara": {
+        "name": "Canonica Sara",
+        "society": "GOLD",
+        "category": "D40",
+        "points": "2507",
+        "price": 232088
+    },
+    "Maddalena Novella": {
+        "name": "Maddalena Novella",
+        "society": "O-92",
+        "category": "D50",
+        "points": "1619",
+        "price": 115168
+    },
+    "De Maria Ivana": {
+        "name": "De Maria Ivana",
+        "society": "O-92",
+        "category": "D40",
+        "points": "800",
+        "price": 60000
+    },
+    "Pedrazzi Giulia": {
+        "name": "Pedrazzi Giulia",
+        "society": "O-92",
+        "category": "D40",
+        "points": "773",
+        "price": 60000
+    },
+    "Fontana Daniela": {
+        "name": "Fontana Daniela",
+        "society": "CO AGET",
+        "category": "D40",
+        "points": "717",
+        "price": 60000
+    },
+    "Tsitovich Ina": {
+        "name": "Tsitovich Ina",
+        "society": "CO AGET",
+        "category": "D40",
+        "points": "666",
+        "price": 60000
+    },
+    "Baumgartner Michela": {
+        "name": "Baumgartner Michela",
+        "society": "SCOM",
+        "category": "D40",
+        "points": "610",
+        "price": 60000
+    },
+    "Spinelli Tulla": {
+        "name": "Spinelli Tulla",
+        "society": "SCOM",
+        "category": "D50",
+        "points": "6619",
+        "price": 773502
+    },
+    "Pini Nathalie": {
+        "name": "Pini Nathalie",
+        "society": "CO AGET",
+        "category": "D50",
+        "points": "6520",
+        "price": 760467
+    },
+    "Barca Sandra": {
+        "name": "Barca Sandra",
+        "society": "GOV",
+        "category": "D50",
+        "points": "6282",
+        "price": 729130
+    },
+    "Beltraminelli Marzia": {
+        "name": "Beltraminelli Marzia",
+        "society": "ASCO",
+        "category": "D50",
+        "points": "6110",
+        "price": 706483
+    },
+    "Maddalena Caia": {
+        "name": "Maddalena Caia",
+        "society": "O-92",
+        "category": "D50",
+        "points": "4886",
+        "price": 545323
+    },
+    "Bozzolo Ren Cristina": {
+        "name": "Bozzolo Ren Cristina",
+        "society": "ASCO",
+        "category": "D50",
+        "points": "4874",
+        "price": 543743
+    },
+    "Brofferio Simona": {
+        "name": "Brofferio Simona",
+        "society": "CO AGET",
+        "category": "D50",
+        "points": "4574",
+        "price": 504243
+    },
+    "Inderst Martina": {
+        "name": "Inderst Martina",
+        "society": "GOLD",
+        "category": "D50",
+        "points": "4386",
+        "price": 479490
+    },
+    "Rossi-Solc\u00e0 Cristina": {
+        "name": "Rossi-Solc\u00e0 Cristina",
+        "society": "SCOM",
+        "category": "D50",
+        "points": "3982",
+        "price": 426297
+    },
+    "Schnyder Manuela": {
+        "name": "Schnyder Manuela",
+        "society": "O-92",
+        "category": "D50",
+        "points": "3970",
+        "price": 424717
+    },
+    "Cortellezzi Patrizia": {
+        "name": "Cortellezzi Patrizia",
+        "society": "GOLD",
+        "category": "D50",
+        "points": "3840",
+        "price": 407600
+    },
+    "Montemezzani Nives": {
+        "name": "Montemezzani Nives",
+        "society": "ASCO",
+        "category": "D50",
+        "points": "3819",
+        "price": 404835
+    },
+    "Giopelli Claudia": {
+        "name": "Giopelli Claudia",
+        "society": "CO AGET",
+        "category": "D50",
+        "points": "3793",
+        "price": 401412
+    },
+    "Corsi Maurizia": {
+        "name": "Corsi Maurizia",
+        "society": "GOLD",
+        "category": "D50",
+        "points": "3338",
+        "price": 341503
+    },
+    "Boiani Sarah": {
+        "name": "Boiani Sarah",
+        "society": "O-92",
+        "category": "D50",
+        "points": "2958",
+        "price": 291470
+    },
+    "Anuchkina Larisa": {
+        "name": "Anuchkina Larisa",
+        "society": "CO AGET",
+        "category": "D50",
+        "points": "2760",
+        "price": 265400
+    },
+    "R\u00f6mer Guglielmini Daphne": {
+        "name": "R\u00f6mer Guglielmini Daphne",
+        "society": "UNITAS",
+        "category": "D50",
+        "points": "2720",
+        "price": 260133
+    },
+    "Ferracin Giuliana": {
+        "name": "Ferracin Giuliana",
+        "society": "GOLD",
+        "category": "D50",
+        "points": "2567",
+        "price": 239988
+    },
+    "Turrini Marzia": {
+        "name": "Turrini Marzia",
+        "society": "ASCO",
+        "category": "D50",
+        "points": "2429",
+        "price": 221818
+    },
+    "Cantoreggi Chiara": {
+        "name": "Cantoreggi Chiara",
+        "society": "O-92",
+        "category": "D50",
+        "points": "2120",
+        "price": 181133
+    },
+    "Sabbe Knupfer C\u00e9line": {
+        "name": "Sabbe Knupfer C\u00e9line",
+        "society": "ASCO",
+        "category": "D50",
+        "points": "2016",
+        "price": 167440
+    },
+    "Speziale Petra": {
+        "name": "Speziale Petra",
+        "society": "GOV",
+        "category": "D50",
+        "points": "1850",
+        "price": 145583
+    },
+    "Pellegrini Lisa": {
+        "name": "Pellegrini Lisa",
+        "society": "ASCO",
+        "category": "D50",
+        "points": "1746",
+        "price": 131890
+    },
+    "Sala-L\u00f6hrer Lorenza": {
+        "name": "Sala-L\u00f6hrer Lorenza",
+        "society": "CO AGET",
+        "category": "D50",
+        "points": "1535",
+        "price": 104108
+    },
+    "Mueller Enrile Larissa": {
+        "name": "Mueller Enrile Larissa",
+        "society": "UNITAS",
+        "category": "D50",
+        "points": "1406",
+        "price": 87123
+    },
+    "Bustini Belinda": {
+        "name": "Bustini Belinda",
+        "society": "O-92",
+        "category": "D50",
+        "points": "1204",
+        "price": 60527
+    },
+    "Depedrini Michela": {
+        "name": "Depedrini Michela",
+        "society": "O-92",
+        "category": "D50",
+        "points": "890",
+        "price": 60000
+    },
+    "Sarno Paola": {
+        "name": "Sarno Paola",
+        "society": "CO AGET",
+        "category": "D50",
+        "points": "869",
+        "price": 60000
+    },
+    "Steingruber Sandra": {
+        "name": "Steingruber Sandra",
+        "society": "CO UTOE",
+        "category": "D50",
+        "points": "466",
+        "price": 60000
+    },
+    "Sabato Jeannette": {
+        "name": "Sabato Jeannette",
+        "society": "SCOM",
+        "category": "D50",
+        "points": "402",
+        "price": 60000
+    },
+    "Beretta Maria": {
+        "name": "Beretta Maria",
+        "society": "GOV",
+        "category": "D50",
+        "points": "371",
+        "price": 60000
+    },
+    "Gianoni Laura": {
+        "name": "Gianoni Laura",
+        "society": "CO UTOE",
+        "category": "D50",
+        "points": "365",
+        "price": 60000
+    },
+    "Canonica Dell'Andrino Nadia": {
+        "name": "Canonica Dell'Andrino Nadia",
+        "society": "CO AGET",
+        "category": "D50",
+        "points": "355",
+        "price": 60000
+    },
+    "Caprari Monica": {
+        "name": "Caprari Monica",
+        "society": "GOV",
+        "category": "D50",
+        "points": "0",
+        "price": 60000
+    },
+    "Rovelli Raptopoulos Lara": {
+        "name": "Rovelli Raptopoulos Lara",
+        "society": "CO AGET",
+        "category": "D50",
+        "points": "0",
+        "price": 60000
+    },
+    "Bolis Carla": {
+        "name": "Bolis Carla",
+        "society": "O-92",
+        "category": "D60",
+        "points": "6775",
+        "price": 794042
+    },
+    "Dutly (Bondietti) Nicoletta": {
+        "name": "Dutly (Bondietti) Nicoletta",
+        "society": "GOV",
+        "category": "D60",
+        "points": "6676",
+        "price": 781007
+    },
+    "Zemp Campana Silvia": {
+        "name": "Zemp Campana Silvia",
+        "society": "ASCO",
+        "category": "D60",
+        "points": "6430",
+        "price": 748617
+    },
+    "Guglielmetti Gerda": {
+        "name": "Guglielmetti Gerda",
+        "society": "GOLD",
+        "category": "D60",
+        "points": "6356",
+        "price": 738873
+    },
+    "Rusca Patrizia": {
+        "name": "Rusca Patrizia",
+        "society": "CO AGET",
+        "category": "D60",
+        "points": "5909",
+        "price": 680018
+    },
+    "Bianchi Patrizia": {
+        "name": "Bianchi Patrizia",
+        "society": "GOLD",
+        "category": "D60",
+        "points": "5195",
+        "price": 586008
+    },
+    "Guglielmetti Daniela": {
+        "name": "Guglielmetti Daniela",
+        "society": "GOLD",
+        "category": "D60",
+        "points": "4453",
+        "price": 488312
+    },
+    "Arnet Andrea": {
+        "name": "Arnet Andrea",
+        "society": "CO AGET",
+        "category": "D60",
+        "points": "4388",
+        "price": 479753
+    },
+    "Bettelini Giuliana": {
+        "name": "Bettelini Giuliana",
+        "society": "UNITAS",
+        "category": "D60",
+        "points": "4234",
+        "price": 459477
+    },
+    "Bisceglia-Sarinelli Anna": {
+        "name": "Bisceglia-Sarinelli Anna",
+        "society": "CO AGET",
+        "category": "D60",
+        "points": "2926",
+        "price": 287257
+    },
+    "Rezzonico Susann": {
+        "name": "Rezzonico Susann",
+        "society": "ASCO",
+        "category": "D60",
+        "points": "2348",
+        "price": 211153
+    },
+    "Putzu Daniela": {
+        "name": "Putzu Daniela",
+        "society": "SCOM",
+        "category": "D60",
+        "points": "2175",
+        "price": 188375
+    },
+    "K\u00fcttel Petrosilli Andrea": {
+        "name": "K\u00fcttel Petrosilli Andrea",
+        "society": "GOV",
+        "category": "D60",
+        "points": "1836",
+        "price": 143740
+    },
+    "Pellegrini Rita": {
+        "name": "Pellegrini Rita",
+        "society": "CO AGET",
+        "category": "D60",
+        "points": "1775",
+        "price": 135708
+    },
+    "Hochstrasser Ester": {
+        "name": "Hochstrasser Ester",
+        "society": "CO AGET",
+        "category": "D60",
+        "points": "1588",
+        "price": 111087
+    },
+    "Arn Bea": {
+        "name": "Arn Bea",
+        "society": "SCOM",
+        "category": "D60",
+        "points": "704",
+        "price": 60000
+    }
+}

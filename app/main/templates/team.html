@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+{% block head %}
+{% endblock %}
+
+{% block choice %}
+
+    <div class="choice-div active">
+        <button class="choice-button">Corridori</button>
+    </div>
+    <div class="choice-div">
+        <button class="choice-button">Linee</button>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="main-slider">   
+        <div class="main-slides">
+
+            <div class="main-slide">
+                <div class="main-slide-header">
+                    <div class="price-div">
+                        <p>Saldo del conto: {{user.balance}}</p>
+                    </div>
+                    <form id="filter" method="POST">
+                        <input type="hidden" name="form_id" value="filter">
+                        <label for="category">Ordina per: </label>
+                        <select name="filter" id="filters-dropdown">
+                            <option value="">{{filter}}</option>
+                            {% for filter in filters %}
+                                <option value="{{filter}}" name="selected-filter">{{ filter }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit">Invia</button>
+                    </form>
+                </div>
+
+                <div class="content-div">
+                    <div class="runners-grid">
+                        {% for runner in runners_database %}
+                        <div class="runner-div">
+                            <div class="runner-div-upper" onclick="window.location.href='/runner?runner={{runner.name}}' ">
+                                <div class="runner-image-container">
+                                    <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                </div>
+                                <div class="runner-middle-container">
+                                    <div class="runner-middle-upper">
+                                        <p class="runner-info">{{runner.name}}</p>
+                                        <p class="runner-info">{{runner.category}}</p>
+                                    </div>
+                                    <div class="runner-middle-lower">
+                                        <p class="runner-info">{{runner.points}}</p>
+                                    </div>
+                                </div>
+                                <div class="runner-right-container">
+                                    <p class="runner-info">{{runner.society}}</p>
+                                    <p class="runner-info">{{runner.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="main-slide">
+                <div class="lineup-main-container">
+                    <div class="main-slide-header">
+                        <button class="lineup-selection-button active">Squadra 1</button>
+                        <button class="lineup-selection-button">Squadra 2</button>
+                        <button class="lineup-selection-button">Squadra 3</button>
+                    </div>
+            
+                    <div class="lineup-container">
+                        <div class="lineup-slider">
+
+                            <div class="lineup-slide">
+                                <div class="runners-grid">
+                                    {% for runner in lineup_line1 %}
+                                    {% if runner %}
+                                    <div class="runner-div">
+                                        <div class="runner-div-upper">
+                                            <div class="runner-image-container">
+                                                <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                            </div>
+                                            <div class="runner-middle-container">
+                                                <div class="runner-middle-upper">
+                                                    <p class="runner-info">{{runner.name}}</p>
+                                                    <p class="runner-info">{{runner.points}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="lineup-runner-button">
+                                                <i class="fas fa-exchange-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="runner-div">
+                                        <div class="runner-div-upper">
+                                            <div class="runner-image-container">
+                                                <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                            </div>
+                                            <div class="runner-middle-container">
+                                                <div class="runner-middle-upper">
+                                                   <p class="runner-info">Aggiungi un corridore</p>
+                                                </div>
+                                            </div>
+                                            <div class="lineup-runner-button">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {%endfor%}
+                                </div>
+                            </div>
+
+                            <div class="lineup-slide">
+                                <div class="runners-grid">
+                                    {% for runner in lineup_line2 %}
+                                    {% if runner %}
+                                    <div class="runner-div">
+                                        <div class="runner-div-upper">
+                                            <div class="runner-image-container">
+                                                <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                            </div>
+                                            <div class="runner-middle-container">
+                                                <div class="runner-middle-upper">
+                                                    <p class="runner-info">{{runner.name}}</p>
+                                                    <p class="runner-info">{{runner.points}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="lineup-runner-button">
+                                                <i class="fas fa-exchange-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="runner-div">
+                                        <div class="runner-div-upper">
+                                            <div class="runner-image-container">
+                                                <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                            </div>
+                                            <div class="runner-middle-container">
+                                                <div class="runner-middle-upper">
+                                                   <p class="runner-info">Aggiungi un corridore</p>
+                                                </div>
+                                            </div>
+                                            <div class="lineup-runner-button">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {%endfor%}
+                                </div>
+                            </div>
+
+                            <div class="lineup-slide">
+                                <div class="runners-grid">
+                                    {% for runner in lineup_line3 %}
+                                    {% if runner %}
+                                    <div class="runner-div">
+                                        <div class="runner-div-upper">
+                                            <div class="runner-image-container">
+                                                <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                            </div>
+                                            <div class="runner-middle-container">
+                                                <div class="runner-middle-upper">
+                                                    <p class="runner-info">{{runner.name}}</p>
+                                                    <p class="runner-info">{{runner.points}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="lineup-runner-button">
+                                                <i class="fas fa-exchange-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="runner-div">
+                                        <div class="runner-div-upper">
+                                            <div class="runner-image-container">
+                                                <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                            </div>
+                                            <div class="runner-middle-container">
+                                                <div class="runner-middle-upper">
+                                                   <p class="runner-info">Aggiungi un corridore</p>
+                                                </div>
+                                            </div>
+                                            <div class="lineup-runner-button">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {%endfor%}
+                                </div>
+                            </div>
+
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="overlay players-overlay">
+        <div class="popup players-popup">
+            <div class="popup-info">
+                <p>Scegli il corridore da vendere</p>
+                <i id="popup-x" class="fas fa-x"></i>
+            </div>
+            <div class="runners-grid"></div>
+                {% for runner in runners_database %}
+                    <div id="lineup-div" class="runner-div">
+                        <form id="popup-runner-form" action="" method="post">
+                            <input type="hidden" name="runner-name" value="{{runner.name}}">
+                            <input type="hidden" name="number" value="">
+                        </form>
+                        <input type="hidden" name="runner-name" value="{{runner.name}}">
+                        <div class="runner-div-upper">
+                            <div class="runner-image-container">
+                                <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                            </div>
+                            <div class="runner-middle-container">
+                                <div class="runner-middle-upper">
+                                    <p class="runner-info">{{runner.name}}</p>
+                                    <p class="runner-info">{{runner.points}}</p>
+                                </div>
+                            </div>
+                            <div class="runner-right-container">
+                                <p class="runner-info">{{runner.society}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {%endfor%}
+            </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('main.static', filename='desktop.css')}}">
+    <link rel="stylesheet" href="{{url_for('main.static', filename='mobile.css')}}" media="(min-width: 0px) and (max-width: 400px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{url_for('main.static', filename='script.js')}}"></script>
+
+    <title>{% block title %}Base{% endblock %}</title>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="header-left-section">
+            <div class="header-bars">
+                <i id="bars" class="fas fa-bars bars-icon"></i>
+            </div>
+            <h1 class="site_title">FantaCO</h1>
+        </div>
+        <div class="header-middle-section">
+            <input class="search-bar" type="text" placeholder="Cerca">
+        </div>
+        <div class="header-right-section">
+            <a href="{{ url_for('main.home') }}" class="header-link">home</a>
+            <a href="{{ url_for('main.market') }}" class="header-link">mercato</a>
+            <a href="{{ url_for('main.team') }}" class="header-link">team</a>
+            <a href="{{ url_for('main.base') }}" class="header-link">tmt</a>
+        </div>
+
+        <div class="page-choice">
+            {% block choice %}
+            <!-- div for choices, class choice-div !!! -->
+            {% endblock %}
+        </div>
+    </header>
+
+    <nav>
+        <a class="nav-link" href="">
+            <i class="fas fa-user-cog"></i>
+            Profilo
+        </a>
+        <a class="nav-link" href="#" onclick="swap_league()">
+            <i class="fas fa-sync-alt"></i>
+            Lega
+        </a>
+        <a class="nav-link" href="">
+            <i class="fas fa-pen-nib"></i>
+            Articolo
+        </a>
+
+        {% if is_logged %}
+        <a class="nav-link" href="{{ url_for('auth.logout') }}">
+            <i class="fas fa-right-from-bracket"></i>
+            Logout
+        </a>
+        {% else %}
+        <a class="nav-link" href="{{ url_for('auth.login') }}">
+            <i class="fas fa-right-to-bracket"></i>
+            Login
+        </a>
+        {% endif %}
+    </nav>
+
+    <div class="overlay leagues_overlay">
+        <div class="popup leagues_popup">
+            {% if is_logged %}
+            <div class="popup-info">
+                <p>Scegli la lega da attivare</p>
+                <i id="popup-x" class="fas fa-x"></i>
+            </div>
+            <div class="runners-grid">
+                <div class="runner-div">
+                    <form id="league-form" class="runner-div-upper" action="{{url_for('main.swap_league')}}" method="post">
+                        <input type="hidden" name="league-name" value="global">
+                        <p class="runner-info">Lega Ticinese</p>
+                    </form>
+                </div>
+                {% for league in leagues %}
+                    <div class="runner-div">
+                        <form id="league-form" class="runner-div-upper" action="{{url_for('main.swap_league')}}" method="post">
+                            <input type="hidden" name="league-name" value="{{league}}">
+                            <p class="runner-info">{{league}}</p>
+                        </form>
+                    </div>
+                {%endfor%}
+            </div>
+            {% else %}
+            <div class="popup-info">
+                <p>Effettua il login per vedere le tue leghe</p>
+                <i id="popup-x" class="fas fa-x"></i>
+            </div>
+            {% endif %}
+
+            <div class="add-sell">
+                <i class="fas fa-plus"></i>
+                <p> &nbsp Crea una nuova lega</p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        {% block content %}
+        <!-- div for slides, put content in div with class main.slide -->
+        {% endblock %}
+        
+    </main>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>

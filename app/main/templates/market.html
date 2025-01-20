@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+
+{% block title %}Market Page{% endblock %}
+
+
+{% block choice %}
+
+    <div class="choice-div active">
+        <button class="choice-button">Compra</button>
+    </div>
+    <div class="choice-div">
+        <button class="choice-button">Vendi</button>
+    </div>
+    <div class="choice-div">
+        <button class="choice-button">Transazioni</button>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    
+
+
+    <div class="main-slider">   
+        <div class="main-slides">
+
+            <div class="main-slide">
+                <div class="main-slide-header">
+                    <div class="price-div">
+                        <p>Saldo del conto: {{user.balance}}</p>
+                    </div>
+                    <form id="filter" method="POST">
+                        <input type="hidden" name="form_id" value="filter">
+                        <label for="category">Ordina per: </label>
+                        <select name="filter" id="filters-dropdown">
+                            <option value="">{{filter}}</option>
+                            {% for filter in filters %}
+                                <option value="{{filter}}" name="selected-filter">{{ filter }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit">Invia</button>
+                    </form>
+                </div>
+
+                <div class="content-div">
+                    <div class="runners-grid">
+                        {% for runner in runners_database %}
+                            <div class="runner-div">
+                                <div class="runner-div-upper" onclick="window.location.href='/runner?runner={{runner.name}}' ">
+                                    <div class="runner-image-container">
+                                        <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                    </div>
+                                    <div class="runner-middle-container">
+                                        <div class="runner-middle-upper">
+                                            <p class="runner-info">{{runner.name}}</p>
+                                            <p class="runner-info">{{runner.category}}</p>
+                                        </div>
+                                        <div class="runner-middle-lower">
+                                            <p class="runner-info">{{runner.points}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="runner-right-container">
+                                        <div class="runner-image-container">
+                                            <img class="runner-image society" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}">
+                                        </div>
+                                        <p class="runner-info">{{runner.price}}</p>
+                                    </div>
+                                </div>
+                                <form class="runner-div-lower" action="" method="post">
+                                    <input type="hidden" name="form_id" value="add_runner">
+                                    <input type="hidden" name="runner_name" value="{{runner.name}}">
+                                    <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
+                                    <div class="runner-div-lower-left">
+                                        <i class="fas fa-clock"></i>
+                                        <p>{{runner.timestamp}}</p>
+                                        <input class="value_input" type="text" placeholder="Offerta a FantaCO">
+                                    </div>
+                                    <div class="runner-div-lower-right">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </form>
+                            </div>
+                
+                        {%endfor%}
+                    </div>
+                </div>
+
+
+                
+            </div>
+
+            <div class="main-slide">
+                <div class="main-slide-header">
+                    <div class="price-div">
+                        <p>Saldo del conto: {{user.balance}}</p>
+                    </div>
+                </div>
+                <div class="content-div">
+                    <div class="runners-grid" id="sell-runner">
+                        {% for runner in selling_runners %}
+                        <div class="runner-div">
+                            <div class="runner-div-upper" onclick="window.location.href='/runner?runner={{runner.name}}' ">
+                                <div class="runner-image-container">
+                                    <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                </div>
+                                <div class="runner-middle-container">
+                                    <div class="runner-middle-upper">
+                                        <p class="runner-info">{{runner.name}}</p>
+                                        <p class="runner-info">{{runner.category}}</p>
+                                    </div>
+                                    <div class="runner-middle-lower">
+                                        <p class="runner-info">{{runner.points}}</p>
+                                    </div>
+                                </div>
+                                <div class="runner-right-container">
+                                    <p class="runner-info">{{runner.society}}</p>
+                                    <p class="runner-info">{{runner.price}}</p>
+                                </div>
+                            </div>
+                            <form class="runner-div-lower" action="" method="post">
+                                <input type="hidden" name="form_id" value="add_runner">
+                                <input type="hidden" name="runner_name" value="{{runner.name}}">
+                                <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
+                                <div class="runner-div-lower-left">
+                                    <i class="fas fa-clock"></i>
+                                    <p>rimanente</p>
+                                    <input class="value_input" type="text" placeholder="Ciao zio">
+                                </div>
+                                <div class="runner-div-lower-right sell">
+                                    <i class="fas fa-x"></i>
+                                </div>
+                            </form> 
+                        </div>
+                        <form class="runner-div-lower" action="" method="post">
+                            <input type="hidden" name="form_id" value="add_runner">
+                            <input type="hidden" name="runner_name" value="{{runner.name}}">
+                            <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
+                            <div class="runner-div-lower-left">
+                                <i class="fas fa-clock"></i>
+                                <p>rimanente</p>
+                                <input class="value_input" type="text" placeholder="Accetta offerta">
+                            </div>
+                            <div class="runner-div-lower-right check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </form>            
+                        {%endfor%}
+                        <div class="add-sell">
+                            <i class="fas fa-plus"></i>
+                            <p> &nbsp Vendere un giocatore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-slide">
+                <p>ciao pirla2</p>
+            </div>
+    
+        </div>
+    </div>
+
+        <div class="overlay players-overlay">
+            <div class="popup players-popup">
+                <div class="popup-info">
+                    <p>Scegli il corridore da vendere</p>
+                    <i id="popup-x" class="fas fa-x"></i>
+                </div>
+                <div class="runners-grid"></div>
+                    {% for runner in sellable_runners %}
+                        <div class="runner-div">
+                            <div class="runner-div-upper">
+                                <div class="runner-image-container">
+                                    <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                </div>
+                                <div class="runner-middle-container">
+                                    <div class="runner-middle-upper">
+                                        <p class="runner-info">{{runner.name}}</p>
+                                        <p class="runner-info">{{runner.points}}</p>
+                                    </div>
+                                </div>
+                                <div class="runner-right-container">
+                                    <p class="runner-info">{{runner.society}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {%endfor%}
+                </div>
+        </div>
+
+{% endblock %}
