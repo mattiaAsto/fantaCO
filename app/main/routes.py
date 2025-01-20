@@ -67,7 +67,6 @@ def run_market_creation():
             if free_runners:
                 new_runner_name=random.choice(free_runners)
                 free_runners.remove(new_runner_name)
-                print(all_market_runners[0].timestamp)
                 new_timestamp=(uploading_interval*len(all_market_runners)+all_market_runners[0].timestamp+counter)
                 new_market_runner=MarketTable(
                     runner_name=new_runner_name,
@@ -129,7 +128,6 @@ def get_user_runner_table(id):
 #base template for shared html between templates
 @main.route("/base")
 def base():
-    print(current_user.is_authenticated)
     return render_template("base.html")
 
 
@@ -151,7 +149,6 @@ def market():
 
     if current_user.active_league == "global":
         id = 0
-        print("id=0")
     else:
         league=current_user.active_league
         id = db.session.query(League).filter_by(name=league).first().id
@@ -166,7 +163,6 @@ def market():
 
         if form_id == "filter":
             filter=request.form.get("filter")
-            print("done")
     
     if filter == "":
         selected_runners=db.session.query(user_runner_table).all()
@@ -244,10 +240,10 @@ def market():
     return render_template('market.html', runners_database=runners_database_list, filters=filters, sellable_runners=sellable_runners, selling_runners=selling_runners)
 
 
-@main.route("/buy-runner", methods=["POST"])
+""" @main.route("/buy-runner", methods=["POST"])
 def buy_runner():
     print("ciao")
-
+ """
 
 @main.route("/sell-runner", methods=["POST"])
 def sell_runner():
@@ -277,7 +273,6 @@ def team():
 
     if current_user.active_league == "global":
         id = 0
-        print("id=0")
     else:
         league=current_user.active_league
         id = db.session.query(League).filter_by(name=league).first().id
@@ -368,7 +363,6 @@ def create_new_league():
     db.session.add(new_user_league)
     db.session.commit()
     create_dynamic_tables(new_league.id, user_username)
-    print("league created")
     return jsonify({'message': f"Lega '{league_name}' creata con successo!"})
 
 @main.route("/test")
