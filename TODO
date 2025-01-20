@@ -1,0 +1,48 @@
+PROCEDENDO CON LA PROGRAMMAZIONE AGGIUNGI COMMENTI E DESCRIZIONI PRIMA CHE DIVENTA TROPPO INCASINATO
+
+al posto di seleziona categoria diventa filtra per 
+
+finire con la creazione della pagina runner e lo styling in generale
+mettere anche nel market e team i runners in orizzontale
+
+creazione automatica di un team con 16 giocatori
+
+Mettere in ordine le schermate di login e registrazione
+Div che cambia colore con la sicurezza della password
+
+indirizzo separato per fantaco service
+
+c'è qualcosa che non funziona con il reindirizzamento dopo la registrazione, se il token è sbagliato ti rimanda comunque alla pagina di fare il login
+
+aggiungi la logica per recuperare l'email nel caso venga inserita errata, tipo un "non ho ricevuto l'email"
+
+pagina team da aggiornare al nuovo database
+
+aggiungi un footer
+
+blocchi di try except dove necessario
+
+
+aggiornare e rendere piu potente il calcolo del prezzo
+
+aggiungere il display dei punti fatti per ogni singola gara
+
+pannello di controllo admin
+
+EVENTUALI:
+separare le funzioni di buy_runner e sell_runner nel caso venissero usate in più posti div
+
+mettere a posto il sistema di siplay dei runner nelle linee
+
+unificare le funzioni per il sidescroll del main e del lineup
+
+cancella dal programma routes le vecchie funzioni inutili
+
+rimuovere contattaci dai nav e mettere i contatti nel footer
+
+POST_TESTING:
+riattiva la funzione per controllare la password
+togli debug=True altrimenti si può craccare il codice 
+
+Per i requrements usa il comando pip freeze > requirements.txt
+

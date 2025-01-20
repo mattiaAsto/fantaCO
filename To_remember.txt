@@ -1,0 +1,7 @@
+MySql root password: mattia1234
+port: 3306
+x protocol port: 33060
+windowsc service name: MySQL80
+
+username: root
+hostname: localhost
