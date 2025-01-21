@@ -90,6 +90,8 @@ with app.app_context():
 
 system=1
 
+host = os.getenv("HOST", "127.0.0.1")
+port = int(os.getenv("PORT", 8000))
 
 if __name__ == '__main__':
     print("Refreshed...")
@@ -101,7 +103,7 @@ if __name__ == '__main__':
     if system == 1:
         log = logging.getLogger('werkzeug')
         log.setLevel(logging.ERROR)
-        app.run(host='0.0.0.0', debug=False)
+        app.run(host=host, port=port, debug=False)
     else:
         server = Server(app)
         # Aggiungi qui i file o directory che vuoi monitorare

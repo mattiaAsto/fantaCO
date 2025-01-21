@@ -5,7 +5,9 @@ from flask_login import UserMixin, LoginManager, login_user
 from flask_caching import Cache
 from itsdangerous import URLSafeTimedSerializer
 from apscheduler.schedulers.background import BackgroundScheduler
+from dotenv import load_dotenv
 import atexit
+import os
 
 db = SQLAlchemy()
 mail = Mail()
@@ -15,10 +17,20 @@ cache = Cache()
 
 def create_app():
     app=Flask(__name__)
+    load_dotenv()
+
+    db_user = os.getenv("DB_USER")
+    db_password = os.getenv("DB_PASSWORD")
+    db_hostname = os.getenv("DB_HOSTNAME")
+    db_name = os.getenv
+
+    db_complete_url = os.getenv("DB_COMPLETE_URL")
 
     #config of app, as database url
-    #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///fantaCO.db'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://fantaco_database_user:OGA9m6oFLrf8N76afgUfmQjslNp1gw3J@dpg-cu51nd56l47c73dg0b80-a.oregon-postgres.render.com/fantaco_database'
+    if db_complete_url:
+        app.config['SQLALCHEMY_DATABASE_URI'] = db_complete_url
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{db_user}:{db_password}@{db_hostname}.oregon-postgres.render.com/{db_name}'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     #Flask-Mail configs
