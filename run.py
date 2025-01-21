@@ -1,4 +1,4 @@
-from app import create_app
+from app import create_app, db
 from datetime import datetime, timezone
 from livereload import Server
 import os
@@ -19,7 +19,6 @@ import bcrypt
 
 
 app = create_app()
-db = app.db
 
 # Leggi i dati dal file JSON
 with open(runners_path, 'r') as file:
