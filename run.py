@@ -19,6 +19,7 @@ import bcrypt
 
 
 app = create_app()
+db = app.db
 
 # Leggi i dati dal file JSON
 with open(runners_path, 'r') as file:
