@@ -18,7 +18,7 @@ def create_app():
 
     #config of app, as database url
     #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///fantaCO.db'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:mattia1234@localhost:3306/fantaCO'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://fantaco_database_user:OGA9m6oFLrf8N76afgUfmQjslNp1gw3J@dpg-cu51nd56l47c73dg0b80-a.oregon-postgres.render.com/fantaco_database'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     #Flask-Mail configs
