@@ -4,10 +4,29 @@ from livereload import Server
 import os
 import logging
 
+import json
+from app.models import Runner, MarketTable, User
+from asti_webscraper import RUNNERS_DATABASE_PATH as runners_path
+from asti_webscraper import LEAGUE_DATABASE_PATH as league_path
+from datetime import datetime, timedelta, timezone
+from sqlalchemy import MetaData
+import time
+import os
+import bcrypt
+
+
 
 
 
 app = create_app()
+
+# Leggi i dati dal file JSON
+with open(runners_path, 'r') as file:
+    data = json.load(file)
+
+with open(league_path, 'r') as file:
+    market = json.load(file)
+    
 with app.app_context():
     meta = MetaData()
     meta.reflect(bind=db.engine)
