@@ -101,7 +101,7 @@ if __name__ == '__main__':
     if system == 1:
         log = logging.getLogger('werkzeug')
         log.setLevel(logging.ERROR)
-        app.run(debug=False)
+        app.run(host='0.0.0.0', debug=False)
     else:
         server = Server(app)
         # Aggiungi qui i file o directory che vuoi monitorare
