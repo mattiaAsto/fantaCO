@@ -3,6 +3,8 @@ from datetime import datetime, timezone, timedelta
 from flask_login import UserMixin, login_manager
 from sqlalchemy.types import LargeBinary
 from sqlalchemy import inspect, func
+import random
+
 
 class User(UserMixin, db.Model):
     __tablename__="user"
@@ -23,7 +25,8 @@ class User(UserMixin, db.Model):
     market = db.relationship("MarketTable", back_populates="user", cascade="all, delete")
 
     user_league = db.relationship('UserLeague', back_populates='user')
-
+    
+    league_data = db.relationship('LeagueData', back_populates='user', cascade="all, delete")
 
 
     @classmethod
@@ -72,7 +75,13 @@ class MarketTable(db.Model):
     user = db.relationship('User', back_populates='market')
     runner = db.relationship("Runner", back_populates="market")
 
+class LeagueData(db.Model):
+    __tablename__="leagueData"
+    user_username = db.Column(db.String(50), db.ForeignKey("user.username"), nullable=False, primary_key=True)
+    points = db.Column(db.Integer, default=0)
+    balance = db.Column(db.Integer, default=10000000)
 
+    user = db.relationship('User', back_populates='league_data')
 
 class League(db.Model):
     __tablename__="leagues"
@@ -220,22 +229,12 @@ def create_dynamic_tables(id, user_username):
     if not inspect(db.engine).has_table(league_data_model.__tablename__):
         league_data_model.__table__.create(db.engine)
 
-
-    populate_market(id)
-    print("creating default team")
-    create_default_team(id, user_username)
-
-    return {
-        "market_table": market_model.__tablename__,
-        "user_runner_table": user_runner_model.__tablename__,
-        "league_data_table": league_data_model.__tablename__
-    }
-
+    return
 
 def populate_market(id):
     market_table = create_dynamic_market_model(id)
     all_market_runners = db.session.query(Runner).order_by(func.random()).limit(16).all()
-    i=-15
+    i=-14
     current_time=datetime.now(timezone.utc)
     for runner in all_market_runners:
         timestamp=current_time + timedelta(hours=i)
@@ -269,10 +268,40 @@ def create_default_team(id, user_username):
             runner_name=runner.name
         )
         db.session.add(new_relation)
-        print("added realtion")
     db.session.commit()
 
+def create_default_team_idea(id, user_username):
+    user_runner_table = create_dynamic_user_runner_model(id)
+    market_table = create_dynamic_market_model(id)
 
+    market_names_subquery = db.session.query(market_table.runner_name).subquery()
+
+    # Estrai tutti i corridori non presenti nel mercato
+    available_runners = (
+        db.session.query(Runner)
+        .filter(Runner.name.notin_(market_names_subquery))
+        .all()
+    )
+
+    # Trova una combinazione casuale che soddisfi il vincolo di somma
+    import itertools
+
+    for _ in range(1000):  # Limita i tentativi per evitare un loop infinito
+        random.shuffle(available_runners)
+        selected_runners = random.sample(available_runners, 12)
+        if sum(runner.price for runner in selected_runners) == 5000000:
+            break
+    else:
+        raise ValueError("Impossibile trovare una combinazione valida")
+
+    # Inserisci i corridori selezionati nella tabella
+    for runner in selected_runners:
+        new_relation = user_runner_table(
+            user_username=user_username,
+            runner_name=runner.name
+        )
+        db.session.add(new_relation)
+    db.session.commit()
 
 
 

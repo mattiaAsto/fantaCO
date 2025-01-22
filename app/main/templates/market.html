@@ -147,7 +147,7 @@
                             </div>
                         </form>            
                         {%endfor%}
-                        <div class="add-sell">
+                        <div class="add-sell" onclick="show_sell_popup()">
                             <i class="fas fa-plus"></i>
                             <p> &nbsp Vendere un giocatore</p>
                         </div>
@@ -162,32 +162,35 @@
         </div>
     </div>
 
-        <div class="overlay players-overlay">
-            <div class="popup players-popup">
-                <div class="popup-info">
-                    <p>Scegli il corridore da vendere</p>
-                    <i id="popup-x" class="fas fa-x"></i>
-                </div>
-                <div class="runners-grid"></div>
-                    {% for runner in sellable_runners %}
-                        <div class="runner-div">
-                            <div class="runner-div-upper">
-                                <div class="runner-image-container">
-                                    <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
-                                </div>
-                                <div class="runner-middle-container">
-                                    <div class="runner-middle-upper">
-                                        <p class="runner-info">{{runner.name}}</p>
-                                        <p class="runner-info">{{runner.points}}</p>
-                                    </div>
-                                </div>
-                                <div class="runner-right-container">
-                                    <p class="runner-info">{{runner.society}}</p>
+    <div class="overlay sell-overlay">
+        <div class="popup sell-popup">
+            <div class="popup-info">
+                <p>Scegli il corridore da vendere</p>
+                <i id="popup-x" class="fas fa-x"></i>
+            </div>
+            <div class="runners-grid"></div>
+                {% for runner in sellable_runners %}
+                    <div id="sell-div" class="runner-div">
+                        <form id="popup-runner-sell-form" action="/sell-runner" method="post">
+                            <input type="hidden" name="runner-name" value="{{runner.name}}">
+                            <input type="hidden" name="runner-price" value="{{runner.price}}">
+                        </form>
+                        <div class="runner-div-upper">
+                            <div class="runner-image-container">
+                                <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                            </div>
+                            <div class="runner-middle-container">
+                                <div class="runner-middle-upper">
+                                    <p class="runner-info">{{runner.name}}</p>
+                                    <p class="runner-info">{{runner.points}}</p>
                                 </div>
                             </div>
+                            <div class="runner-right-container">
+                                <p class="runner-info">{{runner.society}}</p>
+                            </div>
                         </div>
-                    {%endfor%}
-                </div>
-        </div>
-
+                    </div>
+                {%endfor%}
+            </div>
+    </div>
 {% endblock %}

@@ -79,13 +79,26 @@
                     </form>
                 </div>
                 {% for league in leagues %}
+                    {% if league == current_league %}
+                        <div class="runner-div active-league">
+                            <form id="league-form" class="runner-div-upper" action="{{url_for('main.swap_league')}}" method="post">
+                                <input type="hidden" name="league-name" value="{{league}}">
+                                <p class="runner-info">{{league}}</p>
+                            </form>
+                        </div>
+                    {% else %}
                     <div class="runner-div">
                         <form id="league-form" class="runner-div-upper" action="{{url_for('main.swap_league')}}" method="post">
                             <input type="hidden" name="league-name" value="{{league}}">
                             <p class="runner-info">{{league}}</p>
                         </form>
                     </div>
+                    {% endif %}
                 {%endfor%}
+            </div>
+            <div class="add-sell">
+                <i class="fas fa-plus"></i>
+                <p> &nbsp Crea una nuova lega</p>
             </div>
             {% else %}
             <div class="popup-info">
@@ -94,10 +107,6 @@
             </div>
             {% endif %}
 
-            <div class="add-sell">
-                <i class="fas fa-plus"></i>
-                <p> &nbsp Crea una nuova lega</p>
-            </div>
         </div>
     </div>
 

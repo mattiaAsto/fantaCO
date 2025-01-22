@@ -46,7 +46,6 @@ def create_app():
 
     #config of app, as database url
     if db_complete_url:
-        print("running in complete url")
         app.config['SQLALCHEMY_DATABASE_URI'] = db_complete_url
     else:
         app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{db_user}:{db_password}@{db_hostname}.oregon-postgres.render.com/{db_name}'

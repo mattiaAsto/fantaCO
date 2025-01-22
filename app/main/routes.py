@@ -103,6 +103,11 @@ def global_injection_dictionary():
         "leagues": all_leagues,
     }
 
+def get_user_league_id():
+    if current_user.active_league == "global":
+        return 0
+    else:
+        return League.query.filter_by(name=current_user.active_league).first().id
 
 @cache.memoize()
 def get_market_table(id):
@@ -120,6 +125,13 @@ def get_user_runner_table(id):
     else:
         return create_dynamic_user_runner_model(id)
 
+@cache.memoize()
+def get_league_data_table(id):
+
+    if id == 0:
+        return LeagueData
+    else:
+        return create_dynamic_league_data_model(id)
 
 
 
@@ -147,11 +159,7 @@ def market():
     filters=["Categoria", "Punti", "Società", "Prezzo"]
     filter = ""
 
-    if current_user.active_league == "global":
-        id = 0
-    else:
-        league=current_user.active_league
-        id = db.session.query(League).filter_by(name=league).first().id
+    id = get_user_league_id()
         
     user_runner_table=get_market_table(id)
     owned_runners=db.session.query(get_user_runner_table(id)).all()
@@ -247,21 +255,18 @@ def buy_runner():
 
 @main.route("/sell-runner", methods=["POST"])
 def sell_runner():
-    user=current_user
-    runner_name = request.form.get("name")
+    user_runner_table = get_user_runner_table(get_user_league_id())
 
-    user_runner = next((ur for ur in user.runners if ur.runner.name == runner_name), None)
+    user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
 
     if user_runner:
-        print(f"to remove: {user_runner}")
         #user.balance=user.balance+user_runner.runner.price
         #user_runner.runner.plus_minus-=1
         #db.session.delete(user_runner)
         user_runner.selling=True
         db.session.commit()
     else:
-        print("Runner non trovato per questo utente.")
-    
+        return jsonify({"code": "error"}), 400    
     return jsonify({"code": "okay"}), 200
 
 
@@ -316,15 +321,16 @@ def team():
 
 @main.route("/refresh-team", methods=["POST"])
 def refresh_team():
-    name = request.form.get("name")
+    name = request.form.get("runner-name")
     number = request.form.get("number")
 
+    user_runner_table = get_user_runner_table(get_user_league_id())
     
-    old_runner = db.session.query(UserRunner).filter(UserRunner.user_username == current_user.username, UserRunner.lineup == number).first()
+    old_runner = db.session.query(user_runner_table).filter(user_runner_table.user_username == current_user.username, user_runner_table.lineup == number).first()
     if old_runner: 
         old_runner.lineup = 0
 
-    new_runner = db.session.query(UserRunner).filter(UserRunner.user_username == current_user.username, UserRunner.runner_name == name).first()
+    new_runner = db.session.query(user_runner_table).filter(user_runner_table.user_username == current_user.username, user_runner_table.runner_name == name).first()
     new_runner.lineup = number
     db.session.commit()
 
@@ -352,6 +358,7 @@ def runner():
     
     return render_template("runner.html", runner=runner)
 
+
 @main.route("/create_new_league", methods=["GET", "POST"])
 def create_new_league():
     user_username=current_user.username
@@ -363,13 +370,10 @@ def create_new_league():
     db.session.add(new_user_league)
     db.session.commit()
     create_dynamic_tables(new_league.id, user_username)
-    return jsonify({'message': f"Lega '{league_name}' creata con successo!"})
+    populate_market(new_league.id)
+    create_default_team(new_league.id, user_username)
+    return jsonify({'message': f"Lega '{league_name}' creata con successo!"}), 200
 
-@main.route("/test")
-def test():
-    all_user_leagues_rows = UserLeague.query.filter_by(user_username=current_user.username).all()
-    all_leagues=[row.league_name for row in all_user_leagues_rows]
-    return all_leagues
 
 @main.route("/swap_league", methods=["POST"])
 def swap_league():

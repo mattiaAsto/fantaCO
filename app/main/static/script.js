@@ -31,6 +31,16 @@ function swap_league() {
 	});
 }
 
+//show popup for chosing the selling runner
+function show_sell_popup() {
+	const overlay = document.querySelector(".sell-overlay");
+	const popup = document.querySelector(".sell-popup");
+	overlay.classList.add("active");
+	popup.classList.add("active");
+	document.body.classList.add("no-scroll");
+
+	return;
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,9 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
     //show popup for chosing linups
-    function show_popup(i) {
-		const overlay = document.querySelector(".players-overlay");
-		const popup = document.querySelector(".players-popup");
+    function show_lineup_popup(i) {
+		const overlay = document.querySelector(".lineup-overlay");
+		const popup = document.querySelector(".lineup-popup");
 		overlay.classList.add("active");
 		popup.classList.add("active");
 		document.body.classList.add("no-scroll");
@@ -91,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (lineup_button.length) {
 			lineup_button.forEach((button, i) => {
 				button.addEventListener("click", () => {
-					show_popup(i + 1);
+					show_lineup_popup(i + 1);
 				});
 			});
 		} else {
@@ -122,13 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	//refresh part of the sell page without whole refresh
 	function reload_sellpage() {
 		fetch("/market")
-			.then((response) => response.text()) // Ottieni il contenuto come testo HTML
+			.then((response) => response.text())
 			.then((data) => {
-				// Trova il div con l'ID "contenuto" e sostituisci il suo HTML con il nuovo
 
 				const parser = new DOMParser();
-				const doc = parser.parseFromString(data, "text/html"); // Parso l'intera pagina HTML
-				const new_content = doc.getElementById("sell-runner"); // Modifica con il tuo selettore
+				const doc = parser.parseFromString(data, "text/html");
+				const new_content = doc.getElementById("sell-runner");
 
 				document.getElementById("sell-runner").innerHTML = new_content.innerHTML;
 
@@ -216,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				var form = div.querySelector("form")
 				console.log(form)
 				const formData = new FormData(form);
-				console.log(formData)
+				console.log(form.action)
 
 				fetch(form.action, {
 					method: form.method,
@@ -238,20 +247,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		);
 	}
 
-	//add the close the popup with x icon
-	add_close_popup_behaviour();
-
-
-	const add_sell = document.querySelector(".add-sell");
-	add_sell.addEventListener("click", () => {
-		show_popup(1);
-	});
-
-	const sell_form = document.querySelectorAll(".sell-form");
-	if (sell_form.length) {
-		sell_form.forEach((form, i) => {
-			form.addEventListener("click", function (event) {
+	const popup_sell_div = document.querySelectorAll("#sell-div");
+	if (popup_sell_div.length) {
+		popup_sell_div.forEach((div, i) => {
+			div.addEventListener("click", function (event) {
+				var form = div.querySelector("form")
+				console.log(form)
 				const formData = new FormData(form);
+				console.log(form.action)
 
 				fetch(form.action, {
 					method: form.method,
@@ -259,8 +262,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				})
 					.then((response) => response.json())
 					.then((data) => {
-						reload_sellpage();
 						hide_popup();
+						reload_sellpage();
 					})
 					.catch((error) => {
 						console.error("Errore:", error);
@@ -269,9 +272,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	} else {
 		console.error(
-			"Bottoni nella classe '.sell-form' non trovati."
+			"Bottoni nella classe '.lineup-runner-button' non trovati."
 		);
 	}
+
+	//add the close the popup with x icon
+	add_close_popup_behaviour();
+
+
 
 
 

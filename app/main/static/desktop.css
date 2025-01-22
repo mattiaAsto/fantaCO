@@ -232,7 +232,7 @@ nav.active{
 .main-slide-header{
     padding: 10px;
     height: 11vh;
-    width: 100%;
+    width: 75vw;
     box-sizing: border-box;
     background-color: var(--grey2);
     display: flex;
@@ -424,14 +424,7 @@ nav.active{
 
 
 
-.lineup-main-container{
-    width: 75vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}
+
 
 .lineup-selection-button{
     height: 100%;
@@ -487,20 +480,7 @@ nav.active{
     height: auto;
 }
 
-.lineup-runner-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60%;
-    aspect-ratio: 3/2;
-    margin-right: calc((20vh - (20vh * 0.6)) / 2);
-    background-color: var(--orange);
-    border-radius: 10px;
-}
-.lineup-runner-button i{
-    color: white;
-    font-size: 30px;
-}
+
 
 
 
@@ -592,4 +572,11 @@ nav.active{
 }
 .add-sell i{
     font-size: 3vh;
+}
+
+
+.active-league{
+    border-style: solid;
+    border-width: 1vh;
+    border-color: var(--orange);
 }
