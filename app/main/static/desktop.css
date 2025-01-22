@@ -43,6 +43,10 @@ p {
     margin: 0px;
 }
 
+button {
+    border-style: none;
+}
+
 header{
     display: flex;
     flex-direction: row;

@@ -10,7 +10,7 @@
         <button class="choice-button">Corridori</button>
     </div>
     <div class="choice-div">
-        <button class="choice-button">Linee</button>
+        <button class="choice-button">Squadre</button>
     </div>
 
 {% endblock %}
@@ -23,7 +23,7 @@
             <div class="main-slide">
                 <div class="main-slide-header">
                     <div class="price-div">
-                        <p>Saldo del conto: {{user.balance}}</p>
+                        <p>Saldo del conto: {{balance}}</p>
                     </div>
                     <form id="filter" method="POST">
                         <input type="hidden" name="form_id" value="filter">

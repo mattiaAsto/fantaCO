@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for, session, current_
 from flask_mail import Message
 from flask_login import login_user, logout_user
 from . import auth
-from app.models import User, Runner, UserRunner, MarketTable
+from app.models import *
 from app import db, mail
 from werkzeug.security import check_password_hash
 from sqlalchemy import func
@@ -51,8 +51,8 @@ def check_password(password): #returns "Okay" if all yes_... are satisfied, else
         message=f"I caratteri speciali consentiti sono: {specials}"
     else:
         message="Okay"
-    return message
-    #return "Okay"
+    #return message
+    return "Okay"
     
 def create_team(user):
 
@@ -129,10 +129,16 @@ def register():
             username=username,
             nickname=nickname,
             password=hashed_password,
-            points=0,
-            balance=10000000
         )
         db.session.add(new_user)
+
+        new_league_data = LeagueData(
+            user_username=username, 
+            balance=10000000, 
+            points=0
+            )
+        db.session.add(new_league_data)
+
         db.session.commit()
 
         return redirect(url_for("auth.send_email", address=username, name=name))
@@ -183,6 +189,7 @@ def send_email(address, name):
     try:
         mail.send(msg)
     except Exception as e:
+        print(e)
         print('Errore durante l’invio dell’email. Riprova più tardi.', 'danger')
     return redirect(url_for("auth.auth_interaction", case="wait_verification"))
 

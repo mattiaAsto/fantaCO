@@ -29,7 +29,7 @@
             <div class="main-slide">
                 <div class="main-slide-header">
                     <div class="price-div">
-                        <p>Saldo del conto: {{user.balance}}</p>
+                        <p>Saldo del conto: {{balance}}</p>
                     </div>
                     <form id="filter" method="POST">
                         <input type="hidden" name="form_id" value="filter">
@@ -69,17 +69,29 @@
                                     </div>
                                 </div>
                                 <form class="runner-div-lower" action="" method="post">
-                                    <input type="hidden" name="form_id" value="add_runner">
+                                    <input type="hidden" name="form_id" value="add_runner_offer">
                                     <input type="hidden" name="runner_name" value="{{runner.name}}">
-                                    <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
+                                    <input type="hidden" name="min_price" value="{{runner.price}}"> 
+                                    <input type="hidden" name="is_from_market" value="{{runner.is_from_market}}">                                       
                                     <div class="runner-div-lower-left">
                                         <i class="fas fa-clock"></i>
-                                        <p>{{runner.timestamp}}</p>
-                                        <input class="value_input" type="text" placeholder="Offerta a FantaCO">
+                                        <p>{% if runner.timestamp == 'none' %}<i class="fas fa-infinity"></i>{% else %}{{runner.timestamp}}{% endif %}</p>
+                                        <input class="value_input" type="text" name="offer_amount" placeholder="Offerta a {{runner.seller}}">
+                                        <p>
+                                            {% if runner.buyer == user.username %}
+                                            {{runner.offer}}
+                                            {%endif%}
+                                        </p>
                                     </div>
-                                    <div class="runner-div-lower-right">
+                                    {% if runner.buyer == user.username %}
+                                    <button class="runner-div-lower-right check" type="submit">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    {% else %}
+                                    <button class="runner-div-lower-right" type="submit">
                                         <i class="fas fa-plus"></i>
-                                    </div>
+                                    </button>
+                                    {% endif %}
                                 </form>
                             </div>
                 
@@ -94,7 +106,7 @@
             <div class="main-slide">
                 <div class="main-slide-header">
                     <div class="price-div">
-                        <p>Saldo del conto: {{user.balance}}</p>
+                        <p>Saldo del conto: {{balance}}</p>
                     </div>
                 </div>
                 <div class="content-div">
@@ -125,22 +137,39 @@
                                 <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
                                 <div class="runner-div-lower-left">
                                     <i class="fas fa-clock"></i>
-                                    <p>rimanente</p>
-                                    <input class="value_input" type="text" placeholder="Ciao zio">
+                                    <p><i class="fas fa-infinity"></i></p>
+                                    <input class="value_input" type="text" placeholder="Prezzo di vendita">
+                                    <p>{{runner.price}}</p>
                                 </div>
                                 <div class="runner-div-lower-right sell">
                                     <i class="fas fa-x"></i>
                                 </div>
                             </form> 
                         </div>
+                        {% if runner.offer > 0 %}
+                        <form class="runner-div-lower" action="" method="post">
+                            <input type="hidden" name="runner_name" value="{{runner.name}}">
+                            <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
+                            <div class="runner-div-lower-left">
+                                <i class="fas fa-clock"></i>
+                                <p><i class="fas fa-infinity"></i></p>
+                                <input class="value_input" type="text" placeholder="Offerta di {{runner.buyer}}">
+                                <p>{{runner.offer}}</p>
+                            </div>
+                            <div class="runner-div-lower-right check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </form>   
+                        {% endif %}
                         <form class="runner-div-lower" action="" method="post">
                             <input type="hidden" name="form_id" value="add_runner">
                             <input type="hidden" name="runner_name" value="{{runner.name}}">
                             <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
                             <div class="runner-div-lower-left">
                                 <i class="fas fa-clock"></i>
-                                <p>rimanente</p>
-                                <input class="value_input" type="text" placeholder="Accetta offerta">
+                                <p><i class="fas fa-infinity"></i></p>
+                                <input class="value_input" type="text" placeholder="Offerta di FantaCO">
+                                <p>{{runner.price}}</p>
                             </div>
                             <div class="runner-div-lower-right check">
                                 <i class="fas fa-check"></i>

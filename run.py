@@ -3,9 +3,8 @@ from datetime import datetime, timezone
 from livereload import Server
 import os
 import logging
-
 import json
-from app.models import Runner, MarketTable, User
+from app.models import *
 from asti_webscraper import RUNNERS_DATABASE_PATH as runners_path
 from asti_webscraper import LEAGUE_DATABASE_PATH as league_path
 from datetime import datetime, timedelta, timezone
@@ -26,67 +25,71 @@ with open(runners_path, 'r') as file:
 
 with open(league_path, 'r') as file:
     market = json.load(file)
-    
-with app.app_context():
-    meta = MetaData()
-    meta.reflect(bind=db.engine)
-    meta.drop_all(bind=db.engine)
 
-    db.create_all()
+migrate=False
+if migrate:
+    with app.app_context():
+        meta = MetaData()
+        meta.reflect(bind=db.engine)
+        meta.drop_all(bind=db.engine)
 
-    # Aggiungi i runner al database
-    all_runners=list(data.keys())
-    for runner in all_runners:
-        runner_data=data[runner]
-        new_runner = Runner(
-            name=runner_data['name'],
-            society=runner_data["society"],
-            category=runner_data["category"],
-            points=runner_data["points"],
-            price=runner_data["price"]    
+        db.create_all()
+
+        # Aggiungi i runner al database
+        all_runners=list(data.keys())
+        for runner in all_runners:
+            runner_data=data[runner]
+            new_runner = Runner(
+                name=runner_data['name'],
+                society=runner_data["society"],
+                category=runner_data["category"],
+                points=runner_data["points"],
+                price=runner_data["price"]    
+            )
+            db.session.add(new_runner)
+
+
+        all_market_runners=market["market_runners"]
+        i=-14
+        current_time=datetime.now(timezone.utc)
+        for runner in all_market_runners:
+            timestamp=current_time + timedelta(hours=i)
+            new_market_runner = MarketTable(
+                runner_name=runner,
+                timestamp=timestamp
+            )
+            db.session.add(new_market_runner)
+
+            i+=1
+
+        # Aggiungi gli utenti al database
+        """ for user_data in data['users']:
+            user = User(
+                username=user_data['username'],
+                email=user_data['email'],
+                team_id=user_data['team_id']
+            )
+            db.session.add(user) """
+
+        hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
+
+        admin=User(
+            name="Admin",
+            surname="Admin",
+            username="admin",
+            nickname="ADMIN",
+            password=hashed_password,
+            is_validated=True
         )
-        db.session.add(new_runner)
 
+        db.session.add(admin)
 
-    all_market_runners=market["market_runners"]
-    i=-14
-    current_time=datetime.now(timezone.utc)
-    for runner in all_market_runners:
-        timestamp=current_time + timedelta(hours=i)
-        new_market_runner = MarketTable(
-            runner_name=runner,
-            timestamp=timestamp
-        )
-        db.session.add(new_market_runner)
+        league_data = LeagueData(user_username="admin")
 
-        i+=1
+        db.session.add(league_data)
 
-    # Aggiungi gli utenti al database
-    """ for user_data in data['users']:
-        user = User(
-            username=user_data['username'],
-            email=user_data['email'],
-            team_id=user_data['team_id']
-        )
-        db.session.add(user) """
-
-    hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
-
-    admin=User(
-        name="Admin",
-        surname="Admin",
-        username="admin",
-        nickname="ADMIN",
-        password=hashed_password,
-        points=0,
-        balance=10000000,
-        is_validated=True
-    )
-
-    db.session.add(admin)
-
-    db.session.commit()
-    print("Dati migrati con successo!")
+        db.session.commit()
+        print("Dati migrati con successo!")
 
 system=1
 

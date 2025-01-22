@@ -96,11 +96,15 @@ def global_injection_dictionary():
     else:
         all_leagues=["Effettua il login per vedere le leghe"]
 
+    balance = get_league_data_table(get_user_league_id()).query.filter_by(user_username=current_user.username).first().balance if current_user.is_authenticated else 0
+
+
 
     return {
         "is_logged": current_user.is_authenticated, #is_logged is used to chose between login and logout in navbar buttons
         "user": current_user,
         "leagues": all_leagues,
+        "balance": balance,
     }
 
 def get_user_league_id():
@@ -161,8 +165,11 @@ def market():
 
     id = get_user_league_id()
         
-    user_runner_table=get_market_table(id)
-    owned_runners=db.session.query(get_user_runner_table(id)).all()
+    market_table=get_market_table(id)
+    user_runner_table=get_user_runner_table(id)
+    owned_runners=db.session.query(user_runner_table).filter_by(user_username=current_user.username).all()
+
+    all_owned_runners=db.session.query(user_runner_table).all()
     
 
     if request.method == 'POST':
@@ -171,22 +178,61 @@ def market():
 
         if form_id == "filter":
             filter=request.form.get("filter")
+        
+        elif form_id == "add_runner_offer":
+            offer_amount = request.form.get("offer_amount")
+            offer_amount = int(offer_amount) if offer_amount else 0
+            min_price = request.form.get("min_price")
+            runner_name = request.form.get("runner_name")
+
+            print(min_price)
+
+            is_from_market = request.form.get("is_from_market")
+
+            if is_from_market == "True":
+                market_runner = market_table.query.filter_by(runner_name=runner_name).first()
+            else:
+                market_runner = user_runner_table.query.filter_by(runner_name=runner_name).first()
+            if int(market_runner.offer) < offer_amount and offer_amount >= int(min_price):
+                market_runner.offer = offer_amount
+                market_runner.buyer = current_user.username
+                db.session.commit()
+            else:
+                print("offer less")   
+                
     
     if filter == "":
-        selected_runners=db.session.query(user_runner_table).all()
+        selected_runners=db.session.query(market_table).all()
     elif filter == "Categoria":
-        selected_runners = user_runner_table.query.join(Runner).order_by(Runner.category.asc()).all()
+        selected_runners = market_table.query.join(Runner).order_by(Runner.category.asc()).all()
     elif filter == "Punti":
-        selected_runners = user_runner_table.query.join(Runner).order_by(Runner.points.desc()).all()
+        selected_runners = market_table.query.join(Runner).order_by(Runner.points.desc()).all()
     elif filter == "Società":
-        selected_runners = user_runner_table.query.join(Runner).order_by(Runner.society.asc()).all()
+        selected_runners = market_table.query.join(Runner).order_by(Runner.society.asc()).all()
     elif filter == "Prezzo":
-        selected_runners = user_runner_table.query.join(Runner).order_by(Runner.price.desc()).all()
+        selected_runners = market_table.query.join(Runner).order_by(Runner.price.desc()).all()
 
 
-    row_count=db.session.query(user_runner_table).count()
+    row_count=db.session.query(market_table).count()
     
-    runners_database_list=[]
+    runners_database=[]
+
+    for runner in all_owned_runners:
+        if runner.selling:
+            full_details=runner.runner
+            selling_runner={
+                "name": full_details.name,
+                "society": full_details.society,
+                "category": full_details.category,
+                "points": full_details.points,
+                "price": full_details.price,
+                "timestamp": "none",
+                "seller": runner.user.nickname,
+                "is_from_market": False,
+                "buyer": runner.buyer,
+                "offer": runner.offer
+            }
+            runners_database.append(selling_runner)
 
     for runner in selected_runners:
         current_time=(datetime.now(ZoneInfo("Europe/Zurich")))
@@ -212,9 +258,13 @@ def market():
             "category": full_details.category,
             "points": full_details.points,
             "price": full_details.price,
-            "timestamp": time_remaining
+            "timestamp": time_remaining,
+            "seller": "FantaCO",
+            "is_from_market": True,
+            "buyer": runner.buyer,
+            "offer": runner.offer
         }
-        runners_database_list.append(append_runner)
+        runners_database.append(append_runner)
 
 
     sellable_runners = []
@@ -240,12 +290,14 @@ def market():
                 "category": full_details.category,
                 "points": full_details.points,
                 "price": full_details.price,
-                "timestamp": time_remaining
+                "timestamp": time_remaining,
+                "offer": runner.offer,
+                "buyer": runner.buyer,
             }
             selling_runners.append(selling_runner)
     
 
-    return render_template('market.html', runners_database=runners_database_list, filters=filters, sellable_runners=sellable_runners, selling_runners=selling_runners)
+    return render_template('market.html', filters=filters, runners_database=runners_database, sellable_runners=sellable_runners, selling_runners=selling_runners)
 
 
 """ @main.route("/buy-runner", methods=["POST"])
@@ -255,26 +307,31 @@ def buy_runner():
 
 @main.route("/sell-runner", methods=["POST"])
 def sell_runner():
-    user_runner_table = get_user_runner_table(get_user_league_id())
-
-    user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
-
-    if user_runner:
-        #user.balance=user.balance+user_runner.runner.price
-        #user_runner.runner.plus_minus-=1
-        #db.session.delete(user_runner)
-        user_runner.selling=True
+    if current_user.active_league == "global":
+        user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
+        db.session.remove(user_runner)
+        current_user.league_data.balanca+=user_runner.runner.price
         db.session.commit()
     else:
-        return jsonify({"code": "error"}), 400    
-    return jsonify({"code": "okay"}), 200
+        user_runner_table = get_user_runner_table(get_user_league_id())
+
+        user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
+
+        if user_runner:
+            #user.balance=user.balance+user_runner.runner.price
+            #user_runner.runner.plus_minus-=1
+            #db.session.delete(user_runner)
+            user_runner.selling=True
+            db.session.commit()
+        else:
+            return jsonify({"code": "error"}), 400    
+        return jsonify({"code": "okay"}), 200
 
 
 @main.route("/team", methods=['GET', 'POST'])
 @login_required
 def team():
     user=current_user
-    player_balance=user.balance
 
     if current_user.active_league == "global":
         id = 0
@@ -316,7 +373,7 @@ def team():
     lineup_line2 = lineup_positions[4:8]  
     lineup_line3 = lineup_positions[8:12]
 
-    return render_template("team.html", balance=player_balance, lineup_line1=lineup_line1, lineup_line2=lineup_line2, lineup_line3=lineup_line3, runners_database=runners_database_list)
+    return render_template("team.html", lineup_line1=lineup_line1, lineup_line2=lineup_line2, lineup_line3=lineup_line3, runners_database=runners_database_list)
 
 
 @main.route("/refresh-team", methods=["POST"])
@@ -372,6 +429,13 @@ def create_new_league():
     create_dynamic_tables(new_league.id, user_username)
     populate_market(new_league.id)
     create_default_team(new_league.id, user_username)
+
+    league_data = create_dynamic_league_data_model(new_league.id)
+    new_user_data = league_data(user_username=user_username)
+    db.session.add(new_user_data)   
+    db.session.commit()
+
+
     return jsonify({'message': f"Lega '{league_name}' creata con successo!"}), 200
 
 

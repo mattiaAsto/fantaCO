@@ -14,8 +14,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(120), unique=True, nullable=False)
     nickname = db.Column(db.String(80), nullable=False)
     password = db.Column(LargeBinary, nullable=False)
-    points = db.Column(db.Integer, nullable=False)
-    balance = db.Column(db.Integer, nullable=False)
+
 
     is_validated = db.Column(db.Boolean, nullable=False, default=False)
     active_league = db.Column(db.String(30), nullable=False, default="global")
@@ -158,6 +157,8 @@ def create_dynamic_user_runner_model(group_id):
             "runner_name": db.Column(db.String(50), db.ForeignKey("runner.name"), nullable=False, primary_key=True),
             "lineup": db.Column(db.Integer, default=0),
             "selling": db.Column(db.Boolean, nullable=False, default=False),
+            "offer": db.Column(db.Integer, default=0),
+            "buyer": db.Column(db.String(30), db.ForeignKey("user.username")),
             # Relazioni
             "user": db.relationship(
                 "User",

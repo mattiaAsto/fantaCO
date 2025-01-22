@@ -6,6 +6,7 @@ from flask_caching import Cache
 from itsdangerous import URLSafeTimedSerializer
 from apscheduler.schedulers.background import BackgroundScheduler
 from dotenv import load_dotenv
+from distutils.util import strtobool
 import atexit
 import os
 from pathlib import Path
@@ -30,13 +31,13 @@ def create_app():
 
     db_complete_url = os.getenv("DB_COMPLETE_URL")
 
-    mail_server = os.getenv("MAIL_SERVER")
+    mail_server = str(os.getenv("MAIL_SERVER"))
     mail_port = int(os.getenv("MAIL_PORT"))
-    mail_use_tls = bool(os.getenv("MAIL_USE_TLS"))
-    mail_use_ssl = bool(os.getenv("MAIL_USE_SSL"))
-    mail_username = os.getenv("MAIL_USERNAME")
-    mail_password = os.getenv("MAIL_PASSWORD")
-    mail_default_sender = os.getenv("MAIL_DEFAULT_SENDER")
+    mail_use_tls = True
+    mail_use_ssl = False
+    mail_username = str(os.getenv("MAIL_USERNAME"))
+    mail_password = str(os.getenv("MAIL_PASSWORD"))
+    mail_default_sender = str(os.getenv("MAIL_DEFAULT_SENDER"))
 
     secret_key = os.getenv("SECRET_KEY")
 
@@ -54,7 +55,7 @@ def create_app():
     #Flask-Mail configs
     app.config['MAIL_SERVER'] = mail_server   # Server SMTP (es. Gmail: smtp.gmail.com)
     app.config['MAIL_PORT'] = mail_port                    # Porta del server SMTP (587 per TLS, 465 per SSL)
-    app.config['MAIL_USE_TLS'] = mail_use_tls                # Utilizzare TLS (True/False)
+    app.config['MAIL_USE_TLS'] = mail_use_tls               # Utilizzare TLS (True/False)
     app.config['MAIL_USE_SSL'] = mail_use_ssl               # Utilizzare SSL (True/False)
     app.config['MAIL_USERNAME'] = mail_username  # Email per l'autenticazione
     app.config['MAIL_PASSWORD'] = mail_password         # Password per l'autenticazione
