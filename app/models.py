@@ -249,7 +249,7 @@ def populate_market(id):
     db.session.commit()
 
 
-def create_default_team(id, user_username):
+def create_default_team_old(id, user_username):
     user_runner_table = create_dynamic_user_runner_model(id)
     market_table = create_dynamic_market_model(id)
 
@@ -271,7 +271,7 @@ def create_default_team(id, user_username):
         db.session.add(new_relation)
     db.session.commit()
 
-def create_default_team_idea(id, user_username):
+def create_default_team(id, user_username):
     user_runner_table = create_dynamic_user_runner_model(id)
     market_table = create_dynamic_market_model(id)
 
@@ -290,7 +290,8 @@ def create_default_team_idea(id, user_username):
     for _ in range(1000):  # Limita i tentativi per evitare un loop infinito
         random.shuffle(available_runners)
         selected_runners = random.sample(available_runners, 12)
-        if sum(runner.price for runner in selected_runners) == 5000000:
+        if 4900000 < sum(runner.price for runner in selected_runners) < 5100000:
+            print(sum(runner.price for runner in selected_runners))
             break
     else:
         raise ValueError("Impossibile trovare una combinazione valida")

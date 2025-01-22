@@ -420,7 +420,7 @@ def runner():
 def create_new_league():
     user_username=current_user.username
 
-    league_name="pincopallino"
+    league_name="gay"
     new_league = League(name=league_name)
     db.session.add(new_league)
     new_user_league = UserLeague(league_name=league_name, user_username=user_username)
