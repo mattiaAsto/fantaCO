@@ -15,7 +15,7 @@ pip install -r requirements.txt
 to install all the packages needed to run the project.
 
 ## Environement variables
-The file "variables.env.exapmle" is the blueprint for all the .env variables needed to run the program.
+The file "variables.env.example" is the blueprint for all the .env variables needed to run the program.
 
 ### Database variables
 
