@@ -28,6 +28,14 @@ Without any "HOST" and "PORT" variables provided the page runs in 127.0.0.1:8000
 
 Add "HOST" and "PORT" to the .env file to control which host and port the page runs on.
 
+### Flask-mail variables
+All the MAIL_... varibles are needed to config Flask-mail module
+
+### Cache variables
+The program uses Flask-caching in some routes.
+
+Set the cache-type and the default timeoute to your preference.
+
 ## Launch
 To finally launch the program use the command:
 ```bash
