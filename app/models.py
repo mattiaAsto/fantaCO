@@ -25,7 +25,7 @@ class User(UserMixin, db.Model):
 
     user_league = db.relationship('UserLeague', back_populates='user')
     
-    league_data = db.relationship('LeagueData', back_populates='user', cascade="all, delete")
+    league_data = db.relationship('LeagueData', back_populates='user', uselist=False, cascade="all, delete")
 
 
     @classmethod

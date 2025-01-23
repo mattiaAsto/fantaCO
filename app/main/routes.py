@@ -180,25 +180,40 @@ def market():
             filter=request.form.get("filter")
         
         elif form_id == "add_runner_offer":
-            offer_amount = request.form.get("offer_amount")
-            offer_amount = int(offer_amount) if offer_amount else 0
-            min_price = request.form.get("min_price")
-            runner_name = request.form.get("runner_name")
+            if current_user.active_league == "global":
+                runner_name = request.form.get("runner_name")
+                offer_amount = request.form.get("offer_amount")
 
-            print(min_price)
+                if int(offer_amount) >= Runner.query.filter_by(name=runner_name).first().price and UserRunner.query.filter_by(user_username=current_user.username, runner_name=runner_name).first() is None:
+                    new_relation = UserRunner(user_username=current_user.username, runner_name=runner_name)
+                    db.session.add(new_relation)
 
-            is_from_market = request.form.get("is_from_market")
-
-            if is_from_market == "True":
-                market_runner = market_table.query.filter_by(runner_name=runner_name).first()
+                    current_user.league_data.balance -= int(offer_amount)
+                    db.session.commit()
+                else:
+                    return jsonify({"errore": "GIocatore già in squadra o offerta troppo bassa"}), 400
             else:
-                market_runner = user_runner_table.query.filter_by(runner_name=runner_name).first()
-            if int(market_runner.offer) < offer_amount and offer_amount >= int(min_price):
-                market_runner.offer = offer_amount
-                market_runner.buyer = current_user.username
-                db.session.commit()
-            else:
-                print("offer less")   
+                offer_amount = request.form.get("offer_amount")
+                offer_amount = int(offer_amount) if offer_amount else 0
+                min_price = request.form.get("min_price")
+                runner_name = request.form.get("runner_name")
+
+                print(min_price)
+
+                is_from_market = request.form.get("is_from_market")
+
+                if is_from_market == "True":
+                    market_runner = market_table.query.filter_by(runner_name=runner_name).first()
+                else:
+                    market_runner = user_runner_table.query.filter_by(runner_name=runner_name).first()
+
+
+                if int(market_runner.offer) < offer_amount and offer_amount >= int(min_price):
+                    market_runner.offer = offer_amount
+                    market_runner.buyer = current_user.username
+                    db.session.commit()
+                else:
+                    print("offer less")   
                 
     
     if filter == "":

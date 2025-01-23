@@ -9,11 +9,6 @@ import time
 import os
 import bcrypt
 
-""" db_path="instance/fantaCO.db"
-if os.path.exists(db_path):
-        os.remove(db_path)
-        print("Database eliminato completamente.") """
-
 
 
 # Leggi i dati dal file JSON

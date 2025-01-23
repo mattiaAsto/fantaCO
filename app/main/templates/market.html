@@ -47,54 +47,55 @@
                 <div class="content-div">
                     <div class="runners-grid">
                         {% for runner in runners_database %}
-                            <div class="runner-div">
-                                <div class="runner-div-upper" onclick="window.location.href='/runner?runner={{runner.name}}' ">
-                                    <div class="runner-image-container">
-                                        <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
-                                    </div>
-                                    <div class="runner-middle-container">
-                                        <div class="runner-middle-upper">
-                                            <p class="runner-info">{{runner.name}}</p>
-                                            <p class="runner-info">{{runner.category}}</p>
-                                        </div>
-                                        <div class="runner-middle-lower">
-                                            <p class="runner-info">{{runner.points}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="runner-right-container">
+                            {% if runner.seller != user.nickname %}
+                                <div class="runner-div">
+                                    <div class="runner-div-upper" onclick="window.location.href='/runner?runner={{runner.name}}' ">
                                         <div class="runner-image-container">
-                                            <img class="runner-image society" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}">
+                                            <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
                                         </div>
-                                        <p class="runner-info">{{runner.price}}</p>
+                                        <div class="runner-middle-container">
+                                            <div class="runner-middle-upper">
+                                                <p class="runner-info">{{runner.name}}</p>
+                                                <p class="runner-info">{{runner.category}}</p>
+                                            </div>
+                                            <div class="runner-middle-lower">
+                                                <p class="runner-info">{{runner.points}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="runner-right-container">
+                                            <div class="runner-image-container">
+                                                <img class="runner-image society" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}">
+                                            </div>
+                                            <p class="runner-info">{{runner.price}}</p>
+                                        </div>
                                     </div>
+                                    <form class="runner-div-lower" action="" method="post">
+                                        <input type="hidden" name="form_id" value="add_runner_offer">
+                                        <input type="hidden" name="runner_name" value="{{runner.name}}">
+                                        <input type="hidden" name="min_price" value="{{runner.price}}"> 
+                                        <input type="hidden" name="is_from_market" value="{{runner.is_from_market}}">                                       
+                                        <div class="runner-div-lower-left">
+                                            <i class="fas fa-clock"></i>
+                                            <p>{% if runner.timestamp == 'none' %}<i class="fas fa-infinity"></i>{% else %}{{runner.timestamp}}{% endif %}</p>
+                                            <input class="value_input" type="text" name="offer_amount" placeholder="Offerta a {{runner.seller}}">
+                                            <p>
+                                                {% if runner.buyer == user.username %}
+                                                {{runner.offer}}
+                                                {%endif%}
+                                            </p>
+                                        </div>
+                                        {% if runner.buyer == user.username %}
+                                        <button class="runner-div-lower-right sell" type="submit">
+                                            <i class="fas fa-x"></i>
+                                        </button>
+                                        {% else %}
+                                        <button class="runner-div-lower-right" type="submit">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        {% endif %}
+                                    </form>
                                 </div>
-                                <form class="runner-div-lower" action="" method="post">
-                                    <input type="hidden" name="form_id" value="add_runner_offer">
-                                    <input type="hidden" name="runner_name" value="{{runner.name}}">
-                                    <input type="hidden" name="min_price" value="{{runner.price}}"> 
-                                    <input type="hidden" name="is_from_market" value="{{runner.is_from_market}}">                                       
-                                    <div class="runner-div-lower-left">
-                                        <i class="fas fa-clock"></i>
-                                        <p>{% if runner.timestamp == 'none' %}<i class="fas fa-infinity"></i>{% else %}{{runner.timestamp}}{% endif %}</p>
-                                        <input class="value_input" type="text" name="offer_amount" placeholder="Offerta a {{runner.seller}}">
-                                        <p>
-                                            {% if runner.buyer == user.username %}
-                                            {{runner.offer}}
-                                            {%endif%}
-                                        </p>
-                                    </div>
-                                    {% if runner.buyer == user.username %}
-                                    <button class="runner-div-lower-right check" type="submit">
-                                        <i class="fas fa-check"></i>
-                                    </button>
-                                    {% else %}
-                                    <button class="runner-div-lower-right" type="submit">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                    {% endif %}
-                                </form>
-                            </div>
-                
+                            {% endif %}
                         {%endfor%}
                     </div>
                 </div>
