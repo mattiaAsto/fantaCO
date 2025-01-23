@@ -26,7 +26,7 @@ with open(runners_path, 'r') as file:
 with open(league_path, 'r') as file:
     market = json.load(file)
 
-migrate=True
+migrate=False
 if migrate:
     with app.app_context():
         meta = MetaData()
@@ -85,6 +85,24 @@ if migrate:
         db.session.add(admin)
 
         league_data = LeagueData(user_username="admin")
+
+        db.session.add(league_data)
+
+
+        hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
+
+        admin=User(
+            name="Admin2",
+            surname="Admin2",
+            username="admin2",
+            nickname="ADMIN2",
+            password=hashed_password,
+            is_validated=True
+        )
+
+        db.session.add(admin)
+
+        league_data = LeagueData(user_username="admin2")
 
         db.session.add(league_data)
 

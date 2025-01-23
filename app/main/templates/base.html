@@ -44,7 +44,7 @@
         </a>
         <a class="nav-link" href="#" onclick="swap_league()">
             <i class="fas fa-sync-alt"></i>
-            Lega
+            {% if is_logged %} {{user.active_league}} {% else %} Lega {% endif %}
         </a>
         <a class="nav-link" href="">
             <i class="fas fa-pen-nib"></i>
@@ -72,33 +72,39 @@
                 <i id="popup-x" class="fas fa-x"></i>
             </div>
             <div class="runners-grid">
-                <div class="runner-div">
-                    <form id="league-form" class="runner-div-upper" action="{{url_for('main.swap_league')}}" method="post">
+                <div class="runner-div  {% if user.active_league == 'global' %} active-league {% endif %}">
+                    <form id="league-form" class="runner-div-upper" action="{{url_for('leagues.swap_league')}}" method="post">
                         <input type="hidden" name="league-name" value="global">
-                        <p class="runner-info">Lega Ticinese</p>
+                        <p class="runner-info">Lega globale</p>
                     </form>
                 </div>
                 {% for league in leagues %}
-                    {% if league == current_league %}
+                    {% if league == user.active_league %}
                         <div class="runner-div active-league">
-                            <form id="league-form" class="runner-div-upper" action="{{url_for('main.swap_league')}}" method="post">
+                            <form id="league-form" class="runner-div-upper" action="{{url_for('leagues.swap_league')}}" method="post">
                                 <input type="hidden" name="league-name" value="{{league}}">
                                 <p class="runner-info">{{league}}</p>
                             </form>
                         </div>
                     {% else %}
                     <div class="runner-div">
-                        <form id="league-form" class="runner-div-upper" action="{{url_for('main.swap_league')}}" method="post">
-                            <input type="hidden" name="league-name" value="{{league}}">
-                            <p class="runner-info">{{league}}</p>
-                        </form>
+                        <div class="runner-div-upper">
+                            <form id="league-form" class="runner-middle-container" action="{{url_for('leagues.swap_league')}}" method="post">
+                                <input type="hidden" name="league-name" value="{{league}}">
+                                <p class="runner-info">{{league}}</p>
+                            </form>
+                            <form class="runner-div-lower-right sell leave-league-form" action="{{url_for('leagues.leave_league')}}" method="POST">
+                                <input type="hidden" name="league-name" value="{{league}}">
+                                <i class="fas fa-trash-can"></i>
+                            </form>
+                        </div>
                     </div>
                     {% endif %}
                 {%endfor%}
             </div>
             <div class="add-sell">
                 <i class="fas fa-plus"></i>
-                <p> &nbsp Crea una nuova lega</p>
+                <a href="{{url_for('leagues.add_vs_create')}}"> &nbsp Crea o condividi lega</a>
             </div>
             {% else %}
             <div class="popup-info">

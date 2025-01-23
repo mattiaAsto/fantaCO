@@ -280,6 +280,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	add_close_popup_behaviour();
 
 
+	const leave_league_form = document.querySelectorAll(".leave-league-form");
+	leave_league_form.forEach((form) => {
+		form.addEventListener("click", function (event) {
+			if (confirm("Sei sicuro di voler abbandonare la lega?")) {
+				form.submit();
+			};
+		});
+	});
+
 
 
 

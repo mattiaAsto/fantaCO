@@ -248,29 +248,6 @@ def populate_market(id):
         i+=1
     db.session.commit()
 
-
-def create_default_team_old(id, user_username):
-    user_runner_table = create_dynamic_user_runner_model(id)
-    market_table = create_dynamic_market_model(id)
-
-    market_names_subquery = db.session.query(market_table.runner_name).subquery()
-
-    random_runners = (
-        db.session.query(Runner)
-        .filter(Runner.name.notin_(market_names_subquery))
-        .order_by(func.random())
-        .limit(12)
-        .all()
-    )
-
-    for runner in random_runners:
-        new_relation = user_runner_table(
-            user_username=user_username,
-            runner_name=runner.name
-        )
-        db.session.add(new_relation)
-    db.session.commit()
-
 def create_default_team(id, user_username):
     user_runner_table = create_dynamic_user_runner_model(id)
     market_table = create_dynamic_market_model(id)
@@ -284,10 +261,7 @@ def create_default_team(id, user_username):
         .all()
     )
 
-    # Trova una combinazione casuale che soddisfi il vincolo di somma
-    import itertools
-
-    for _ in range(1000):  # Limita i tentativi per evitare un loop infinito
+    for _ in range(100000):
         random.shuffle(available_runners)
         selected_runners = random.sample(available_runners, 12)
         if 4900000 < sum(runner.price for runner in selected_runners) < 5100000:
@@ -296,7 +270,6 @@ def create_default_team(id, user_username):
     else:
         raise ValueError("Impossibile trovare una combinazione valida")
 
-    # Inserisci i corridori selezionati nella tabella
     for runner in selected_runners:
         new_relation = user_runner_table(
             user_username=user_username,

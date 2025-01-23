@@ -1,0 +1,29 @@
+{% extends "leagues_base.html" %}
+
+
+{% block title %}Condividi lega{% endblock %}
+
+
+{% block content %}
+
+    <div class="content-wrapper">
+        <div class="content-info">
+            Condividi lega attiva
+        </div>
+        <p style="color: var(--orange); width: 50%; text-align: center; margin-bottom: 3vh;">Condividi questo link ai tuoi amici per farli unire alla tua lega</p>
+        <div class="content">
+            <div class="share-link">
+                {{join_url}}
+            </div>
+            <div class="copy-share-link-wrapper" onclick="copy_link('{{join_url}}')">
+                <i class="fa-regular fa-copy copy-share-link"></i>
+            </div>
+            <div class="share-link redirect">
+                <i class="fas fa-circle-left"></i>
+                <a href="{{url_for('main.home')}}">Ritorna alla homepage</a>
+            </div>
+            
+        </div>
+    </div>
+    
+{% endblock %}

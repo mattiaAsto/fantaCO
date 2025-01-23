@@ -1,0 +1,21 @@
+{% extends "leagues_base.html" %}
+
+
+{% block title %}Nuova lega{% endblock %}
+
+
+{% block content %}
+
+    <div class="content-wrapper">
+        <p>In progress...</p>
+        <div class="content-info">
+            Crea una nuova lega
+        </div>
+        <form action="{{url_for('leagues.create_new_league')}}" method="POST" class="content">
+            <input type="text" name="league-name" placeholder="Nome lega">
+            <button type="submit">Crea</button>
+            <p class="error-message">{{error}}</p>
+        </form>
+    </div>
+    
+{% endblock %}

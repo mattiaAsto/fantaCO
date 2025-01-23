@@ -414,33 +414,3 @@ def runner():
             }
     
     return render_template("runner.html", runner=runner)
-
-
-@main.route("/create_new_league", methods=["GET", "POST"])
-def create_new_league():
-    user_username=current_user.username
-
-    league_name="gay"
-    new_league = League(name=league_name)
-    db.session.add(new_league)
-    new_user_league = UserLeague(league_name=league_name, user_username=user_username)
-    db.session.add(new_user_league)
-    db.session.commit()
-    create_dynamic_tables(new_league.id, user_username)
-    populate_market(new_league.id)
-    create_default_team(new_league.id, user_username)
-
-    league_data = create_dynamic_league_data_model(new_league.id)
-    new_user_data = league_data(user_username=user_username)
-    db.session.add(new_user_data)   
-    db.session.commit()
-
-
-    return jsonify({'message': f"Lega '{league_name}' creata con successo!"}), 200
-
-
-@main.route("/swap_league", methods=["POST"])
-def swap_league():
-    current_user.active_league=request.form.get("league-name")
-    db.session.commit()
-    return jsonify({'message': 'Form inviato con successo!'})

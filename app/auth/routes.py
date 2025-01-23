@@ -212,8 +212,6 @@ def verify_email(token):
     serializer=current_app.url_serializer
     email = serializer.loads(token, salt='email-confirmation', max_age=3600)
 
-    verification_succesful=False
-
     if email:
         user = User.query.filter_by(username=email).first()
         if user:

@@ -86,8 +86,10 @@ def create_app():
     #register blueprints
     from app.main import main as main_blueprint
     from app.auth import auth as auth_blueprint
+    from app.leagues import leagues as leagues_blueprint
     app.register_blueprint(main_blueprint, url_prefix='/')
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
+    app.register_blueprint(leagues_blueprint, url_prefix='/leagues')
 
     with app.app_context():
         db.create_all()
