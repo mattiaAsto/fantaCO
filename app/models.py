@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
     runners = db.relationship("UserRunner", back_populates="user", cascade="all, delete")
     market = db.relationship("MarketTable", back_populates="user", cascade="all, delete")
 
-    user_league = db.relationship('UserLeague', back_populates='user')
+    user_league = db.relationship('UserLeague', back_populates='user', cascade="all, delete")
     
     league_data = db.relationship('LeagueData', back_populates='user', uselist=False, cascade="all, delete")
 
