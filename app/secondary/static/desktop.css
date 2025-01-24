@@ -30,7 +30,7 @@ main{
     margin: 0px;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;   
 }
 
 .content-wrapper{
@@ -45,6 +45,10 @@ main{
     background-color: var(--grey2);
     border-radius: 5vh;
     box-sizing: border-box;
+}
+.content-wrapper.article{
+    margin-top: 30vh;
+    width: 75vw;
 }
 
 .content-wrapper p{
@@ -74,6 +78,14 @@ main{
     justify-content: start;
     width: 50vw;
     gap: 3vh;
+}
+.content p{
+    margin: 0px;
+    text-align: center;
+}
+
+.content.article{
+    width: 75vw;
 }
 
 .option{
@@ -115,15 +127,14 @@ main{
 .share-link.redirect{
     text-align: center;
     text-decoration: none;
-    color: var(--grey4);
+    color: var(--orange);
 }
 .share-link.redirect a{
     text-decoration: none;
-    color: var(--grey4);
+    color: var(--orange);
 }
 .share-link.redirect:hover{
     background-color: var(--orange-gray2);
-    text-decoration: underline;
 }
 
 .option:hover{
@@ -152,3 +163,58 @@ main{
 .copy-share-link:hover{
     cursor: pointer;
 }
+
+.new-league-input{
+    width: 50%;
+    height: 6vh;
+    font-size: 3vh;
+    align-content: center;
+    border-radius: 1vh;
+    border-style: hidden;
+    padding: 1vh;
+    box-sizing: border-box;
+    color: var(--grey4);
+}
+.new-league-input:focus{
+    outline: none;
+}
+
+.new-league-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    font-size: 3vh;
+    text-transform: uppercase;
+    color: var(--orange);
+    border-radius: 1vh;
+    border-style: hidden;
+    font-weight: bold;
+    padding: 2vh;
+    gap: 1vh;
+}
+.new-league-button p{
+    margin: 0px;
+    text-align: center;
+}
+.new-league-button:hover{
+    background-color: var(--orange-gray1);
+    cursor: pointer;
+    border-style: hidden;
+
+}
+
+.article-content-area{
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 3vh;
+    border-style: hidden;
+    border-radius: 2vh;
+}
+.article-content-area:focus{
+    outline: none;
+}
+
+

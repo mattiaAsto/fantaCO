@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, session, flash, jsonify, current_app
-from . import leagues
+from . import secondary
 from app.models import * #import everytinh from app.models
 from app import db, cache
 from werkzeug.security import check_password_hash
@@ -15,7 +15,7 @@ import time
 import random
 
 
-@leagues.context_processor
+@secondary.context_processor
 def global_injection_dictionary():
     if current_user.is_authenticated:
         active_league = current_user.active_league
@@ -72,26 +72,29 @@ def get_league_data_table(id):
 
 
 
-@leagues.route('/')
+@secondary.route('/')
 def main():
-    return render_template('leagues.html')
+    return render_template('secondary.html')
 
-@leagues.route('/add_vs_create', methods=['GET', 'POST'])
+@secondary.route('/add_vs_create', methods=['GET', 'POST'])
 def add_vs_create():
     return render_template('add_vs_create.html')
 
 
-@leagues.route("/create_new_league", methods=["GET", "POST"])
+@secondary.route("/create_new_league", methods=["GET", "POST"])
 def create_new_league():
     user_username=current_user.username
 
     if request.method == "POST":
         league_name = request.form.get("league-name")
+        max_managers = int(request.form.get("max-managers")) if request.form.get("max-managers") != "" else 0
         all_legue_names = [league.name for league in League.query.all()]
-        if league_name in all_legue_names:
-            return render_template('create_new_league.html', error="Nome lega già esistente")
+        if league_name in all_legue_names or league_name == "":
+            return render_template('create_new_league.html', error="Nome lega già esistente o vuoto")
+        elif max_managers < 2:
+            return render_template('create_new_league.html', error="Inserisci un numero di manager maggiore di 1")
         else:
-            new_league = League(name=league_name)
+            new_league = League(name=league_name, max_managers=max_managers)
             db.session.add(new_league)
 
             new_user_league = UserLeague(league_name=league_name, user_username=user_username)
@@ -115,17 +118,17 @@ def create_new_league():
 
             return redirect(url_for('main.home')) 
     
-    return render_template('create_new_league.html')
+    return render_template('create_new_league.html', error="Inserisci nome e numero di manager")
 
 
-@leagues.route("/swap_league", methods=["POST"])
+@secondary.route("/swap_league", methods=["POST"])
 def swap_league():
     current_user.active_league=request.form.get("league-name")
     db.session.commit()
     return jsonify({'message': 'Form inviato con successo!'})
 
 
-@leagues.route("/leave_league", methods=["POST"])
+@secondary.route("/leave_league", methods=["POST"])
 def leave_league():
 
     league = request.form.get("league-name")
@@ -174,7 +177,7 @@ def leave_league():
     return redirect(url_for('main.home'))
 
 
-@leagues.route("/share_league/<league_name>", methods=["GET","POST"])
+@secondary.route("/share_league/<league_name>", methods=["GET","POST"])
 def share_league(league_name):
     if league_name == "global":
         return jsonify({'error': 'Non puoi condividere la lega globale'})
@@ -182,18 +185,21 @@ def share_league(league_name):
     serializer = current_app.url_serializer
     token = serializer.dumps(league_name, salt="league-share")
 
-    join_url = url_for("leagues.join_league", token=token, _external=True)
+    join_url = url_for("secondary.join_league", token=token, _external=True)
 
     return render_template("share_league.html", join_url=join_url)
 
 
-@leagues.route("/join_league/<token>", methods=["GET","POST"])
+@secondary.route("/join_league/<token>", methods=["GET","POST"])
 def join_league(token):
     serializer = current_app.url_serializer
     league_name = serializer.loads(token, salt="league-share", max_age=3600)
 
+    managers_already_in = UserLeague.query.filter_by(league_name=league_name).count()
+    max_managers = League.query.filter_by(name=league_name).first().max_managers
+
     if current_user.is_authenticated:
-        if UserLeague.query.filter_by(league_name=league_name, user_username=current_user.username).first() is None:
+        if UserLeague.query.filter_by(league_name=league_name, user_username=current_user.username).first() is None and managers_already_in < max_managers:
             user_username = current_user.username
 
             new_user_league = UserLeague(league_name=league_name, user_username=user_username)
@@ -212,10 +218,40 @@ def join_league(token):
 
             return redirect(url_for('main.home'))
         else:
-            return jsonify({'error': 'Sei già nella lega'})
+            return jsonify({'error': 'Sei già nella lega oppure la lega è piena'})
     else:
         return redirect(url_for('auth.login'))
         
 
+@secondary.route("/create_article" , methods=["GET", "POST"])
+def create_article():
+    if request.method == "POST":
+        title = request.form.get("title")
+        content = request.form.get("content")
+        author = current_user.nickname
+        author_username = current_user.username
+
+        
+        if content == "" and title == "":
+            return render_template("create_article.html", error="Titolo o testo vuoto")
+        elif Article.query.filter_by(title=title).first() != None:
+            return render_template("create_article.html", error="Titolo già utilizzato in un altro articolo")
+        else:
+            new_article = Article(title=title, content=content, author=author, author_username=author_username)
+            db.session.add(new_article)
+            db.session.commit()
+
+        return redirect(url_for('main.home'))
+
+    return render_template("create_article.html", error="")
+
+@secondary.route("/delete_article", methods=["POST"])
+def delete_article():
+    article_id = request.form.get("article-id")
+    article = Article.query.filter_by(id=article_id).first()
+    db.session.delete(article)
+    db.session.commit()
+
+    return redirect(url_for("main.home"))
 
 

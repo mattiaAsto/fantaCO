@@ -10,10 +10,10 @@
         </div>
         <div class="content">
             <div class="option create">
-                <a href="{{url_for('leagues.create_new_league')}}">Creare una lega</a>
+                <a href="{{url_for('secondary.create_new_league')}}">Creare una lega</a>
             </div>
             <div class="option join">
-                <a href="{{url_for('leagues.share_league', league_name = user.active_league)}}">Condividere lega attiva</a>
+                <a href="{{url_for('secondary.share_league', league_name = user.active_league)}}">Condividere lega attiva</a>
             </div>
         </div>
     </div>

@@ -70,7 +70,7 @@
                                         </div>
                                     </div>
                                     <form class="runner-div-lower" action="" method="post">
-                                        <input type="hidden" name="form_id" value="add_runner_offer">
+                                        <input type="hidden" name="form_id" value="{% if runner.buyer == user.username %}remove_runner_offer{% else %}add_runner_offer{% endif %}">
                                         <input type="hidden" name="runner_name" value="{{runner.name}}">
                                         <input type="hidden" name="min_price" value="{{runner.price}}"> 
                                         <input type="hidden" name="is_from_market" value="{{runner.is_from_market}}">                                       
@@ -133,7 +133,7 @@
                                 </div>
                             </div>
                             <form class="runner-div-lower" action="" method="post">
-                                <input type="hidden" name="form_id" value="add_runner">
+                                <input type="hidden" name="form_id" value="remove_sell_runner">
                                 <input type="hidden" name="runner_name" value="{{runner.name}}">
                                 <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
                                 <div class="runner-div-lower-left">
@@ -142,39 +142,43 @@
                                     <input class="value_input" type="text" placeholder="Prezzo di vendita">
                                     <p>{{runner.price}}</p>
                                 </div>
-                                <div class="runner-div-lower-right sell">
+                                <button class="runner-div-lower-right sell" type="submit">
                                     <i class="fas fa-x"></i>
-                                </div>
+                                </button>
                             </form> 
                         </div>
                         {% if runner.offer > 0 %}
                         <form class="runner-div-lower" action="" method="post">
+                            <input type="hidden" name="form_id" value="accept_sell_offer">
                             <input type="hidden" name="runner_name" value="{{runner.name}}">
-                            <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
+                            <input class="runner-price" type="hidden" name="runner_price" value="{{runner.offer}}">
+                            <input type="hidden" name="offer" value="{{runner.offer}}">                                        
+                            <input type="hidden" name="buyer" value="{{runner.buyer}}">                                        
                             <div class="runner-div-lower-left">
                                 <i class="fas fa-clock"></i>
                                 <p><i class="fas fa-infinity"></i></p>
-                                <input class="value_input" type="text" placeholder="Offerta di {{runner.buyer}}">
+                                <input class="offer" type="text" placeholder="Offerta di {{runner.buyer}}">
                                 <p>{{runner.offer}}</p>
                             </div>
-                            <div class="runner-div-lower-right check">
+                            <button class="runner-div-lower-right check" type="submit">
                                 <i class="fas fa-check"></i>
-                            </div>
+                            </button>
                         </form>   
                         {% endif %}
                         <form class="runner-div-lower" action="" method="post">
-                            <input type="hidden" name="form_id" value="add_runner">
+                            <input type="hidden" name="form_id" value="accept_sell_offer">
                             <input type="hidden" name="runner_name" value="{{runner.name}}">
-                            <input class="runner-price" type="hidden" name="runner_price" value="{{runner.price}}">                                        
+                            <input class="runner-price" type="hidden" name="offer" name="runner_price" value="{{runner.price}}">
+                            <input type="hidden" name="buyer" value="fantaCO">                                        
                             <div class="runner-div-lower-left">
                                 <i class="fas fa-clock"></i>
                                 <p><i class="fas fa-infinity"></i></p>
-                                <input class="value_input" type="text" placeholder="Offerta di FantaCO">
+                                <input class="offer" type="text" placeholder="Offerta di FantaCO">
                                 <p>{{runner.price}}</p>
                             </div>
-                            <div class="runner-div-lower-right check">
+                            <button class="runner-div-lower-right check" type="submit">
                                 <i class="fas fa-check"></i>
-                            </div>
+                            </button>
                         </form>            
                         {%endfor%}
                         <div class="add-sell" onclick="show_sell_popup()">

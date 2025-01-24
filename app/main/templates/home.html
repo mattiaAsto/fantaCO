@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}Market Page{% endblock %}
+{% block title %}Home{% endblock %}
 
 
 {% block choice %}
@@ -11,10 +11,10 @@
     </div>
     <div class="choice-div">
         <button class="choice-button">Articoli</button>
-        </div>
-        <div class="choice-div">
+    </div>
+    <div class="choice-div">
         <button class="choice-button">Regole</button>
-        </div>
+    </div>
 
         {% endblock %}
 
@@ -62,9 +62,31 @@
                 </div>
                 <div class="content-div">
                     <div class="runners-grid" id="sell-runner">
-                        {% for article in all_articles %}
-                        <div class="runner-div">
-                        </div>        
+                        {% for article in articles %}
+                        <div class="article-div">
+                            <div class="article-div-upper">
+                                <h3>{{article.title}}</h3>
+                            </div>
+                            <div class="article-div-info">
+                                <div class="article-div-info-left">
+                                    <p>Autore:</p><h4>{{article.author}}</h4>
+                                </div>
+                                <div class="article-div-info-right">
+                                    <p>Creato:</p><h4>{{article.date}}</h4>
+                                </div>
+                            </div>
+                            <div class="article-div-content">
+                                <p>{{article.content.replace('\n', '<br>') | safe}}</p>
+                            </div>
+                            {% if article.author_username == user.username %}
+                            <div class="article-div-lower">
+                                <form class="article-div-lower-right delete-article-form sell" action="{{url_for('secondary.delete_article')}}" method="POST">
+                                    <input type="hidden" name="article-id" value="{{article.id}}">
+                                    <i class="fas fa-trash-can"></i>
+                                </form>
+                            </div>
+                            {% endif %}
+                        </div>     
                         {%endfor%}
                     </div>
                 </div>

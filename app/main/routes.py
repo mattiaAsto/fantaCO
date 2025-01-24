@@ -113,7 +113,7 @@ def get_user_league_id():
     else:
         return League.query.filter_by(name=current_user.active_league).first().id
 
-@cache.memoize()
+
 def get_market_table(id):
 
     if id == 0:
@@ -121,7 +121,7 @@ def get_market_table(id):
     else:
         return create_dynamic_market_model(id)
     
-@cache.memoize()
+
 def get_user_runner_table(id):
 
     if id == 0:
@@ -129,7 +129,7 @@ def get_user_runner_table(id):
     else:
         return create_dynamic_user_runner_model(id)
 
-@cache.memoize()
+
 def get_league_data_table(id):
 
     if id == 0:
@@ -150,8 +150,38 @@ def base():
 #Home page, currently displays nothing
 @main.route("/")
 def home():
+    all_articles = Article.query.order_by(Article.date_posted.desc()).all()
 
-    return render_template("home.html")
+    articles = []
+    for article in all_articles:
+        article_date = datetime.replace(article.date_posted, tzinfo=timezone.utc)
+        article_age = (datetime.now(timezone.utc) - article_date).seconds
+        if article_age > 2592000:
+           db.session.delete(article)
+           db.session.commit()
+        elif article_age >= 86400:
+            article_age = f"{article_age // 86400} giorni fa"
+        elif article_age >= 7200:
+            article_age = f"{article_age // 3600} ore fa"
+        elif article_age >= 3600:
+            article_age = f"{article_age // 3600} ora fa"
+        elif article_age > 60:
+            article_age = f"{article_age // 60} minuti fa"
+        else:
+            article_age = "pochi secondi fa"
+        
+        article_info = {
+            "id": article.id,
+            "title": article.title,
+            "content": article.content,
+            "author": article.author,
+            "author_username": article.author_username,
+            "date": article_age
+        }
+        articles.append(article_info)
+
+
+    return render_template("home.html", articles=articles)
 
 
 #market page, displays 16 runners at a time, every hour the older goes and a new one comes
@@ -167,6 +197,7 @@ def market():
         
     market_table=get_market_table(id)
     user_runner_table=get_user_runner_table(id)
+    league_data_table = get_league_data_table(get_user_league_id())
     owned_runners=db.session.query(user_runner_table).filter_by(user_username=current_user.username).all()
 
     all_owned_runners=db.session.query(user_runner_table).all()
@@ -179,6 +210,20 @@ def market():
         if form_id == "filter":
             filter=request.form.get("filter")
         
+        elif form_id == "remove_runner_offer":
+            runner_name = request.form.get("runner_name")
+
+            is_from_market = request.form.get("is_from_market")
+
+            if is_from_market == "True":
+                market_runner = market_table.query.filter_by(runner_name=runner_name).first()
+            else:
+                market_runner = user_runner_table.query.filter_by(runner_name=runner_name).first()
+
+            market_runner.offer = 0
+            market_runner.buyer = None
+            db.session.commit()
+
         elif form_id == "add_runner_offer":
             if current_user.active_league == "global":
                 runner_name = request.form.get("runner_name")
@@ -198,8 +243,6 @@ def market():
                 min_price = request.form.get("min_price")
                 runner_name = request.form.get("runner_name")
 
-                print(min_price)
-
                 is_from_market = request.form.get("is_from_market")
 
                 if is_from_market == "True":
@@ -214,8 +257,46 @@ def market():
                     db.session.commit()
                 else:
                     print("offer less")   
+        
+        elif form_id == "remove_sell_runner":
+            runner_name = request.form.get("runner_name")
+            runner_info = user_runner_table.query.filter_by(runner_name=runner_name).first()
+            runner_info.selling = 0
+            runner_info.offer = 0
+            runner_info.buyer = None
+            db.session.commit()
+
+        elif form_id == "accept_sell_offer":
+            runner_name = request.form.get("runner_name")
+            offer = int(request.form.get("offer"))
+            buyer = request.form.get("buyer")
+
+            if buyer == "fantaCO":
+
+                print("selling fantaco")
+
+                user_league_data = league_data_table.query.filter_by(user_username=current_user.username).first()
+                user_league_data.balance += offer
+
+                user_runner = db.session.query(user_runner_table).filter_by(user_username=current_user.username, runner_name=runner_name).first()
+                print(user_runner)
+                db.session.delete(user_runner)
+
+                db.session.commit()
+            else:
+                user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=runner_name).first()
+                db.session.delete(user_runner)
+                user_league_data = league_data_table.query.filter_by(user_username=current_user.username).first()
+                user_league_data.balance += offer
+
+                buyer_league_data = league_data_table.query.filter_by(user_username=buyer).first()
+                buyer_league_data.balance -= offer
+                new_relation = user_runner_table(user_username=buyer, runner_name=runner_name)
+                db.session.add(new_relation)
+
+                db.session.commit()
                 
-    
+
     if filter == "":
         selected_runners=db.session.query(market_table).all()
     elif filter == "Categoria":
@@ -315,16 +396,11 @@ def market():
     return render_template('market.html', filters=filters, runners_database=runners_database, sellable_runners=sellable_runners, selling_runners=selling_runners)
 
 
-""" @main.route("/buy-runner", methods=["POST"])
-def buy_runner():
-    print("ciao")
- """
-
 @main.route("/sell-runner", methods=["POST"])
 def sell_runner():
     if current_user.active_league == "global":
         user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
-        db.session.remove(user_runner)
+        db.session.delete(user_runner)
         current_user.league_data.balanca+=user_runner.runner.price
         db.session.commit()
     else:
@@ -333,9 +409,9 @@ def sell_runner():
         user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
 
         if user_runner:
-            #user.balance=user.balance+user_runner.runner.price
-            #user_runner.runner.plus_minus-=1
-            #db.session.delete(user_runner)
+            print("commit prematuro")
+            for _ in range(10):
+                print(".")
             user_runner.selling=True
             db.session.commit()
         else:
@@ -346,16 +422,13 @@ def sell_runner():
 @main.route("/team", methods=['GET', 'POST'])
 @login_required
 def team():
-    user=current_user
 
-    if current_user.active_league == "global":
-        id = 0
-    else:
-        league=current_user.active_league
-        id = db.session.query(League).filter_by(name=league).first().id
-        
-    user_runner_table=get_market_table(id)
-    owned_runners=db.session.query(get_user_runner_table(id)).all()
+    id = get_user_league_id()
+    print(id)
+
+    user_runner_table=get_user_runner_table(id)
+    owned_runners=db.session.query(user_runner_table).filter_by(user_username=current_user.username).all()
+
 
     if request.method=="POST":
         print("post")

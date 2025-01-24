@@ -260,7 +260,7 @@ nav.active{
     height: auto;
     box-sizing: border-box;
     background-color: var(--grey2);
-    border-radius: 20px;
+    border-radius: 6vh;
     padding: 20px;
     margin-top: 20px;
 }
@@ -293,7 +293,7 @@ nav.active{
     justify-content: center;
     align-items: start;
     background-color: var(--orange-gray1);
-    border-radius: 10px;
+    border-radius: 3vh;
     width: 100%;
     box-sizing: border-box;
 }
@@ -385,10 +385,10 @@ nav.active{
     color: white;
 }
 
-.runner-div-lower-right.sell{
+.sell{
     background-color: red;
 }
-.runner-div-lower-right.check{
+.check{
     background-color: green;
 }
 
@@ -595,4 +595,73 @@ nav.active{
     border-style: solid;
     border-width: 1vh;
     border-color: var(--orange);
+}
+
+.article-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    background-color: var(--orange-gray1);
+    border-radius: 3vh;
+    padding: 3vh;
+    box-sizing: border-box;
+    gap: 1vh;
+}
+
+.article-div-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3vh;
+    box-sizing: border-box;
+}
+
+.article-div-info-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vh;
+}
+
+.article-div-info-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vh;
+}
+
+.article-div-content{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    padding: 3vh;
+    box-sizing: border-box;
+    background-color: var(--grey1);
+    border-radius: 2vh;
+}
+
+.article-div-lower{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 6vh;
+    width: 100%;
+    top: 2vh;
+}
+
+.article-div-lower-right{
+    height: 100%;
+    width: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    color: white;
+    border-radius: 1vh;
 }

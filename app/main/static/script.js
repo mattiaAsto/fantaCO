@@ -289,6 +289,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 
+	const delete_article_form = document.querySelectorAll(".delete-article-form")
+	
+
 
 
 

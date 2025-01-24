@@ -5,6 +5,18 @@ from sqlalchemy.types import LargeBinary
 from sqlalchemy import inspect, func
 import random
 
+class Article(db.Model):
+    __tablename__ = "articles"
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    author = db.Column(db.String(100), nullable=False)
+    author_username = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
+
+    def __repr__(self):
+        return f"Article('{self.title}', '{self.date_posted}')"
+
 
 class User(UserMixin, db.Model):
     __tablename__="user"
@@ -33,8 +45,6 @@ class User(UserMixin, db.Model):
         return User.query.get(username)
     
 
-
-
 class Runner(db.Model):
     __tablename__="runner"
     #id = db.Column(db.Integer, primary_key=True)
@@ -48,8 +58,6 @@ class Runner(db.Model):
 
     users = db.relationship("UserRunner", back_populates="runner", cascade="all, delete")
     market = db.relationship("MarketTable", back_populates="runner")
-
-
 
 
 class UserRunner(db.Model):
@@ -74,6 +82,7 @@ class MarketTable(db.Model):
     user = db.relationship('User', back_populates='market')
     runner = db.relationship("Runner", back_populates="market")
 
+
 class LeagueData(db.Model):
     __tablename__="leagueData"
     user_username = db.Column(db.String(50), db.ForeignKey("user.username"), nullable=False, primary_key=True)
@@ -82,10 +91,13 @@ class LeagueData(db.Model):
 
     user = db.relationship('User', back_populates='league_data')
 
+
 class League(db.Model):
     __tablename__="leagues"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False, unique=True)
+    max_managers = db.Column(db.Integer, nullable=False, default=10)
+
 
     user_league = db.relationship("UserLeague", back_populates="league")
 
@@ -211,8 +223,6 @@ def create_dynamic_league_data_model(group_id):
     return model
 
 
-
-
 def create_dynamic_tables(id, user_username):
     print(user_username)
 
@@ -232,6 +242,7 @@ def create_dynamic_tables(id, user_username):
 
     return
 
+
 def populate_market(id):
     market_table = create_dynamic_market_model(id)
     all_market_runners = db.session.query(Runner).order_by(func.random()).limit(16).all()
@@ -247,6 +258,7 @@ def populate_market(id):
 
         i+=1
     db.session.commit()
+
 
 def create_default_team(id, user_username):
     user_runner_table = create_dynamic_user_runner_model(id)

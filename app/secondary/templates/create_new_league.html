@@ -1,0 +1,29 @@
+{% extends "leagues_base.html" %}
+
+
+{% block title %}Nuova lega{% endblock %}
+
+
+{% block content %}
+
+    <div class="content-wrapper">
+        <p>In progress...</p>
+        <div class="content-info">
+            Crea una nuova lega
+        </div>
+        <form action="{{url_for('secondary.create_new_league')}}" method="POST" class="content">
+            <input type="text" name="league-name" placeholder="Nome lega" class="new-league-input">
+            <input type="number" name="max-managers" placeholder="Numero massimo di manager" class="new-league-input number">
+            <p class="error-message">{{error}}</p>
+            <button type="submit" class="new-league-button">
+                <i class="fas fa-plus"></i>
+                <p>Crea</p>
+            </button>
+            <div class="share-link redirect">
+                <i class="fas fa-circle-left"></i>
+                <a href="{{url_for('main.home')}}">Ritorna alla homepage</a>
+            </div>
+        </form>
+    </div>
+    
+{% endblock %}
