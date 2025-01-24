@@ -47,6 +47,9 @@ def create_app():
 
     app.config['SQLALCHEMY_DATABASE_URI'] = db_complete_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SQLALCHEMY_POOL_SIZE'] = 10
+    app.config['SQLALCHEMY_POOL_TIMEOUT'] = 5  
+    app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600 
 
     #Flask-Mail configs
     app.config['MAIL_SERVER'] = mail_server   # Server SMTP (es. Gmail: smtp.gmail.com)

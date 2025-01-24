@@ -11,75 +11,47 @@
     </div>
     <div class="choice-div">
         <button class="choice-button">Articoli</button>
-    </div>
-    <div class="choice-div">
+        </div>
+        <div class="choice-div">
         <button class="choice-button">Regole</button>
-    </div>
+        </div>
 
-{% endblock %}
+        {% endblock %}
 
-{% block content %}
+        {% block content %}
 
-    
+        
 
 
-    <div class="main-slider">   
+        <div class="main-slider">   
         <div class="main-slides">
 
             <div class="main-slide"> <!-- Intro slide -->
-                <div class="main-slide-header" style="justify-content: center;">
-                    <h1>Introduzione al funzionamento   </h1>
-                </div>
+            <div class="main-slide-header" style="justify-content: center;">
+                <h1>Introduzione a fantaCO</h1>
+            </div>
+            <div class="content-div">
+                <h2>Panoramica Generale</h2>
+                <p>Questa pagina ti fornirà una panoramica generale del sito e delle sue funzionalità principali.</p>
+                
+                <h2>Navigazione</h2>
+                <p>Puoi navigare tra le sezioni utilizzando i pulsanti sopra.</p>
+                <p>Trovi maggiori informazioni sul funzionamento e sulla navigazione nella sezione "REGOLE"</p>
 
-                <div class="content-div">
-                    <p>Benvenuto su FantaCO, la tua piattaforma di fantacalcio preferita! Qui potrai gestire la tua squadra, acquistare e vendere giocatori, e competere con altri utenti per diventare il miglior allenatore.</p>
-
-                    <h2>Guida Rapida</h2>
-                    <p>Per iniziare, ecco una breve guida su cosa puoi trovare sul nostro sito:</p>
-
-                    <ul>
-                        <li><strong>Introduzione:</strong> Questa sezione ti fornirà una panoramica generale del sito e delle sue funzionalità principali.</li>
-                        <li><strong>Articoli:</strong> Qui troverai articoli e notizie aggiornate sul mondo del fantacalcio, consigli sui giocatori da acquistare e vendere, e molto altro.</li>
-                        <li><strong>Regole:</strong> In questa sezione potrai consultare le regole del gioco, inclusi i criteri di punteggio e le modalità di partecipazione.</li>
-                    </ul>
-
-                    <h2>Come Utilizzare FantaCO</h2>
-                    <p>Per iniziare a giocare, segui questi semplici passaggi:</p>
-
-                    <ol>
-                        <li><strong>Registrati:</strong> Crea un account per accedere a tutte le funzionalità del sito.</li>
-                        <li><strong>Gestisci la tua squadra:</strong> Vai alla sezione "Squadra" per visualizzare e modificare la tua formazione.</li>
-                        <li><strong>Mercato:</strong> Nella sezione "Mercato" puoi acquistare nuovi giocatori per migliorare la tua squadra e vendere quelli che non ti servono più.</li>
-                        <li><strong>Competizioni:</strong> Partecipa alle competizioni settimanali e mensili per vincere premi e scalare la classifica.</li>
-                    </ol>
-
-                    <h2>Leghe Private</h2>
-                    <p>Oltre alla competizione globale, puoi creare o unirti a leghe private con i tuoi amici. Ecco come fare:</p>
-
-                    <ol>
-                        <li><strong>Crea una lega privata:</strong> Vai alla sezione "Leghe" e clicca su "Crea Lega". Inserisci il nome della lega e invita i tuoi amici a partecipare.</li>
-                        <li><strong>Unisciti a una lega privata:</strong> Se hai ricevuto un invito, vai alla sezione "Leghe" e inserisci il codice della lega per unirti.</li>
-                    </ol>
-
-                    <h2>Lega Globale</h2>
-                    <p>Tutti gli utenti sono automaticamente iscritti alla lega globale, dove competono contro tutti gli altri utenti della piattaforma. Questa è un'ottima opportunità per dimostrare le tue abilità di allenatore e confrontarti con una vasta comunità di appassionati di fantacalcio.</p>
-                    <h2>Unisciti a una Lega Privata</h2>
-                    <p>Per unirti a una lega privata, devi ricevere un link di invito dal creatore della lega. Ecco come fare:</p>
-
-                    <ol>
-                        <li><strong>Ricevi il link di invito:</strong> Il creatore della lega ti invierà un link di invito tramite email o messaggio.</li>
-                        <li><strong>Apri il link:</strong> Clicca sul link di invito per accedere alla pagina di iscrizione della lega.</li>
-                        <li><strong>Conferma l'iscrizione:</strong> Segui le istruzioni sulla pagina per confermare la tua iscrizione alla lega privata.</li>
-                    </ol>
-
-                    <p>Se sei il creatore della lega, puoi generare un link di invito nella sezione "Leghe" e condividerlo con i tuoi amici.</p>
-
-                    <h2>Regole di Acquisto dei Giocatori</h2>
-                    <p>Nella lega globale, tutti gli utenti possono acquistare qualsiasi giocatore disponibile sul mercato. Tuttavia, nelle leghe private, ogni giocatore può essere posseduto da un solo utente alla volta. Questo aggiunge un livello di strategia e competizione tra i membri della lega privata.</p>
-
-
-                    <p>Buon divertimento e che vinca il migliore!</p>
-                </div>
+                <h2>Articoli e News</h2>
+                <p>Gli utenti possono scrivere articoli e news riguardanti le gare future o passate.</p>
+                <p>Questa è un'ottima opportunità per condividere le tue opinioni, analisi e previsioni con la comunità.</p>
+                <p>Per scrivere un articolo, vai al link "Articoli" nel menu in alto a sinistra.</p>
+                
+                <h2>Informazioni sul Sito</h2>
+                <p>Ho creato questo sito nel mio tempo libero.</p>
+                <p>Nota bene che non sono un programmatore professionista.</p>
+                
+                <h2>Costo di Gestione</h2>
+                <p>Il costo di gestione del sito è di 7 CHF al mese.</p>
+                <p>Quindi qualsiasi piccolo aiuto sarebbe molto apprezzato.</p>
+            </div>
+                
                 
                 
             </div>
@@ -99,8 +71,49 @@
             </div>
 
             <div class="main-slide"> <!-- Rules slide -->
+                <div class="main-slide-header" style="justify-content: center;">
+                    <h1>Regole e funzionamento</h1>
+                </div>
                 <div class="content-div">
-                    
+                    <h2>Benvenuto nella sezione delle regole e del funzionamento di fantaCO</h2>
+                    <p>Qui troverai tutte le informazioni necessarie per comprendere come utilizzare il sito e partecipare ai giochi.</p>
+
+                    <h2>Funzionamento Generale</h2>
+                    <p>Il sito è suddiviso in diverse sezioni principali:</p>
+                    <ul>
+                        <li><strong>Introduzione:</strong> Una panoramica generale del sito e delle sue funzionalità.</li>
+                        <li><strong>Articoli:</strong> News e articoli scritti dagli utenti.</li>
+                        <li><strong>Regole:</strong> Questa sezione, dove puoi trovare tutte le regole del gioco.</li>
+                    </ul>
+
+                    <h2>Le Leghe</h2>
+                    <p>Su fantaCO, puoi partecipare a diverse leghe. Esistono due tipi di leghe:</p>
+                    <ul>
+                        <li><strong>Lega Globale:</strong> In questa lega, ogni utente può possedere qualsiasi corridore.</li>
+                        <li><strong>Leghe Private:</strong> In queste leghe, solo un utente può possedere un determinato corridore.</li>
+                    </ul>
+                    <p>Le leghe private sono create dagli utenti e possono essere raggiunte solo tramite un link di invito.</p>
+
+                    <h2>Creazione e Partecipazione alle Leghe Private</h2>
+                    <p>Per creare una lega privata, segui questi passaggi:</p>
+                    <ol>
+                        <li>Accedi al tuo account.</li>
+                        <li>Vai alla sezione "Crea Lega".</li>
+                        <li>Compila i dettagli richiesti e genera il link di invito.</li>
+                    </ol>
+                    <p>Per partecipare a una lega privata, devi ricevere un link di invito dal creatore della lega.</p>
+                    <p>Clicca sul link e segui le istruzioni per unirti alla lega.</p>
+
+                    <h2>Generazione del Link di Invito</h2>
+                    <p>Il link di invito viene generato automaticamente quando crei una lega privata.</p>
+                    <p>Puoi condividere questo link con gli amici che desideri invitare alla tua lega.</p>
+
+                    <h2>Acquisto dei Corridori</h2>
+                    <p>Nella Lega Globale, puoi acquistare un corridore inserendo direttamente il prezzo di acquisto e premendo il pulsante +.</p>
+                    <p>Nella Lega Privata, devi fare un'offerta e attendere che il tempo di permanenza del corridore sul mercato scada.</p>
+                    <p>Fai attenzione, se l'offerta scompare significa che qualcuno ha fatto un'offerta maggiore.</p>
+
+                    <h2>Buon divertimento su fantaCO!</h2>
                 </div>
             </div>
     
