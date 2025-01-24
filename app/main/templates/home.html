@@ -1,7 +1,109 @@
 {% extends "base.html" %}
 
-{% block title %}Home Page{% endblock %}
+
+{% block title %}Market Page{% endblock %}
+
+
+{% block choice %}
+
+    <div class="choice-div active">
+        <button class="choice-button">Introduzione</button>
+    </div>
+    <div class="choice-div">
+        <button class="choice-button">Articoli</button>
+    </div>
+    <div class="choice-div">
+        <button class="choice-button">Regole</button>
+    </div>
+
+{% endblock %}
 
 {% block content %}
 
+    
+
+
+    <div class="main-slider">   
+        <div class="main-slides">
+
+            <div class="main-slide"> <!-- Intro slide -->
+                <div class="main-slide-header" style="justify-content: center;">
+                    <h1>Introduzione al funzionamento   </h1>
+                </div>
+
+                <div class="content-div">
+                    <p>Benvenuto su FantaCO, la tua piattaforma di fantacalcio preferita! Qui potrai gestire la tua squadra, acquistare e vendere giocatori, e competere con altri utenti per diventare il miglior allenatore.</p>
+
+                    <h2>Guida Rapida</h2>
+                    <p>Per iniziare, ecco una breve guida su cosa puoi trovare sul nostro sito:</p>
+
+                    <ul>
+                        <li><strong>Introduzione:</strong> Questa sezione ti fornirà una panoramica generale del sito e delle sue funzionalità principali.</li>
+                        <li><strong>Articoli:</strong> Qui troverai articoli e notizie aggiornate sul mondo del fantacalcio, consigli sui giocatori da acquistare e vendere, e molto altro.</li>
+                        <li><strong>Regole:</strong> In questa sezione potrai consultare le regole del gioco, inclusi i criteri di punteggio e le modalità di partecipazione.</li>
+                    </ul>
+
+                    <h2>Come Utilizzare FantaCO</h2>
+                    <p>Per iniziare a giocare, segui questi semplici passaggi:</p>
+
+                    <ol>
+                        <li><strong>Registrati:</strong> Crea un account per accedere a tutte le funzionalità del sito.</li>
+                        <li><strong>Gestisci la tua squadra:</strong> Vai alla sezione "Squadra" per visualizzare e modificare la tua formazione.</li>
+                        <li><strong>Mercato:</strong> Nella sezione "Mercato" puoi acquistare nuovi giocatori per migliorare la tua squadra e vendere quelli che non ti servono più.</li>
+                        <li><strong>Competizioni:</strong> Partecipa alle competizioni settimanali e mensili per vincere premi e scalare la classifica.</li>
+                    </ol>
+
+                    <h2>Leghe Private</h2>
+                    <p>Oltre alla competizione globale, puoi creare o unirti a leghe private con i tuoi amici. Ecco come fare:</p>
+
+                    <ol>
+                        <li><strong>Crea una lega privata:</strong> Vai alla sezione "Leghe" e clicca su "Crea Lega". Inserisci il nome della lega e invita i tuoi amici a partecipare.</li>
+                        <li><strong>Unisciti a una lega privata:</strong> Se hai ricevuto un invito, vai alla sezione "Leghe" e inserisci il codice della lega per unirti.</li>
+                    </ol>
+
+                    <h2>Lega Globale</h2>
+                    <p>Tutti gli utenti sono automaticamente iscritti alla lega globale, dove competono contro tutti gli altri utenti della piattaforma. Questa è un'ottima opportunità per dimostrare le tue abilità di allenatore e confrontarti con una vasta comunità di appassionati di fantacalcio.</p>
+                    <h2>Unisciti a una Lega Privata</h2>
+                    <p>Per unirti a una lega privata, devi ricevere un link di invito dal creatore della lega. Ecco come fare:</p>
+
+                    <ol>
+                        <li><strong>Ricevi il link di invito:</strong> Il creatore della lega ti invierà un link di invito tramite email o messaggio.</li>
+                        <li><strong>Apri il link:</strong> Clicca sul link di invito per accedere alla pagina di iscrizione della lega.</li>
+                        <li><strong>Conferma l'iscrizione:</strong> Segui le istruzioni sulla pagina per confermare la tua iscrizione alla lega privata.</li>
+                    </ol>
+
+                    <p>Se sei il creatore della lega, puoi generare un link di invito nella sezione "Leghe" e condividerlo con i tuoi amici.</p>
+
+                    <h2>Regole di Acquisto dei Giocatori</h2>
+                    <p>Nella lega globale, tutti gli utenti possono acquistare qualsiasi giocatore disponibile sul mercato. Tuttavia, nelle leghe private, ogni giocatore può essere posseduto da un solo utente alla volta. Questo aggiunge un livello di strategia e competizione tra i membri della lega privata.</p>
+
+
+                    <p>Buon divertimento e che vinca il migliore!</p>
+                </div>
+                
+                
+            </div>
+
+            <div class="main-slide"> <!-- Article slide -->
+                <div class="main-slide-header" style="justify-content: center;">
+                    <h1>Articoli e news scritti dagli utenti</h1>
+                </div>
+                <div class="content-div">
+                    <div class="runners-grid" id="sell-runner">
+                        {% for article in all_articles %}
+                        <div class="runner-div">
+                        </div>        
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-slide"> <!-- Rules slide -->
+                <div class="content-div">
+                    
+                </div>
+            </div>
+    
+        </div>
+    </div>
 {% endblock %}

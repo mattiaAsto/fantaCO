@@ -257,6 +257,7 @@ nav.active{
     align-items: center;
     justify-content: start;
     width: 75vw;
+    height: auto;
     box-sizing: border-box;
     background-color: var(--grey2);
     border-radius: 20px;

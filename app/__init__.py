@@ -45,11 +45,7 @@ def create_app():
     cache_default_timeout = int(os.getenv("CACHE_DEFAULT_TIMEOUT"))
 
 
-    #config of app, as database url
-    if db_complete_url:
-        app.config['SQLALCHEMY_DATABASE_URI'] = db_complete_url
-    else:
-        app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{db_user}:{db_password}@{db_hostname}.oregon-postgres.render.com/{db_name}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_complete_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     #Flask-Mail configs
