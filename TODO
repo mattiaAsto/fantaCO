@@ -1,5 +1,7 @@
 PROCEDENDO CON LA PROGRAMMAZIONE AGGIUNGI COMMENTI E DESCRIZIONI PRIMA CHE DIVENTA TROPPO INCASINATO
 
+finisci di sistemare il sistema di gestione compra e vendita giocatori.
+Lo user deve poter cambiare il prezzo di vendita quando vende un giocatore.
 
 finire con la creazione della pagina runner e lo styling in generale
 
@@ -15,7 +17,7 @@ aggiungi un footer
 blocchi di try except dove necessario
 
 
-aggiornare e rendere piu potente il calcolo del prezzo
+aggiornare e rendere piu potente il calcolo del valore dei giocatori
 
 aggiungere il display dei punti fatti per ogni singola gara
 
@@ -23,8 +25,6 @@ pannello di controllo admin
 
 EVENTUALI:
 separare le funzioni di buy_runner e sell_runner nel caso venissero usate in più posti div
-
-mettere a posto il sistema di siplay dei runner nelle linee
 
 unificare le funzioni per il sidescroll del main e del lineup
 

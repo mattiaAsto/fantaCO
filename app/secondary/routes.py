@@ -24,10 +24,15 @@ def global_injection_dictionary():
 
         all_user_leagues_rows = UserLeague.query.filter_by(user_username=current_user.username).all()
         all_leagues=[row.league_name for row in all_user_leagues_rows]
+
+        light_theme = current_user.light_theme
     else:
         all_leagues=["Effettua il login per vedere le leghe"]
 
+        light_theme = False
+
     balance = get_league_data_table(get_user_league_id()).query.filter_by(user_username=current_user.username).first().balance if current_user.is_authenticated else 0
+
 
 
 
@@ -36,6 +41,7 @@ def global_injection_dictionary():
         "user": current_user,
         "leagues": all_leagues,
         "balance": balance,
+        "light_theme": light_theme,
     }
 
 def get_user_league_id():
@@ -80,6 +86,39 @@ def main():
 def add_vs_create():
     return render_template('add_vs_create.html')
 
+@secondary.route('/profile', methods=["GET", "POST"])
+@login_required
+def profile():
+
+    if request.method == "POST":
+        name = request.form.get("name")
+        surname = request.form.get("surname")
+        nickname = request.form.get("nickname")
+        username = request.form.get("username")
+        theme =str( request.form.get("theme"))
+        if name:
+            current_user.name = name
+        if surname:
+            current_user.surname = surname
+        if username:
+            current_user.username = username
+        if nickname:
+            current_user.nickname = nickname
+        print(bool(theme == "True"))
+        if theme == "True":
+            current_user.light_theme = True
+        else:
+            current_user.light_theme = False
+        db.session.commit()
+        return redirect(url_for("main.home"))
+
+    
+    return render_template("profile.html")
+
+
+@secondary.route('/upload_image')
+def upload_image():
+    return "upload image --non ancora implementato, arriverà a breve"
 
 @secondary.route("/create_new_league", methods=["GET", "POST"])
 def create_new_league():

@@ -20,68 +20,6 @@ CATEGORIES = asti_webscraper.LIST_OF_CATEGORIES
 
 #functions
 
-#old function for json based database
-def load_database(path):
-    try:
-        with open(path) as f:
-            database = json.load(f)
-            return database
-    except:
-        return{}
-    
-#old function for json based database
-def upload_database(path, database):
-    with open(path, "w") as f:
-        json.dump(database, f)
-        return 
-
-#old function for json based database
-def uploading_time_span(last_ulpoading_time):
-    waiting_belay=3600
-    current_time=time.time()
-    if last_ulpoading_time+waiting_belay<=current_time:
-        return "current"
-    else:
-        return "must upload"
-
-#old function for old market managment system
-def run_market_creation():
-    all_runners=db.session.query(Runner).all()
-    all_market_runners=db.session.query(MarketTable).all()
-    uploading_interval=3600
-    actual_time=time.time()
-
-    all_runners_name=[runner.name for runner in all_runners]
-    all_market_runners_name=[runner.runner_name for runner in all_market_runners]
-    
-    free_runners=[runner for runner in all_runners_name if runner not in all_market_runners_name]
-
-    to_delete=[]
-    to_add=[]
-
-    counter=0
-
-    for runner in all_market_runners:
-        if runner.timestamp <= actual_time-uploading_interval:
-            to_delete.append(runner)
-            if free_runners:
-                new_runner_name=random.choice(free_runners)
-                free_runners.remove(new_runner_name)
-                new_timestamp=(uploading_interval*len(all_market_runners)+all_market_runners[0].timestamp+counter)
-                new_market_runner=MarketTable(
-                    runner_name=new_runner_name,
-                    timestamp=new_timestamp
-                )
-                to_add.append(new_market_runner)
-                counter+=uploading_interval
-
-    for runner in to_delete:
-        db.session.delete(runner)
-
-    for new_runner in to_add:
-        db.session.add(new_runner)
-    
-    db.session.commit()
 
 #with this route a single variable is accesible everywhere and caching routes
 @main.context_processor
@@ -93,11 +31,15 @@ def global_injection_dictionary():
 
         all_user_leagues_rows = UserLeague.query.filter_by(user_username=current_user.username).all()
         all_leagues=[row.league_name for row in all_user_leagues_rows]
+
+
+        light_theme = current_user.light_theme
     else:
         all_leagues=["Effettua il login per vedere le leghe"]
 
-    balance = get_league_data_table(get_user_league_id()).query.filter_by(user_username=current_user.username).first().balance if current_user.is_authenticated else 0
+        light_theme = False
 
+    balance = get_league_data_table(get_user_league_id()).query.filter_by(user_username=current_user.username).first().balance if current_user.is_authenticated else 0
 
 
     return {
@@ -105,7 +47,9 @@ def global_injection_dictionary():
         "user": current_user,
         "leagues": all_leagues,
         "balance": balance,
+        "light_theme": light_theme,
     }
+
 
 def get_user_league_id():
     if current_user.active_league == "global":
@@ -198,10 +142,7 @@ def market():
     market_table=get_market_table(id)
     user_runner_table=get_user_runner_table(id)
     league_data_table = get_league_data_table(get_user_league_id())
-    owned_runners=db.session.query(user_runner_table).filter_by(user_username=current_user.username).all()
 
-    all_owned_runners=db.session.query(user_runner_table).all()
-    
 
     if request.method == 'POST':
 
@@ -273,16 +214,12 @@ def market():
 
             if buyer == "fantaCO":
 
-                print("selling fantaco")
-
                 user_league_data = league_data_table.query.filter_by(user_username=current_user.username).first()
                 user_league_data.balance += offer
 
                 user_runner = db.session.query(user_runner_table).filter_by(user_username=current_user.username, runner_name=runner_name).first()
-                print(user_runner)
                 db.session.delete(user_runner)
 
-                db.session.commit()
             else:
                 user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=runner_name).first()
                 db.session.delete(user_runner)
@@ -293,8 +230,7 @@ def market():
                 buyer_league_data.balance -= offer
                 new_relation = user_runner_table(user_username=buyer, runner_name=runner_name)
                 db.session.add(new_relation)
-
-                db.session.commit()
+            db.session.commit()
                 
 
     if filter == "":
@@ -307,6 +243,10 @@ def market():
         selected_runners = market_table.query.join(Runner).order_by(Runner.society.asc()).all()
     elif filter == "Prezzo":
         selected_runners = market_table.query.join(Runner).order_by(Runner.price.desc()).all()
+
+    owned_runners=db.session.query(user_runner_table).filter_by(user_username=current_user.username).all()
+
+    all_owned_runners=db.session.query(user_runner_table).all()
 
 
     row_count=db.session.query(market_table).count()
@@ -372,7 +312,8 @@ def market():
             "category": full_details.category,
             "points": full_details.points,
             "price": full_details.price,
-            "timestamp": time_remaining
+            "timestamp": time_remaining,
+            "selling": runner.selling,
         }
         sellable_runners.append(sellable_runner)
 

@@ -190,7 +190,7 @@
             </div>
 
             <div class="main-slide"> <!-- Transactions slide -->
-                <p>ciao pirla2</p>
+                <p>Sistema non ancora implementato</p>
             </div>
     
         </div>
@@ -204,6 +204,7 @@
             </div>
             <div class="runners-grid"></div>
                 {% for runner in sellable_runners %}
+                    {% if not runner.selling %}
                     <div id="sell-div" class="runner-div">
                         <form id="popup-runner-sell-form" action="/sell-runner" method="post">
                             <input type="hidden" name="runner-name" value="{{runner.name}}">
@@ -224,6 +225,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 {%endfor%}
             </div>
     </div>

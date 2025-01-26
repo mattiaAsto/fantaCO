@@ -31,6 +31,8 @@ class User(UserMixin, db.Model):
     is_validated = db.Column(db.Boolean, nullable=False, default=False)
     active_league = db.Column(db.String(30), nullable=False, default="global")
 
+    light_theme = db.Column(db.Boolean, nullable=False, default=False)
+
 
     runners = db.relationship("UserRunner", back_populates="user", cascade="all, delete")
     market = db.relationship("MarketTable", back_populates="user", cascade="all, delete")

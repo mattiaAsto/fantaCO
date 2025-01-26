@@ -26,7 +26,7 @@ with open(runners_path, 'r') as file:
 with open(league_path, 'r') as file:
     market = json.load(file)
 
-migrate=False
+migrate=True
 if migrate:
     with app.app_context():
         meta = MetaData()

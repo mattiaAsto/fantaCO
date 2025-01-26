@@ -9,7 +9,37 @@
     <script src="{{url_for('main.static', filename='script.js')}}"></script>
 
     <title>{% block title %}Base{% endblock %}</title>
+
+    {% if light_theme %}
+    <style>
+        :root{
+            --orange: rgb(255,124,32);
+            --light-orange: rgb(255,153,80);
+
+            --grey1: rgb(232, 232, 232);
+            --grey2: rgb(206, 206, 206);
+            --grey3: rgb(179, 179, 179);
+            --grey4: rgb(151, 151, 151);
+
+            --text-grey4: rgb(70, 70, 70);
+            --text-grey1: rgb(45, 45, 45);
+
+            --orange-gray1: rgb(214, 173, 144);
+            --orange-gray2: rgb(254, 173, 114);
+
+            --transparent-grey: rgba(70, 70, 70, 0.7);
+
+            --white-text: rgb(70, 70, 70);
+
+        }
+        body{
+            color: var(--text-grey4);
+        }
+    </style>
+    {% endif %}
+
     {% block head %}
+
     {% endblock %}
 </head>
 <body>
@@ -38,7 +68,7 @@
     </header>
 
     <nav>
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{url_for('secondary.profile')}}">
             <i class="fas fa-user-cog"></i>
             Profilo
         </a>

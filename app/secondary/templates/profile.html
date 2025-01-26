@@ -1,0 +1,47 @@
+{% extends "leagues_base.html" %}
+
+
+{% block title %}Profilo{% endblock %}
+
+
+{% block content %}
+
+    <div class="content-wrapper profile">
+        <div class="content-info">
+            Modifica il tuo profilo
+        </div>
+
+        <div class="share-link redirect">
+            <i class="fas fa-user-circle"></i>
+            <a href="{{url_for('secondary.upload_image')}}">Carica la tua immagine</a>
+        </div>
+
+        <form action="{{url_for('secondary.profile')}}" method="POST" class="content">
+            <label for="name" class="new-league-input">Nome:</label>
+            <input type="text" name="name" class="new-league-input" value="{{user.name}}">
+
+            <label for="surname" class="new-league-input">Cognome:</label>
+            <input type="text" name="surname" class="new-league-input" value="{{user.surname}}">
+
+            <label for="nickname" class="new-league-input">Nickname:</label>
+            <input type="text" name="nickname" class="new-league-input" value="{{user.nickname}}">
+
+            <label for="email" class="new-league-input">Email:</label>
+            <input type="text" name="email" class="new-league-input" value="{{user.username}}">
+
+            <label for="theme" class="new-league-input">Tema chiaro (sconsigliato):</label>
+            <input type="checkbox" name="theme" class="new-league-input checkbox" {% if light_theme %}checked{% endif %} value="True">
+
+            <button type="submit" class="new-league-button">
+                <i class="fas fa-user-edit"></i>
+                <p>Salva</p>
+            </button>
+
+            <div class="share-link redirect">
+                <i class="fas fa-circle-left"></i>
+                <a href="{{url_for('main.home')}}">Ritorna alla homepage</a>
+            </div>
+
+        </form>
+    
+{% endblock %}
