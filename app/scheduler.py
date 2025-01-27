@@ -1,4 +1,4 @@
-from app.models import User, Runner, MarketTable, UserRunner
+from app.models import *
 from app import db
 from sqlalchemy.sql.expression import func
 from run import app as global_app
@@ -65,6 +65,66 @@ def renovate_obsolete_db(): #if db is obsolete update it
 
 def refresh_market():
     with global_app.app_context():
+        all_leagues = db.session.query(League).all()
+        all_id = [league.id for league in all_leagues]
+
+        #refresh all the leagues markets
+        for id in all_id:
+            league_market_table = create_dynamic_market_model(id)
+
+            current_time = datetime.now(ZoneInfo("Europe/Zurich"))
+
+
+            first = league_market_table.query.order_by(league_market_table.id.asc()).first()
+            last = league_market_table.query.order_by(league_market_table.id.desc()).first()
+
+            created_time = first.timestamp
+            last_created_time = last.timestamp
+
+            if created_time.tzinfo is None:
+                created_time = created_time.replace(tzinfo=ZoneInfo("Europe/Zurich"))
+            if last_created_time.tzinfo is None:
+                last_created_time = last_created_time.replace(tzinfo=ZoneInfo("Europe/Zurich"))
+
+            row_count = db.session.query(league_market_table).count()
+
+            if created_time < current_time - timedelta(seconds=1 * row_count):
+                
+                new_timestamp = last_created_time + timedelta(hours=1)
+
+                subquery = db.session.query(league_market_table.runner_name)
+                new_runner = Runner.query.filter(~Runner.name.in_(subquery)).order_by(func.random()).first()
+                if new_runner:
+                    new_market_runner = league_market_table(
+                        runner_name=new_runner.name,
+                        timestamp=new_timestamp
+                    )
+                    db.session.add(new_market_runner)
+
+                removable_runner = league_market_table.query.first()
+                if removable_runner:
+                    if removable_runner.offer > 0:
+                        buyer = removable_runner.buyer
+                        offer = removable_runner.offer
+
+                        league_data = create_dynamic_league_data_model(id)
+                        buyer_balance = db.session.query(league_data).filter_by(username=buyer).first().balance
+
+                        buyer_balance -= offer
+
+                        league_user_runner = create_dynamic_user_runner_model(id)
+                        new_relation = league_user_runner(user_username=buyer, runner_name=removable_runner.runner.name)
+                        
+                        db.session.add(new_relation)
+                    db.session.delete(removable_runner)
+
+                db.session.commit()
+                print("Refresh completato lega.")
+            else:
+                print(f"No refresh lega")
+
+
+        #refresh the global market 
         current_time = datetime.now(ZoneInfo("Europe/Zurich"))
 
         first = MarketTable.query.order_by(MarketTable.id.asc()).first()
@@ -134,7 +194,7 @@ def start_scheduler():
     #scheduler for market refreshing
     scheduler = BackgroundScheduler()
     from .scheduler import refresh_market
-    scheduler.add_job(refresh_market, "interval", hours=1)
+    scheduler.add_job(refresh_market, "interval", minutes=20)
     scheduler.add_job(price_calculations, "interval", minutes=20)
     scheduler.start()
 

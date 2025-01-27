@@ -3,6 +3,7 @@ from datetime import datetime, timezone, timedelta
 from flask_login import UserMixin, login_manager
 from sqlalchemy.types import LargeBinary
 from sqlalchemy import inspect, func
+from zoneinfo import ZoneInfo
 import random
 
 class Article(db.Model):
@@ -12,7 +13,7 @@ class Article(db.Model):
     content = db.Column(db.Text, nullable=False)
     author = db.Column(db.String(100), nullable=False)
     author_username = db.Column(db.String(100), nullable=False)
-    date_posted = db.Column(db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
+    date_posted = db.Column(db.DateTime, nullable=False, default=lambda: datetime.now(ZoneInfo("Europe/Zurich")))
 
     def __repr__(self):
         return f"Article('{self.title}', '{self.date_posted}')"
@@ -77,7 +78,7 @@ class MarketTable(db.Model):
     __tablename__="markettable"
     id = db.Column(db.Integer, primary_key=True)
     runner_name = db.Column(db.String(50), db.ForeignKey("runner.name"), nullable=False)
-    timestamp = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
+    timestamp = db.Column(db.DateTime, default=lambda: datetime.now(ZoneInfo("Europe/Zurich")), nullable=False)
     offer = db.Column(db.Integer, default=0)
     buyer = db.Column(db.String(30), db.ForeignKey("user.username"))
 
@@ -130,7 +131,7 @@ def create_dynamic_market_model(league_id):
             "__tablename__": table_name,  # Nome della tabella
             "id": db.Column(db.Integer, primary_key=True),
             "runner_name": db.Column(db.String(50), db.ForeignKey("runner.name"), nullable=False),
-            "timestamp": db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), nullable=False),
+            "timestamp": db.Column(db.DateTime, default=lambda: datetime.now(ZoneInfo("Europe/Zurich")), nullable=False),
             "offer": db.Column(db.Integer, default=0),
             "buyer": db.Column(db.String(30), db.ForeignKey("user.username")),
             # Relazioni
@@ -249,7 +250,7 @@ def populate_market(id):
     market_table = create_dynamic_market_model(id)
     all_market_runners = db.session.query(Runner).order_by(func.random()).limit(16).all()
     i=-14
-    current_time=datetime.now(timezone.utc)
+    current_time=datetime.now(ZoneInfo("Europe/Zurich"))
     for runner in all_market_runners:
         timestamp=current_time + timedelta(hours=i)
         new_market_runner = market_table(

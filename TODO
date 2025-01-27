@@ -1,7 +1,8 @@
 PROCEDENDO CON LA PROGRAMMAZIONE AGGIUNGI COMMENTI E DESCRIZIONI PRIMA CHE DIVENTA TROPPO INCASINATO
 
-finisci di sistemare il sistema di gestione compra e vendita giocatori.
 Lo user deve poter cambiare il prezzo di vendita quando vende un giocatore.
+
+Quando lo user cambia le informazioni del suo profilo la mail va verificata 
 
 finire con la creazione della pagina runner e lo styling in generale
 

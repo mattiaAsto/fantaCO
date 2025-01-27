@@ -9,6 +9,7 @@ from asti_webscraper import RUNNERS_DATABASE_PATH as runners_path
 from asti_webscraper import LEAGUE_DATABASE_PATH as league_path
 from datetime import datetime, timedelta, timezone
 from sqlalchemy import MetaData
+from zoneinfo import ZoneInfo
 import time
 import os
 import bcrypt
@@ -51,7 +52,7 @@ if migrate:
 
         all_market_runners=market["market_runners"]
         i=-14
-        current_time=datetime.now(timezone.utc)
+        current_time=datetime.now(ZoneInfo("Europe/Zurich"))
         for runner in all_market_runners:
             timestamp=current_time + timedelta(hours=i)
             new_market_runner = MarketTable(
