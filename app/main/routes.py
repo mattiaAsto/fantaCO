@@ -364,6 +364,9 @@ def sell_runner():
 @login_required
 def team():
 
+    filters=["Categoria", "Punti", "Società", "Prezzo"]
+    filter = ""
+
     id = get_user_league_id()
     print(id)
 
@@ -372,7 +375,10 @@ def team():
 
 
     if request.method=="POST":
-        print("post")
+        form_id = request.form.get("form_id")
+        
+        if form_id == "filter":
+            filter = request.form.get("filter")
             
 
     player_runners=sorted(owned_runners, key=lambda runner: runner.lineup)
@@ -390,7 +396,6 @@ def team():
         }
         runners_database_list.append(append_runner)
 
-
     lineup_positions = [None] * 12
 
     for runner in runners_database_list:
@@ -402,7 +407,18 @@ def team():
     lineup_line2 = lineup_positions[4:8]  
     lineup_line3 = lineup_positions[8:12]
 
-    return render_template("team.html", lineup_line1=lineup_line1, lineup_line2=lineup_line2, lineup_line3=lineup_line3, runners_database=runners_database_list)
+    print(filter)
+
+    if filter == "Categoria":
+        runners_database_list = sorted(runners_database_list, key=lambda x: x["category"])    
+    elif filter == "Punti":
+        runners_database_list = sorted(runners_database_list, key=lambda x: x["points"])    
+    elif filter == "Società":
+        runners_database_list = sorted(runners_database_list, key=lambda x: x["society"])    
+    elif filter == "Prezzo":
+        runners_database_list = sorted(runners_database_list, key=lambda x: x["price"])    
+
+    return render_template("team.html",filters = filters, lineup_line1=lineup_line1, lineup_line2=lineup_line2, lineup_line3=lineup_line3, runners_database=runners_database_list)
 
 
 @main.route("/refresh-team", methods=["POST"])
