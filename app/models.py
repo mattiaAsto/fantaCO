@@ -62,6 +62,17 @@ class Runner(db.Model):
     users = db.relationship("UserRunner", back_populates="runner", cascade="all, delete")
     market = db.relationship("MarketTable", back_populates="runner")
 
+    points = db.relationship('RunnerPoints', back_populates='runner')
+
+class RunnerPoints(db.Model):
+    __tablename__="runnerPoints"
+    runner_name = db.Column(db.String(50), db.ForeignKey("runner.name"), nullable=False, primary_key=True)
+    race = db.Column(db.String(20), nullable=False)
+    date = db.Column(db.DateTime, default=lambda: datetime.now(ZoneInfo("Europe/Zurich")), nullable=False)
+    points = db.Column(db.Integer, default=0)
+
+    runner = db.relationship('Runner', back_populates='points')
+
 
 class UserRunner(db.Model):
     __tablename__="userRunner"
