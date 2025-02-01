@@ -19,7 +19,9 @@ LEAGUE_DATABASE_PATH = asti_webscraper.LEAGUE_DATABASE_PATH
 CATEGORIES = asti_webscraper.LIST_OF_CATEGORIES
 
 #functions
-
+def format_number(number):
+    formatted_integer_part = "{:,}".format(int(number)).replace(",", "'")
+    return f"{formatted_integer_part}.-"
 
 #with this route a single variable is accesible everywhere and caching routes
 @main.context_processor
@@ -80,6 +82,9 @@ def get_league_data_table(id):
         return LeagueData
     else:
         return create_dynamic_league_data_model(id)
+    
+def get_league_transaction_table(id):
+    return create_dynamic_league_transaction(id)
 
 
 
@@ -208,16 +213,28 @@ def market():
             db.session.commit()
 
         elif form_id == "accept_sell_offer":
+            buyer = request.form.get("buyer_username")
+            seller = current_user.username
             runner_name = request.form.get("runner_name")
             offer = int(request.form.get("offer"))
-            buyer = request.form.get("buyer")
 
-            if buyer == "fantaCO":
+
+            if buyer == "FantaCO":
 
                 user_league_data = league_data_table.query.filter_by(user_username=current_user.username).first()
                 user_league_data.balance += offer
 
                 user_runner = db.session.query(user_runner_table).filter_by(user_username=current_user.username, runner_name=runner_name).first()
+
+                transaction_table = create_dynamic_league_transaction(id)
+                new_transaction_info = transaction_table(
+                    buyer_username = buyer,
+                    seller_username = seller,
+                    runner_name = runner_name,
+                    amount = offer,
+                )
+
+                db.session.add(new_transaction_info)
                 db.session.delete(user_runner)
 
             else:
@@ -230,6 +247,16 @@ def market():
                 buyer_league_data.balance -= offer
                 new_relation = user_runner_table(user_username=buyer, runner_name=runner_name)
                 db.session.add(new_relation)
+
+                transaction_table = create_dynamic_league_transaction(id)
+                new_transaction_info = transaction_table(
+                    buyer_username = buyer,
+                    seller_username = seller,
+                    runner_name = runner_name,
+                    amount = offer,
+                )
+
+                db.session.add(new_transaction_info)
             db.session.commit()
                 
 
@@ -302,7 +329,7 @@ def market():
         }
         runners_database.append(append_runner)
 
-
+    #runners for the selling popup
     sellable_runners = []
     for runner in owned_runners:
         full_details=runner.runner
@@ -317,6 +344,7 @@ def market():
         }
         sellable_runners.append(sellable_runner)
 
+    #runners in the sell slide of market
     selling_runners = []
     for runner in owned_runners:
         if runner.selling:
@@ -330,11 +358,12 @@ def market():
                 "timestamp": time_remaining,
                 "offer": runner.offer,
                 "buyer": runner.buyer,
+                "buyer_nickname": runner.user.nickname,
             }
             selling_runners.append(selling_runner)
     
 
-    return render_template('market.html', filters=filters, runners_database=runners_database, sellable_runners=sellable_runners, selling_runners=selling_runners)
+    return render_template('market.html', filters=filters, runners_database=runners_database, sellable_runners=sellable_runners, selling_runners=selling_runners, format_number=format_number)
 
 
 @main.route("/sell-runner", methods=["POST"])
@@ -348,16 +377,13 @@ def sell_runner():
         user_runner_table = get_user_runner_table(get_user_league_id())
 
         user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
-
         if user_runner:
-            print("commit prematuro")
-            for _ in range(10):
-                print(".")
             user_runner.selling=True
+            user_runner.offer=int(request.form.get("runner-price"))
             db.session.commit()
         else:
-            return jsonify({"code": "error"}), 400    
-        return jsonify({"code": "okay"}), 200
+            return jsonify({"code": "errorr"}), 400    
+        return redirect(url_for('main.market'))
 
 
 @main.route("/team", methods=['GET', 'POST'])
@@ -368,7 +394,7 @@ def team():
     filter = ""
 
     id = get_user_league_id()
-    print(id)
+
 
     user_runner_table=get_user_runner_table(id)
     owned_runners=db.session.query(user_runner_table).filter_by(user_username=current_user.username).all()
@@ -407,7 +433,6 @@ def team():
     lineup_line2 = lineup_positions[4:8]  
     lineup_line3 = lineup_positions[8:12]
 
-    print(filter)
 
     if filter == "Categoria":
         runners_database_list = sorted(runners_database_list, key=lambda x: x["category"])    

@@ -50,7 +50,7 @@ def get_user_league_id():
     else:
         return League.query.filter_by(name=current_user.active_league).first().id
 
-@cache.memoize()
+
 def get_market_table(id):
 
     if id == 0:
@@ -58,7 +58,7 @@ def get_market_table(id):
     else:
         return create_dynamic_market_model(id)
     
-@cache.memoize()
+
 def get_user_runner_table(id):
 
     if id == 0:
@@ -66,7 +66,7 @@ def get_user_runner_table(id):
     else:
         return create_dynamic_user_runner_model(id)
 
-@cache.memoize()
+
 def get_league_data_table(id):
 
     if id == 0:
@@ -104,7 +104,6 @@ def profile():
             current_user.username = username
         if nickname:
             current_user.nickname = nickname
-        print(bool(theme == "True"))
         if theme == "True":
             current_user.light_theme = True
         else:
@@ -263,6 +262,7 @@ def join_league(token):
         
 
 @secondary.route("/create_article" , methods=["GET", "POST"])
+@login_required
 def create_article():
     if request.method == "POST":
         title = request.form.get("title")

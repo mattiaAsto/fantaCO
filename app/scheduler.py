@@ -108,14 +108,24 @@ def refresh_market():
                         offer = removable_runner.offer
 
                         league_data = create_dynamic_league_data_model(id)
+
                         buyer_balance = db.session.query(league_data).filter_by(username=buyer).first().balance
 
                         buyer_balance -= offer
 
                         league_user_runner = create_dynamic_user_runner_model(id)
                         new_relation = league_user_runner(user_username=buyer, runner_name=removable_runner.runner.name)
-                        
                         db.session.add(new_relation)
+
+                        transaction_table = create_dynamic_league_transaction(id)
+                        new_transaction_info = transaction_table(
+                            buyer_name = buyer,
+                            runner_name = removable_runner.runner.name,
+                            amount = offer,
+                            transaction_scenario = 0
+                        )
+
+                        db.session.add(new_transaction_info)
                     db.session.delete(removable_runner)
 
                 db.session.commit()
@@ -179,7 +189,7 @@ def price_calculations():
 
             price=price*effective_variation_factor #calculate new price
 
-            runner.price=price
+            runner.price=int(price)
             runner.plus_minus=0
 
             db.session.commit()

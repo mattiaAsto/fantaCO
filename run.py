@@ -73,7 +73,6 @@ if migrate:
             db.session.add(user) """
 
         hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
-
         admin=User(
             name="Admin",
             surname="Admin",
@@ -82,16 +81,11 @@ if migrate:
             password=hashed_password,
             is_validated=True
         )
-
         db.session.add(admin)
-
         league_data = LeagueData(user_username="admin")
-
         db.session.add(league_data)
 
-
         hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
-
         admin=User(
             name="Admin2",
             surname="Admin2",
@@ -100,12 +94,23 @@ if migrate:
             password=hashed_password,
             is_validated=True
         )
-
         db.session.add(admin)
-
         league_data = LeagueData(user_username="admin2")
-
         db.session.add(league_data)
+
+        hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
+        global_=User(
+            name="FantaCO",
+            surname="FantaCO",
+            username="FantaCO",
+            nickname="FantaCO",
+            password=hashed_password,
+            is_validated=True
+        )
+        db.session.add(global_)
+        league_data = LeagueData(user_username="FantaCO")
+        db.session.add(league_data)
+
 
         db.session.commit()
         print("Dati migrati con successo!")

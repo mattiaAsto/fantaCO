@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		);
 	}
 
-	const popup_sell_div = document.querySelectorAll("#sell-div");
+	/* const popup_sell_div = document.querySelectorAll("#sell-div");
 	if (popup_sell_div.length) {
 		popup_sell_div.forEach((div, i) => {
 			div.addEventListener("click", function (event) {
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			"Bottoni nella classe '.lineup-runner-button' non trovati."
 		);
 	}
-
+ */
 	//add the close the popup with x icon
 	add_close_popup_behaviour();
 
