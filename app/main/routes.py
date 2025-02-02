@@ -130,7 +130,7 @@ def home():
         articles.append(article_info)
 
 
-    return render_template("home.html", articles=articles)
+    return render_template("home.html", articles=articles, active_page="home")
 
 
 #market page, displays 16 runners at a time, every hour the older goes and a new one comes
@@ -363,16 +363,27 @@ def market():
             selling_runners.append(selling_runner)
     
 
-    return render_template('market.html', filters=filters, runners_database=runners_database, sellable_runners=sellable_runners, selling_runners=selling_runners, format_number=format_number)
+    return render_template(
+        'market.html', 
+        filters=filters, 
+        runners_database=runners_database, 
+        sellable_runners=sellable_runners, 
+        selling_runners=selling_runners, 
+        format_number=format_number,
+        active_page="market"
+        )
 
 
 @main.route("/sell-runner", methods=["POST"])
 def sell_runner():
     if current_user.active_league == "global":
-        user_runner = user_runner_table.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
-        db.session.delete(user_runner)
-        current_user.league_data.balanca+=user_runner.runner.price
-        db.session.commit()
+        user_runner = UserRunner.query.filter_by(user_username=current_user.username, runner_name=request.form.get("runner-name")).first()
+        if user_runner:
+            db.session.delete(user_runner)
+            current_user.league_data.balance += user_runner.runner.price
+            db.session.commit()
+        else:
+            return jsonify({"code": "errorr"}), 400
     else:
         user_runner_table = get_user_runner_table(get_user_league_id())
 
@@ -382,8 +393,9 @@ def sell_runner():
             user_runner.offer=int(request.form.get("runner-price"))
             db.session.commit()
         else:
-            return jsonify({"code": "errorr"}), 400    
-        return redirect(url_for('main.market'))
+            return jsonify({"code": "errorr"}), 400
+            
+    return redirect(url_for('main.market'))
 
 
 @main.route("/team", methods=['GET', 'POST'])
@@ -443,7 +455,14 @@ def team():
     elif filter == "Prezzo":
         runners_database_list = sorted(runners_database_list, key=lambda x: x["price"])    
 
-    return render_template("team.html",filters = filters, lineup_line1=lineup_line1, lineup_line2=lineup_line2, lineup_line3=lineup_line3, runners_database=runners_database_list)
+    return render_template("team.html",
+                           filters = filters, 
+                           lineup_line1=lineup_line1, 
+                           lineup_line2=lineup_line2, 
+                           lineup_line3=lineup_line3, 
+                           runners_database=runners_database_list,
+                           active_page="team"
+                           )
 
 
 @main.route("/refresh-team", methods=["POST"])

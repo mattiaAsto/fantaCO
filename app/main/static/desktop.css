@@ -113,10 +113,6 @@ header{
     padding-right: 10px;
 }
 
-.link-container{
-    height: 100%;
-}
-
 .header-link{
     line-height: 40px;
     flex: 1;

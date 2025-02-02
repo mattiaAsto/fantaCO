@@ -33,7 +33,7 @@
                     </div>
                     <form id="filter" method="POST">
                         <input type="hidden" name="form_id" value="filter">
-                        <label for="category">Ordina per: </label>
+                        <p>Ordina per:</p>
                         <select name="filter" id="filters-dropdown">
                             <option value="">{{filter}}</option>
                             {% for filter in filters %}
@@ -63,7 +63,7 @@
                                             </div>
                                         </div>
                                         <div class="runner-right-container">
-                                            <div class="runner-image-container">
+                                            <div class="runner-image-container society">
                                                 <img class="runner-image society" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}">
                                             </div>
                                             <p class="runner-info">{{format_number(runner.price)}}</p>

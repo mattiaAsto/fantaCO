@@ -27,7 +27,7 @@
                     </div>
                     <form id="filter" method="POST">
                         <input type="hidden" name="form_id" value="filter">
-                        <label for="category">Ordina per: </label>
+                        <p>Ordina per:</p>
                         <select name="filter" id="filters-dropdown">
                             <option value="">{{filter}}</option>
                             {% for filter in filters %}
@@ -216,7 +216,7 @@
                 <p>Scegli il corridore da inserire in questa posizione</p>
                 <i id="popup-x" class="fas fa-x"></i>
             </div>
-            <div class="runners-grid"></div>
+            <div class="runners-grid">
                 {% for runner in runners_database %}
                     <div id="lineup-div" class="runner-div">
                         <form id="popup-runner-form" action="/refresh-team" method="post">
@@ -240,6 +240,7 @@
                     </div>
                 {%endfor%}
             </div>
+        </div>
     </div>
 
     
