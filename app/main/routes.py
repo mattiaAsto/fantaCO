@@ -50,6 +50,7 @@ def global_injection_dictionary():
         "leagues": all_leagues,
         "balance": balance,
         "light_theme": light_theme,
+        "format_number": format_number,
     }
 
 
@@ -368,8 +369,7 @@ def market():
         filters=filters, 
         runners_database=runners_database, 
         sellable_runners=sellable_runners, 
-        selling_runners=selling_runners, 
-        format_number=format_number,
+        selling_runners=selling_runners,
         active_page="market"
         )
 

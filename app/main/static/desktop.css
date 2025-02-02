@@ -302,13 +302,13 @@ nav.active{
 .runner-div-upper{
     display: flex;
     flex-direction: row;
-    height: 22vmin;
+    height: 25vmin;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 3vmin;
     box-sizing: border-box;
-    gap: 10vh;
+    gap: 5vh;
 }
 
 .runner-div-lower{
@@ -395,10 +395,16 @@ nav.active{
 
 .runner-middle-upper{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: start;
-    justify-content: space-around;
-    flex: 1;
+    justify-content: space-between;
+    width: 100%;
+}
+.runner-middle-lower{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
 }
 
 .runner-image{
@@ -414,9 +420,29 @@ nav.active{
     object-fit: contain;
 }
 
+.runner-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+}
+
 .runner-info{
+    display: flex;
+    align-items: center;
+    justify-content: start;
     height: 5vh;
     font-size: 4vh;
+    width: 100%;
+}
+
+.runner-description{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 3vh;
+    font-size: 2.5vh;
     width: 100%;
 }
 

@@ -56,10 +56,21 @@
                                         <div class="runner-middle-container">
                                             <div class="runner-middle-upper">
                                                 <p class="runner-info">{{runner.name}}</p>
-                                                <p class="runner-info">{{runner.category}}</p>
+                                                <div class="runner-info-container">
+                                                    <p class="runner-description">Cateogoria</p>
+                                                    <p class="runner-info">{{runner.category}}</p>
+                                                </div>
+                                            
                                             </div>
                                             <div class="runner-middle-lower">
-                                                <p class="runner-info">{{runner.points}}</p>
+                                                <div class="runner-info-container">
+                                                    <p class="runner-info">{{runner.points}}</p>
+                                                    <p class="runner-description">Punti</p>
+                                                </div>
+                                                <div class="runner-info-container">
+                                                    <p class="runner-info">{{runner.average_points}}</p>
+                                                    <p class="runner-description">&Oslash;Punti</p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="runner-right-container">
@@ -121,14 +132,27 @@
                                 <div class="runner-middle-container">
                                     <div class="runner-middle-upper">
                                         <p class="runner-info">{{runner.name}}</p>
-                                        <p class="runner-info">{{runner.category}}</p>
+                                        <div class="runner-info-container">
+                                            <p class="runner-description">Cateogoria</p>
+                                            <p class="runner-info">{{runner.category}}</p>
+                                        </div>
+                                    
                                     </div>
                                     <div class="runner-middle-lower">
-                                        <p class="runner-info">{{runner.points}}</p>
+                                        <div class="runner-info-container">
+                                            <p class="runner-info">{{runner.points}}</p>
+                                            <p class="runner-description">Punti</p>
+                                        </div>
+                                        <div class="runner-info-container">
+                                            <p class="runner-info">{{runner.average_points}}</p>
+                                            <p class="runner-description">&Oslash;Punti</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="runner-right-container">
-                                    <p class="runner-info">{{runner.society}}</p>
+                                    <div class="runner-image-container society">
+                                        <img class="runner-image society" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}">
+                                    </div>
                                     <p class="runner-info">{{format_number(runner.price)}}</p>
                                 </div>
                             </div>
@@ -212,11 +236,28 @@
                             <div class="runner-middle-container">
                                 <div class="runner-middle-upper">
                                     <p class="runner-info">{{runner.name}}</p>
-                                    <p class="runner-info">{{runner.points}}</p>
+                                    <div class="runner-info-container">
+                                        <p class="runner-description">Cateogoria</p>
+                                        <p class="runner-info">{{runner.category}}</p>
+                                    </div>
+                                
+                                </div>
+                                <div class="runner-middle-lower">
+                                    <div class="runner-info-container">
+                                        <p class="runner-info">{{runner.points}}</p>
+                                        <p class="runner-description">Punti</p>
+                                    </div>
+                                    <div class="runner-info-container">
+                                        <p class="runner-info">{{runner.average_points}}</p>
+                                        <p class="runner-description">&Oslash;Punti</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="runner-right-container">
-                                <p class="runner-info">{{runner.society}}</p>
+                                <div class="runner-image-container society">
+                                    <img class="runner-image society" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}">
+                                </div>
+                                <p class="runner-info">{{format_number(runner.price)}}</p>
                             </div>
                         </div>
                         <form class="runner-div-lower" action="{{url_for('main.sell_runner')}}" method="post">
