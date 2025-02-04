@@ -1,13 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}Runner Page{% endblock %}
+{% block title %}Runner Info{% endblock %}
 
 {% block content %}
-<p>ciao</p>
-<p>ciao</p>
-<p>{{runner.name}}</p>
-<p>{{runner.society}}</p>
-<p>{{runner.category}}</p>
-<p>{{runner.points}}</p>
-<p>{{runner.price}}</p>
+<div class="orunner-div">
+    <div class="orunner-upper">
+        <div class="orunner-background">
+            <img class="orunner-society-image" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}" alt="società">
+        </div>
+        <div class="orunner-overlay">
+        </div>
+    </div>
+    <div class="orunner-middle">
+        <div class="orunner-info-container">
+            <p class="orunner-info"></p>
+            <p class="orunner-description">Punti</p>
+        </div>
+        <div class="orunner-info-container">
+            <p class="orunner-info"></p>
+            <p class="orunner-description">&Oslash;Punti</p>
+        </div>
+        <div class="orunner-info-container">
+            <p class="orunner-info"></p>
+            <p class="orunner-description">Valore di mercato</p>
+        </div>
+    </div>
+    <div class="orunner-lower">
+
+    </div>
+</div>
 {% endblock %}
