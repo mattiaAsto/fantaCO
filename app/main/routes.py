@@ -148,8 +148,7 @@ def market():
     market_table=get_market_table(id)
     user_runner_table=get_user_runner_table(id)
     league_data_table = get_league_data_table(get_user_league_id())
-    if get_user_league_id() is not 0:
-        transaction_table = create_dynamic_league_transaction(get_user_league_id())
+    transaction_table = create_dynamic_league_transaction(get_user_league_id()) if get_user_league_id() is not 0 else None
 
 
     if request.method == 'POST':
