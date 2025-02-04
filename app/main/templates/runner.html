@@ -5,11 +5,6 @@
 {% block content %}
 <div class="orunner-div">
     <div class="orunner-upper">
-        <div class="orunner-background">
-            <img class="orunner-society-image" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}" alt="società">
-        </div>
-        <div class="orunner-overlay">
-        </div>
     </div>
     <div class="orunner-middle">
         <div class="orunner-info-container">
@@ -28,5 +23,9 @@
     <div class="orunner-lower">
 
     </div>
+</div>
+
+<div class="orunner-background">
+    <img class="orunner-society-image" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}" alt="società">
 </div>
 {% endblock %}
