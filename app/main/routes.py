@@ -148,6 +148,8 @@ def market():
     market_table=get_market_table(id)
     user_runner_table=get_user_runner_table(id)
     league_data_table = get_league_data_table(get_user_league_id())
+    if get_user_league_id() is not 0:
+        transaction_table = create_dynamic_league_transaction(get_user_league_id())
 
 
     if request.method == 'POST':
@@ -363,6 +365,17 @@ def market():
             }
             selling_runners.append(selling_runner)
     
+    transactions = []
+    if transaction_table:
+        all_transactions = transaction_table.query.all()
+        for transaction in all_transactions:
+            transaction_dict ={
+                "buyer": transaction.buyer_username,
+                "seller": transaction.seller_username,
+                "runner": transaction.runner_name,
+                "amount": int(transaction.amount),
+            }
+            transactions.append(transaction_dict)
 
     return render_template(
         'market.html', 
@@ -370,6 +383,7 @@ def market():
         runners_database=runners_database, 
         sellable_runners=sellable_runners, 
         selling_runners=selling_runners,
+        transactions=transactions,
         active_page="market"
         )
 

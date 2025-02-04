@@ -74,9 +74,9 @@ def scraping():
                 else:
                     value = cols[i].text.strip()
                     if value == "-":
-                        model[str(i-3)] = None
+                        model[f"{str(i-3)}.TMO"] = None
                     else:
-                        model[str(i-3)] = int(value)
+                        model[f"{str(i-3)}.TMO"] = int(value)
                         average_total += int(value)
                         average_counter += 1
             

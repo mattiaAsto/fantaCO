@@ -64,6 +64,7 @@ class Runner(db.Model):
 
     runner_points = db.relationship('RunnerPoints', back_populates='runner', cascade="all, delete")
 
+
 class RunnerPoints(db.Model):
     __tablename__="runnerPoints"
     runner_name = db.Column(db.String(50), db.ForeignKey("runner.name", ondelete="CASCADE"), nullable=False, primary_key=True)
@@ -352,7 +353,5 @@ def create_default_team(id, user_username):
         )
         db.session.add(new_relation)
     db.session.commit()
-
-
 
 
