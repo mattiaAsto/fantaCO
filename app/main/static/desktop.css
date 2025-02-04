@@ -714,6 +714,22 @@ nav.active{
     width: 100%;
 }
 
+.orunner-middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 100%;
+}
+
+.orunner-lower{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 57%;
+    width: 100%;
+}
+
 .orunner-background{
     display: flex;
     align-items: center;
