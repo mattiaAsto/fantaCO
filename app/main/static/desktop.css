@@ -717,6 +717,7 @@ nav.active{
 
 .orunner-middle{
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 10%;
