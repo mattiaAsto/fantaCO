@@ -736,7 +736,6 @@ nav.active{
     justify-content: center;
     width: 100%;
     height: 100%;
-    z-index: -10;
 }
 
 .orunner-socity-image{
@@ -752,5 +751,4 @@ nav.active{
     width: 100%;
     height: 100%;
     background-color: rgba(127, 127, 127, 0.5);
-    z-index: -9;
 }
