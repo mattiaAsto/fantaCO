@@ -246,7 +246,7 @@ nav.active{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 3vmin;
     gap: 20px;
 }
 
@@ -264,7 +264,7 @@ nav.active{
     height: auto;
     box-sizing: border-box;
     background-color: var(--grey2);
-    border-radius: 6vmin;
+    border-radius: 3vmin;
     padding: 20px;
     margin-top: 20px;
 }
@@ -694,4 +694,66 @@ nav.active{
     font-size: 3vh;
     color: white;
     border-radius: 1vmin;
+}
+
+.orunner-div{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 50vw;
+    border-radius: 3vmin;
+    background-color: var(--grey2);
+    opacity: 0.5;
+    margin-bottom: 10px;
+}
+
+.orunner-upper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 33%;
+    width: 100%;
+}
+
+.orunner-middle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 100%;
+}
+
+.orunner-lower{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 57%;
+    width: 100%;
+}
+
+
+
+
+
+.orunner-background{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -10;
+}
+
+.orunner-socity-image{
+    height: 80vh;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    z-index: -10;
 }

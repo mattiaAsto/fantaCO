@@ -213,7 +213,16 @@
             </div>
 
             <div class="main-slide"> <!-- Transactions slide -->
-                <p>Sistema non ancora implementato</p>
+                
+                <div class="runners-grid">
+                    {% for transaction in transactions %}
+                    <div class="runner-div">
+                        <div class="runner-div-upper" style="height: 10hv;">
+                            <p class="runner-info">{{transaction.buyer}} compra {{transaction.runner}} da {{transaction.seller}} per {{format_number(transaction.amount)}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
     
         </div>

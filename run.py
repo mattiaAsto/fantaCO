@@ -7,6 +7,7 @@ import json
 from app.models import *
 from asti_webscraper import RUNNERS_DATABASE_PATH as runners_path
 from asti_webscraper import LEAGUE_DATABASE_PATH as league_path
+from webscraper2 import POINTS_PATH
 from datetime import datetime, timedelta, timezone
 from sqlalchemy import MetaData
 from zoneinfo import ZoneInfo
@@ -27,7 +28,10 @@ with open(runners_path, 'r') as file:
 with open(league_path, 'r') as file:
     market = json.load(file)
 
-migrate=True
+with open(POINTS_PATH, 'r') as file:
+    points = json.load(file)
+
+migrate=False
 if migrate:
     with app.app_context():
         meta = MetaData()
