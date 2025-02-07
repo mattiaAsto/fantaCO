@@ -307,7 +307,6 @@ def create_dynamic_tables(id, user_username):
 
     return
 
-
 def populate_market(id):
     market_table = create_dynamic_market_model(id)
     all_market_runners = db.session.query(Runner).order_by(func.random()).limit(16).all()
@@ -323,7 +322,6 @@ def populate_market(id):
 
         i+=1
     db.session.commit()
-
 
 def create_default_team(id, user_username):
     user_runner_table = create_dynamic_user_runner_model(id)

@@ -120,9 +120,6 @@ if migrate:
         print("Dati migrati con successo!")
 
 
-
-
-
 system=1
 
 host = os.getenv("HOST", "127.0.0.1")

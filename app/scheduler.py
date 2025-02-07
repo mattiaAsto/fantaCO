@@ -65,6 +65,7 @@ def renovate_obsolete_db(): #if db is obsolete update it
 
 def refresh_market():
     with global_app.app_context():
+        print("mk refresh")
         all_leagues = db.session.query(League).all()
         all_id = [league.id for league in all_leagues]
 
@@ -88,7 +89,7 @@ def refresh_market():
 
             row_count = db.session.query(league_market_table).count()
 
-            if created_time < current_time - timedelta(seconds=1 * row_count):
+            if created_time < current_time - timedelta(hours=1 * row_count):
                 
                 new_timestamp = last_created_time + timedelta(hours=1)
 
@@ -194,7 +195,6 @@ def price_calculations():
 
             db.session.commit()
 
-
 def start_scheduler():
     
     #check if the db is obsolete, in case upload it, this should just happen once in production, when the program is launched
@@ -203,7 +203,6 @@ def start_scheduler():
 
     #scheduler for market refreshing
     scheduler = BackgroundScheduler()
-    from .scheduler import refresh_market
     scheduler.add_job(refresh_market, "interval", minutes=20)
     scheduler.add_job(price_calculations, "interval", minutes=20)
     scheduler.start()

@@ -9,6 +9,8 @@
     <script src="{{url_for('main.static', filename='script.js')}}"></script>
 
     <title>{% block title %}Base{% endblock %}</title>
+    <link rel="shortcut icon" href="{{url_for('main.static', filename='logos/favicon.ico')}}" type="image/x-icon">
+
 
     {% if light_theme %}
     <style>
@@ -57,7 +59,7 @@
             <a href="{{ url_for('main.home') }}" class="header-link {% if active_page == 'home' %}active{% endif %}">home</a>
             <a href="{{ url_for('main.market') }}" class="header-link {% if active_page == 'market' %}active{% endif %}">mercato</a>
             <a href="{{ url_for('main.team') }}" class="header-link {% if active_page == 'team' %}active{% endif %}">team</a>
-            <a href="{{ url_for('main.base') }}" class="header-link {% if active_page == 'tmt' %}active{% endif %}">tmt</a>
+            <a href="{{ url_for('main.tmt') }}" class="header-link {% if active_page == 'tmt' %}active{% endif %}">tmt</a>
         </div>
 
         <div class="page-choice">
