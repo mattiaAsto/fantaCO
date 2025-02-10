@@ -53,7 +53,12 @@
             <h1 class="site_title">FantaCO</h1>
         </div>
         <div class="header-middle-section">
-            <input class="search-bar" type="text" placeholder="Cerca">
+            <form action="{{ url_for('secondary.search')}}" class="search-bar-container" method="POST">
+                <input class="search-bar" type="text" name="search-bar" placeholder="Cerca">
+                <button class="search-button" type="submit">
+                    <i class="fas fa-magnifying-glass"></i>
+                </button>
+            </form>
         </div>
         <div class="header-right-section">
             <a href="{{ url_for('main.home') }}" class="header-link {% if active_page == 'home' %}active{% endif %}">home</a>

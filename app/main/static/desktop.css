@@ -102,11 +102,44 @@ header{
     margin-right: 50px;
 }
 
-.search-bar{
+.search-bar-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     flex: 1;
-    width: 0px;
-    height: 25px;
+    height: fit-content;
     font-size: 16px;
+    padding: 3px 10px;
+    box-sizing:content-box;
+    background-color: white;
+}
+
+.search-bar{
+    display: flex;
+    flex-grow: 1;
+    border-style: hidden;
+    height: 34px;
+    padding: 0px;
+    transition: 0.15s;
+}
+.search-bar:focus{
+    border-style: hidden;
+    outline: none;
+}
+
+.search-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: white;
+    font-size: 20px;
+    transition: 0.15s;
+    color: var(--grey4);
+}
+
+.search-button:hover{
+    color: var(--orange);
 }
 
 .header-right-section {

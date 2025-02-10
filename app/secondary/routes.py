@@ -8,6 +8,8 @@ from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 from dotenv import load_dotenv
 from sqlalchemy import text, MetaData
+from rapidfuzz import process, fuzz
+from sqlalchemy.orm import load_only
 import os
 import json
 import asti_webscraper
@@ -293,4 +295,36 @@ def delete_article():
 
     return redirect(url_for("main.home"))
 
+@secondary.route("/search", methods=["GET", "POST"])
+def search():
+    data = "Richiesta invalida"
+
+    if request.method == "POST":
+        data = request.form.get("search-bar")
+    
+    query = data
+
+    users = User.query.options(load_only(User.username, User.name, User.nickname)).all()
+    user_data = {user.username: user for user in users}
+    user_data.update({user.name: user for user in users})
+    user_data.update({user.nickname: user for user in users})
+
+    # Recuperiamo tutti i runner (solo il nome)
+    runners = Runner.query.options(load_only(Runner.name)).all()
+    runner_data = {runner.name: runner for runner in runners}
+
+    # Combiniamo i nomi utenti e runner in un unico dizionario con etichette
+    all_names = {**user_data, **runner_data}
+
+    # Troviamo la corrispondenza più simile
+    best_match, score, _ = process.extractOne(query, all_names.keys(), scorer=fuzz.WRatio)
+
+    if best_match and score > 70:  # Soglia minima di accuratezza
+        matched_object = all_names[best_match]
+        if isinstance(matched_object, User):
+            return redirect(url_for("main.user", username=matched_object.username))
+        elif isinstance(matched_object, Runner):
+            return redirect(url_for("main.runner", runner=matched_object.name))
+
+    return {"type": "none", "message": "Nessun risultato trovato"}
 
