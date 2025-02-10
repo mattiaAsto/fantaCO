@@ -255,11 +255,13 @@ def market():
         selected_runners = market_table.query.join(Runner).order_by(Runner.price.desc()).all()
 
     owned_runners = db.session.query(user_runner_table).filter_by(user_username=current_user.username).all()
+
+    # Query all the relations of the league, they will then be added to market array to show them in sellage if they are selling
     all_owned_runners = db.session.query(user_runner_table).all()
     row_count = db.session.query(market_table).count()
 
     runners_database = []
-
+    # Add all the runners for sale to the marketpage array, jinja2 will exclude the ones owned and for sale
     for runner in all_owned_runners:
         if runner.selling:
             full_details = runner.runner
@@ -276,7 +278,8 @@ def market():
                 "offer": runner.offer
             }
             runners_database.append(selling_runner)
-
+    
+    # Add all the runners in the market table to the marketpage array
     for runner in selected_runners:
         current_time = (datetime.now(ZoneInfo("Europe/Zurich")))
         runner_timestamp = runner.timestamp.replace(tzinfo=ZoneInfo("Europe/Zurich"))
@@ -328,6 +331,7 @@ def market():
     for runner in owned_runners:
         if runner.selling:
             full_details = runner.runner
+            buyer_nickname = User.query.filter_by(username=runner.buyer).first().nickname if runner.buyer else None
             selling_runner = {
                 "name": full_details.name,
                 "society": full_details.society,
@@ -337,10 +341,11 @@ def market():
                 "timestamp": time_remaining,
                 "offer": runner.offer,
                 "buyer": runner.buyer,
-                "buyer_nickname": runner.user.nickname,
+                "buyer_nickname": buyer_nickname,
             }
             selling_runners.append(selling_runner)
 
+    # Create the transactions array fo the transaction slide in the marketpage
     transactions = []
     if transaction_table:
         all_transactions = transaction_table.query.all()
@@ -469,8 +474,34 @@ def refresh_team():
 
 
 @main.route("/tmt")
+@login_required
 def tmt():
-    return render_template("tmt.html")
+    data_table = get_league_data_table(get_user_league_id())
+    user_runner_table = get_user_runner_table(get_user_league_id())
+
+    all_rows = data_table.query.order_by(data_table.points.desc()).all()
+
+    classement_data = []
+    position=1
+    for row in all_rows:
+        row_user_username = row.user_username
+        row_user_team = user_runner_table.query.filter_by(user_username=row_user_username).all()
+
+        team_value = 0
+        for row_user_runner in row_user_team:
+            team_value+=row_user_runner.runner.price
+
+        model = {
+            "nickname": row.user.nickname,
+            "username": row.user_username,
+            "points": row.points,
+            "position": position,
+            "team_value": team_value,
+        }
+        classement_data.append(model)
+        position+=1
+
+    return render_template("tmt.html", classement_data=classement_data)
 
 
 # Route to display runner details
@@ -487,8 +518,42 @@ def runner():
         "society": full_details.society,
         "category": full_details.category,
         "points": full_details.points,
+        "average_points": "ToDo",
         "price": full_details.price
     }
 
     return render_template("runner.html", runner=runner)
+
+
+@main.route("/user", methods=['GET'])
+def user():
+    # I fed the position and team_value via the args of the request because it is easyer than creating an array of points then counting in what position the users points are....
+    username = request.args.get("username", False)
+    position = request.args.get("position", 0)
+    team_value = request.args.get("team_value", 0)
+
+    if not username:
+        return "Il giocatore cercato non esiste oppure non è disponibile"
+
+    user_details = User.query.filter_by(username=username).first()
+
+    league_data_table = get_league_data_table(get_user_league_id())
+    user_league_data = league_data_table.query.filter_by(user_username=username).first()
+
+    league_transaction_table = get_league_transaction_table(get_user_league_id())
+    all_bought = league_transaction_table.query.filter_by(buyer_username=username).count()
+    all_sold = league_transaction_table.query.filter_by(seller_username=username).count()
+
+    user_data = {
+        "nickname": user_details.nickname,
+        "society": "ASCO",
+        "position": position,
+        "points": user_league_data.points,
+        "average_points": "ToDo",
+        "bought": all_bought,
+        "sold": all_sold,
+        "team_value": team_value,
+    }
+
+    return render_template("user.html", user_data=user_data)
 

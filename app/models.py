@@ -67,10 +67,11 @@ class Runner(db.Model):
 
 class RunnerPoints(db.Model):
     __tablename__="runnerPoints"
-    runner_name = db.Column(db.String(50), db.ForeignKey("runner.name", ondelete="CASCADE"), nullable=False, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    runner_name = db.Column(db.String(50), db.ForeignKey("runner.name", ondelete="CASCADE"), nullable=False)
     race = db.Column(db.String(20), nullable=False, primary_key=True)
-    date = db.Column(db.DateTime, default=lambda: datetime.now(ZoneInfo("Europe/Zurich")), nullable=False)
-    points = db.Column(db.Integer, default=0)
+    season = db.Column(db.Integer, default=0)
+    points = db.Column(db.Integer, default=None, nullable=True)
 
     runner = db.relationship('Runner', back_populates='runner_points')
 

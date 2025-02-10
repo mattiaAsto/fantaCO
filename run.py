@@ -29,7 +29,7 @@ with open(league_path, 'r') as file:
     market = json.load(file)
 
 with open(POINTS_PATH, 'r') as file:
-    points = json.load(file)
+    points_table = json.load(file)
 
 migrate=False
 if migrate:
@@ -39,6 +39,7 @@ if migrate:
         meta.drop_all(bind=db.engine)
 
         db.create_all()
+            
 
         # Aggiungi i runner al database
         all_runners=list(data.keys())
@@ -117,7 +118,24 @@ if migrate:
 
 
         db.session.commit()
+
+        all_points_runner = list(points_table.keys())
+        for point_runner in all_points_runner:
+            all_points_dict = points_table[point_runner]
+            all_points_dict_rows = len(list(all_points_dict.keys()))-2
+            all_indexes = [f"{number}.TMO" for number in range(1, all_points_dict_rows+1)]
+            for index in all_indexes:
+                new_points = RunnerPoints(
+                    runner_name = point_runner,
+                    race = index,
+                    season = all_points_dict["season"],
+                    points = all_points_dict[index],
+                )
+                db.session.add(new_points)
+        db.session.commit()
         print("Dati migrati con successo!")
+
+
 
 
 system=1
