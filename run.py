@@ -31,7 +31,7 @@ with open(league_path, 'r') as file:
 with open(POINTS_PATH, 'r') as file:
     points_table = json.load(file)
 
-migrate=False
+migrate=True
 if migrate:
     with app.app_context():
         meta = MetaData()
