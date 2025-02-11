@@ -2,6 +2,8 @@ PROCEDENDO CON LA PROGRAMMAZIONE AGGIUNGI COMMENTI E DESCRIZIONI PRIMA CHE DIVEN
 
 Quando faccio una ricerc a di un user che non è nella mia lega va in errore, devo fixarlo e mettere che i punti visualizzati ecc.. sono quelli di global.
 
+Aggiungere la scelta della società nella registrazione
+
 Lo user deve poter cambiare il prezzo di vendita quando vende un giocatore.
 
 Quando lo user cambia le informazioni del suo profilo la mail va verificata 

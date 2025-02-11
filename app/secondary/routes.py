@@ -296,6 +296,7 @@ def delete_article():
     return redirect(url_for("main.home"))
 
 @secondary.route("/search", methods=["GET", "POST"])
+@login_required
 def search():
     data = "Richiesta invalida"
 

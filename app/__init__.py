@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_login import UserMixin, LoginManager, login_user
@@ -99,6 +99,36 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(user_id)
+    
+    @app.errorhandler(500)
+    def page_not_found(error):
+        error ={
+            "title": "500 internal error",
+            "code": 500,
+            "message": "Sembra che ci sia stato un errore interno al server, ricarica la pagina o riprova piu tardi a raggiungere la pagina richiesta.",
+            "image": "internal",
+        }
+        return render_template("error.html", error=error), 500
+    
+    @app.errorhandler(404)
+    def page_not_found(error):
+        error ={
+            "title": "404 not found",
+            "code": 404,
+            "message": "Opss.. Sembra che la pagina che tu ti sia perso. La pagina che stai cercando non è qui.",
+            "image": "lost",
+        }
+        return render_template("error.html", error=error), 404
+    
+    @app.errorhandler(403)
+    def page_not_found(error):
+        error ={
+            "title": "403 error",
+            "code": 403,
+            "message": "Opss.. Sembra che tu non abbia le autorizzazioni necessarie ad accedere a questa pagina, nel caso di bisogno contatta l'assistenza.",
+            "image": "auth_error",
+        }
+        return render_template("error.html", error=error), 403
     
     
         

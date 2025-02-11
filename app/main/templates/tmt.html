@@ -27,7 +27,7 @@
                 <div class="content-div">
                     <div class="runners-grid">
                         {% for data in classement_data %}
-                        <div class="runner-div" onclick="window.location.href='/user?username={{data.username}}&position={{data.position}}&team_value={{data.team_value}}' ">
+                        <div class="runner-div" onclick="window.location.href='/user?username={{data.username}}&case=league'">
                             <div class="runner-div-upper">
                                 <div class="runner-info-container" style="width: fit-content;">
                                     <p class="runner-info">{{data.position}}.</p>

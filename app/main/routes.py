@@ -81,7 +81,11 @@ def get_league_data_table(id):
 
 # Function to get the league transaction table based on league ID
 def get_league_transaction_table(id):
-    return create_dynamic_league_transaction(id)
+    if id == 0:
+        return None
+    else:
+        return create_dynamic_league_transaction(id)
+
 
 # Routes
 
@@ -529,26 +533,45 @@ def runner():
 def user():
     # I fed the position and team_value via the args of the request because it is easyer than creating an array of points then counting in what position the users points are....
     username = request.args.get("username", False)
-    position = request.args.get("position", 0)
-    team_value = request.args.get("team_value", 0)
+    request_case = request.args.get("case", "global")
 
     if not username:
         return "Il giocatore cercato non esiste oppure non è disponibile"
 
     user_details = User.query.filter_by(username=username).first()
 
-    league_data_table = get_league_data_table(get_user_league_id())
-    user_league_data = league_data_table.query.filter_by(user_username=username).first()
+    if request_case == "global" or current_user.active_league == "global":
+        user_league_data = LeagueData.query.filter_by(user_username=username).first()
 
-    league_transaction_table = get_league_transaction_table(get_user_league_id())
-    all_bought = league_transaction_table.query.filter_by(buyer_username=username).count()
-    all_sold = league_transaction_table.query.filter_by(seller_username=username).count()
+        team_value = sum(user_runner.runner.price for user_runner in UserRunner.query.filter_by(user_username=username).all())
+
+        subquery = db.session.query(LeagueData.user_username,func.rank().over(order_by=LeagueData.points.desc()).label("rank")).subquery()
+        query = db.session.query(subquery.c.rank).filter(subquery.c.user_username == username)
+        position = query.scalar()
+
+        all_bought = all_sold = "-"
+        
+    elif request_case == "league":
+        league_data_table = get_league_data_table(get_user_league_id())
+        user_league_data = league_data_table.query.filter_by(user_username=username).first()
+
+        team_value = sum(user_runner.runner.price for user_runner in get_user_runner_table(get_user_league_id()).query.filter_by(user_username=username).all())
+
+        subquery = db.session.query(league_data_table.user_username,func.rank().over(order_by=league_data_table.points.desc()).label("rank")).subquery()
+        query = db.session.query(subquery.c.rank).filter(subquery.c.user_username == username)
+        position = query.scalar()
+
+        league_transaction_table = get_league_transaction_table(get_user_league_id())
+        all_bought = league_transaction_table.query.filter_by(buyer_username=username).count()
+        all_sold = league_transaction_table.query.filter_by(seller_username=username).count()
+
+
 
     user_data = {
-        "nickname": user_details.nickname,
-        "society": "ASCO",
-        "position": position,
-        "points": user_league_data.points,
+        "nickname": user_details.nickname, #same for all, comes from User table
+        "society": "ASCO", #same for all, comes from User table
+        "position": position, #depends on global or normal league
+        "points": user_league_data.points, #depends on global or normal league
         "average_points": "ToDo",
         "bought": all_bought,
         "sold": all_sold,
