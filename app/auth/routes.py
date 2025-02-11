@@ -51,8 +51,8 @@ def check_password(password): #returns "Okay" if all yes_... are satisfied, else
         message=f"I caratteri speciali consentiti sono: {specials}"
     else:
         message="Okay"
-    #return message
-    return "Okay"
+    return message
+    #return "Okay"
     
 def create_team(user):
 

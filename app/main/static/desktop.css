@@ -757,6 +757,7 @@ nav.active{
     justify-content: center;
     flex: 1;
     height: 100%;
+    width: 50%;
 }
 
 .orunner-lower{
@@ -766,6 +767,7 @@ nav.active{
     align-items: center;
     justify-content: space-between;
     height: 100%;
+    width: 50%;
     background-color: var(--grey3);
     border-radius: 1vh;
     padding: 0vh;
@@ -862,6 +864,53 @@ nav.active{
 }
 
     
+.orunner-points-display{
+    max-width: 100%;
+    height: 23vh;
+    overflow-x: hidden;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    background-color: var(--grey4);
+    padding: 1vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    direction: rtl;
+}
+
+.points-display-scroll{
+    display: inline-block;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 1vw;
+    background-color: var(--grey4);
+    color: var(--grey1);
+    direction: ltr;
+}
+
+.points-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    font-size: 3vh;
+    justify-content: end;
+    gap: 1vh;
+}
+
+.point-graph{
+    display: flex;
+    flex-direction: column;
+    width: 1vw;
+    border-radius: 0.5vw;
+    flex: 0.1;
+    background-color: var(--grey1);
+}
 
 
 

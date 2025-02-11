@@ -6,6 +6,7 @@ from werkzeug.security import check_password_hash
 from flask_login import login_required, login_manager, current_user
 from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
+from sqlalchemy import distinct
 import os
 import json
 import asti_webscraper
@@ -516,17 +517,58 @@ def runner():
         return "Il giocatore cercato non esiste oppure non è disponibile"
     if url_parameters:
         name = url_parameters
+
     full_details = Runner.query.filter_by(name=name).first()
+
+    seasons = [int(row[0]) for row in db.session.query(distinct(RunnerPoints.season)).all()]
+    current_season = datetime.now(ZoneInfo("Europe/Rome")).year
+    
+    
+
+
+    all_points = [row.points for row in RunnerPoints.query.filter_by(runner_name=name, season=current_season).all()]
+    filtered_points = [point for point in all_points if point is not None]
+    average_points = sum(filtered_points)/len(filtered_points) if len(filtered_points) > 0 else 0
+    
     runner = {
         "name": full_details.name,
         "society": full_details.society,
         "category": full_details.category,
         "points": full_details.points,
-        "average_points": "ToDo",
-        "price": full_details.price
+        "average_points": average_points,
+        "price": full_details.price,
     }
 
-    return render_template("runner.html", runner=runner)
+    points_dict = []
+    for season in seasons:
+        all_points_rows = RunnerPoints.query.filter_by(runner_name=name, season=season).all()
+
+        all_points = [row.points for row in all_points_rows]
+        filtered_points = [point for point in all_points if point is not None]
+        average_season_points = sum(filtered_points)/len(filtered_points) if len(filtered_points) > 0 else 0
+
+        for point_row in all_points_rows:
+            if point_row.points is None:
+                points_made = -1
+            elif int(point_row.points) == 0:
+                points_made = 0
+            else:
+                points_made = int(point_row.points)
+
+            model = {
+                "season": season,
+                "race": point_row.race,
+                "points_made": points_made,
+                "average_points": int(average_season_points),
+                }
+            points_dict.append(model)
+    print(points_dict)
+
+
+
+    
+
+    return render_template("runner.html", runner=runner, points_dict=points_dict)
 
 
 @main.route("/user", methods=['GET'])
