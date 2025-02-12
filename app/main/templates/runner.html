@@ -53,16 +53,16 @@
                 {% for points_info in points_dict %}
                 <div class="points-info-container">
                     {% if points_info.points_made >= points_info.average_points %}
-                    <div class="point-graph" style=" background-color: var(--orange); flex: calc( {{points_info.points_made}} / 1000);"></div>
+                    <div class="point-graph" style=" background-color: var(--orange); flex: {{ points_info.points_made / 1000 }};"></div>
                     <div class="point-amount" style="color: var(--orange);">{{points_info.points_made}}</div>
                     {% elif points_info.points_made == -1 %}
-                    <div class="point-graph" style="flex: calc( {{points_info.points_made}} / 1000);"></div>
+                    <div class="point-graph" style="flex: {{ points_info.points_made / 1000 }};"></div>
                     <div class="point-amount">-</div>
                     {% elif points_info.points_made == 0 %}
                     <div class="point-graph" style=" background-color: red; flex: 0.1;"></div>
                     <div class="point-amount" style="color: red;">{{points_info.points_made}}</div>
                     {% else %}
-                    <div class="point-graph" style="flex: calc( {{points_info.points_made}} / 1000);"></div>
+                    <div class="point-graph" style="flex: {{ points_info.points_made / 1000 }};"></div>
                     <div class="point-amount">{{points_info.points_made}}</div>
                     {% endif %}
                     <div class="point-race">{{points_info.race}}</div>

@@ -3,19 +3,21 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<body>
-    <div class="main-login-div">
-        <div class="login-div">
-            <form method="POST">
-                <input type="text" class="login-input" placeholder="E-mail" name="username">
+    <div class="main-register-div">
+        <div class="register-div">
+            <h2>Accedi</h2>
+            <form method="POST" id="login-form" class="form-container">
+                <input type="text" class="register-input" placeholder="E-mail" name="username" required>
 
-                <input type="password" id="password1" class="login-input password" placeholder="Password" name="password">
-                <button type="button" id="eye1" class="fas fa-eye-slash"></button> 
+                <div class="password-container">
+                    <input type="password" id="password1" class="register-input password" placeholder="Password" name="password" required>
+                    <button type="button" id="eye1" class="fas fa-eye-slash"></button>
+                </div>
 
-                <input type="submit" value="Accedi">
-                <p class="login_error_display">{{login_error_message}}</p>
+                <input type="submit" value="Accedi" class="register-button">
             </form>
-            <a href="/auth/register">Oppure registrati</a>
+            <p class="register-error" id="login-error-message">{{login_error_message}}</p>
+            <a href="/auth/register" class="register-link">Oppure registrati</a>
         </div>
     </div>
 {% endblock %}

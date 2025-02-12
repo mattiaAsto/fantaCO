@@ -878,6 +878,7 @@ nav.active{
     align-items: end;
     justify-content: start;
     direction: rtl;
+    position: relative;
 }
 
 .points-display-scroll{

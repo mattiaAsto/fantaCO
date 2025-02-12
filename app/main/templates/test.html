@@ -1,62 +1,110 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrolling Orizzontale con Rotella</title>
-    <style>
-        .scroll-container {
-            width: 300px; /* Larghezza visibile */
-            overflow-x: auto;
-            white-space: nowrap;
-            -ms-overflow-style: none;  /* Nasconde la scrollbar in Edge */
-            scrollbar-width: none;  /* Nasconde la scrollbar in Firefox */
-        }
+{% extends "auth_base.html" %}
 
-        .scroll-container::-webkit-scrollbar {
-            display: none; /* Nasconde la scrollbar in Chrome e Safari */
-        }
+{% block title %}Registrati{% endblock %}
 
-        .scroll-content {
-            display: inline-block;
-            width: 1000px; /* Un contenitore più largo per forzare lo scroll */
-        }
-
-        .item {
-            display: inline-block;
-            width: 150px;
-            height: 100px;
-            margin-right: 10px;
-            background-color: lightblue;
-            text-align: center;
-            line-height: 100px;
-            font-size: 18px;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="scroll-container" id="scroll-container">
-    <div class="scroll-content">
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
-        <div class="item">5</div>
-        <div class="item">6</div>
-        <div class="item">7</div>
+{% block content %}
+    <div class="main-register-div">
+        <div class="register-div">
+            <h2>Registrati</h2>
+            <form method="POST" id="register-form">
+                <input type="text" class="register-input" placeholder="Nome" name="name" required>
+                <input type="text" class="register-input" placeholder="Cognome" name="surname" required>
+                <input type="email" class="register-input" placeholder="E-mail" name="username" required>
+                <input type="text" class="register-input" placeholder="Nickname" name="nickname" required>
+                
+                <div class="password-container">
+                    <input type="password" id="password1" class="register-input password" placeholder="Password" name="password" required>
+                    <button type="button" id="eye1" class="fas fa-eye-slash"></button>
+                </div>
+                
+                <div class="password-container">
+                    <input type="password" id="password2" class="register-input password" placeholder="Ripeti password" name="password2" required>
+                    <button type="button" id="eye2" class="fas fa-eye-slash"></button>
+                </div>
+                
+                <input type="submit" value="Registrati" class="register-button">
+            </form>
+            <p class="register-error" id="error-message"></p>
+        </div>
     </div>
-</div>
+{% endblock %}
 
-<script>
-    const scrollContainer = document.getElementById("scroll-container");
+<style>
+:root{
+    --orange: rgb(255,124,32);
+    --light-orange: rgb(255,153,80);
+    --grey1: rgb(161, 161, 161);
+    --grey2: rgb(127, 127, 127);
+    --grey3: rgb(95, 95, 95);
+    --grey4: rgb(70, 70, 70);
+    --text-grey4: rgb(70, 70, 70);
+    --text-grey1: rgb(161, 161, 161);
+    --orange-gray1: rgb(181, 128, 90);
+    --orange-gray2: rgb(201, 118, 58);
+    --transparent-grey: rgba(70, 70, 70, 0.7);
+    --white-text: rgb(255,255,255);
+}
 
-    scrollContainer.addEventListener("wheel", (event) => {
-        event.preventDefault(); // Evita lo scroll verticale della pagina
-        scrollContainer.scrollLeft += event.deltaY; // Converte lo scroll verticale in orizzontale
-    });
-</script>
+body {
+    background-color: var(--grey4);
+    color: var(--white-text);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-</body>
-</html>
+.main-register-div {
+    background: var(--transparent-grey);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px var(--grey2);
+    text-align: center;
+}
+
+.register-div h2 {
+    color: var(--orange);
+}
+
+.register-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: var(--grey3);
+    color: var(--white-text);
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-container button {
+    background: none;
+    border: none;
+    color: var(--white-text);
+    cursor: pointer;
+}
+
+.register-button {
+    background: var(--orange);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: var(--white-text);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.register-button:hover {
+    background: var(--light-orange);
+}
+
+.register-error {
+    color: var(--orange-gray1);
+}
+</style>

@@ -27,6 +27,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(120), unique=True, nullable=False)
     nickname = db.Column(db.String(80), nullable=False)
     password = db.Column(LargeBinary, nullable=False)
+    society = db.Column(db.String(80), nullable=False, default="UNKNOWN")
+
 
 
     is_validated = db.Column(db.Boolean, nullable=False, default=False)

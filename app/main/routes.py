@@ -611,7 +611,7 @@ def user():
 
     user_data = {
         "nickname": user_details.nickname, #same for all, comes from User table
-        "society": "ASCO", #same for all, comes from User table
+        "society": user_details.society, #same for all, comes from User table
         "position": position, #depends on global or normal league
         "points": user_league_data.points, #depends on global or normal league
         "average_points": "ToDo",
