@@ -2,15 +2,12 @@ PROCEDENDO CON LA PROGRAMMAZIONE AGGIUNGI COMMENTI E DESCRIZIONI PRIMA CHE DIVEN
 
 <!-- Quando faccio una ricerc a di un user che non è nella mia lega va in errore, devo fixarlo e mettere che i punti visualizzati ecc.. sono quelli di global. -->
 
-Aggiungere la scelta della società nella registrazione
-
 Lo user deve poter cambiare il prezzo di vendita quando vende un giocatore.
 
 Quando lo user cambia le informazioni del suo profilo la mail va verificata 
 
-finire con la creazione della pagina runner e lo styling in generale
+styling completo delle pagine secondary, chiedi al prompt chatgpt di farlo come da css di auth 
 
-Mettere in ordine le schermate di login e registrazione
 Div che cambia colore con la sicurezza della password
 
 c'è qualcosa che non funziona con il reindirizzamento dopo la registrazione, se il token è sbagliato ti rimanda comunque alla pagina di fare il login
@@ -23,8 +20,6 @@ blocchi di try except dove necessario
 
 
 aggiornare e rendere piu potente il calcolo del valore dei giocatori
-
-aggiungere il display dei punti fatti per ogni singola gara
 
 pannello di controllo admin
 

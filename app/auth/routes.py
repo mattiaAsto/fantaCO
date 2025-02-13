@@ -91,7 +91,8 @@ def login():
             login_error_message="Prima di accedere devi verificare il tuo account"
         elif user and  bcrypt.checkpw(password.encode('utf-8'), user.password):
             login_user(user)
-            return redirect(url_for("main.home"))
+            next_url=request.args.get("next")
+            return redirect(next_url or url_for("main.home"))
         else:
             login_error_message="Nome utente o password non corretti"
 

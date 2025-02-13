@@ -1,4 +1,4 @@
-:root{
+:root {
     --orange: rgb(255,124,32);
     --light-orange: rgb(255,153,80);
 
@@ -16,219 +16,229 @@
     --transparent-grey: rgba(70, 70, 70, 0.7);
 
     --white-text: rgb(255,255,255);
-
 }
 
-body{
-    width: 100%;
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-    background-color: var(--grey3);
-    font-family: Arial, Helvetica, sans-serif;
+/* Stili globali */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-main{
-    width: 100%;
-    height: 100vh;
-    padding: 10vh 0px;
-    margin: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-}
-
-.content-wrapper{
-    width: 50vw;
-    height: auto;
-    padding: 6vh;
-    padding-top: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+body {
     background-color: var(--grey2);
-    border-radius: 5vh;
-    box-sizing: border-box;
-    gap: 2vh;
-}
-.content-wrapper.article{
-    margin-top: 30vh;
-    width: 75vw;
-}
-
-.content-wrapper p{
-    color: var(--orange);
-    margin: 0px;
-    margin-top: 3vh;
-}
-
-.content-info{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35vw;
-    height: auto;
-    padding: 3vh;
     color: var(--white-text);
-    font-size: 5vh;
-    border-radius: 3vh;
-    text-transform: uppercase;
-    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.content{
+/* Contenitori principali */
+.main-register-div, .main-article-div, .main-league-div, .content-wrapper {
+    background: var(--grey4);
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px var(--grey2);
+    text-align: center;
+    width: 60vw; /* Larghezza dinamica al 60% della viewport */
+    max-width: 800px; /* Larghezza massima */
+    min-width: 300px; /* Larghezza minima */
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+/* Titoli e informazioni */
+.content-info {
+    color: var(--orange);
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* Font size dinamico */
+    margin-bottom: 1.5em;
+}
+
+/* Form container */
+.form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    width: 50vw;
-    gap: 3vh;
-}
-.content p{
-    margin: 0px;
-    text-align: center;
+    gap: 1.5em;
+    width: 100%;
 }
 
-.content.article{
-    width: 75vw;
+/* Input generici */
+.register-input {
+    width: 100%;
+    padding: 1em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 5px;
+    background: var(--grey3);
+    color: var(--white-text);
+    font-size: clamp(0.9rem, 1.5vw, 1rem); /* Font size dinamico */
 }
 
-.option{
-    height: 6vh;
-    width: 35%;
-    border-radius: 3vh;
+.register-input:focus {
+    outline: none;
+    border: 2px solid var(--orange);
+}
+
+/* Input specifici */
+.register-input.number {
+    width: 100%;
+}
+
+.article-content-area {
+    width: 100%;
+    height: 200px;
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    background: var(--grey3);
+    color: var(--white-text);
+    font-size: clamp(0.9rem, 1.5vw, 1rem); /* Font size dinamico */
+    resize: vertical;
+}
+
+.article-content-area:focus {
+    outline: none;
+    border: 2px solid var(--orange);
+}
+
+/* Pulsanti */
+.register-button {
+    background: var(--orange);
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    color: var(--white-text);
+    cursor: pointer;
+    font-size: clamp(0.9rem, 1.5vw, 1rem); /* Font size dinamico */
+    width: 100%;
+    transition: background 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--orange);
-    padding: 0.5vh;
-    box-sizing: border-box;
-}
-.option a{
-    text-decoration: none;
-    color: var(--text-grey4);
-    font-size: 3vh;
+    gap: 0.5em;
 }
 
-.option.join{
-    background-color: white;
+.register-button:hover {
+    background: var(--light-orange);
 }
 
-.share-link{
-    display: block;
-    line-height: 6vh;
-    height: 6vh;
-    border-radius: 3vh;
-    width: 50%;
-    background-color: white;
-    text-align: start;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: var(--text-grey4);
-    padding: 0vh 2vh 0vh 2vh;
-    box-sizing: border-box;
-}
-
-.share-link.redirect{
-    text-align: center;
-    text-decoration: none;
+/* Messaggi di errore */
+.register-error {
     color: var(--orange);
-}
-.share-link.redirect a{
-    text-decoration: none;
-    color: var(--orange);
-}
-.share-link.redirect:hover{
-    background-color: var(--orange-gray2);
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem); /* Font size dinamico */
+    margin-top: 0.5em;
 }
 
-.option:hover{
-    color: var(--text-grey4);
+/* Link di reindirizzamento */
+.redirect-link {
+    color: var(--orange);
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem); /* Font size dinamico */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    transition: color 0.3s ease;
+}
+
+.redirect-link:hover {
+    color: var(--light-orange);
     text-decoration: underline;
 }
 
-.copy-share-link-wrapper{
+/* Stili specifici per la pagina di registrazione */
+.main-register-div {
+    max-width: 450px;
+}
+
+.input-group {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 12vh;
-    width: 12vh;
-    background-color: white;
-    border-radius: 3vh;
-    color: var(--orange);
-    transition: 0.15s;
-}
-.copy-share-link-wrapper:hover{
-    background-color: var(--orange-gray1);
-}
-
-.copy-share-link{
-    font-size: 6vh;
-}
-.copy-share-link:hover{
-    cursor: pointer;
-}
-
-.new-league-input{
-    width: 50%;
-    height: 6vh;
-    font-size: 3vh;
-    align-content: center;
-    border-radius: 1vh;
-    border-style: hidden;
-    padding: 1vh;
-    box-sizing: border-box;
-    color: var(--text-grey4);
-}
-.new-league-input:focus{
-    outline: none;
-}
-
-.new-league-input.checkbox{
-    border-style: hidden;
-    border-radius: 1vh;
-    accent-color: var(--orange);
-    margin: 0px;
-    right: 0px;
-}
-
-.new-league-button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    font-size: 3vh;
-    text-transform: uppercase;
-    color: var(--orange);
-    border-radius: 1vh;
-    border-style: hidden;
-    font-weight: bold;
-    padding: 2vh;
-    gap: 1vh;
-}
-.new-league-button p{
-    margin: 0px;
-    text-align: center;
-}
-.new-league-button:hover{
-    background-color: var(--orange-gray1);
-    cursor: pointer;
-    border-style: hidden;
-
-}
-
-.article-content-area{
-    display: flex;
+    justify-content: space-between;
     width: 100%;
-    height: auto;
-    padding: 3vh;
-    border-style: hidden;
-    border-radius: 2vh;
-}
-.article-content-area:focus{
-    outline: none;
+    gap: 1rem;
 }
 
+.input-group .register-input {
+    flex: 1;
+}
 
+.password-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2vmin;
+}
+
+.password-container button {
+    background: none;
+    border: none;
+    color: var(--white-text);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Stili specifici per la pagina della nuova lega */
+.main-league-div {
+    max-width: 600px;
+}
+
+/* Stili specifici per la pagina del profilo */
+.profile .register-label {
+    color: var(--white-text);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    margin-bottom: 0.5em;
+    display: block;
+}
+
+.profile .register-input.checkbox {
+    width: auto;
+    margin-left: 0.5em;
+}
+
+/* Stili specifici per la pagina di condivisione */
+.share-instruction {
+    color: var(--orange);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    width: 80%;
+    text-align: center;
+    margin: 0 auto 3vh auto;
+}
+
+.share-link {
+    background: var(--grey3);
+    color: var(--white-text);
+    padding: 1em;
+    border-radius: 5px;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.copy-share-link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--grey3);
+    border-radius: 50%;
+    color: var(--orange);
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 1em auto;
+}
+
+.copy-share-link-wrapper:hover {
+    background: var(--light-orange);
+}
+
+.copy-share-link {
+    font-size: 1.5rem;
+}

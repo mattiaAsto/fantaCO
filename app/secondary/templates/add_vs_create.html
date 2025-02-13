@@ -1,25 +1,24 @@
 {% extends "leagues_base.html" %}
 
-{% block title %} Lega {% endblock %}
+{% block title %}Lega{% endblock %}
 
 {% block content %}
     <div class="content-wrapper">
-        <p>Manager clash</p>
+        <p class="content-title">Manager clash</p>
         <div class="content-info">
             Modalità lega privata
         </div>
-        <div class="content">
+        <div class="form-container">
             <div class="option create">
-                <a href="{{url_for('secondary.create_new_league')}}">Creare una lega</a>
+                <a href="{{url_for('secondary.create_new_league')}}" class="redirect-link">Crea una lega</a>
             </div>
             <div class="option join">
-                <a href="{{url_for('secondary.share_league', league_name = user.active_league)}}">Condividere lega attiva</a>
+                <a href="{{url_for('secondary.share_league', league_name = user.active_league)}}" class="redirect-link">Condividi lega attiva</a>
             </div>
+            <a href="{{url_for('main.home')}}" class="redirect-link">
+                <i class="fas fa-circle-left"></i>
+                Ritorna alla homepage
+            </a>
         </div>
     </div>
-
-
-
-
-
 {% endblock %}
