@@ -715,46 +715,43 @@ nav.active {
     box-sizing: border-box;
     background-color: var(--grey1);
     border-radius: 2vmin;
+}
 
-.article-div-lower{
+.article-div-lower {
     display: flex;
     align-items: center;
     justify-content: end;
-    height: 6vh;
+    height: var(--article-div-lower-height);
     width: 100%;
     top: 2vh;
 }
 
-.article-div-lower-right{
+.article-div-lower-right {
     height: 100%;
     width: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vh;
+    font-size: 3vmin;
     color: white;
     border-radius: 1vmin;
 }
 
-
-
-
-
-.orunner-div{
+.orunner-div {
     display: flex;
     flex-direction: row;
-    width: 75vw;
-    height: 75vh;
+    width: var(--main-slider-width);
+    height: var(--orunner-div-height);
     background-color: var(--grey2);
     border-radius: 3vmin;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 1.25rem;
     box-sizing: border-box;
 }
 
-.orunner-upper{
+.orunner-upper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -763,7 +760,7 @@ nav.active {
     width: 50%;
 }
 
-.orunner-lower{
+.orunner-lower {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -773,22 +770,22 @@ nav.active {
     width: 50%;
     background-color: var(--grey3);
     border-radius: 1vh;
-    padding: 0vh;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.orunner-upper-container{
+.orunner-upper-container {
     width: 100%;
     height: 100%;
     position: relative;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 
-.orunner-upper-society-image-container{
+.orunner-upper-society-image-container {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -796,42 +793,42 @@ nav.active {
     justify-content: center;
 }
 
-.orunner-upper-content{
+.orunner-upper-content {
     position: relative;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding: 10px;
+    padding: 0.625rem;
     box-sizing: border-box;
 }
 
-.orunner-society-image{
+.orunner-society-image {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
     opacity: 0.2;
 }
-.small{
+
+.small {
     width: 20%;
     opacity: 1;
     margin-bottom: 2vh;
 }
 
-.orunner-image{
-    height: 30vh;
+.orunner-image {
+    height: var(--orunner-image-size);
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 50%;
     margin-top: 3vh;
 }
 
-
-.orunner-lower-row{
+.orunner-lower-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -842,38 +839,32 @@ nav.active {
     height: fit-content;
     background-color: var(--grey4);
     color: var(--grey1);
-    border-radius: 1vh 1vh 0vh 0vh;
+    border-radius: 1vh 1vh 0 0;
 }
 
-
-
-
-
-
-
-.orunner-info-container{
+.orunner-info-container {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
 }
 
-.orunner-info{
-    font-size: 3vh;
+.orunner-info {
+    font-size: var(--orunner-info-font-size);
 }
-.orunner-description{
-    font-size: 2vh;
+
+.orunner-description {
+    font-size: var(--orunner-description-font-size);
     color: var(--grey3);
 }
 
-    
-.orunner-points-display{
+.orunner-points-display {
     max-width: 100%;
     height: 23vh;
     overflow-x: hidden;
     white-space: nowrap;
     -ms-overflow-style: none;
-    scrollbar-width: none; 
+    scrollbar-width: none;
     background-color: var(--grey4);
     padding: 1vh;
     box-sizing: border-box;
@@ -884,7 +875,7 @@ nav.active {
     position: relative;
 }
 
-.points-display-scroll{
+.points-display-scroll {
     display: inline-block;
     width: fit-content;
     height: 100%;
@@ -897,24 +888,23 @@ nav.active {
     direction: ltr;
 }
 
-.points-info-container{
+.points-info-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: fit-content;
-    font-size: 3vh;
+    font-size: 3vmin;
     justify-content: end;
     gap: 1vh;
 }
 
-.point-graph{
+.point-graph {
     display: flex;
     flex-direction: column;
-    width: 1vw;
+    width: var(--point-graph-width);
     border-radius: 0.5vw;
     flex: 0.1;
     background-color: var(--grey1);
 }
-
 
 
