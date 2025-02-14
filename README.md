@@ -6,6 +6,8 @@ It is like a fantacalcio but for Orienteering.
 
 Currently it is still a work in progress, all the database and info of runners come from the local chanmpionship in Ticino, CH.
 
+The idea is that this app is modular, this way everyone can create his own fanta-.... bay providing some base json data required for initalising athletes.
+
 ## Geting started
 
 Use:
@@ -14,14 +16,31 @@ pip install -r requirements.txt
 ```
 to install all the packages needed to run the project.
 
+## Data imports
+Currently the sources folder has 4 .json files:
+"league_database": contains the first structure of the global market, requires 16 athletes names.
+"runners_database": containes al the infos about athletes.
+"players_database" currently uneuseful.
+"runner_points": contains all the point made in the previous races of the season by athletes.
+
+## Other customizations
+In the file run.py check the part in:
+```python
+migrate = True
+if migrate:
+  ...
+```
+To customize the default users you need to create.
+Currently admin, admin2 and fantaco are created, the first two needed for testing and the last to manage some buying and selling operations in the market.
+
+!!! I WILL SOON ADD ADMIN PASSWORDS IN THE .ENV FILE !!!
+
+
 ## Environement variables
 The file "variables.env.example" is the blueprint for all the .env variables needed to run the program.
 
 ### Database variables
-
-If you already have a postgresql database set your .env variables accordigly to the .env.exapmle file and make sure to remove the "DB_COMPLETE_URL" variable from your file.
-
-If you plan to use a MySql database please provide the full url to your database in the variable "DB_COMPLETE_URL" and leave empty the other "DB_" variables.
+Paster in the DB_COMPLETE_URL the url of your database, it must be a database supported by ```sqlalchemy```.
 
 ### Host and port
 Without any "HOST" and "PORT" variables provided the page runs in 127.0.0.1:8000.
@@ -41,7 +60,10 @@ To finally launch the program use the command:
 ```bash
 python run.py
 ```
-Giunicor feature will soon be added !
+If you need production launch use:
+```bash
+gunicorn -b 0.0.0.0:5000 -w 1 run:app
+```
 
 ## Support, feedback, suggestions and debugging
 I created this project with zero experience in programing and also almost zero classroom learning.
