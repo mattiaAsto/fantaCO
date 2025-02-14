@@ -134,7 +134,10 @@ if migrate:
         print("Dati migrati con successo!")
 
 
-
+#lazy import to avoid circular imports
+from app.scheduler import start_scheduler
+start_scheduler()
+    
 
 system=1
 
@@ -144,9 +147,6 @@ port = int(os.getenv("PORT", 8000))
 if __name__ == '__main__':
     print("Refreshed...")
 
-    #lazy import to avoid circular imports
-    from app.scheduler import start_scheduler
-    start_scheduler()
     
     if system == 1:
         log = logging.getLogger('werkzeug')
