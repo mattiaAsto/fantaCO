@@ -33,7 +33,7 @@ if migrate:
 To customize the default users you need to create.
 Currently admin, admin2 and fantaco are created, the first two needed for testing and the last to manage some buying and selling operations in the market.
 
-!!! I WILL SOON ADD ADMIN PASSWORDS IN THE .ENV FILE !!!
+**!!! I WILL SOON ADD ADMIN PASSWORDS IN THE .ENV FILE !!!**
 
 
 ## Environement variables
