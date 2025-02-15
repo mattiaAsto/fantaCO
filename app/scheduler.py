@@ -197,8 +197,8 @@ def price_calculations():
 def start_scheduler():
     
     #check if the db is obsolete, in case upload it, this should just happen once in production, when the program is launched
-    if check_obsolete_db():
-        renovate_obsolete_db()
+    #if check_obsolete_db():
+    #   renovate_obsolete_db()
 
     #scheduler for market refreshing
     scheduler = BackgroundScheduler()
