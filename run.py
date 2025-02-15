@@ -11,6 +11,7 @@ from webscraper2 import POINTS_PATH
 from datetime import datetime, timedelta, timezone
 from sqlalchemy import MetaData
 from zoneinfo import ZoneInfo
+from dotenv import load_dotenv
 import time
 import os
 import bcrypt
@@ -34,6 +35,9 @@ with open(POINTS_PATH, 'r') as file:
 migrate=True
 if migrate:
     with app.app_context():
+
+        load_dotenv()
+        
         meta = MetaData()
         meta.reflect(bind=db.engine)
         meta.drop_all(bind=db.engine)
@@ -68,16 +72,8 @@ if migrate:
 
             i+=1
 
-        # Aggiungi gli utenti al database
-        """ for user_data in data['users']:
-            user = User(
-                username=user_data['username'],
-                email=user_data['email'],
-                team_id=user_data['team_id']
-            )
-            db.session.add(user) """
-
-        hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
+        admin_password = str(os.getenv("ADMIN_PASSWORD", "1"))            
+        hashed_password=bcrypt.hashpw(admin_password.encode('utf-8'), bcrypt.gensalt())
         admin=User(
             name="Admin",
             surname="Admin",
@@ -90,7 +86,8 @@ if migrate:
         league_data = LeagueData(user_username="admin")
         db.session.add(league_data)
 
-        hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
+        admin2_password = str(os.getenv("ADMIN2_PASSWORD", "1"))            
+        hashed_password=bcrypt.hashpw(admin2_password.encode('utf-8'), bcrypt.gensalt())
         admin=User(
             name="Admin2",
             surname="Admin2",
@@ -103,7 +100,8 @@ if migrate:
         league_data = LeagueData(user_username="admin2")
         db.session.add(league_data)
 
-        hashed_password=bcrypt.hashpw("1".encode('utf-8'), bcrypt.gensalt())
+        global__password = str(os.getenv("GLOBAL__PASSWORD", "1"))            
+        hashed_password=bcrypt.hashpw(global__password.encode('utf-8'), bcrypt.gensalt())
         global_=User(
             name="FantaCO",
             surname="FantaCO",
@@ -136,7 +134,10 @@ if migrate:
         print("Dati migrati con successo!")
 
 
-
+#lazy import to avoid circular imports
+from app.scheduler import start_scheduler
+start_scheduler()
+    
 
 system=1
 
@@ -146,9 +147,6 @@ port = int(os.getenv("PORT", 8000))
 if __name__ == '__main__':
     print("Refreshed...")
 
-    #lazy import to avoid circular imports
-    from app.scheduler import start_scheduler
-    start_scheduler()
     
     if system == 1:
         log = logging.getLogger('werkzeug')
