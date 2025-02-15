@@ -17,9 +17,9 @@ def check_obsolete_db():
         last_created_time = last.timestamp
 
         if last_created_time.tzinfo is None:
-                last_created_time = last_created_time.replace(tzinfo=ZoneInfo("Europe/Zurich"))
+            last_created_time = last_created_time.replace(tzinfo=ZoneInfo("Europe/Zurich"))
 
-        if last_created_time + timedelta(hours=1) < current_time:
+        if last_created_time < current_time - timedelta(minutes=59):
             return True
         else:
             return False
