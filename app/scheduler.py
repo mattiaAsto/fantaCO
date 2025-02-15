@@ -88,7 +88,7 @@ def refresh_market():
 
             row_count = db.session.query(league_market_table).count()
 
-            if created_time < current_time - timedelta(hours=1 * row_count):
+            if created_time < current_time - timedelta(hours=1 * row_count - 1):
                 
                 new_timestamp = last_created_time + timedelta(hours=1)
 
@@ -150,7 +150,7 @@ def refresh_market():
 
         row_count = db.session.query(MarketTable).count()
 
-        if created_time < current_time - timedelta(hours=1 * row_count):
+        if created_time <= current_time - timedelta(hours=1 * row_count - 1):
             
             new_timestamp = last_created_time + timedelta(hours=1)
 

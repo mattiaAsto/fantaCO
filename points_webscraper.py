@@ -28,17 +28,6 @@ def upload_database(path, database):
         json.dump(database, f)
         return 
     
-def calculate_price(points, total):
-    max_limit=0.90*total
-    min_limit=0.15*total
-    points=int(points)
-    if points>max_limit:
-        return 850000
-    elif points<min_limit:
-        return 60000
-    else:
-        price=MIN_PRICE+((points-min_limit)/(max_limit-min_limit)*(MAX_PRICE-MIN_PRICE))
-        return round(price)
 
 def scraping():
     upload_database(POINTS_PATH, {})

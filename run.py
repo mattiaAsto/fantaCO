@@ -7,7 +7,7 @@ import json
 from app.models import *
 from asti_webscraper import RUNNERS_DATABASE_PATH as runners_path
 from asti_webscraper import LEAGUE_DATABASE_PATH as league_path
-from webscraper2 import POINTS_PATH
+from points_webscraper import POINTS_PATH
 from datetime import datetime, timedelta, timezone
 from sqlalchemy import MetaData
 from zoneinfo import ZoneInfo
@@ -133,10 +133,14 @@ if migrate:
         db.session.commit()
         print("Dati migrati con successo!")
 
+skip_scheduler = os.getenv("NEED_SKIP_SCHEDULER", False)
 
-#lazy import to avoid circular imports
-from app.scheduler import start_scheduler
-start_scheduler()
+if not skip_scheduler:
+    #lazy import to avoid circular imports
+    from app.scheduler import start_scheduler
+    start_scheduler()
+else:
+    print("skipped scheduler")
     
 
 system=1
