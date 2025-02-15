@@ -66,8 +66,7 @@ def renovate_obsolete_db(): #if db is obsolete update it
 def refresh_market():
     with global_app.app_context():
         print("mk refresh")
-        all_leagues = db.session.query(League).all()
-        all_id = [league.id for league in all_leagues]
+        all_id = [league.id for league in db.session.query(League).all()]
 
         #refresh all the leagues markets
         for id in all_id:
