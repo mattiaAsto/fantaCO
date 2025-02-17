@@ -27,32 +27,35 @@
                 <div class="content-div">
                     <div class="runners-grid">
                         {% for data in classement_data %}
-                        <div class="runner-div" onclick="window.location.href='/user?username={{data.username}}&case=league'">
-                            <div class="runner-div-upper">
-                                <div class="runner-info-container" style="width: fit-content;">
-                                    <p class="runner-info">{{data.position}}.</p>
-                                </div>
-                                <div class="runner-image-container">
-                                    <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
-                                </div>
-                                <div class="runner-middle-container">
-                                    <div class="runner-middle-upper">
-                                        <div class="runner-info-container">
-                                            <p class="runner-info">{{data.nickname}}</p>
-                                        </div>
-                                        <div class="runner-info-container">
-                                            <p class="runner-info">{{data.points}}</p>
-                                            <p class="runner-description">Punti</p>
-                                        </div>
-                                        <div class="runner-info-container">
-                                            <p class="runner-info">{{format_number(data.team_value)}}</p>
-                                            <p class="runner-description">Valore del team</p>
-                                        </div>
-                                    
+                            {% if data.nickname == "ADMIN" or data.nickname == "ADMIN2" or data.nickname == "FantaCO" %}
+                            {% else %}
+                            <div class="runner-div" onclick="window.location.href='/user?username={{data.username}}&case=league'">
+                                <div class="runner-div-upper">
+                                    <div class="runner-info-container" style="width: fit-content;">
+                                        <p class="runner-info">{{data.position}}.</p>
                                     </div>
-                                </div>
-                            </div> 
-                        </div>
+                                    <div class="runner-image-container">
+                                        <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                    </div>
+                                    <div class="runner-middle-container">
+                                        <div class="runner-middle-upper">
+                                            <div class="runner-info-container">
+                                                <p class="runner-info">{{data.nickname}}</p>
+                                            </div>
+                                            <div class="runner-info-container">
+                                                <p class="runner-info">{{data.points}}</p>
+                                                <p class="runner-description">Punti</p>
+                                            </div>
+                                            <div class="runner-info-container">
+                                                <p class="runner-info">{{format_number(data.team_value)}}</p>
+                                                <p class="runner-description">Valore del team</p>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>
