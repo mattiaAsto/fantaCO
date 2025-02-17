@@ -98,7 +98,7 @@ def base():
 # Home page, currently displays articles
 @main.route("/")
 def home():
-    all_articles = Article.query.order_by(Article.date_posted.desc()).all()
+    all_articles = Article.query.order_by(Article.date_posted.desc()).all() if Article.query.count() > 0 else []
 
     articles = []
     for article in all_articles:
