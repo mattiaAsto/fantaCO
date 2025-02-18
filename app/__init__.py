@@ -18,7 +18,7 @@ db = SQLAlchemy()
 mail = Mail()
 login_manager = LoginManager()
 cache = Cache()
-admin = Admin(name='FantaCO Admin', template_mode='bootstrap3', url="/dashboard")
+admin_panel = Admin(name='FantaCO Admin', template_mode='bootstrap3')
 
 
 def create_app():
@@ -83,14 +83,14 @@ def create_app():
     #init Flasc-Cache
     cache.init_app(app)
 
-    admin.init_app(app)
+    admin_panel.init_app(app)
 
-    from .models import User, Runner, League
     from app.admin.routes import AdminOnlyView
+    from .models import User, Runner, League
 
-    admin.add_view(AdminOnlyView(User, db.session))
-    admin.add_view(AdminOnlyView(Runner, db.session))
-    admin.add_view(AdminOnlyView(League, db.session))
+    admin_panel.add_view(AdminOnlyView(User, db.session))
+    admin_panel.add_view(AdminOnlyView(Runner, db.session))
+    admin_panel.add_view(AdminOnlyView(League, db.session))
 
 
 
