@@ -1,8 +1,13 @@
 from flask_admin.contrib.sqla import ModelView
 from flask import redirect, url_for
 from flask_login import current_user
+from wtforms import BooleanField
 
 class AdminOnlyView(ModelView):
+    form_overrides = {
+        'is_validated': BooleanField,
+        'light_theme': BooleanField
+    }
     def is_accessible(self):
         return current_user.is_authenticated and current_user.username == "admin"
 
