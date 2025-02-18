@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_login import UserMixin, LoginManager, login_user
 from flask_caching import Cache
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 from itsdangerous import URLSafeTimedSerializer
 from apscheduler.schedulers.background import BackgroundScheduler
 from dotenv import load_dotenv
@@ -16,6 +18,7 @@ db = SQLAlchemy()
 mail = Mail()
 login_manager = LoginManager()
 cache = Cache()
+admin = Admin(name='FantaCO Admin', template_mode='bootstrap3', url="/dashboard")
 
 
 def create_app():
@@ -79,6 +82,14 @@ def create_app():
 
     #init Flasc-Cache
     cache.init_app(app)
+
+    admin.init_app(app)
+
+    from .models import User, Runner, League
+
+    admin.add_view(ModelView(User, db.session))
+    admin.add_view(ModelView(Runner, db.session))
+    admin.add_view(ModelView(League, db.session))
 
 
 
