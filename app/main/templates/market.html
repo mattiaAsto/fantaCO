@@ -214,14 +214,38 @@
 
             <div class="main-slide"> <!-- Transactions slide -->
                 
-                <div class="runners-grid">
-                    {% for transaction in transactions %}
-                    <div class="runner-div">
-                        <div class="runner-div-upper" style="height: 10hv;">
-                            <p class="runner-info">{{transaction.buyer}} compra {{transaction.runner}} da {{transaction.seller}} per {{format_number(transaction.amount)}}</p>
-                        </div>
+                <div class="main-slide-header">
+                    <div class="price-div">
+                        <p>Tutte le transazioni di mercato nella lega {{active_league}}</p>
                     </div>
-                    {% endfor %}
+                </div>
+
+                <div class="content-div">
+                    <div class="runners-grid">
+                        {% if active_league == "global"%}
+                        <div class="runner-div">
+                            <div class="runner-div-upper" style="height: 10hv;">
+                                <p class="runner-info">Storico delle transazioni non disponibile in lega globale</p>
+                            </div>
+                        </div>
+                        {% else %}
+                            {% for transaction in transactions %}
+                                {% if transaction.buyer == "FantaCO" %}
+                                <div class="runner-div">
+                                    <div class="runner-div-upper" style="height: 10hv;">
+                                        <p class="runner-info">{{transaction.seller}} vende {{transaction.runner}} a {{transaction.buyer}} per {{format_number(transaction.amount)}}</p>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="runner-div">
+                                    <div class="runner-div-upper" style="height: 10hv;">
+                                        <p class="runner-info">{{transaction.buyer}} compra {{transaction.runner}} da {{transaction.seller}} per {{format_number(transaction.amount)}}</p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
     

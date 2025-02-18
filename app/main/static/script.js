@@ -289,7 +289,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 
-	const delete_article_form = document.querySelectorAll(".delete-article-form")
+	const scrollContainer = document.querySelector(".orunner-points-display");
+	console.log(scrollContainer);
+    scrollContainer.addEventListener("wheel", (event) => {
+        event.preventDefault(); // Evita lo scroll verticale della pagina
+        scrollContainer.scrollLeft -= (event.deltaY)*0.3; // Converte lo scroll verticale in orizzontale
+    });
 	
 
 

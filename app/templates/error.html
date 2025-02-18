@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{error.title}}{% endblock %}
+
+{% block head %}
+<style>
+    main{
+        margin-top: 84px;
+    }
+    .page-choice{
+        display: none;
+    }
+    .orunner-lower-row{
+        grid-template-columns: 1fr;
+    }
+    .error-image-container{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .error-image{
+        height: 50vh;
+        border-radius: 5vh;
+    }
+    .error-message{
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block choice %}
+
+    <div class="choice-div active">
+        <button class="choice-button">Oh Oh, si è verificato un errore</button>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+        
+
+
+    <div class="main-slider">   
+        <div class="main-slides">
+            <div class="main-slide"> <!-- Intro slide -->
+                <div class="orunner-div">
+                    <div class="orunner-upper">
+                        <p style="font-size: 40vh;">{{error.code}}</p>
+                    </div>
+                    <div class="orunner-lower">
+                        <div class="orunner-lower-row">
+                            <p class="error-message">{{error.message}}</p>
+                        </div>
+                        <div class="error-image-container">
+                            <img class="error-image" src="{{url_for('main.static', filename='logos/' ~ error['image'] ~ '.png')}}" alt="lost">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

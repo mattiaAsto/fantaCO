@@ -81,7 +81,7 @@
                             <div class="article-div-lower">
                                 <form class="article-div-lower-right delete-article-form sell" action="{{url_for('secondary.delete_article')}}" method="POST">
                                     <input type="hidden" name="article-id" value="{{article.id}}">
-                                    <i class="fas fa-trash-can"></i>
+                                    <button class="fas fa-trash-can" type="submit"> </button>
                                 </form>
                             </div>
                             {% endif %}

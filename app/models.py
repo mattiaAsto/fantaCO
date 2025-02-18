@@ -27,6 +27,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(120), unique=True, nullable=False)
     nickname = db.Column(db.String(80), nullable=False)
     password = db.Column(LargeBinary, nullable=False)
+    society = db.Column(db.String(80), nullable=False, default="UNKNOWN")
+
 
 
     is_validated = db.Column(db.Boolean, nullable=False, default=False)
@@ -67,10 +69,11 @@ class Runner(db.Model):
 
 class RunnerPoints(db.Model):
     __tablename__="runnerPoints"
-    runner_name = db.Column(db.String(50), db.ForeignKey("runner.name", ondelete="CASCADE"), nullable=False, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    runner_name = db.Column(db.String(50), db.ForeignKey("runner.name", ondelete="CASCADE"), nullable=False)
     race = db.Column(db.String(20), nullable=False, primary_key=True)
-    date = db.Column(db.DateTime, default=lambda: datetime.now(ZoneInfo("Europe/Zurich")), nullable=False)
-    points = db.Column(db.Integer, default=0)
+    season = db.Column(db.Integer, default=0)
+    points = db.Column(db.Integer, default=None, nullable=True)
 
     runner = db.relationship('Runner', back_populates='runner_points')
 
@@ -307,7 +310,6 @@ def create_dynamic_tables(id, user_username):
 
     return
 
-
 def populate_market(id):
     market_table = create_dynamic_market_model(id)
     all_market_runners = db.session.query(Runner).order_by(func.random()).limit(16).all()
@@ -323,7 +325,6 @@ def populate_market(id):
 
         i+=1
     db.session.commit()
-
 
 def create_default_team(id, user_username):
     user_runner_table = create_dynamic_user_runner_model(id)

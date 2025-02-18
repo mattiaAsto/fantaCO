@@ -2,30 +2,75 @@
 
 {% block title %}Runner Info{% endblock %}
 
+{% block head %}
+<style>
+    /* .page-choice{
+        display: none;
+    } */
+</style>
+{% endblock %}
+
+{% block choice %}
+
+    <div class="choice-div active">
+        <button class="choice-button">Schermata corridore</button>
+    </div>
+
+{% endblock %}
+
 {% block content %}
 <div class="orunner-div">
     <div class="orunner-upper">
-    </div>
-    <div class="orunner-middle">
-        <div class="orunner-info-container">
-            <p class="orunner-info">{{runner.points}}</p>
-            <p class="orunner-description">Punti</p>
-        </div>
-        <div class="orunner-info-container">
-            <p class="orunner-info">{{runner.average_points}}</p>
-            <p class="orunner-description">&Oslash;Punti</p>
-        </div>
-        <div class="orunner-info-container">
-            <p class="orunner-info">{{format_number(runner.price)}}</p>
-            <p class="orunner-description">Valore di mercato</p>
+        <div class="orunner-upper-container">
+            <div class="orunner-upper-society-image-container">
+                <img class="orunner-society-image" src="{{url_for('main.static', filename='society/' ~ runner['society'] ~ '.png')}}" alt="società">
+            </div>
+            <div class="orunner-upper-content">
+                <img class="orunner-society-image small" src="{{url_for('main.static', filename='society/' ~ runner['society'] ~ '.png')}}" alt="società">
+                <h2 class="orunner-info" style="font-size: 6vh;">{{runner.name}}</h2>
+                <p class="orunner-info">{{runner.category}}</p>
+                <img class="orunner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+            </div>
         </div>
     </div>
     <div class="orunner-lower">
-
+        <div class="orunner-lower-row">
+            <div class="orunner-info-container">
+                <p class="orunner-info">{{runner.points}}</p>
+                <p class="orunner-description">Punti</p>
+            </div>
+            <div class="orunner-info-container" style="align-items: center;">
+                <p class="orunner-info">{{runner.average_points}}</p>
+                <p class="orunner-description">&Oslash;Punti</p>
+            </div>
+            <div class="orunner-info-container" style="align-items: end;">
+                <p class="orunner-info">{{format_number(runner.price)}}</p>
+                <p class="orunner-description">Valore di mercato</p>
+            </div>
+        </div>
+        <div class="orunner-points-display">
+            <div class="points-display-scroll">
+                {% for points_info in points_dict %}
+                <div class="points-info-container">
+                    {% if points_info.points_made >= points_info.average_points %}
+                    <div class="point-graph" style=" background-color: var(--orange); flex: {{ points_info.points_made / 1000 }};"></div>
+                    <div class="point-amount" style="color: var(--orange);">{{points_info.points_made}}</div>
+                    {% elif points_info.points_made == -1 %}
+                    <div class="point-graph" style="flex: {{ points_info.points_made / 1000 }};"></div>
+                    <div class="point-amount">-</div>
+                    {% elif points_info.points_made == 0 %}
+                    <div class="point-graph" style=" background-color: red; flex: 0.1;"></div>
+                    <div class="point-amount" style="color: red;">{{points_info.points_made}}</div>
+                    {% else %}
+                    <div class="point-graph" style="flex: {{ points_info.points_made / 1000 }};"></div>
+                    <div class="point-amount">{{points_info.points_made}}</div>
+                    {% endif %}
+                    <div class="point-race">{{points_info.race}}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <p>Lower row</p>
     </div>
-</div>
-
-<div class="orunner-background">
-    <img class="orunner-society-image" src="{{ url_for('main.static', filename='society/' ~ runner['society'] ~ '.png') }}" alt="{{runner.society}}" alt="società">
 </div>
 {% endblock %}

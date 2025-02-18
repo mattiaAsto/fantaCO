@@ -17,9 +17,9 @@ def check_obsolete_db():
         last_created_time = last.timestamp
 
         if last_created_time.tzinfo is None:
-                last_created_time = last_created_time.replace(tzinfo=ZoneInfo("Europe/Zurich"))
+            last_created_time = last_created_time.replace(tzinfo=ZoneInfo("Europe/Zurich"))
 
-        if last_created_time + timedelta(hours=1) < current_time:
+        if last_created_time < current_time - timedelta(minutes=50):
             return True
         else:
             return False
@@ -65,8 +65,8 @@ def renovate_obsolete_db(): #if db is obsolete update it
 
 def refresh_market():
     with global_app.app_context():
-        all_leagues = db.session.query(League).all()
-        all_id = [league.id for league in all_leagues]
+        print("mk refresh")
+        all_id = [league.id for league in db.session.query(League).all()]
 
         #refresh all the leagues markets
         for id in all_id:
@@ -88,7 +88,7 @@ def refresh_market():
 
             row_count = db.session.query(league_market_table).count()
 
-            if created_time < current_time - timedelta(seconds=1 * row_count):
+            if created_time < current_time - timedelta(hours=1 * row_count - 1):
                 
                 new_timestamp = last_created_time + timedelta(hours=1)
 
@@ -150,7 +150,7 @@ def refresh_market():
 
         row_count = db.session.query(MarketTable).count()
 
-        if created_time < current_time - timedelta(hours=1 * row_count):
+        if created_time <= current_time - timedelta(hours=1 * row_count - 1):
             
             new_timestamp = last_created_time + timedelta(hours=1)
 
@@ -194,16 +194,14 @@ def price_calculations():
 
             db.session.commit()
 
-
 def start_scheduler():
     
     #check if the db is obsolete, in case upload it, this should just happen once in production, when the program is launched
-    if check_obsolete_db():
-        renovate_obsolete_db()
+    #if check_obsolete_db():
+    #   renovate_obsolete_db()
 
     #scheduler for market refreshing
     scheduler = BackgroundScheduler()
-    from .scheduler import refresh_market
     scheduler.add_job(refresh_market, "interval", minutes=20)
     scheduler.add_job(price_calculations, "interval", minutes=20)
     scheduler.start()

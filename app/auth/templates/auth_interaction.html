@@ -1,17 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('auth.static', filename='desktop.css')}}">
-    <link rel="stylesheet" href="{{url_for('auth.static', filename='mobile.css')}}" media="(min-width: 0px) and (max-width: 400px)">
-    <script src="{{url_for('auth.static', filename='script.js')}}"></script>
+{% extends "auth_base.html" %}
 
-    <title>Homepage</title>
-</head>
-<body>
-    <p>{{data}}</p>
-    <a href="{{ link }}">{{data2}}</a>
-</body>
+{% block title %}Verifica la tua email{% endblock %}
 
-</html>
+{% block content %}
+    <div class="main-register-div">
+        {% if case == 1 %}
+        <div class="register-div">
+            <h2>Verifica la tua email</h2>
+            <p>Ti abbiamo inviato una email con un link di conferma. Controlla la tua inbox e segui le istruzioni per completare la registrazione.</p>
+            <p class="register-error">Se non hai ricevuto l'email, prova a controllare la cartella Spam o clicca sul link sottostante per riceverla nuovamente.</p>
+            
+            <a href="{{url_for('auth.todo')}}" class="register-link">Ricevi nuovamente l'email di conferma</a>
+        </div>
+        {% else %}
+        <div class="register-div">
+            <h2>Email verificata con successo</h2>
+            <p>Il tuo account è stato verificato con successo, ritorna alla pagina di login</p>
+            
+            <a href="{{url_for('auth.login')}}" class="register-link">Login</a>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

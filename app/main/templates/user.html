@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}User Info{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block choice %}
+
+    <div class="choice-div active">
+        <button class="choice-button">Schermata giocatore</button>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+<div class="orunner-div">
+    <div class="orunner-upper">
+        <div class="orunner-upper-container">
+            <div class="orunner-upper-society-image-container">
+                <img class="orunner-society-image" src="{{url_for('main.static', filename='society/' ~ user_data['society'] ~ '.png')}}" alt="società">
+            </div>
+            <div class="orunner-upper-content">
+                <img class="orunner-society-image small" src="{{url_for('main.static', filename='society/' ~ user_data['society'] ~ '.png')}}" alt="società">
+                <img class="orunner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                <h2 class="orunner-info" style="font-size: 6vh;">{{user_data.nickname}}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="orunner-lower">
+        <div class="orunner-lower-row">
+            <div class="orunner-info-container">
+                <p class="orunner-info">{{user_data.position}}.</p>
+                <p class="orunner-description">Posizione</p>
+            </div>
+            <div class="orunner-info-container" style="align-items: center;">
+                <p class="orunner-info">{{user_data.points}}</p>
+                <p class="orunner-description">Punti</p>
+            </div>
+            <div class="orunner-info-container" style="align-items: end;">
+                <p class="orunner-info">{{user_data.average_points}}</p>
+                <p class="orunner-description">&Oslash;Punti</p>
+            </div>
+        </div>
+
+
+
+        <div class="orunner-lower-row" style="border-radius: 0vh 0vh 1vh 1vh;">
+            <div class="orunner-info-container">
+                <p class="orunner-info">{{user_data.bought}}.</p>
+                <p class="orunner-description">Acquisti</p>
+            </div>
+            <div class="orunner-info-container" style="align-items: center;">
+                <p class="orunner-info">{{user_data.sold}}.</p>
+                <p class="orunner-description">Vendite</p>
+            </div>
+            <div class="orunner-info-container" style="align-items: end;">
+                <p class="orunner-info">{{format_number(user_data.team_value)}}</p>
+                <p class="orunner-description">Valore del team</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -16,6 +16,7 @@ import random
 
 
 #common variables
+SOCIETIES = ["ASCO", "CO AGET", "CO UTOE", "GOLD", "GOV", "O-92", "SCOM", "UNITAS"]
 
 #functions
 def check_username_unique(username):
@@ -51,8 +52,8 @@ def check_password(password): #returns "Okay" if all yes_... are satisfied, else
         message=f"I caratteri speciali consentiti sono: {specials}"
     else:
         message="Okay"
-    #return message
-    return "Okay"
+    return message
+    #return "Okay"
     
 def create_team(user):
 
@@ -90,7 +91,8 @@ def login():
             login_error_message="Prima di accedere devi verificare il tuo account"
         elif user and  bcrypt.checkpw(password.encode('utf-8'), user.password):
             login_user(user)
-            return redirect(url_for("main.home"))
+            next_url=request.args.get("next")
+            return redirect(next_url or url_for("main.home"))
         else:
             login_error_message="Nome utente o password non corretti"
 
@@ -120,6 +122,7 @@ def register():
         nickname=request.form["nickname"]
         password=request.form["password"]
         password2=request.form["password2"]
+        society=request.form["society"]
 
         hashed_password=bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
@@ -129,6 +132,7 @@ def register():
             username=username,
             nickname=nickname,
             password=hashed_password,
+            society=society,
         )
         db.session.add(new_user)
 
@@ -143,7 +147,7 @@ def register():
 
         return redirect(url_for("auth.send_email", address=username, name=name))
     
-    return render_template("register.html", login_error_message=login_error_message) 
+    return render_template("register.html", login_error_message=login_error_message, societies=SOCIETIES) 
 
 
 @auth.route("/validate_registration", methods=['POST'])
@@ -198,13 +202,12 @@ def send_email(address, name):
 @auth.route("/auth_interaction/<case>")
 def auth_interaction(case):
     if case == "wait_verification":
-        message="Apri il link nella tua casella di posta per verificare la tua E-Mail"
-        return render_template("auth_interaction.html", data=message)
+        
+        return render_template("auth_interaction.html", case=1)
+    
     elif case == "redirect_post_verification":
-        message="Il tuo account è stato verificato con successo, ritorna alla pagina di login"
-        link=url_for('auth.login')
-        data2="Vai al login"
-        return render_template("auth_interaction.html", data=message, data2=data2, link=link)
+
+        return render_template("auth_interaction.html", case=2)
 
 
 @auth.route("/verify/<token>")
@@ -229,3 +232,7 @@ def verify_email(token):
     create_team(user)
     return redirect(url_for("auth.auth_interaction", case="redirect_post_verification"))
     
+
+@auth.route("/todo")
+def todo():
+    return "Non ancora implementato, arriverà a breve"

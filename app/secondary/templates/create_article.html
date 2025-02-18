@@ -1,27 +1,26 @@
 {% extends "leagues_base.html" %}
 
-
 {% block title %}Nuovo articolo{% endblock %}
 
-
 {% block content %}
-
-    <div class="content-wrapper article">
+    <div class="main-article-div">
         <div class="content-info">
             Scrivi un nuovo articolo
         </div>
-        <form action="{{url_for('secondary.create_article')}}" method="POST" class="content">
-            <input type="text" name="title" placeholder="Titolo articolo" class="new-league-input">
-            <textarea name="content" class="article-content-area" rows="20"></textarea>
-            <p class="error-message">{{error}}</p>
-            <button type="submit" class="new-league-button">
+        <form action="{{url_for('secondary.create_article')}}" method="POST" class="form-container">
+            <input type="text" name="title" placeholder="Titolo articolo" class="register-input">
+            <textarea name="content" class="register-input article-content-area" rows="10" placeholder="Scrivi il contenuto qui..."></textarea>
+            <p class="register-error">{{error}}</p>
+            <button type="submit" class="register-button">
                 <i class="fas fa-file-alt"></i>
                 <p>Crea</p>
             </button>
-            <div class="share-link redirect">
-                <i class="fas fa-circle-left"></i>
-                <a href="{{url_for('main.home')}}">Ritorna alla homepage</a>
+            <div class="redirect-link">
+                <a href="{{url_for('main.home')}}" class="redirect-link">
+                    <i class="fas fa-circle-left"></i>
+                    Ritorna alla homepage
+                </a>
             </div>
         </form>
-    
+    </div>
 {% endblock %}
