@@ -8,6 +8,10 @@ class AdminOnlyView(ModelView):
         'is_validated': BooleanField,
         'light_theme': BooleanField
     }
+    form_choices = {
+        'is_validated': [(True, 'Yes'), (False, 'No')],
+        'light_theme': [(True, 'Light Theme'), (False, 'Dark Theme')]
+    }
     def is_accessible(self):
         return current_user.is_authenticated and current_user.username == "admin"
 
