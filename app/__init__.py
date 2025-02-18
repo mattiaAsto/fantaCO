@@ -88,7 +88,7 @@ def create_app():
     from app.admin.routes import AdminOnlyView
     from .models import User, Runner, League
 
-    admin_panel.add_view(ModelView(User, db.session))
+    admin_panel.add_view(AdminOnlyView(User, db.session))
     admin_panel.add_view(AdminOnlyView(Runner, db.session))
     admin_panel.add_view(AdminOnlyView(League, db.session))
 
