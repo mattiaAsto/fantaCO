@@ -124,6 +124,16 @@ def create_app():
         }
         return render_template("error.html", error=error), 500
     
+    @app.errorhandler(405)
+    def page_not_found(error):
+        error ={
+            "title": "405 bad request",
+            "code": 405,
+            "message": "Opss..., sembra che la richiesta invata non sia gestibile dal server",
+            "image": "lost",
+        }
+        return render_template("error.html", error=error), 405
+    
     @app.errorhandler(404)
     def page_not_found(error):
         error ={

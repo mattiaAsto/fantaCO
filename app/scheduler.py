@@ -90,7 +90,7 @@ def refresh_market():
 
             if created_time < current_time - timedelta(hours=1 * row_count - 1):
                 
-                new_timestamp = last_created_time + timedelta(hours=1)
+                new_timestamp = last_created_time + timedelta(hours=2)
 
                 subquery = db.session.query(league_market_table.runner_name)
                 new_runner = Runner.query.filter(~Runner.name.in_(subquery)).order_by(func.random()).first()
@@ -152,7 +152,7 @@ def refresh_market():
 
         if created_time <= current_time - timedelta(hours=1 * row_count - 1):
             
-            new_timestamp = last_created_time + timedelta(hours=1)
+            new_timestamp = last_created_time + timedelta(hours=2)
 
             subquery = db.session.query(MarketTable.runner_name)
             new_runner = Runner.query.filter(~Runner.name.in_(subquery)).order_by(func.random()).first()
