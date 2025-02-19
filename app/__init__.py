@@ -9,6 +9,7 @@ from itsdangerous import URLSafeTimedSerializer
 from apscheduler.schedulers.background import BackgroundScheduler
 from dotenv import load_dotenv
 from distutils.util import strtobool
+from app.admin.routes import AdminHomeView
 import atexit
 import os
 from pathlib import Path
@@ -18,7 +19,7 @@ db = SQLAlchemy()
 mail = Mail()
 login_manager = LoginManager()
 cache = Cache()
-admin_panel = Admin(name='FantaCO Admin', template_mode='bootstrap3')
+admin_panel = admin = Admin(name='FantaCO Admin', template_mode='bootstrap3', index_view=AdminHomeView())
 
 
 def create_app():
