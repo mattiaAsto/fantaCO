@@ -145,7 +145,7 @@ nav {
 nav.active {
     display: grid;
     position: fixed;
-    top: 64px;
+    top: 49.9px;
     left: 0px;
     padding: 10px;
     padding-bottom: 0px;
@@ -246,6 +246,7 @@ nav.active {
     width: 100vw;
     box-sizing: border-box;
     background-color: var(--grey2);
+    border-radius: 0px;
 }
 
 .filter-form {
