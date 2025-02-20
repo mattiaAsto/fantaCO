@@ -38,7 +38,9 @@ def global_injection_dictionary():
 
         light_theme = current_user.light_theme
     else:
-        user_ = {}
+        user_ = {
+            "username": "None",
+        }
         all_leagues = ["Effettua il login per vedere le leghe"]
         light_theme = False
 
