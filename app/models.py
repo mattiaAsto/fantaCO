@@ -327,8 +327,12 @@ def populate_market(id):
     db.session.commit()
 
 def create_default_team(id, user_username):
-    user_runner_table = create_dynamic_user_runner_model(id)
-    market_table = create_dynamic_market_model(id)
+    if id == 0:
+        user_runner_table = UserRunner
+        market_table = MarketTable
+    else:
+        user_runner_table = create_dynamic_user_runner_model(id)
+        market_table = create_dynamic_market_model(id)
 
     market_names_subquery = db.session.query(market_table.runner_name).subquery()
 

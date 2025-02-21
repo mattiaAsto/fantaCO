@@ -55,23 +55,6 @@ def check_password(password): #returns "Okay" if all yes_... are satisfied, else
     return message
     #return "Okay"
     
-def create_team(user):
-
-    random_runners = db.session.query(Runner).order_by(func.random()).limit(12).all()
-
-    for runner in random_runners:
-        user_runner_new_relation=UserRunner(user_username=user.username, runner_name=runner.name)
-        db.session.add(user_runner_new_relation)
-    
-    db.session.commit()
-        
-        
-
-
-@auth.route("/prova/<password>")
-def prova(password):
-    print(password)
-    return str(check_password(password))
     
 
 
@@ -114,7 +97,6 @@ def register():
     login_error_message=""
     
     if request.method== "POST":
-        print("post")
 
         name=request.form["name"]
         surname=request.form["surname"]
@@ -152,7 +134,6 @@ def register():
 
 @auth.route("/validate_registration", methods=['POST'])
 def validate_registration():
-    print("validation")
     new_username = request.form.get("username")
 
     password = request.form.get("password1")
@@ -229,7 +210,7 @@ def verify_email(token):
     else:
         print("Token di verifica invalido o scaduto")
 
-    create_team(user)
+    create_default_team(0, user.username)
     return redirect(url_for("auth.auth_interaction", case="redirect_post_verification"))
     
 
