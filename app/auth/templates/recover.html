@@ -1,0 +1,17 @@
+{% extends "auth_base.html" %}
+
+{% block title %}Recupera la tua email{% endblock %}
+
+{% block content %}
+    <div class="main-register-div">
+        <div class="register-div">
+            <h2>Recupera la tua email</h2>
+            <p>Controlla che l'indirizzo inserito sia corretto</p>
+
+            <form method="POST" id="recover-form" class="form-container" action="{{url_for('auth.send_email', address=address, name='caro orientista,')}}">
+                <input type="email" class="register-input" placeholder="E-mail corretta" name="correct-address" value="{{address}}" required>
+                <input type="submit" value="RIcevi di nuovo" class="register-button">
+            </form>
+        </div>
+    </div>
+{% endblock %}

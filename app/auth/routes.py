@@ -157,8 +157,13 @@ def validate_registration():
 
 
 
-@auth.route("/send_verification_email/<address>/<name>")
+@auth.route("/send_verification_email/<address>/<name>", methods=["GET", "POST"])
 def send_email(address, name):
+    #if not name:
+    #    name = "caro orientista," IT IS ALREADY IN THE HTML TEMPLATE
+    if request.method == "POST":
+        address = request.form.get("correct-address")
+        print(address)
     serializer = current_app.url_serializer
     token = serializer.dumps(address, salt="email-confirmation")
     verify_url = url_for("auth.verify_email", token=token, _external=True)
@@ -176,20 +181,26 @@ def send_email(address, name):
     except Exception as e:
         print(e)
         print('Errore durante l’invio dell’email. Riprova più tardi.', 'danger')
-    return redirect(url_for("auth.auth_interaction", case="wait_verification"))
+    return redirect(url_for("auth.auth_interaction", case="wait_verification", address=address))
 
 
 
-@auth.route("/auth_interaction/<case>")
-def auth_interaction(case):
+@auth.route("/auth_interaction/<case>/<address>")
+def auth_interaction(case, address):
+    if not address:
+        address=""
+
     if case == "wait_verification":
         
-        return render_template("auth_interaction.html", case=1)
+        return render_template("auth_interaction.html", case=1, address=address)
     
     elif case == "redirect_post_verification":
 
         return render_template("auth_interaction.html", case=2)
 
+    elif case == "recover_address":
+
+        return render_template("")
 
 @auth.route("/verify/<token>")
 def verify_email(token):
@@ -214,6 +225,12 @@ def verify_email(token):
     return redirect(url_for("auth.auth_interaction", case="redirect_post_verification"))
     
 
+@auth.route("/recover_email/<address>")
+def recover_email(address):
+    return render_template("recover.html", address=address)
+
+
+
 @auth.route("/todo")
 def todo():
-    return "Non ancora implementato, arriverà a breve"
+    return f"Non ancora completato, arriverà a breve"

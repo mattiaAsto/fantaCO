@@ -10,15 +10,23 @@
             <p>Ti abbiamo inviato una email con un link di conferma. Controlla la tua inbox e segui le istruzioni per completare la registrazione.</p>
             <p class="register-error">Se non hai ricevuto l'email, prova a controllare la cartella Spam o clicca sul link sottostante per riceverla nuovamente.</p>
             
-            <a href="{{url_for('auth.todo')}}" class="register-link">Ricevi nuovamente l'email di conferma</a>
+            <a href="{{url_for('auth.recover_email', address=address)}}" class="register-link">Non ho ricevuto l'email di conferma</a>
         </div>
-        {% else %}
+        {% elif case == 2 %}
         <div class="register-div">
             <h2>Email verificata con successo</h2>
             <p>Il tuo account è stato verificato con successo, ritorna alla pagina di login</p>
             
             <a href="{{url_for('auth.login')}}" class="register-link">Login</a>
         </div>
+        {% elif case == 3 %}
+        <div class="register-div">
+            <h2>Email verificata con successo</h2>
+            <p>Il tuo account è stato verificato con successo, ritorna alla pagina di login</p>
+            
+            <a href="{{url_for('auth.login')}}" class="register-link">Login</a>
+        </div>
+
         {% endif %}
     </div>
 {% endblock %}
