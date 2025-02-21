@@ -66,7 +66,7 @@ def create_app():
 
     app.config['SECRET_KEY'] = secret_key
 
-    app.url_serializer=URLSafeTimedSerializer(app.config['SECRET_KEY'])
+    app.url_serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
     app.config['CACHE_TYPE'] = cache_type
     app.config['CACHE_DEFAULT_TIMEOUT'] = cache_default_timeout

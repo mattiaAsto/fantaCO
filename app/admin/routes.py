@@ -1,6 +1,6 @@
 from flask_admin import AdminIndexView
 from flask_admin.contrib.sqla import ModelView
-from flask import redirect, url_for, flash
+from flask import redirect, url_for, flash, abort
 from flask_login import current_user
 from wtforms import PasswordField
 from wtforms.validators import Optional
@@ -17,7 +17,7 @@ class AdminHomeView(AdminIndexView):
 
     def inaccessible_callback(self, name, **kwargs):
         """Se l'utente non è admin, reindirizza alla pagina di login."""
-        return redirect(url_for('auth.login'))
+        return abort(404)
 
 
 class AdminOnlyView(ModelView):
