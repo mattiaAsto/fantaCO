@@ -32,7 +32,7 @@ with open(league_path, 'r') as file:
 with open(POINTS_PATH, 'r') as file:
     points_table = json.load(file)
 
-migrate=True
+migrate=False
 if migrate:
     with app.app_context():
 

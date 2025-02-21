@@ -566,7 +566,6 @@ def runner():
                 "average_points": int(average_season_points),
                 }
             points_dict.append(model)
-    print(points_dict)
 
 
 
