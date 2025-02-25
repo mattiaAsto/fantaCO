@@ -63,7 +63,7 @@ def renovate_obsolete_db(): #if db is obsolete update it
             db.session.rollback()
             print(f"Error renovating database: {e}")
 
-def refresh_market():
+def refresh_market1():
     with global_app.app_context():
         print("mk refresh")
         all_id = [league.id for league in db.session.query(League).all()]
@@ -171,6 +171,44 @@ def refresh_market():
             print("Refresh completato.")
         else:
             print(f"No refresh")
+
+def refresh_market():
+    with global_app.app_context():
+        all_id = [league.id for league in db.session.query(League).all()]
+        all_markets_tables = [create_dynamic_market_model(id) for id in all_id]
+        all_markets_tables.append(MarketTable)
+
+        for market_table in all_markets_tables:
+            current_time = datetime.now(ZoneInfo("Europe/Zurich"))
+
+            last_created_time = market_table.query.order_by(market_table.id.desc()).first().timestamp
+
+            if last_created_time.tzinfo is None:
+                last_created_time = last_created_time.replace(tzinfo=ZoneInfo("Europe/Zurich"))
+            
+            row_count = db.session.query(market_table).count()
+
+            if last_created_time <= current_time - timedelta(hours=1):
+                
+                new_timestamp = last_created_time + timedelta(hours=1)
+
+                subquery = db.session.query(market_table.runner_name)
+                new_runner = Runner.query.filter(~Runner.name.in_(subquery)).order_by(func.random()).first()
+                if new_runner:
+                    new_market_runner = market_table(
+                        runner_name=new_runner.name,
+                        timestamp=new_timestamp
+                    )
+                    db.session.add(new_market_runner)
+
+                removable_runner = market_table.query.first()
+                if removable_runner:
+                    db.session.delete(removable_runner)
+
+                db.session.commit()
+                print("Refresh completato.")
+            else:
+                print(f"No refresh")
 
 def price_calculations():
     with global_app.app_context():
