@@ -188,7 +188,7 @@ def refresh_market():
             
             row_count = db.session.query(market_table).count()
 
-            if last_created_time <= current_time - timedelta(hours=1):
+            if last_created_time + timedelta(hours=1) <= current_time:
                 
                 new_timestamp = last_created_time + timedelta(hours=1)
 
