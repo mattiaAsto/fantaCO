@@ -7,7 +7,7 @@ from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 import time, random
 import atexit
-
+import json
 
 def check_obsolete_db():
     with global_app.app_context():
@@ -190,7 +190,7 @@ def refresh_market():
 
             if last_created_time + timedelta(hours=1) <= current_time:
                 
-                new_timestamp = last_created_time + timedelta(hours=1)
+                new_timestamp = last_created_time + timedelta(hours=2)
 
                 subquery = db.session.query(market_table.runner_name)
                 new_runner = Runner.query.filter(~Runner.name.in_(subquery)).order_by(func.random()).first()
