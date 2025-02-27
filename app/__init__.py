@@ -9,6 +9,7 @@ from itsdangerous import URLSafeTimedSerializer
 from apscheduler.schedulers.background import BackgroundScheduler
 from dotenv import load_dotenv
 from distutils.util import strtobool
+from app.admin.routes import AdminHomeView
 import atexit
 import os
 from pathlib import Path
@@ -18,7 +19,7 @@ db = SQLAlchemy()
 mail = Mail()
 login_manager = LoginManager()
 cache = Cache()
-admin_panel = Admin(name='FantaCO Admin', template_mode='bootstrap3')
+admin_panel = admin = Admin(name='FantaCO Admin', template_mode='bootstrap3', index_view=AdminHomeView())
 
 
 def create_app():
@@ -65,7 +66,7 @@ def create_app():
 
     app.config['SECRET_KEY'] = secret_key
 
-    app.url_serializer=URLSafeTimedSerializer(app.config['SECRET_KEY'])
+    app.url_serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
     app.config['CACHE_TYPE'] = cache_type
     app.config['CACHE_DEFAULT_TIMEOUT'] = cache_default_timeout
@@ -122,6 +123,16 @@ def create_app():
             "image": "internal",
         }
         return render_template("error.html", error=error), 500
+    
+    @app.errorhandler(405)
+    def page_not_found(error):
+        error ={
+            "title": "405 bad request",
+            "code": 405,
+            "message": "Opss..., sembra che la richiesta invata non sia gestibile dal server",
+            "image": "lost",
+        }
+        return render_template("error.html", error=error), 405
     
     @app.errorhandler(404)
     def page_not_found(error):

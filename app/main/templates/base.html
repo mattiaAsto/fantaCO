@@ -9,7 +9,7 @@
     <script src="{{url_for('main.static', filename='script.js')}}"></script>
 
     <title>{% block title %}Base{% endblock %}</title>
-    <link rel="shortcut icon" href="{{url_for('main.static', filename='logos/favicon.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{url_for('main.static', filename='logos/favicon.png')}}" type="image/x-icon">
 
 
     {% if light_theme %}
@@ -97,6 +97,12 @@
         <a class="nav-link" href="{{ url_for('auth.login') }}">
             <i class="fas fa-right-to-bracket"></i>
             Login
+        </a>
+        {% endif %}
+        {% if user and user.username == "admin" %}
+        <a class="nav-link" href="{{ url_for('admin.index') }}">
+            <i class="fas fa-key"></i>
+            Admin
         </a>
         {% endif %}
     </nav>

@@ -8,9 +8,11 @@
             Modifica il tuo profilo
         </div>
 
-        <div class="share-link redirect">
-            <i class="fas fa-user-circle"></i>
-            <a href="{{url_for('secondary.upload_image')}}">Carica la tua immagine</a>
+        <div class="redirect-link upload-image">
+            <a href="{{url_for('secondary.upload_image')}}" class="redirect-link">
+                <i class="fas fa-user-circle"></i>
+                Carica la tua immagine
+            </a>
         </div>
 
         <form action="{{url_for('secondary.profile')}}" method="POST" class="form-container">

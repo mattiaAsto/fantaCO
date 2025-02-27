@@ -55,23 +55,6 @@ def check_password(password): #returns "Okay" if all yes_... are satisfied, else
     return message
     #return "Okay"
     
-def create_team(user):
-
-    random_runners = db.session.query(Runner).order_by(func.random()).limit(12).all()
-
-    for runner in random_runners:
-        user_runner_new_relation=UserRunner(user_username=user.username, runner_name=runner.name)
-        db.session.add(user_runner_new_relation)
-    
-    db.session.commit()
-        
-        
-
-
-@auth.route("/prova/<password>")
-def prova(password):
-    print(password)
-    return str(check_password(password))
     
 
 
@@ -114,7 +97,6 @@ def register():
     login_error_message=""
     
     if request.method== "POST":
-        print("post")
 
         name=request.form["name"]
         surname=request.form["surname"]
@@ -152,7 +134,6 @@ def register():
 
 @auth.route("/validate_registration", methods=['POST'])
 def validate_registration():
-    print("validation")
     new_username = request.form.get("username")
 
     password = request.form.get("password1")
@@ -176,8 +157,13 @@ def validate_registration():
 
 
 
-@auth.route("/send_verification_email/<address>/<name>")
+@auth.route("/send_verification_email/<address>/<name>", methods=["GET", "POST"])
 def send_email(address, name):
+    #if not name:
+    #    name = "caro orientista," IT IS ALREADY IN THE HTML TEMPLATE
+    if request.method == "POST":
+        address = request.form.get("correct-address")
+        print(address)
     serializer = current_app.url_serializer
     token = serializer.dumps(address, salt="email-confirmation")
     verify_url = url_for("auth.verify_email", token=token, _external=True)
@@ -195,20 +181,26 @@ def send_email(address, name):
     except Exception as e:
         print(e)
         print('Errore durante l’invio dell’email. Riprova più tardi.', 'danger')
-    return redirect(url_for("auth.auth_interaction", case="wait_verification"))
+    return redirect(url_for("auth.auth_interaction", case="wait_verification", address=address))
 
 
 
-@auth.route("/auth_interaction/<case>")
-def auth_interaction(case):
+@auth.route("/auth_interaction/<case>/<address>")
+def auth_interaction(case, address):
+    if not address:
+        address=""
+
     if case == "wait_verification":
         
-        return render_template("auth_interaction.html", case=1)
+        return render_template("auth_interaction.html", case=1, address=address)
     
     elif case == "redirect_post_verification":
 
         return render_template("auth_interaction.html", case=2)
 
+    elif case == "recover_address":
+
+        return render_template("")
 
 @auth.route("/verify/<token>")
 def verify_email(token):
@@ -229,10 +221,16 @@ def verify_email(token):
     else:
         print("Token di verifica invalido o scaduto")
 
-    create_team(user)
+    create_default_team(0, user.username)
     return redirect(url_for("auth.auth_interaction", case="redirect_post_verification"))
     
 
+@auth.route("/recover_email/<address>")
+def recover_email(address):
+    return render_template("recover.html", address=address)
+
+
+
 @auth.route("/todo")
 def todo():
-    return "Non ancora implementato, arriverà a breve"
+    return f"Non ancora completato, arriverà a breve"

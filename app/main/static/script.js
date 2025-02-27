@@ -188,7 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (choice_divs.length) {
 		choice_divs.forEach((choice, i) => {
 			choice.addEventListener("click", () => {
-				console.log("done");
 				choice_divs.forEach((btn) => btn.classList.remove("active"));
 				choice.classList.add("active");
 
@@ -290,11 +289,28 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	const scrollContainer = document.querySelector(".orunner-points-display");
-	console.log(scrollContainer);
-    scrollContainer.addEventListener("wheel", (event) => {
-        event.preventDefault(); // Evita lo scroll verticale della pagina
-        scrollContainer.scrollLeft -= (event.deltaY)*0.3; // Converte lo scroll verticale in orizzontale
-    });
+	if(!scrollContainer) {
+		console.error("scroll non trovato")
+	}
+	else {
+		scrollContainer.addEventListener("wheel", (event) => {
+			event.preventDefault(); // Evita lo scroll verticale della pagina
+			scrollContainer.scrollLeft -= (event.deltaY)*0.3; // Converte lo scroll verticale in orizzontale
+		});
+	}
+	
+
+	const delete_articles = document.querySelectorAll(".article-div-lower-right");
+	if (delete_articles.length) {
+		delete_articles.forEach((form, i) => {
+			form.addEventListener("click", function (){
+				form.submit();
+			})
+		});
+	} else {
+		console.error("Delete article button non trovato");
+	}
+
 	
 
 

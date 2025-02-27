@@ -28,6 +28,7 @@ def format_number(number):
 @main.context_processor
 def global_injection_dictionary():
     if current_user.is_authenticated:
+        user_ = current_user
         active_league = current_user.active_league
         if active_league != "global":
             league_id = League.query.filter_by(name=active_league).first().id
@@ -37,6 +38,9 @@ def global_injection_dictionary():
 
         light_theme = current_user.light_theme
     else:
+        user_ = {
+            "username": "None",
+        }
         all_leagues = ["Effettua il login per vedere le leghe"]
         light_theme = False
 
@@ -44,7 +48,7 @@ def global_injection_dictionary():
 
     return {
         "is_logged": current_user.is_authenticated,  # Used to choose between login and logout in navbar buttons
-        "user": current_user,
+        "user": user_,
         "leagues": all_leagues,
         "balance": balance,
         "light_theme": light_theme,
@@ -562,7 +566,6 @@ def runner():
                 "average_points": int(average_season_points),
                 }
             points_dict.append(model)
-    print(points_dict)
 
 
 

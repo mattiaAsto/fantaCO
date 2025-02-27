@@ -1,0 +1,258 @@
+:root {
+    --orange: rgb(255,124,32);
+    --light-orange: rgb(255,153,80);
+
+    --grey1: rgb(161, 161, 161);
+    --grey2: rgb(127, 127, 127);
+    --grey3: rgb(95, 95, 95);
+    --grey4: rgb(70, 70, 70);
+
+    --text-grey4: rgb(70, 70, 70);
+    --text-grey1: rgb(161, 161, 161);
+
+    --orange-gray1: rgb(181, 128, 90);
+    --orange-gray2: rgb(201, 118, 58);
+
+    --transparent-grey: rgba(70, 70, 70, 0.7);
+
+    --white-text: rgb(255,255,255);
+}
+
+/* Stili globali per mobile */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    background-color: var(--grey2);
+    color: var(--white-text);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* Aggiunto padding per evitare che il contenuto tocchi i bordi */
+}
+
+/* Contenitori principali */
+.main-register-div, .main-article-div, .main-league-div, .content-wrapper {
+    background: var(--grey4);
+    padding: 1.5em; /* Ridotto il padding per dispositivi mobili */
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px var(--grey2);
+    text-align: center;
+    width: 90%; /* Larghezza aumentata per dispositivi mobili */
+    max-width: 100%; /* Rimuove il limite massimo di larghezza */
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+/* Titoli e informazioni */
+.content-info {
+    color: var(--orange);
+    font-size: 1.5rem; /* Font size fisso per dispositivi mobili */
+    margin-bottom: 1em; /* Ridotto il margine inferiore */
+}
+
+/* Form container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em; /* Ridotto il gap per dispositivi mobili */
+    width: 100%;
+}
+
+/* Input generici */
+.register-input {
+    width: 100%;
+    padding: 0.8em; /* Ridotto il padding per dispositivi mobili */
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 5px;
+    background: var(--grey3);
+    color: var(--white-text);
+    font-size: 1rem; /* Font size fisso per dispositivi mobili */
+}
+
+.register-input:focus {
+    outline: none;
+    border: 2px solid var(--orange);
+}
+
+/* Input specifici */
+.register-input.number {
+    width: 100%;
+}
+
+.article-content-area {
+    width: 100%;
+    height: 150px; /* Ridotta l'altezza per dispositivi mobili */
+    padding: 0.8em; /* Ridotto il padding per dispositivi mobili */
+    border: none;
+    border-radius: 5px;
+    background: var(--grey3);
+    color: var(--white-text);
+    font-size: 1rem; /* Font size fisso per dispositivi mobili */
+    resize: vertical;
+}
+
+.article-content-area:focus {
+    outline: none;
+    border: 2px solid var(--orange);
+}
+
+/* Pulsanti */
+.register-button {
+    background: var(--orange);
+    padding: 0.8em; /* Ridotto il padding per dispositivi mobili */
+    border: none;
+    border-radius: 5px;
+    color: var(--white-text);
+    cursor: pointer;
+    font-size: 1rem; /* Font size fisso per dispositivi mobili */
+    width: 100%;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.register-button:hover {
+    background: var(--light-orange);
+}
+
+/* Messaggi di errore */
+.register-error {
+    color: var(--orange);
+    font-size: 0.9rem; /* Font size fisso per dispositivi mobili */
+    margin-top: 0.5em;
+}
+
+/* Link di reindirizzamento */
+.redirect-link {
+    color: var(--orange);
+    font-size: 0.9rem; /* Font size fisso per dispositivi mobili */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    transition: color 0.3s ease;
+}
+
+.redirect-link:hover {
+    color: var(--light-orange);
+    text-decoration: underline;
+}
+
+/* Stili specifici per la pagina di registrazione */
+.main-register-div {
+    max-width: 100%; /* Rimuove il limite massimo di larghezza */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Cambiato a colonna per dispositivi mobili */
+    gap: 1rem;
+}
+
+.input-group .register-input {
+    width: 100%; /* Occupa tutta la larghezza */
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2vmin;
+}
+
+.password-container button {
+    background: none;
+    border: none;
+    color: var(--white-text);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Stili specifici per la pagina della nuova lega */
+.main-league-div {
+    max-width: 100%; /* Rimuove il limite massimo di larghezza */
+}
+
+/* Stili specifici per la pagina del profilo */
+.profile .register-label {
+    color: var(--white-text);
+    font-size: 1rem; /* Font size fisso per dispositivi mobili */
+    margin-bottom: 0.5em;
+    display: block;
+}
+
+.profile .register-input.checkbox {
+    width: auto;
+    margin-left: 0.5em;
+}
+
+/* Stili specifici per la pagina di condivisione */
+.share-instruction {
+    color: var(--orange);
+    font-size: 1rem; /* Font size fisso per dispositivi mobili */
+    width: 90%; /* Larghezza aumentata per dispositivi mobili */
+    text-align: center;
+    margin: 0 auto 2vh auto; /* Ridotto il margine inferiore */
+}
+
+.share-link {
+    background: var(--grey3);
+    color: var(--white-text);
+    padding: 0.8em; /* Ridotto il padding per dispositivi mobili */
+    border-radius: 5px;
+    font-size: 1rem; /* Font size fisso per dispositivi mobili */
+    text-align: center;
+    width: 90%; /* Larghezza aumentata per dispositivi mobili */
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.copy-share-link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Ridotta la larghezza per dispositivi mobili */
+    height: 40px; /* Ridotta l'altezza per dispositivi mobili */
+    background: var(--grey3);
+    border-radius: 50%;
+    color: var(--orange);
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 1em auto;
+}
+
+.copy-share-link-wrapper:hover {
+    background: var(--light-orange);
+}
+
+.copy-share-link {
+    font-size: 1.2rem; /* Ridotta la dimensione del font per dispositivi mobili */
+}
+
+
+.upload-image{
+    justify-content: center;
+    margin-bottom: 2vmin;
+}

@@ -1,14 +1,16 @@
 PROCEDENDO CON LA PROGRAMMAZIONE AGGIUNGI COMMENTI E DESCRIZIONI PRIMA CHE DIVENTA TROPPO INCASINATO
 
-<!-- Quando faccio una ricerc a di un user che non è nella mia lega va in errore, devo fixarlo e mettere che i punti visualizzati ecc.. sono quelli di global. -->
+<!-- Quando faccio una ricerca di un user che non è nella mia lega va in errore, devo fixarlo e mettere che i punti visualizzati ecc.. sono quelli di global. -->
 
-aggiungi il code 405 agli errori
+<!-- aggiungi il code 405 agli errori -->
 
 Lo user deve poter cambiare il prezzo di vendita quando vende un giocatore.
 
+finire la grafica del giocatore, il sidescroll dei punti non funziona in mobile
+
 Quando lo user cambia le informazioni del suo profilo la mail va verificata 
 
-styling completo delle pagine secondary, chiedi al prompt chatgpt di farlo come da css di auth 
+<!-- styling completo delle pagine secondary, chiedi al prompt chatgpt di farlo come da css di auth --> 
 
 Div che cambia colore con la sicurezza della password
 
@@ -20,10 +22,11 @@ aggiungi un footer
 
 blocchi di try except dove necessario
 
+recupero e rinnovo password
 
 aggiornare e rendere piu potente il calcolo del valore dei giocatori
 
-pannello di controllo admin
+<!-- pannello di controllo admin -->
 
 EVENTUALI:
 separare le funzioni di buy_runner e sell_runner nel caso venissero usate in più posti div
