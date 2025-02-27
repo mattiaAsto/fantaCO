@@ -8,7 +8,7 @@
             Scrivi il tuo nome e poi selezionalo dalla lista
         </div>
         <form action="/" method="POST" class="form-container">
-            <input id="nome" type="text" placeholder="Trova nome..." />
+            <input id="nome" class="register-input" type="text" placeholder="Trova nome..." />
         </form>
     </div>
     <script>
@@ -31,9 +31,13 @@
     .ui-autocomplete{
         all: unset;
         max-height: 30vh;
-        width: 300px;
+        width: 100%;
         overflow: scroll;
         text-decoration: none;
+        scrollbar-width: none;
+    }
+    .ui-autocomplete::-webkit-scrollbar {
+        display: none; 
     }
   </style>
 {% endblock %}
