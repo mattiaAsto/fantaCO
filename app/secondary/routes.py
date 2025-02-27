@@ -82,7 +82,7 @@ def get_league_data_table(id):
 
 @secondary.route('/')
 def main():
-    return render_template('secondary.html')
+    return "secondary-main"
 
 @secondary.route('/add_vs_create', methods=['GET', 'POST'])
 def add_vs_create():
@@ -119,7 +119,9 @@ def profile():
 
 @secondary.route('/upload_image')
 def upload_image():
-    return "upload image --non ancora implementato, arriverà a breve"
+    all_runner_names = Runner.query.all().name
+    return all_runner_names
+    #return "upload image --non ancora implementato, arriverà a breve"
 
 @secondary.route("/create_new_league", methods=["GET", "POST"])
 def create_new_league():
