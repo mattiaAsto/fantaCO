@@ -119,8 +119,8 @@ def profile():
 
 @secondary.route('/upload_image')
 def upload_image():
-    all_runner_names = Runner.query.all().name
-    return all_runner_names
+    all_runner_names = [runner.name for runner in Runner.query.all()]
+    return render_template("add_picture.html", names=all_runner_names)
     #return "upload image --non ancora implementato, arriverà a breve"
 
 @secondary.route("/create_new_league", methods=["GET", "POST"])

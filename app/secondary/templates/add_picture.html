@@ -1,0 +1,26 @@
+{% extends "leagues_base.html" %}
+
+{% block title %}Nuovo articolo{% endblock %}
+
+{% block content %}
+    <div class="main-article-div">
+        <div class="content-info">
+            Scrivi il tuo nome e poi selezionalo dalla lista
+        </div>
+        <form action="/" method="POST" class="form-container">
+            <input id="nome" type="text" placeholder="Trova nome..." />
+        </form>
+    </div>
+    <script>
+        // Passiamo l'array di nomi da Python tramite Jinja2
+        const names_array = {{ names | tojson }};
+
+        $(function() {
+        // Inizializza il campo di input con la funzionalità di autocomplete
+            $("#nome").autocomplete({
+                source: names_array,  // Dati da cui ottenere i suggerimenti
+                minLength: 2  // Numero minimo di caratteri da scrivere per iniziare a suggerire
+            });
+        });
+  </script>
+{% endblock %}
