@@ -24,6 +24,17 @@
         });
   </script>
   <style>
+    #nome {
+        width: 100%;
+        padding: 1em;
+        margin: 0.5em 0;
+        border: none;
+        border-radius: 5px;
+        background: var(--grey3);
+        color: var(--white-text);
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+    }
+
     .ui-helper-hidden-accessible{
         display: none;
     }
@@ -38,6 +49,10 @@
     }
     .ui-autocomplete::-webkit-scrollbar {
         display: none; 
+    }
+
+    .ui-menu-item:hover{
+        cursor: pointer;
     }
   </style>
 {% endblock %}
