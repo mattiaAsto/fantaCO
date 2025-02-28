@@ -19,8 +19,10 @@
         // Inizializza il campo di input con la funzionalità di autocomplete
             $("#nome").autocomplete({
                 source: names_array,  // Dati da cui ottenere i suggerimenti
-                minLength: 2  // Numero minimo di caratteri da scrivere per iniziare a suggerire
+                minLength: 4  // Numero minimo di caratteri da scrivere per iniziare a suggerire
             });
+            const helper = document.querySelector(".ui-helper-hidden-accessible");
+            document.querySelector("main").remove(helper);
         });
   </script>
   <style>
@@ -37,6 +39,8 @@
 
     .ui-helper-hidden-accessible{
         display: none;
+        width: 0px;
+        height: 0px;
     }
 
     .ui-autocomplete{
