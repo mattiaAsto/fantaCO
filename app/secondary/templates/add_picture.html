@@ -16,14 +16,20 @@
         const names_array = {{ names | tojson }};
 
         $(function() {
-        // Inizializza il campo di input con la funzionalità di autocomplete
+            // Inizializza il campo di input con la funzionalità di autocomplete
             $("#nome").autocomplete({
-                source: names_array,  // Dati da cui ottenere i suggerimenti
-                minLength: 4  // Numero minimo di caratteri da scrivere per iniziare a suggerire
+                source: names_array,
+                minLength: 4,  // Numero minimo di caratteri per avviare la ricerca
+                autoFocus: true,
+                appendTo: ".main-article-div",
             });
-            document.querySelector(".ui-helper-hidden-accessible").remove();
 
+            // Rimuove l'elemento con la classe .ui-helper-hidden-accessible dopo l'inizializzazione
+            setTimeout(function() {
+                document.querySelector(".ui-helper-hidden-accessible")?.remove();
+            }, 0);
         });
+
   </script>
   <style>
     #nome {
