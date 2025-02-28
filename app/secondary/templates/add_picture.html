@@ -19,7 +19,7 @@
             // Inizializza il campo di input con la funzionalità di autocomplete
             $("#nome").autocomplete({
                 source: names_array,
-                minLength: 4,  // Numero minimo di caratteri per avviare la ricerca
+                minLength: 2,  // Numero minimo di caratteri per avviare la ricerca
                 autoFocus: true,
                 appendTo: ".main-article-div",
             });
@@ -41,12 +41,6 @@
         background: var(--grey3);
         color: var(--white-text);
         font-size: clamp(0.9rem, 1.5vw, 1rem);
-    }
-
-    .ui-helper-hidden-accessible{
-        display: none;
-        width: 0px;
-        height: 0px;
     }
 
     .ui-autocomplete{
