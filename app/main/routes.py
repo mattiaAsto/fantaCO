@@ -277,7 +277,7 @@ def market():
             if full_details.has_image:
                 image_address = f"{full_details.name}.png"
             else:
-                image_address = "unknown_runner.jpeg"
+                image_address = "unknown_runner.jpg"
 
             selling_runner = {
                 "name": full_details.name,
@@ -315,7 +315,7 @@ def market():
         if full_details.has_image:
             image_address = f"{full_details.name}.png"
         else:
-            image_address = "unknown_runner.jpeg"
+            image_address = "unknown_runner.jpg"
         append_runner = {
             "name": full_details.name,
             "society": full_details.society,
@@ -338,7 +338,7 @@ def market():
         if full_details.has_image:
             image_address = f"{full_details.name}.png"
         else:
-            image_address = "unknown_runner.jpeg"
+            image_address = "unknown_runner.jpg"
         sellable_runner = {
             "name": full_details.name,
             "society": full_details.society,
@@ -359,7 +359,7 @@ def market():
             if full_details.has_image:
                 image_address = f"{full_details.name}.png"
             else:
-                image_address = "unknown_runner.jpeg"
+                image_address = "unknown_runner.jpg"
             buyer_nickname = User.query.filter_by(username=runner.buyer).first().nickname if runner.buyer else None
             selling_runner = {
                 "name": full_details.name,
@@ -551,7 +551,7 @@ def runner():
     if full_details.has_image:
         image_address = f"{full_details.name}.png"
     else:
-        image_address = "unknown_runner.jpeg"
+        image_address = "unknown_runner.jpg"
 
 
     all_points = [row.points for row in RunnerPoints.query.filter_by(runner_name=name, season=current_season).all()]
