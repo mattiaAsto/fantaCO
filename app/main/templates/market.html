@@ -51,7 +51,7 @@
                                 <div class="runner-div">
                                     <div class="runner-div-upper" onclick="window.location.href='/runner?runner={{runner.name}}' ">
                                         <div class="runner-image-container">
-                                            <img class="runner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                                            <img class="runner-image" src="{{url_for('main.static', filename='runner/' ~ runner['image'])}}" alt="runner-icon">
                                         </div>
                                         <div class="runner-middle-container">
                                             <div class="runner-middle-upper">

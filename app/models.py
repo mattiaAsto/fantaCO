@@ -61,6 +61,8 @@ class Runner(db.Model):
 
     plus_minus = db.Column(db.Integer, default=0)
 
+    has_image = db.Column(db.Boolean, nullable=False, default=False)
+
     users = db.relationship("UserRunner", back_populates="runner", cascade="all, delete")
     market = db.relationship("MarketTable", back_populates="runner", cascade="all, delete")
 

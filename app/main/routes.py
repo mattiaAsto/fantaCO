@@ -274,6 +274,11 @@ def market():
     for runner in all_owned_runners:
         if runner.selling:
             full_details = runner.runner
+            if full_details.has_image:
+                image_address = f"{full_details.name}.png"
+            else:
+                image_address = "unknown_runner.jpeg"
+
             selling_runner = {
                 "name": full_details.name,
                 "society": full_details.society,
@@ -284,7 +289,8 @@ def market():
                 "seller": runner.user.nickname,
                 "is_from_market": False,
                 "buyer": runner.buyer,
-                "offer": runner.offer
+                "offer": runner.offer,
+                "image": image_address,
             }
             runners_database.append(selling_runner)
     
@@ -306,6 +312,10 @@ def market():
             time_remaining = f"{time_remaining} min"
 
         full_details = runner.runner
+        if full_details.has_image:
+            image_address = f"{full_details.name}.png"
+        else:
+            image_address = "unknown_runner.jpeg"
         append_runner = {
             "name": full_details.name,
             "society": full_details.society,
@@ -316,7 +326,8 @@ def market():
             "seller": "FantaCO",
             "is_from_market": True,
             "buyer": runner.buyer,
-            "offer": runner.offer
+            "offer": runner.offer,
+            "image": image_address,
         }
         runners_database.append(append_runner)
 
@@ -324,6 +335,10 @@ def market():
     sellable_runners = []
     for runner in owned_runners:
         full_details = runner.runner
+        if full_details.has_image:
+            image_address = f"{full_details.name}.png"
+        else:
+            image_address = "unknown_runner.jpeg"
         sellable_runner = {
             "name": full_details.name,
             "society": full_details.society,
@@ -332,6 +347,7 @@ def market():
             "price": full_details.price,
             "timestamp": time_remaining,
             "selling": runner.selling,
+            "image": image_address,
         }
         sellable_runners.append(sellable_runner)
 
@@ -340,6 +356,10 @@ def market():
     for runner in owned_runners:
         if runner.selling:
             full_details = runner.runner
+            if full_details.has_image:
+                image_address = f"{full_details.name}.png"
+            else:
+                image_address = "unknown_runner.jpeg"
             buyer_nickname = User.query.filter_by(username=runner.buyer).first().nickname if runner.buyer else None
             selling_runner = {
                 "name": full_details.name,
@@ -351,6 +371,7 @@ def market():
                 "offer": runner.offer,
                 "buyer": runner.buyer,
                 "buyer_nickname": buyer_nickname,
+                "image": image_address,
             }
             selling_runners.append(selling_runner)
 
@@ -527,7 +548,10 @@ def runner():
     seasons = [int(row[0]) for row in db.session.query(distinct(RunnerPoints.season)).all()]
     current_season = datetime.now(ZoneInfo("Europe/Rome")).year
     
-    
+    if full_details.has_image:
+        image_address = f"{full_details.name}.png"
+    else:
+        image_address = "unknown_runner.jpeg"
 
 
     all_points = [row.points for row in RunnerPoints.query.filter_by(runner_name=name, season=current_season).all()]
@@ -541,6 +565,7 @@ def runner():
         "points": full_details.points,
         "average_points": average_points,
         "price": full_details.price,
+        "image": image_address,
     }
 
     points_dict = []
