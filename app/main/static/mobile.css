@@ -1,6 +1,6 @@
 :root {
-    --orange: rgb(255,124,32);
-    --light-orange: rgb(255,153,80);
+    --orange: rgb(255, 124, 32);
+    --light-orange: rgb(255, 153, 80);
 
     --grey1: rgb(161, 161, 161);
     --grey2: rgb(127, 127, 127);
@@ -15,16 +15,42 @@
 
     --transparent-grey: rgba(70, 70, 70, 0.7);
 
-    --white-text: rgb(255,255,255);
+    --white-text: rgb(255, 255, 255);
+
+    /* Variabili per mobile */
+    --base-font-size: 1rem;
+    --header-height: 50px;
+    --page-choice-height: 35px;
+    --main-margin-top: 95px;
+    --main-margin-bottom: 56px;
+    --main-slider-width: 100vw;
+    --main-slide-header-height: 6vh;
+    --runner-div-padding: 1.5vh;
+    --runner-image-size: 80%;
+    --runner-info-font-size: 2.3vh;
+    --runner-description-font-size: 1.3vh;
+    --lineup-selection-button-font-size: 3vmin;
+    --popup-width: 96vw;
+    --popup-padding: 20px;
+    --popup-info-font-size: 4vh;
+    --add-sell-font-size: 3vh;
+    --article-div-padding: 3vmin;
+    --article-div-lower-height: 6vh;
+    --orunner-div-height: 80vh;
+    --orunner-image-size: 30vmin;
+    --orunner-info-font-size: 3vh;
+    --orunner-description-font-size: 2vh;
+    --point-graph-width: 1vw;
 }
 
 body {
     display: block;
-    margin: 0px 0px;
+    margin: 0;
     height: auto;
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--grey3);
     color: var(--grey4);
+    font-size: var(--base-font-size);
 }
 
 body.no-scroll {
@@ -35,8 +61,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 95px;
-    margin-bottom: 56px;
+    margin-top: var(--main-margin-top);
+    margin-bottom: var(--main-margin-bottom);
 }
 
 h1 {
@@ -55,7 +81,7 @@ h3 {
 
 p {
     display: block;
-    margin: 0px;
+    margin: 0;
     font-size: 10px;
 }
 
@@ -70,9 +96,9 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 50px;
+    top: 0;
+    left: 0;
+    height: var(--header-height);
     width: 100%;
     background-color: var(--orange);
     z-index: 1;
@@ -110,14 +136,14 @@ header {
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    bottom: 0px;
-    left: 0px;
-    height: 50px;
+    bottom: 0;
+    left: 0;
+    height: var(--header-height);
     width: 100vw;
     box-sizing: border-box;
     background-color: var(--grey4);
-    gap: 0px;
-    padding: 0px;
+    gap: 0;
+    padding: 0;
 }
 
 .header-link {
@@ -128,8 +154,8 @@ header {
     height: 100%;
     background-color: var(--grey4);
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     color: var(--grey1);
 }
 
@@ -146,9 +172,9 @@ nav.active {
     display: grid;
     position: fixed;
     top: 49.9px;
-    left: 0px;
+    left: 0;
     padding: 10px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     background-color: var(--orange);
     border-bottom-right-radius: 10px;
 }
@@ -175,9 +201,9 @@ nav.active {
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    top: 50px;
-    left: 0px;
-    height: 35px;
+    top: var(--header-height);
+    left: 0;
+    height: var(--page-choice-height);
     width: 100%;
     background-color: var(--grey4);
 }
@@ -190,7 +216,7 @@ nav.active {
     height: 100%;
     box-sizing: border-box;
     border-style: solid;
-    border-width: 0px 0px 3px 0px;
+    border-width: 0 0 3px 0;
     border-color: var(--grey4);
 }
 
@@ -213,7 +239,7 @@ nav.active {
 
 .main-slider {
     display: flex;
-    width: 100vw;
+    width: var(--main-slider-width);
     overflow: hidden;
     justify-content: start;
     align-items: center;
@@ -221,7 +247,7 @@ nav.active {
 
 .main-slides {
     display: flex;
-    width: calc(100vw * 3);
+    width: calc(var(--main-slider-width) * 3);
     height: auto;
     transition: transform 0.5s ease-in-out;
 }
@@ -231,7 +257,7 @@ nav.active {
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    width: 100vw;
+    width: var(--main-slider-width);
     height: auto;
     flex-shrink: 0;
     overflow: none;
@@ -242,11 +268,11 @@ nav.active {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    height: 6vh;
-    width: 100vw;
+    height: var(--main-slide-header-height);
+    width: var(--main-slider-width);
     box-sizing: border-box;
     background-color: var(--grey2);
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .filter-form {
@@ -259,12 +285,12 @@ nav.active {
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    width: 100vw;
+    width: var(--main-slider-width);
     height: auto;
     box-sizing: border-box;
     background-color: var(--grey2);
-    border-radius: 0vmin;
-    padding: 1.5vh;
+    border-radius: 0;
+    padding: var(--runner-div-padding);
     margin-top: 10px;
 }
 
@@ -272,7 +298,7 @@ nav.active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5vh;
+    gap: var(--runner-div-padding);
     width: 100%;
     box-sizing: border-box;
 }
@@ -296,7 +322,7 @@ nav.active {
     align-items: center;
     height: 10vh;
     width: 100%;
-    padding: 1.5vh;
+    padding: var(--runner-div-padding);
     box-sizing: border-box;
     gap: 3vw;
 }
@@ -308,8 +334,8 @@ nav.active {
     justify-content: space-between;
     height: 5vh;
     width: 100%;
-    padding: 1.5vh;
-    padding-top: 0px;
+    padding: var(--runner-div-padding);
+    padding-top: 0;
     box-sizing: border-box;
     gap: 3vw;
 }
@@ -318,7 +344,7 @@ nav.active {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: var(--runner-image-size);
     aspect-ratio: 1/1;
 }
 
@@ -355,13 +381,13 @@ nav.active {
     height: 100%;
     flex: 1;
     box-sizing: border-box;
-    font-size: 3vh;
+    font-size: var(--runner-info-font-size);
 }
 
 .runner-div-lower-left input {
     display: flex;
     border-style: hidden;
-    font-size: 3vmin;
+    font-size: var(--runner-info-font-size);
 }
 
 .runner-div-lower-left input:focus {
@@ -370,11 +396,11 @@ nav.active {
 }
 
 .runner-div-lower-left p {
-    font-size: 3vmin;
+    font-size: var(--runner-info-font-size);
 }
 
 .runner-div-lower-left i {
-    font-size: 3vmin;
+    font-size: var(--runner-info-font-size);
 }
 
 .runner-div-lower-right {
@@ -388,7 +414,7 @@ nav.active {
 }
 
 .runner-div-lower-right i {
-    font-size: 3vmin;
+    font-size: var(--runner-info-font-size);
     color: white;
 }
 
@@ -424,7 +450,7 @@ nav.active {
 
 .runner-image.society {
     height: 100%;
-    border-radius: 0px;
+    border-radius: 0;
     object-fit: contain;
 }
 
@@ -438,25 +464,25 @@ nav.active {
 }
 
 .runner-info {
-    font-size: 2.3vh;
+    font-size: var(--runner-info-font-size);
     width: 100%;
-    height: 2.3vh;
+    height: var(--runner-info-font-size);
 }
 
 .runner-description {
     display: flex;
     align-items: center;
     justify-content: start;
-    font-size: 1.3vh;
-    height: 1.3vh;
+    font-size: var(--runner-description-font-size);
+    height: var(--runner-description-font-size);
     width: 100%;
 }
 
 .lineup-selection-button {
     display: inline-block;
     height: 100%;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     flex: 1;
     text-align: center;
     background-color: var(--grey2);
@@ -465,8 +491,8 @@ nav.active {
     text-transform: uppercase;
     transition-duration: 0.3s;
     border-radius: 1vmin;
-    border-width: 0px;
-    font-size: 3vmin;
+    border-width: 0;
+    font-size: var(--lineup-selection-button-font-size);
 }
 
 .lineup-selection-button.active {
@@ -487,7 +513,7 @@ nav.active {
 .lineup-slider {
     display: flex;
     flex-direction: row;
-    gap: 0px;
+    gap: 0;
     width: calc(96vw * 3);
     height: 100%;
     transition: transform 0.5s ease-in-out;
@@ -509,8 +535,8 @@ nav.active {
     justify-content: center;
     align-items: start;
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: var(--transparent-grey);
@@ -529,14 +555,14 @@ nav.active {
     flex-direction: column;
     align-items: center;
     background-color: var(--grey2);
-    width: 96vw;
+    width: var(--popup-width);
     height: auto;
-    padding: 20px;
+    padding: var(--popup-padding);
     gap: 3vmin;
     z-index: -100;
     opacity: 0;
-    padding: 3vmin;
-    padding-top: 0px;
+    padding: var(--popup-padding);
+    padding-top: 0;
     border-radius: 2vmin;
     margin-top: 2vh;
     margin-bottom: 2vh;
@@ -555,7 +581,7 @@ nav.active {
     justify-content: space-between;
     width: 100%;
     height: 10vh;
-    font-size: 4vh;
+    font-size: var(--popup-info-font-size);
 }
 
 #popup-x {
@@ -571,9 +597,9 @@ nav.active {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    bottom: 0px;
+    bottom: 0;
     color: var(--orange);
-    font-size: 3vh;
+    font-size: var(--add-sell-font-size);
     padding: 20px;
     border-radius: 10px;
     background-color: var(--grey3);
@@ -582,12 +608,12 @@ nav.active {
 }
 
 .add-sell i {
-    font-size: 3vh;
+    font-size: var(--add-sell-font-size);
 }
 
 .add-sell a {
     color: var(--orange);
-    font-size: 3vh;
+    font-size: var(--add-sell-font-size);
     text-decoration: none;
 }
 
@@ -611,7 +637,7 @@ nav.active {
     width: 100%;
     background-color: var(--orange-gray1);
     border-radius: 3vmin;
-    padding: 3vmin;
+    padding: var(--article-div-padding);
     box-sizing: border-box;
     gap: 1vh;
 }
@@ -622,7 +648,7 @@ nav.active {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 3vmin;
+    padding: var(--article-div-padding);
     box-sizing: border-box;
 }
 
@@ -646,7 +672,7 @@ nav.active {
     align-items: start;
     justify-content: start;
     width: 100%;
-    padding: 3vmin;
+    padding: var(--article-div-padding);
     box-sizing: border-box;
     background-color: var(--grey1);
     border-radius: 2vmin;
@@ -656,7 +682,7 @@ nav.active {
     display: flex;
     align-items: center;
     justify-content: end;
-    height: 6vh;
+    height: var(--article-div-lower-height);
     width: 100%;
     top: 2vh;
 }
@@ -678,11 +704,11 @@ nav.active {
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 80vh;
+    height: var(--orunner-div-height);
     background-color: var(--grey2);
-    border-radius: 0px;
+    border-radius: 0;
     flex-grow: 1;
-    padding: 0px;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -703,7 +729,7 @@ nav.active {
     height: 100%;
     width: 100%;
     background-color: var(--grey3);
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .orunner-upper-container {
@@ -711,8 +737,8 @@ nav.active {
     width: 100%;
     height: 100%;
     position: relative;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 
 .orunner-upper-society-image-container {
@@ -720,8 +746,8 @@ nav.active {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
@@ -732,8 +758,8 @@ nav.active {
     align-items: center;
     justify-content: start;
     position: relative;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -756,7 +782,7 @@ nav.active {
 
 .orunner-image {
     display: block;
-    height: 30vmin;
+    height: var(--orunner-image-size);
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 50%;
@@ -774,7 +800,7 @@ nav.active {
     height: fit-content;
     background-color: var(--grey4);
     color: var(--grey1);
-    border-radius: 1vh 1vh 0vh 0vh;
+    border-radius: 1vh 1vh 0 0;
 }
 
 .orunner-info-container {
@@ -785,10 +811,59 @@ nav.active {
 }
 
 .orunner-info {
-    font-size: 3vh;
+    font-size: var(--orunner-info-font-size);
 }
 
 .orunner-description {
-    font-size: 2vh;
+    font-size: var(--orunner-description-font-size);
     color: var(--grey3);
+}
+
+.orunner-points-display {
+    max-width: 100%;
+    height: 15vh;
+    overflow-x: hidden;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: var(--grey4);
+    padding: 1vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    direction: rtl;
+    position: relative;
+}
+
+.points-display-scroll {
+    display: inline-block;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 1vw;
+    background-color: var(--grey4);
+    color: var(--grey1);
+    direction: ltr;
+}
+
+.points-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    font-size: 3vmin;
+    justify-content: end;
+    gap: 1vh;
+}
+
+.point-graph {
+    display: flex;
+    flex-direction: column;
+    width: var(--point-graph-width);
+    border-radius: 0.5vw;
+    flex: 0.1;
+    background-color: var(--grey1);
 }

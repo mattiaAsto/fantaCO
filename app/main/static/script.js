@@ -289,15 +289,43 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	const scrollContainer = document.querySelector(".orunner-points-display");
-	if(!scrollContainer) {
-		console.error("scroll non trovato")
-	}
-	else {
+
+	if (!scrollContainer) {
+		console.error("scroll non trovato");
+	} else {
+		// Scroll con mouse
 		scrollContainer.addEventListener("wheel", (event) => {
-			event.preventDefault(); // Evita lo scroll verticale della pagina
-			scrollContainer.scrollLeft -= (event.deltaY)*0.3; // Converte lo scroll verticale in orizzontale
+			event.preventDefault();
+			scrollContainer.scrollLeft -= event.deltaY * 0.3;
+		});
+
+		// Variabili per il touch
+		let isDown = false;
+		let startX;
+		let scrollLeft;
+
+		// Quando l'utente inizia a toccare
+		scrollContainer.addEventListener("touchstart", (e) => {
+			isDown = true;
+			startX = e.touches[0].pageX - scrollContainer.offsetLeft;
+			scrollLeft = scrollContainer.scrollLeft;
+		});
+
+		// Durante lo scorrimento
+		scrollContainer.addEventListener("touchmove", (e) => {
+			if (!isDown) return;
+			e.preventDefault();
+			const x = e.touches[0].pageX - scrollContainer.offsetLeft;
+			const walk = (x - startX) * 2; // Sensibilità dello scroll
+			scrollContainer.scrollLeft = scrollLeft - walk;
+		});
+
+		// Quando il tocco termina
+		scrollContainer.addEventListener("touchend", () => {
+			isDown = false;
 		});
 	}
+
 	
 
 	const delete_articles = document.querySelectorAll(".article-div-lower-right");
