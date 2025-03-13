@@ -207,7 +207,7 @@ def market():
             runner_info.buyer = None
             db.session.commit()
 
-        elif form_id == "accept_sell_offer":
+        elif form_id == "accept_sell_offer": # accepting offer for a runner that is is beign sold
             buyer = request.form.get("buyer_username")
             seller = current_user.username
             runner_name = request.form.get("runner_name")
@@ -380,9 +380,18 @@ def market():
     if transaction_table:
         all_transactions = transaction_table.query.all()
         for transaction in all_transactions:
+            if transaction.buyer_username == "FantaCO":
+                buyer_nickname = "FantaCO"
+            else:
+                buyer_nickname = User.query.filter_by(username=transaction.buyer_username).first().nickname
+            
+            if transaction.seller_username == "FantaCO":
+                seller_nickname = "FantaCO"
+            else:
+                seller_nickname = User.query.filter_by(username=transaction.seller_username).first().nickname
             transaction_dict = {
-                "buyer": transaction.buyer_username,
-                "seller": transaction.seller_username,
+                "buyer": buyer_nickname,
+                "seller": seller_nickname,
                 "runner": transaction.runner_name,
                 "amount": int(transaction.amount),
             }
@@ -531,7 +540,7 @@ def tmt():
         classement_data.append(model)
         position+=1
 
-    return render_template("tmt.html", classement_data=classement_data)
+    return render_template("tmt.html", classement_data=classement_data, league=current_user.active_league)
 
 
 # Route to display runner details

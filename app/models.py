@@ -109,6 +109,7 @@ class LeagueData(db.Model):
     points = db.Column(db.Integer, default=0)
     balance = db.Column(db.Integer, default=10000000)
 
+
     user = db.relationship('User', back_populates='league_data')
 
 

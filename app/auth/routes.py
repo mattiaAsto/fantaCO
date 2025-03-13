@@ -221,8 +221,8 @@ def verify_email(token):
     else:
         print("Token di verifica invalido o scaduto")
 
-    create_default_team(0, user.username)
-    return redirect(url_for("auth.auth_interaction", case="redirect_post_verification"))
+    create_default_team(0, email)
+    return redirect(url_for("auth.auth_interaction", case="redirect_post_verification", address="not_needed"))
     
 
 @auth.route("/recover_email/<address>")
