@@ -55,6 +55,24 @@ class UserOnlyView(ModelView):
     def inaccessible_callback(self, name, **kwargs):
         return redirect(url_for('auth.login'))
     
+class ArticleView(AdminOnlyView):
+    column_list = ["id", "title", "content", "author", "author_username", "date_posted"]
+
+class RunnerPointsView(AdminOnlyView):
+    column_list = ["id", "runner_name", "race", "season", "points"]
+
+class UserRunnerView(AdminOnlyView):
+    column_list = ["user_username", "runner_name", "lineup", "selling"]
+
+class LeagueView(AdminOnlyView):
+    column_list = ["id", "name", "max_managers"]
+
+class LeagueDataView(AdminOnlyView):
+    column_list = ["user_username", "points", "balance"]
+
+class UserLeagueView(AdminOnlyView):
+    column_list = ["league_name", "user_username"]
+    
 
 """ class ArticleView(AdminOnlyView):
     column_list = [c.name for c in Article.__table__.columns]

@@ -558,7 +558,7 @@ def runner():
     current_season = datetime.now(ZoneInfo("Europe/Rome")).year
     
     if full_details.has_image:
-        image_address = f"{full_details.name}.png"
+        image_address = f"{full_details.name}"
     else:
         image_address = "unknown_runner.jpg"
 

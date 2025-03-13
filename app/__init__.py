@@ -86,17 +86,17 @@ def create_app():
 
     admin_panel.init_app(app)
 
-    from app.admin.routes import UserOnlyView, AdminOnlyView, RunnerOnlyView
+    from app.admin.routes import UserOnlyView, AdminOnlyView, RunnerOnlyView, ArticleView, RunnerPointsView, UserRunnerView, LeagueView, LeagueDataView, UserLeagueView
     from .models import Article, User, Runner, RunnerPoints, UserRunner, League, LeagueData, UserLeague
 
-    admin_panel.add_view(AdminOnlyView(Article, db.session))
+    admin_panel.add_view(ArticleView(Article, db.session))
     admin_panel.add_view(UserOnlyView(User, db.session))
-    admin_panel.add_view(AdminOnlyView(Runner, db.session))
-    admin_panel.add_view(AdminOnlyView(RunnerPoints, db.session))
-    admin_panel.add_view(AdminOnlyView(UserRunner, db.session))
-    admin_panel.add_view(AdminOnlyView(League, db.session))   
-    admin_panel.add_view(AdminOnlyView(LeagueData, db.session))
-    admin_panel.add_view(AdminOnlyView(UserLeague, db.session))
+    admin_panel.add_view(RunnerOnlyView(Runner, db.session))
+    admin_panel.add_view(RunnerPointsView(RunnerPoints, db.session))
+    admin_panel.add_view(UserRunnerView(UserRunner, db.session))
+    admin_panel.add_view(LeagueView(League, db.session))
+    admin_panel.add_view(LeagueDataView(LeagueData, db.session))
+    admin_panel.add_view(UserLeagueView(UserLeague, db.session))
 
 
 
