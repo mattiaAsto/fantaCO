@@ -28,6 +28,7 @@ class User(UserMixin, db.Model):
     nickname = db.Column(db.String(80), nullable=False)
     password = db.Column(LargeBinary, nullable=False)
     society = db.Column(db.String(80), nullable=False, default="UNKNOWN")
+    has_image = db.Column(db.Boolean, nullable=False, default=False)
 
 
 

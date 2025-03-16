@@ -560,7 +560,7 @@ def runner():
     if full_details.has_image:
         image_address = f"{full_details.name}"
     else:
-        image_address = "unknown_runner.jpg"
+        image_address = "unknown_runner"
 
 
     all_points = [row.points for row in RunnerPoints.query.filter_by(runner_name=name, season=current_season).all()]
@@ -644,7 +644,10 @@ def user():
         all_bought = league_transaction_table.query.filter_by(buyer_username=username).count()
         all_sold = league_transaction_table.query.filter_by(seller_username=username).count()
 
-
+    if user_details.has_image:
+        image_address = f"{user_details.username}"
+    else:
+        image_address = "unknown_user"
 
     user_data = {
         "nickname": user_details.nickname, #same for all, comes from User table
@@ -655,6 +658,7 @@ def user():
         "bought": all_bought,
         "sold": all_sold,
         "team_value": team_value,
+        "image": image_address,
     }
 
     return render_template("user.html", user_data=user_data)

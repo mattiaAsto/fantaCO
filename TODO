@@ -21,6 +21,7 @@ Div che cambia colore con la sicurezza della password
 c'è qualcosa che non funziona con il reindirizzamento dopo la registrazione, se il token è sbagliato ti rimanda comunque alla pagina di fare il login
 
 aggiungi la logica per recuperare l'email nel caso venga inserita errata, tipo un "non ho ricevuto l'email"
+Nella logica di recupero anche se la mail è sbagliata viene aggiunto lo user al dataabse, quindi quando riporova a ricevere la mail correggendo l'indirizzo va in errore di doppio inserimento nel database SQL
 
 aggiungi un footer
 

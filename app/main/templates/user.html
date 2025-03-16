@@ -23,7 +23,7 @@
             </div>
             <div class="orunner-upper-content">
                 <img class="orunner-society-image small" src="{{url_for('main.static', filename='society/' ~ user_data['society'] ~ '.png')}}" alt="società">
-                <img class="orunner-image" src="{{url_for('main.static', filename='logos/faceless-icon.jpg')}}" alt="faceless logo">
+                <img class="orunner-image" src="{{url_for('main.static', filename='user/' ~ user_data['image'] ~ '.png')}}" alt="faceless logo">
                 <h2 class="orunner-info" style="font-size: 6vh;">{{user_data.nickname}}</h2>
             </div>
         </div>
