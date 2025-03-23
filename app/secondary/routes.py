@@ -12,7 +12,7 @@ from rapidfuzz import process, fuzz
 from sqlalchemy.orm import load_only
 import os
 import json
-import asti_webscraper
+from z_unused_scripts import asti_webscraper
 import time
 import random
 

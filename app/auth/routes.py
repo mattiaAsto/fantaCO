@@ -8,7 +8,7 @@ from werkzeug.security import check_password_hash
 from sqlalchemy import func
 import os
 import json
-import asti_webscraper
+from z_unused_scripts import asti_webscraper
 import bcrypt
 import time
 import random

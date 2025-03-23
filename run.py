@@ -5,9 +5,9 @@ import os
 import logging
 import json
 from app.models import *
-from asti_webscraper import RUNNERS_DATABASE_PATH as runners_path
-from asti_webscraper import LEAGUE_DATABASE_PATH as league_path
-from points_webscraper import POINTS_PATH
+from z_unused_scripts.asti_webscraper import RUNNERS_DATABASE_PATH as runners_path
+from z_unused_scripts.asti_webscraper import LEAGUE_DATABASE_PATH as league_path
+from z_unused_scripts.points_webscraper import POINTS_PATH
 from datetime import datetime, timedelta, timezone
 from sqlalchemy import MetaData
 from zoneinfo import ZoneInfo

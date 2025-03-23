@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 from sqlalchemy import distinct
 import os
 import json
-import asti_webscraper
+from z_unused_scripts import asti_webscraper
 import time
 import random
 
