@@ -40,6 +40,8 @@
     --orunner-info-font-size: 3vmin;
     --orunner-description-font-size: 2vmin;
     --point-graph-width: 1vw;
+    --orunner-border-radius: 0%;
+    --runner-image-border-radius: 0%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
@@ -472,7 +474,7 @@ nav.active {
     aspect-ratio: 1/1;
     border-radius: 0;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: var(--runner-image-border-radius);
 }
 
 .runner-image.society {
@@ -824,7 +826,7 @@ nav.active {
     height: var(--orunner-image-size);
     aspect-ratio: 1/1;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: var(--orunner-border-radius);
     margin-top: 3vh;
 }
 

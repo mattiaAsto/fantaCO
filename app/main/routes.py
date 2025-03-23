@@ -275,9 +275,9 @@ def market():
         if runner.selling:
             full_details = runner.runner
             if full_details.has_image:
-                image_address = f"{full_details.name}.png"
+                image_address = f"{full_details.name}"
             else:
-                image_address = "unknown_runner.jpg"
+                image_address = "unknown_runner"
 
             selling_runner = {
                 "name": full_details.name,
@@ -313,9 +313,9 @@ def market():
 
         full_details = runner.runner
         if full_details.has_image:
-            image_address = f"{full_details.name}.png"
+            image_address = f"{full_details.name}"
         else:
-            image_address = "unknown_runner.jpg"
+            image_address = "unknown_runner"
         append_runner = {
             "name": full_details.name,
             "society": full_details.society,
@@ -336,9 +336,9 @@ def market():
     for runner in owned_runners:
         full_details = runner.runner
         if full_details.has_image:
-            image_address = f"{full_details.name}.png"
+            image_address = f"{full_details.name}"
         else:
-            image_address = "unknown_runner.jpg"
+            image_address = "unknown_runner"
         sellable_runner = {
             "name": full_details.name,
             "society": full_details.society,
@@ -357,9 +357,10 @@ def market():
         if runner.selling:
             full_details = runner.runner
             if full_details.has_image:
-                image_address = f"{full_details.name}.png"
+                image_address = f"{full_details.name}"
             else:
-                image_address = "unknown_runner.jpg"
+                image_address = "unknown_runner"
+
             buyer_nickname = User.query.filter_by(username=runner.buyer).first().nickname if runner.buyer else None
             selling_runner = {
                 "name": full_details.name,
@@ -454,13 +455,20 @@ def team():
     runners_database_list = []
     for runner in player_runners:
         full_details = runner.runner
+
+        if full_details.has_image:
+            image_address = f"{full_details.name}"
+        else:
+            image_address = "unknown_runner"
+
         append_runner = {
             "name": full_details.name,
             "society": full_details.society,
             "category": full_details.category,
             "points": full_details.points,
             "price": full_details.price,
-            "lineup": runner.lineup
+            "lineup": runner.lineup,
+            "image": image_address,
         }
         runners_database_list.append(append_runner)
 
