@@ -231,7 +231,7 @@
             </div>
             <div class="runners-grid">
                 {% for runner in runners_database %}
-                    <div id="lineup-div" class="runner-div">
+                    <div id="lineup-div" class="runner-div" {% if runner.lineup != 0 %}style="background-color: var(--orange-gray3);"{% endif %}>
                         <form id="popup-runner-form" action="/refresh-team" method="post">
                             <input type="hidden" name="runner-name" value="{{runner.name}}">
                             <input type="hidden" name="number" value="">
