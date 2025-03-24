@@ -91,6 +91,9 @@ def get_league_transaction_table(id):
     else:
         return create_dynamic_league_transaction(id)
 
+def runners_array(runners_list):
+    for runner in runners_list:
+        return
 
 # Routes
 
