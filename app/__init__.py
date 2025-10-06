@@ -26,6 +26,7 @@ def create_app():
 
     app=Flask(__name__)
 
+    # Recovering variables from .env file
     load_dotenv()
 
     db_user = os.getenv("DB_USER")
@@ -49,13 +50,14 @@ def create_app():
     cache_default_timeout = int(os.getenv("CACHE_DEFAULT_TIMEOUT"))
 
 
+    # Sqalchemy configs --> pakage used to interact with an sql database (mysql in local)
     app.config['SQLALCHEMY_DATABASE_URI'] = db_complete_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_POOL_SIZE'] = 10
     app.config['SQLALCHEMY_POOL_TIMEOUT'] = 5  
     app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600 
 
-    #Flask-Mail configs
+    # Flask-Mail configs
     app.config['MAIL_SERVER'] = mail_server   # Server SMTP (es. Gmail: smtp.gmail.com)
     app.config['MAIL_PORT'] = mail_port                    # Porta del server SMTP (587 per TLS, 465 per SSL)
     app.config['MAIL_USE_TLS'] = mail_use_tls               # Utilizzare TLS (True/False)
@@ -64,10 +66,12 @@ def create_app():
     app.config['MAIL_PASSWORD'] = mail_password         # Password per l'autenticazione
     app.config['MAIL_DEFAULT_SENDER'] = mail_default_sender  # Mittente predefinito (opzionale)
 
+    # Secret key for Flask security config
     app.config['SECRET_KEY'] = secret_key
 
     app.url_serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
+    # Caching config
     app.config['CACHE_TYPE'] = cache_type
     app.config['CACHE_DEFAULT_TIMEOUT'] = cache_default_timeout
 
@@ -78,17 +82,20 @@ def create_app():
     #init SQLAlchemy 
     db.init_app(app)
 
-    #init Flas-Login
+    #init Flask-Login
     login_manager.init_app(app)
 
-    #init Flasc-Cache
+    #init Flask-Cache
     cache.init_app(app)
 
+    #init admin panel feature
     admin_panel.init_app(app)
 
+    # Import tables as classes from the models.py file
     from app.admin.routes import UserOnlyView, AdminOnlyView, RunnerOnlyView, ArticleView, RunnerPointsView, UserRunnerView, LeagueView, LeagueDataView, UserLeagueView
     from .models import Article, User, Runner, RunnerPoints, UserRunner, League, LeagueData, UserLeague
 
+    # Adding the tables to the admin panel
     admin_panel.add_view(ArticleView(Article, db.session))
     admin_panel.add_view(UserOnlyView(User, db.session))
     admin_panel.add_view(RunnerOnlyView(Runner, db.session))
@@ -99,8 +106,7 @@ def create_app():
     admin_panel.add_view(UserLeagueView(UserLeague, db.session))
 
 
-
-    #register blueprints
+    # Register blueprints
     from app.main import main as main_blueprint
     from app.auth import auth as auth_blueprint
     from app.secondary import secondary as secondary_blueprint
@@ -109,16 +115,20 @@ def create_app():
     app.register_blueprint(secondary_blueprint, url_prefix='/secondary')
 
 
+    # Create the database using the configs from before
     with app.app_context():
         db.create_all()
 
     login_manager.login_view="auth.login"
 
+    # Structure needed to use "current_user"
     from .models import User
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(user_id)
     
+    # Create error handling instances
+
     @app.errorhandler(500)
     def page_not_found(error):
         error ={
@@ -144,7 +154,7 @@ def create_app():
         error ={
             "title": "404 not found",
             "code": 404,
-            "message": "Opss.. Sembra che la pagina che tu ti sia perso. La pagina che stai cercando non è qui.",
+            "message": "Opss.. Sembra che ti sei perso. La pagina che stai cercando non è qui.",
             "image": "lost",
         }
         return render_template("error.html", error=error), 404

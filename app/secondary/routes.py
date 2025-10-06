@@ -119,6 +119,10 @@ def profile():
 
 @secondary.route('/upload_image')
 def upload_image():
+    if request.method == "POST":
+        print("test")
+        return jsonify({'message': request.form.get("name")})
+
     all_runner_names = [runner.name for runner in Runner.query.all()]
     return render_template("add_picture.html", names=all_runner_names)
     #return "upload image --non ancora implementato, arriverà a breve"
@@ -135,6 +139,8 @@ def create_new_league():
             return render_template('create_new_league.html', error="Nome lega già esistente o vuoto")
         elif max_managers < 2:
             return render_template('create_new_league.html', error="Inserisci un numero di manager maggiore di 1")
+        elif max_managers > 20:
+            return render_template('create_new_league.html', error="Una lega non può avere più di 20 manager")     
         else:
             new_league = League(name=league_name, max_managers=max_managers)
             db.session.add(new_league)

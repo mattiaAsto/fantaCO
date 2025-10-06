@@ -100,7 +100,9 @@ def runners_array(runners_list):
 # Base template for shared HTML between templates
 @main.route("/base")
 def base():
-    return render_template("base.html")
+    TMO.query.first().done = 2
+    db.session.commit()
+    return str(TMO.query.first().done)
 
 # Home page, currently displays articles
 @main.route("/")
@@ -182,7 +184,7 @@ def market():
                     current_user.league_data.balance -= int(offer_amount)
                     db.session.commit()
                 else:
-                    return jsonify({"errore": "GIocatore già in squadra o offerta troppo bassa"}), 400
+                    return jsonify({"errore": "GIocatore gia in squadra o offerta troppo bassa"}), 400
             else:
                 offer_amount = request.form.get("offer_amount")
                 offer_amount = int(offer_amount) if offer_amount else 0

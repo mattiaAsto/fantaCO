@@ -9,6 +9,7 @@ import time, random
 import atexit
 import json
 
+
 def check_obsolete_db():
     with global_app.app_context():
         current_time = datetime.now(ZoneInfo("Europe/Zurich"))
@@ -231,6 +232,9 @@ def price_calculations():
             runner.plus_minus=0
 
             db.session.commit()
+
+def scrape_tmo():
+    last_tmo_scraped = TMO.query.first()
 
 def start_scheduler():
     

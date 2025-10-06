@@ -32,6 +32,7 @@ with open(league_path, 'r') as file:
 with open(POINTS_PATH, 'r') as file:
     points_table = json.load(file)
 
+# Migrate the data from the json sources to the SQL database
 migrate=True
 if migrate:
     with app.app_context():
@@ -44,6 +45,8 @@ if migrate:
 
         db.create_all()
             
+        last_tmo_scrape = TMO(done=0)
+        db.session.add(last_tmo_scrape)
 
         # Aggiungi i runner al database
         all_runners=list(data.keys())

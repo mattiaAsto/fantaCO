@@ -4,9 +4,11 @@ PROCEDENDO CON LA PROGRAMMAZIONE AGGIUNGI COMMENTI E DESCRIZIONI PRIMA CHE DIVEN
 
 <!-- aggiungi il code 405 agli errori -->
 
+Non si può entrare nella lega se il numero massimo di manager è raggiunto
+
 Aggiungere la media dei punti per giocatore
 
-togliere i vecchi scripts
+<!-- togliere i vecchi scripts -->
 
 ogni user deve poter aggiungere la sua foto come runner 
 

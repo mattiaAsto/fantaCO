@@ -18,6 +18,12 @@ class Article(db.Model):
     def __repr__(self):
         return f"Article('{self.title}', '{self.date_posted}')"
 
+# Still arbitrary, needed for points assignement
+class TMO(db.Model):
+    __tablename__ = "tmo"
+    done = db.Column(db.Integer, primary_key=True, default=0)
+
+
 
 class User(UserMixin, db.Model):
     __tablename__="user"
