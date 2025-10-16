@@ -911,3 +911,19 @@ nav.active {
 }
 
 
+footer {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    padding: 5vh;
+    box-sizing: border-box;
+}
+
+.f-div {
+    display: flex;
+    width: 33%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
